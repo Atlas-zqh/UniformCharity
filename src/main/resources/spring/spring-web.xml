@@ -32,6 +32,7 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
+
     <!-- 4.扫描web相关的bean配置 -->
     <context:component-scan base-package="nju.mvc">
         <!-- 制定扫包规则 ,只扫描使用@Controller注解的JAVA类 -->
