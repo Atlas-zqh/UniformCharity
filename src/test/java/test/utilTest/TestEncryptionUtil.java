@@ -1,15 +1,16 @@
-package utilTest;
+package test.utilTest;
 
 import nju.utils.EncryptionUtil;
 import org.junit.Assert;
 import org.junit.Test;
+import test.BaseTest;
 
 /**
  * 加密解密工具的测试类
  * <p>
  * Created by keenan on 03/05/2017.
  */
-public class TestEncryptionUtil {
+public class TestEncryptionUtil extends BaseTest {
     @Test
     public void testEncryption() {
         String key = "20898765";

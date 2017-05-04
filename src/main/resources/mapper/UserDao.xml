@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace指定我们的到具体的bean -->
+<mapper namespace="nju.dao.UserDao">
+    <!--查找-->
+    <select id="findOneByID" resultType="User" parameterType="String">
+        SELECT * FROM student WHERE personID=#{ID}
+    </select>
+
+    <!--新增-->
+    <insert id="add" parameterType="User">
+        INSERT
+        INTO student
+        (username, password, wechatID, phone, realName, gender, personID, credits, email, picurl, used)
+        VALUES
+        (#{username},#{password},#{wechatID},#{phone},#{studentRealName},#{gender},#{personID},#{credits},#{email},#{picurl},#{used})
+    </insert>
+
+    <!--删除-->
+    <update id="delete" parameterType="User">
+        UPDATE
+        student
+        SET
+        used=FALSE
+        WHERE personID=#{personID}
+    </update>
+
+    <!--更新-->
+    <update id="update" parameterType="User">
+        UPDATE
+        student
+        SET
+        username=#{username}, password=#{password}, wechatID=#{wechatID},phone=#{phone},
+        realName=#{studentRealName},gender=#{gender},personID=#{personID},credits=#{credits},email=#{email},picurl=#{picurl},used=#{used}
+        WHERE
+        personID=#{personID}
+    </update>
+
+    <!--获得全部-->
+    <select id="findAll" resultType="User">
+        SELECT *
+        FROM student
+    </select>
+</mapper>
