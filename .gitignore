@@ -7,3 +7,16 @@
 .project
 .settings
 !/.gitignore
+docs/
+target/classes/mapper/
+target/classes/nju/
+target/generated-sources/
+target/generated-test-sources/
+target/maven-archiver/
+target/maven-status/
+target/readme
+target/surefire-reports/
+target/teamcity-server.log
+target/test-classes/
+target/uniform_charity/WEB-INF/classes/mapper/
+target/uniform_charity/WEB-INF/classes/nju/
