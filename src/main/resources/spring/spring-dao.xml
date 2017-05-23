@@ -52,7 +52,8 @@
 
         <!-- 验证连接有效与否的SQL，不同的数据配置不同 -->
         <property name="validationQuery" value="select 1 "/>
-        <property name="filters" value="stat"/>
+        <property name="filters" value="config"/>
+        <property name="connectionProperties" value="config.decrypt=true;config.decrypt.key=${jdbc.key}"/>
         <property name="proxyFilters">
             <list>
                 <ref bean="logFilter"/>
@@ -71,6 +72,18 @@
         <property name="typeAliasesPackage" value="nju.domain"/>
         <!-- 扫描sql配置文件:mapper需要的xml文件 -->
         <property name="mapperLocations" value="classpath:mapper/*.xml"/>
+        <!-- 配置插件 -->
+        <property name="plugins">
+            <array>
+                <bean class="nju.utils.DBInterceptor">
+                    <property name="properties">
+                        <value>
+                            property-key=property-value
+                        </value>
+                    </property>
+                </bean>
+            </array>
+        </property>
     </bean>
 
     <!-- 4.配置扫描Dao接口包，动态实现Dao接口，注入到spring容器中 -->
@@ -78,7 +91,7 @@
         <!-- 注入sqlSessionFactory -->
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
         <!-- 给出需要扫描Dao接口包 -->
-        <property name="basePackage" value="nju.dao"/>
+        <property name="basePackage" value="nju.mapper"/>
     </bean>
 
     <!-- 上面的druid的配置 -->

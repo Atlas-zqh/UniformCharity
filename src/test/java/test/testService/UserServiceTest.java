@@ -25,7 +25,7 @@ public class UserServiceTest extends BaseTest {
     public void testAddUser() {
         int result = 0;
 //        User user=new User("aaa","123456","aaa","12345678907","收到你的","女","90867643272839495854",2000,"qq@mail.com","jdh",true);
-        User user2 = new User("qky", "123456", "sdfxc", "12345678901", "北包包", "男", "34059643272839492910", 2000, "h@mail.com", "dd", true);
+        User user2 = new User("qky", "123456", "sdfxc", "12345678901", "北包包", "男", "34059643272839492910", 2000, "h@mail.com", "dd", true, "南京中心");
 
         try {
             userService.addUser(user2);
@@ -61,7 +61,7 @@ public class UserServiceTest extends BaseTest {
 
     @Test
     public void testFindOneByID() {
-        String ID = "34059643272839492910";
+        String ID = "10201643272839411132";
 
         User user = new User();
 
@@ -71,7 +71,8 @@ public class UserServiceTest extends BaseTest {
             e.printStackTrace();
         }
 
-        Assert.assertNotEquals(user, null);
+//        Assert.assertNotEquals(user, null);
+        System.out.println(user.getUsername());
     }
 
     @Test

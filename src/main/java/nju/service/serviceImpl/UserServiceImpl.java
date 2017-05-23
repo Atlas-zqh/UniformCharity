@@ -1,13 +1,13 @@
 package nju.service.serviceImpl;
 
-import nju.dao.UserDao;
+import nju.mapper.UserMapper;
 import nju.domain.User;
 import nju.exception.InvalidInfoException;
 import nju.exception.OtherException;
 import nju.exception.UserExistedException;
 import nju.exception.UserNotExistException;
 import nju.service.UserService;
-import nju.utils.ResultMessage;
+import nju.utils.EncryptionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -23,7 +23,7 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
     @Autowired
-    private UserDao userDao;
+    private UserMapper userMapper;
 
     /**
      * 新增用户
@@ -35,11 +35,11 @@ public class UserServiceImpl implements UserService {
     public void addUser(User user) throws InvalidInfoException, UserExistedException, OtherException {
         if (!isValidUserInfo(user)) {
             throw new InvalidInfoException();
-        } else if (null != userDao.findOneByID(user.getPersonID())) {
+        } else if (null != userMapper.findOneByID(user.getPersonID())) {
             throw new UserExistedException();
         } else {
             try {
-                userDao.add(user);
+                userMapper.add(user);
             } catch (Exception e) {
                 throw new OtherException();
             }
@@ -56,11 +56,11 @@ public class UserServiceImpl implements UserService {
     public void updateUser(User user) throws InvalidInfoException, UserNotExistException, OtherException {
         if (!isValidUserInfo(user)) {
             throw new InvalidInfoException();
-        } else if (null == userDao.findOneByID(user.getPersonID())) {
+        } else if (null == userMapper.findOneByID(user.getPersonID())) {
             throw new UserNotExistException();
         } else {
             try {
-                userDao.update(user);
+                userMapper.update(user);
             } catch (Exception e) {
                 throw new OtherException();
             }
@@ -76,7 +76,7 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public User findUserByID(Serializable ID) throws Exception {
-        return userDao.findOneByID(ID);
+        return userMapper.findOneByID(EncryptionUtil.encrypt("20170522", (String) ID));
     }
 
     /**
@@ -87,7 +87,7 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public List<User> findAllUsers() throws Exception {
-        return userDao.findAll();
+        return userMapper.findAll();
     }
 
     /**

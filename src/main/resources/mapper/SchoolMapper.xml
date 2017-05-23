@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace指定我们的到具体的bean -->
+<mapper namespace="nju.mapper.SchoolMapper">
+    <insert id="add" parameterType="School">
+        INSERT INTO school
+        (schoolName, schoolCity, schoolDistrict, used)
+         VALUES
+        (#{schoolName}, #{city}, #{district}, #{used})
+    </insert>
+
+    <update id="update" parameterType="School">
+        UPDATE school
+        SET
+        schoolName=#{schoolName}, schoolCity=#{city}, schoolDistrict=#{district}, used=#{used}
+        WHERE
+        schoolName=#{schoolName}
+    </update>
+
+    <update id="delete" parameterType="School">
+        UPDATE school
+        SET used=FALSE
+        WHERE schoolName=#{schoolName}
+    </update>
+
+    <select id="findAll" resultType="School">
+        SELECT * FROM school
+    </select>
+
+    <select id="findSchoolByName" resultType="School" parameterType="String">
+        SELECT * FROM school WHERE schoolName=#{schoolName}
+    </select>
+
+</mapper>

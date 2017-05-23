@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- namespace指定我们的到具体的bean -->
-<mapper namespace="nju.dao.UserDao">
+<mapper namespace="nju.mapper.UserMapper">
     <!--查找-->
     <select id="findOneByID" resultType="User" parameterType="String">
         SELECT * FROM student WHERE personID=#{ID}
@@ -12,9 +12,9 @@
     <insert id="add" parameterType="User">
         INSERT
         INTO student
-        (username, password, wechatID, phone, realName, gender, personID, credits, email, picurl, used)
+        (username, password, wechatID, phone, realName, gender, personID, credits, email, picurl, used,schoolName)
         VALUES
-        (#{username},#{password},#{wechatID},#{phone},#{studentRealName},#{gender},#{personID},#{credits},#{email},#{picurl},#{used})
+        (#{username},#{password},#{wechatID},#{phone},#{studentRealName},#{gender},#{personID},#{credits},#{email},#{picurl},#{used},#{school})
     </insert>
 
     <!--删除-->
@@ -32,7 +32,7 @@
         student
         SET
         username=#{username}, password=#{password}, wechatID=#{wechatID},phone=#{phone},
-        realName=#{studentRealName},gender=#{gender},personID=#{personID},credits=#{credits},email=#{email},picurl=#{picurl},used=#{used}
+        realName=#{studentRealName},gender=#{gender},personID=#{personID},credits=#{credits},email=#{email},picurl=#{picurl},used=#{used},schoolName=#{school}
         WHERE
         personID=#{personID}
     </update>
