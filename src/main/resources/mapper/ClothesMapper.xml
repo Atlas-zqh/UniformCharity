@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace指定我们的到具体的bean -->
+<mapper namespace="nju.mapper.ClothesMapper">
+    <insert id="add" parameterType="Clothes">
+        INSERT INTO clothes
+        (clothesID, schoolName, clothessize, clothesType, clothesPrice, donorID, gender)
+         VALUES
+         clothesID=#{clothesID}, schoolName=#{schoolName}, clothessize=#{size}, clothesType=#{type},clothesPrice=#{price},donorID=#{donor}, gender=#{gender}
+    </insert>
+
+    <update id="update" parameterType="Clothes">
+        UPDATE clothes
+        SET
+        schoolName=#{schoolName}, clothessize=#{size}, clothesType=#{type},clothesPrice=#{price},donorID=#{donor}, gender=#{gender}
+        WHERE
+        clothesID=#{clothesID}
+    </update>
+
+    <select id="findOneByID" parameterType="String" resultType="Clothes">
+        SELECT * FROM clothes WHERE clothesID=#{ID}
+    </select>
+
+    <select id="findAll" resultType="Clothes">
+        SELECT * FROM clothes
+    </select>
+</mapper>

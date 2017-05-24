@@ -1,5 +1,6 @@
 package nju.utils;
 
+import nju.domain.Order;
 import nju.domain.User;
 import org.apache.ibatis.executor.Executor;
 import org.apache.ibatis.mapping.MappedStatement;
@@ -36,6 +37,12 @@ public class DBInterceptor implements Interceptor {
                 user.setPersonID(EncryptionUtil.encrypt(key, user.getPersonID()));
 //                user.setPassword(Digests.md5(user.getPassword().getBytes()));
             }
+        } else if (parameter instanceof Order) {
+            Order order = (Order) parameter;
+            if (methodName.equals("update")) {
+                order.setBuyerID(EncryptionUtil.encrypt(key, order.getBuyerID()));
+                order.setDonorID(EncryptionUtil.encrypt(key, order.getDonorID()));
+            }
         }
 
         Object returnValue = invocation.proceed();
@@ -51,7 +58,13 @@ public class DBInterceptor implements Interceptor {
                     user.setStudentRealName(EncryptionUtil.decrypt(key, user.getStudentRealName()));
                     user.setEmail(EncryptionUtil.decrypt(key, user.getEmail()));
                     user.setPersonID(EncryptionUtil.decrypt(key, user.getPersonID()));
+                } else if (val instanceof Order) {
+                    Order order = (Order) val;
+                    order.setBuyerID(EncryptionUtil.decrypt(key, order.getBuyerID()));
+                    order.setDonorID(EncryptionUtil.decrypt(key, order.getDonorID()));
                 }
+
+
             }
         }
         return returnValue;
