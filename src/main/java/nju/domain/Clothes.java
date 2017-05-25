@@ -6,6 +6,8 @@ package nju.domain;
 public class Clothes {
     public static final String XXXS = "XXXS", XXS = "XXS", XS = "XS", S = "S", M = "M", L = "L", XL = "XL", XXL = "XXL";
 
+    public static Integer AVAILABLE = 0, OCCUPIED = 1;
+
     private String clothesID;
 
     private String schoolName;
@@ -22,7 +24,9 @@ public class Clothes {
 
     private String donor;
 
-    public Clothes(String clothesID, String schoolName, String size, String type, String picUrl, Double price, String donor, String gender) {
+    private Integer status;
+
+    public Clothes(String clothesID, String schoolName, String size, String type, String picUrl, Double price, String donor, String gender, Integer status) {
         this.clothesID = clothesID;
         this.schoolName = schoolName;
         this.size = size;
@@ -31,6 +35,7 @@ public class Clothes {
         this.price = price;
         this.donor = donor;
         this.gender = gender;
+        this.status = status;
     }
 
     public String getClothesID() {
@@ -95,5 +100,13 @@ public class Clothes {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 }

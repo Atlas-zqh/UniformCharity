@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace指定我们的到具体的bean -->
+<mapper namespace="nju.mapper.BBSMapper">
+    <!-- 获得所有板块 -->
+    <select id="getAllBoards" resultType="Board">
+        SELECT *
+        FROM board
+    </select>
+
+    <!-- 获得板块内所有帖子 -->
+    <select id="getPostsByBoard" parameterType="Integer" resultType="Post">
+        SELECT *
+        FROM posts
+        WHERE post_bid = #{board_id}
+    </select>
+
+    <!-- 根据帖子获得所有回复 -->
+    <select id="getRepliesByPost" parameterType="Integer" resultType="Reply">
+        SELECT *
+        FROM reply
+        WHERE reply_pid = #{post_id}
+    </select>
+
+    <!-- 新增板块 -->
+    <insert id="insertBoard" parameterType="Board">
+        INSERT INTO board
+        (board_name)
+        VALUES
+        (#{board_name})
+    </insert>
+
+    <!-- 新增帖子 -->
+    <insert id="insertPost" parameterType="Post">
+        INSERT INTO posts
+        (post_uid, post_topic, post_updatetime, post_createtime, post_bid)
+        VALUES
+            (#{post_userID}, #{post_topic}, #{post_updateTime}, #{post_createTime}, #{post_boardID})
+    </insert>
+
+    <!-- 新增回复 -->
+    <insert id="insertReply" parameterType="Reply">
+        INSERT INTO reply
+        (reply_uid, reply_content, reply_pid, reply_time, reply_layer, reply_rid)
+        VALUES
+        (#{reply_userID}, #{reply_content}, #{reply_postID}, #{reply_time}, #{reply_layer}, #{reply_replyID})
+    </insert>
+
+    <!-- 更新帖子 -->
+    <update id="updatePost" parameterType="Post">
+        UPDATE
+            posts
+        SET
+            post_commentcount = #{post_commnt_count}, post_updatetime = #{post_updateTime},
+            post_islocked     = #{post_isLocked}
+        WHERE
+            post_id = #{post_id}
+    </update>
+
+    <!-- 根据板块ID搜索板块 -->
+    <select id="findBoardByBoardID" parameterType="Integer">
+        SELECT *
+        FROM board
+        WHERE board_id = #{board_id}
+    </select>
+
+    <!-- 根据帖子ID搜索梯子 -->
+    <select id="findPostByPostID" parameterType="Integer">
+        SELECT *
+        FROM posts
+        WHERE post_id = #{post_id}
+    </select>
+
+    <!-- 根据用户ID搜索帖子 -->
+    <select id="findPostsByUserID" parameterType="String">
+        SELECT *
+        FROM posts
+        WHERE post_uid = #{user_id}
+    </select>
+
+    <!-- 根据回复ID搜索回复 -->
+    <select id="findReplyByReplyID" parameterType="Integer">
+        SELECT *
+        FROM reply
+        WHERE reply_id = #{reply_id}
+    </select>
+
+    <!-- 根据用户ID搜索回复 -->
+    <select id="findReplyByUserID" parameterType="String">
+        SELECT *
+        FROM reply
+        WHERE reply_uid = #{user_id}
+    </select>
+
+    <!-- 根据回复号获得所有子回复 -->
+    <select id="findSubReplyByReplyID" parameterType="Integer">
+        SELECT *
+        FROM reply
+        WHERE reply_rid = #{reply_rid}
+    </select>
+</mapper>

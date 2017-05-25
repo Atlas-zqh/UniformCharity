@@ -65,4 +65,12 @@ public interface OrderMapper {
      * @return 所有订单
      */
     List<Order> findAllOrders();
+
+    /**
+     * 根据衣物编号查找订单
+     *
+     * @param clothesID 衣物编号
+     * @return 对应订单
+     */
+    Order findOrderByClothesID(String clothesID);
 }

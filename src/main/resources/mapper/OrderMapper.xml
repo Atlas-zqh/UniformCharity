@@ -55,4 +55,10 @@
     <select id="findAllOrders" resultType="Order">
         SELECT * FROM clothes_order
     </select>
+
+    <!-- findOrderByClothesID -->
+    <select id="findOrderByClothesID" resultType="Order" parameterType="String">
+        SELECT * FROM clothes_order
+        WHERE clothesID=#{clothesID}
+    </select>
 </mapper>
