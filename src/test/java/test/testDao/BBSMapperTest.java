@@ -15,9 +15,7 @@ public class BBSMapperTest extends BaseTest {
 
     @Test
     public void testAddBoard() {
-
         Board board = new Board("斑斑驳驳");
         bbsMapper.insertBoard(board);
-
     }
 }
