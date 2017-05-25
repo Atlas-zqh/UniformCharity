@@ -71,7 +71,6 @@ public class UserServiceTest extends BaseTest {
             e.printStackTrace();
         }
 
-//        Assert.assertNotEquals(user, null);
         System.out.println(user.getUsername());
     }
 
