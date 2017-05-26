@@ -1,0 +1,60 @@
+* {
+    box-sizing: border-box;
+}
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+/* normalize.css v3.0.2 | git.io/normalize */
+/* Set <html> and <body> to inherit the height of the viewport */
+html,
+body {
+    min-height: 100%;
+}
+/**
+ * 1. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ *    https://developer.mozilla.org/en-US/docs/Web/CSS/text-size-adjust
+ */
+html {
+    -ms-text-size-adjust: 100%;
+    /* 1 */
+    -webkit-text-size-adjust: 100%;
+    /* 1 */
+}
+/**
+ * Remove default margin.
+ */
+body {
+    margin: 0;
+    font-family: "Helvetica", serif;
+    font-size: 15px;
+    width: 100%;
+    height: 100%;
+    min-width: 800px;
+}
+
+ul {
+    margin: 0;
+    position:relative; /* positioning contect */
+    padding: 0;
+}
+
+
+* input {
+    color: #535353;
+    font-weight: 300;
+    font-size: 16px;
+}
+
+* input:-webkit-autofill {
+    /*background-color: #ffffff;*/
+    color: #535353;
+    font-size: 16px;
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+* a:hover{
+    text-decoration: none;
+}

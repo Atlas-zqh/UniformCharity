@@ -1,0 +1,649 @@
+body{
+    position: relative;
+    width: 100%;
+    padding-bottom: 166.5%;
+}
+
+#nav{
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+}
+
+#mainPage{
+    display: inline-block;
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    z-index: 0;
+    margin: 0;
+    background: url(../images/mainBG1.png);
+    background-size:cover;
+    width: 100%;
+    min-width: 800px;
+    padding-bottom: 41.7%;
+    height: 0;
+}
+
+#searchPanel{
+    position: absolute;
+    z-index: 1;
+    background: url(../images/SearchPanel.png);
+    background-size:cover;
+    width: 27.2%;
+    min-width: 218px;
+    padding-bottom: 38.2%;
+    margin-top: 2.7%;
+    margin-left: 67%;
+    height: 0;
+}
+
+#genderLabel{
+    position: absolute;
+    z-index: 2;
+    background: url(../images/GenderLabel.png);
+    background-size:cover;
+    width: 20%;
+    min-width: 30px;
+    padding-bottom: 7.6%;
+    margin-top: 25%;
+    margin-left: 40%;
+}
+
+.genderLine{
+    position: absolute;
+    z-index: 100;
+    text-align: center;
+    font-size: 200%;
+    color: white;
+    margin-top: 35%;
+    margin-left: 49%;
+}
+
+.maleButton{
+    position: absolute;
+    z-index: 100;
+    background-color: #97d5dd;
+    border-top-color: #2d5064;
+    border-right-color: #79b1f0;
+    border-top-width: thick;
+    border-right-width: thick;
+    border-bottom: none;
+    border-left: none;
+    font-family: "Yuppy SC";
+    width: 20%;
+    padding-bottom: 0%;
+    text-align: center;
+    line-height: 200%;
+    color: white;
+    font-size: 100%;
+    margin-top: 35%;
+    margin-left: 25%;
+}
+
+.maleButton:hover{
+    color: #142535;
+    cursor: pointer;
+}
+
+.femaleButton{
+    position: absolute;
+    z-index: 100;
+    background-color: #97d5dd;
+    border-top-color: #2d5064;
+    border-right-color: #79b1f0;
+    border-top-width: thick;
+    border-right-width: thick;
+    border-bottom: none;
+    border-left: none;
+    font-family: "Yuppy SC";
+    width: 20%;
+    padding-bottom: 0%;
+    text-align: center;
+    line-height: 200%;
+    color: white;
+    font-size: 100%;
+    margin-top: 35%;
+    margin-left: 54.7%;
+}
+
+.femaleButton:hover{
+    color: #142535;
+    cursor: pointer;
+}
+
+#typeLabel{
+    position: absolute;
+    z-index: 2;
+    background: url(../images/TypeLabel.png);
+    background-size:cover;
+    width: 20%;
+    min-width: 30px;
+    padding-bottom: 7.6%;
+    margin-top: 55%;
+    margin-left: 40%;
+}
+
+#typeDropDown{
+    position: absolute;
+    z-index: 100;
+    width: 40%;
+    padding-bottom: 10%;
+    margin-top: 65%;
+    margin-left: 30%;
+
+}
+
+#sizeLabel{
+    position: absolute;
+    z-index: 2;
+    background: url(../images/SizeLabel.png);
+    background-size:cover;
+    width: 20%;
+    min-width: 30px;
+    padding-bottom: 7.6%;
+    margin-top: 85%;
+    margin-left: 40%;
+}
+
+#sizeDropDown{
+    position: absolute;
+    z-index: 100;
+    width: 40%;
+    padding-bottom: 10%;
+    margin-top: 95%;
+    margin-left: 30%;
+}
+
+.searchButton{
+    position: absolute;
+    z-index: 100;
+    background-color: #97d5dd;
+    border-top-color: #2d5064;
+    border-right-color: #79b1f0;
+    border-top-width: thick;
+    border-right-width: thick;
+    border-bottom: none;
+    border-left: none;
+    font-family: "Yuppy SC";
+    width: 40%;
+    padding-bottom: 0%;
+    text-align: center;
+    line-height: 130%;
+    color: white;
+    font-size: 150%;
+    margin-top: 120%;
+    margin-left: 30%;
+}
+
+.searchButton:hover{
+    color: #142535;
+    cursor: pointer;
+}
+
+
+#bulletinPage{
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    z-index: 0;
+    margin: 0;
+    background: url(../images/mainBG2.png);
+    background-size:cover;
+    width: 100%;
+    min-width: 800px;
+    min-height: 320px;
+    padding-bottom: 41.7%;
+    margin-top: 41.7%;
+    height: 0;
+}
+
+#fundBulletin{
+    position: absolute;
+    z-index: 1;
+    display: inline;
+    background: url(../images/FundBulletin.png);
+    background-size:cover;
+    width: 31.25%;
+    margin-top: 49%;
+    margin-left: 9%;
+    min-width: 250px;
+    padding-bottom: 27%;
+    height: 0;
+
+}
+
+#transactionBulletin{
+    position: absolute;
+    z-index: 1;
+    display: inline;
+    background: url(../images/TransactionBulletin.png);
+    background-size:cover;
+    width: 31.25%;
+    margin-top: 49%;
+    margin-left: 59%;
+    min-width: 250px;
+    padding-bottom: 27%;
+    height: 0;
+}
+
+#forumPage{
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    z-index: 0;
+    margin: 0;
+    background: #99cbd9;
+    background-size:cover;
+    width: 100%;
+    min-width: 800px;
+    padding-bottom: 41.7%;
+    margin-top: 83.4%;
+    height: 0;
+}
+
+#forumPage .forumTitle{
+    position: absolute;
+    z-index: 1;
+    background: url(../images/ForumTitle.png);
+    background-size:cover;
+    width: 10.5%;
+    margin-top: 2.5%;
+    margin-left: 5%;
+    min-width: 84px;
+    padding-bottom: 37%;
+}
+
+.forumArea{
+    position: absolute;
+    z-index: 1;
+    background-color: #99cbd9;
+    background-size: cover;
+    width: 80%;
+    padding-bottom: 38%;
+    margin-top: 85.9%;
+    margin-left: 16.5%;
+    height: 0;
+    overflow: hidden;
+}
+
+.forumArea >div .forumTable{
+    position: absolute;
+    z-index: 3;
+    width: 94%;
+    margin-left: 5%;
+    margin-top: 0%;
+    background-color: #39576e;
+    overflow: hidden;
+    height: 96.3%;
+
+    /*border: 5px solid #8ccafa;*/
+}
+
+.forumArea .forumTable .titleTr{
+    width: 80%;
+    font-family: "Yuppy SC";
+    color: white;
+    text-shadow: 0 1px 0 grey;
+    font-size: 150%;
+    white-space: nowrap;
+}
+
+.forumArea .forumTable .bodyTr{
+    width: 100%;
+    font-family: Helvetica;
+    color: white;
+    text-shadow: 0 1px 0 grey;
+    font-size: 100%;
+    height: 0;
+    padding-bottom: 5%;
+}
+
+
+.forumArea >div >a{
+    display: block;
+    position: absolute;
+    z-index: 100;
+    text-decoration: none;
+    text-shadow: 0 2px 0 #39576e;
+    background-color: #97d5dd;
+    border-right: none;
+    border-top-color: #39576e;
+    border-top-width: thick;
+    border-left-color: #39576e;
+    border-left-width: thick;
+    border-bottom-color: #7bcbff;
+    border-bottom-width: thick;
+    font-family: "Yuppy SC";
+    text-align: center;
+    color: white;
+    font-size: 150%;
+    margin-top: 0%;
+    margin-left: 0%;
+    width: 5%;
+    height: 50%;
+    overflow: hidden;
+    line-height: 150%;
+}
+
+
+.forumArea >div >a:hover{
+    color: #d6ad5c;
+    text-shadow: 0 2px 0 #866536;
+
+}
+.forumArea > div:not(:target) > a {
+}
+
+.forumArea> div:target > a {
+    z-index: 100;
+    background: none repeat scroll 0 0 #39576e;
+    text-shadow: 0 2px 0 grey;
+}
+
+.forumArea .forumTable a{
+    font-family: Helvetica;
+    color: white;
+    text-shadow: 0 1px 0 grey;
+    font-size: 100%;
+    text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.forumArea .forumTable a:hover{
+    text-decoration: underline;
+}
+
+
+.forumArea > div > div {
+    position: absolute;
+    z-index: -2;
+    background-color: #99cbd9;
+    background-size: cover;
+    width: 80%;
+    padding-bottom: 38%;
+    margin-top: 86.4%;
+    margin-left: 16.5%;
+    overflow: hidden;
+    height: 50%;
+}
+
+.forumArea > div:not(:target) > div {
+    position: absolute; /* This keeps the tab module contained */
+}
+
+.forumArea > div:target > div {
+    position: absolute;
+    z-index: 4 !important; /* Brings the content to the front depending on the tab that was clicked */
+}
+
+#infoPage{
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    z-index: 0;
+    margin: 0;
+    background: #64bacb;
+    background-size:cover;
+    width: 100%;
+    min-width: 800px;
+    padding-bottom: 41.7%;
+    margin-top: 125%;
+}
+
+.select-select {
+    position: absolute;
+    z-index: 100;
+    left: 0%;
+    top: 0%;
+    /* For when we are on a small touch device and want to use native controls */
+    pointer-events: none;
+    opacity: 0;
+}
+
+.select-element, .select-element:after, .select-element:before, .select-element *, .select-element *:after, .select-element *:before {
+    box-sizing: border-box;
+}
+
+.select-element {
+    position: absolute;
+    display: none;
+}
+.select-element.select-open {
+    display: block;
+}
+
+.select-theme-dark, .select-theme-dark *, .select-theme-dark *:after, .select-theme-dark *:before {
+    box-sizing: border-box;
+}
+
+.select.select-theme-dark {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+.select.select-theme-dark .select-content {
+    border-radius: .25em;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    background: #97d5dd;
+    color: white;
+    font-family: inherit;
+    overflow: auto;
+    max-width: 18rem;
+    max-height: 18rem;
+    -webkit-overflow-scrolling: touch;
+}
+@media (max-width: 27rem), (max-height: 27rem) {
+    .select.select-theme-dark .select-content {
+        max-width: 11.25rem;
+        max-height: 11.25rem; }
+}
+.select.select-theme-dark .select-options {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    margin: 0;
+    padding: 0;
+}
+.select.select-theme-dark .select-options .select-option {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    position: relative;
+    list-style: none;
+    margin: 0;
+    line-height: 1.25rem;
+    padding: 0.5rem 1em 0.5rem 2.5em;
+    display: block;
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.select.select-theme-dark .select-options .select-option:hover, .select.select-theme-dark .select-options .select-option.select-option-highlight {
+    background: #63a2f1;
+    color: #142535;
+}
+
+.select.select-theme-dark .select-options .select-option:first-child {
+    border-radius: 0.25em 0.25em 0 0;
+}
+.select.select-theme-dark .select-options .select-option:last-child {
+    border-radius: 0 0 0.25em 0.25em;
+}
+
+.select-target.select-theme-dark {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 100;
+    vertical-align: middle;
+    *zoom: 1;
+    *display: inline;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    padding: 0.5rem 3em 0.5rem 1em;
+    background: #97d5dd;
+    border:  solid;
+    border-top-color: #3b83ac;
+    border-right-color: #3b83c1;
+    border-top-width: thick;
+    border-right-width: thick;
+    border-left: none;
+    border-bottom: none;
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+    white-space: nowrap;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.select-target.select-theme-dark:hover {
+    color: #142535;
+}
+
+.select-target.select-theme-dark.select-target-focused, .select-target.select-theme-dark.select-target-focused:focus {
+    border-top-color: #2d5064;
+    border-right-color: #79b1f0;
+    border-top-width: thick;
+    border-right-width: thick;
+    outline: none;
+}
+
+.select-target.select-theme-dark b {
+    position: absolute;
+    right: 1em;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: 1.25rem;
+    width: 2em;
+}
+.select-target.select-theme-dark b:before, .select-target.select-theme-dark b:after {
+    content: "";
+    display: block;
+    position: absolute;
+    margin: auto;
+    right: 0;
+    height: 0;
+    width: 0;
+    border: .263em solid transparent;
+}
+.select-target.select-theme-dark b:before {
+    top: 0;
+    border-bottom-color: inherit;
+}
+.select-target.select-theme-dark b:after {
+    bottom: 0;
+    border-top-color: inherit;
+}
+
+#loginPanel{
+    position: absolute;
+    z-index: 1;
+    background: url(../images/LoginPanel.png);
+    background-size:cover;
+    width: 27.2%;
+    min-width: 218px;
+    padding-bottom: 38.2%;
+    margin-top: 2.7%;
+    margin-left: 67%;
+}
+
+#signupPanel{
+    position: absolute;
+    z-index: 1;
+    background: url(../images/SignupPanel.png);
+    background-size:cover;
+    width: 27.2%;
+    min-width: 218px;
+    padding-bottom: 38.2%;
+    margin-top: 2.7%;
+    margin-left: 67%;
+}
+
+.label{
+    position: absolute;
+    z-index: 2;
+    background-size:cover;
+    width: 14%;
+    min-width: 30px;
+    padding-bottom: 5.4%;
+    margin-top: 60%;
+    margin-left: 40%;
+}
+
+.textInput{
+    position: absolute;
+    z-index: 2;
+    background-color: #97d5dd;
+    border-top-color: #258bb2;
+    border-right-color: #79b1f0;
+    border-top-width: thick;
+    border-right-width: thick;
+    border-left: none;
+    border-bottom: none;
+    width: 40%;
+    font-size: 120%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    line-height: 120%;
+    color: #142535;
+    outline: none;
+    outline-width: 0px;
+}
+
+.mybt{
+    letter-spacing: normal;
+    position: absolute;
+    z-index: 100;
+    background-color: #97d5dd;
+    text-shadow: 0 2px 0 grey;
+    border-top-color: #1c4658;
+    border-right-color: #61aeff;
+    border-top-width: thick;
+    border-right-width: thick;
+    border-bottom: none;
+    border-left: none;
+    font-family: "Yuppy SC";
+    width: 40%;
+    padding-bottom: 0%;
+    text-align: center;
+    line-height: 130%;
+    color: white;
+    font-size: 150%;
+    margin-top: 110%;
+    margin-left: 30%;
+}
+
+.mybt:focus, .mybt:hover, .mybt:active{
+    color: #142535;
+    text-shadow: 0 2px 0 lightgrey;
+    outline-width: 0;
+    outline: none;
+}
+
+
+
+
+#scroll {
+    overflow: hidden;
+    position: absolute;
+    width:97.5%;
+    height:75%;
+    margin-top: 20%;
+    background:#97D5DD;
+    text-align: center;
+}
+
+

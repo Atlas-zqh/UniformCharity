@@ -1,0 +1,167 @@
+#loginPanel{
+    position: absolute;
+    z-index: 1;
+    background: url(../images/LoginPanel.png);
+    background-size:cover;
+    width: 27.2%;
+    min-width: 218px;
+    padding-bottom: 38.2%;
+    margin-top: 2.7%;
+    margin-left: 67%;
+    height: 0;
+}
+
+
+#loginPanel .userNameLabel{
+    position: absolute;
+    z-index: 2;
+    background: url(../images/UserNameLabel.png);
+    background-size:cover;
+    width: 27%;
+    min-width: 40px;
+    padding-bottom: 7.6%;
+    margin-top: 30%;
+    margin-left: 36.5%;
+}
+
+#loginPanel .userNameInput{
+    position: absolute;
+    z-index: 2;
+    background-color: #97d5dd;
+    border-top-color: #258bb2;
+    border-right-color: #79b1f0;
+    border-top-width: thick;
+    border-right-width: thick;
+    border-left: none;
+    border-bottom: none;
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 43%;
+    padding-bottom: 2%;
+    font-size: 120%;
+    line-height: 120%;
+    color: #142535;
+}
+
+#loginPanel .passwordLabel{
+    position: absolute;
+    z-index: 2;
+    background: url(../images/PasswordLabel.png);
+    background-size:cover;
+    width: 20%;
+    min-width: 30px;
+    padding-bottom: 7.6%;
+    margin-top: 60%;
+    margin-left: 40%;
+}
+
+
+#loginPanel .passwordInput{
+    position: absolute;
+    z-index: 2;
+    background-color: #97d5dd;
+    border-top-color: #258bb2;
+    border-right-color: #79b1f0;
+    border-top-width: thick;
+    border-right-width: thick;
+    border-left: none;
+    border-bottom: none;
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 73%;
+    padding-bottom: 2%;
+    font-size: 120%;
+    line-height: 120%;
+    color: #142535;
+}
+
+
+.loginButton{
+    position: absolute;
+    z-index: 100;
+    background-color: #97d5dd;
+    border-top-color: #2d5064;
+    border-right-color: #79b1f0;
+    border-top-width: thick;
+    border-right-width: thick;
+    border-bottom: none;
+    border-left: none;
+    font-family: "Yuppy SC";
+    width: 40%;
+    padding-bottom: 0%;
+    text-align: center;
+    line-height: 130%;
+    color: white;
+    font-size: 150%;
+    margin-top: 110%;
+    margin-left: 30%;
+}
+
+#signupPanel{
+    position: absolute;
+    z-index: 1;
+    background: url(../images/SignupPanel.png);
+    background-size:cover;
+    width: 27.2%;
+    min-width: 218px;
+    padding-bottom: 38.2%;
+    margin-top: 2.7%;
+    margin-left: 67%;
+    height: 0;
+
+}
+
+.label{
+    position: absolute;
+    z-index: 2;
+    background-size:cover;
+    width: 14%;
+    min-width: 30px;
+    padding-bottom: 5.4%;
+    margin-top: 60%;
+    margin-left: 40%;
+}
+
+.textInput{
+    position: absolute;
+    z-index: 2;
+    background-color: #97d5dd;
+    border-top-color: #258bb2;
+    border-right-color: #79b1f0;
+    border-top-width: thick;
+    border-right-width: thick;
+    border-left: none;
+    border-bottom: none;
+    width: 40%;
+    font-size: 120%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    line-height: 120%;
+    color: #142535;
+}
+
+.mybt{
+    letter-spacing: normal;
+    position: absolute;
+    z-index: 100;
+    background-color: #97d5dd;
+    border-top-color: #061117;
+    border-right-color: #7bcbff;
+    border-top-width: thick;
+    border-right-width: thick;
+    border-bottom: none;
+    border-left: none;
+    font-family: "Yuppy SC";
+    width: 40%;
+    padding-bottom: 0%;
+    text-align: center;
+    line-height: 130%;
+    color: white;
+    font-size: 150%;
+    margin-top: 110%;
+    margin-left: 30%;
+}
+
+.mybt:hover{
+    color: #142535;
+}

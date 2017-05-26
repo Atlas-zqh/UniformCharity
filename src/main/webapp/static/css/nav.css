@@ -1,0 +1,62 @@
+
+body{
+    z-index: 100;
+
+}
+
+.topNavBar{
+    display: inline-block;
+    margin: 0px;
+    width: 100%;
+    height: 23px;
+    background: #BCD5D8;
+}
+
+.leftNavBar {
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+    width: 23px;
+    background: #BCD5D8;
+}
+
+.rightNavBar{
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+    width: 23px;
+    float: right;
+    background: #BCD5D8;
+}
+
+.foot{
+    display: inline-block;
+    margin: 0px;
+    width: 100%;
+    height: 23px;
+    background: #BCD5D8;
+}
+
+.navLabel{
+    display: block;
+    margin-top: 0px;
+    height: 23px;
+    text-align: center;
+    vertical-align: middle;
+    color: #142535;
+
+}
+
+.bt a{
+    display: inline-block;
+    text-decoration: none;
+    color: #142535;
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+    margin-top: 40px;
+}
+.bt a:hover{
+    text-decoration: none;
+    color: #d6ad5c;
+}
