@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace指定我们的到具体的bean -->
+<mapper namespace="nju.mapper.OrderMapper">
+    <!-- 创建订单 -->
+    <insert id="createOrder" parameterType="Order">
+        INSERT INTO clothes_order
+        (orderID, clothesID, donorID, buyerID, orderStatus, startTime, endTime, authority)
+        VALUES
+         (#{orderID},#{clothesID},#{donorID},#{buyerID},#{orderStatus},#{startTime},#{endTime},#{authority})
+    </insert>
+
+    <!-- 更新订单 -->
+    <update id="updateOrder" parameterType="Order">
+        UPDATE clothes_order
+        SET
+        clothesID=#{clothesID}, donorID=#{donorID}, buyerID=#{buyerID}, orderStatus=#{orderStatus},
+        startTime=#{startTime}, endTime=#{endTime}, authority=#{authority}
+        WHERE
+        orderID=#{orderID}
+    </update>
+
+    <!-- 根据买方ID查找订单 -->
+    <select id="findOrderByBuyerID" parameterType="String" resultType="Order">
+        SELECT * FROM clothes_order
+        WHERE buyerID=#{buyerID}
+    </select>
+
+    <!-- 根据买方ID查找订单 -->
+    <select id="findOrderBySellerID" parameterType="String" resultType="Order">
+        SELECT * FROM clothes_order
+        WHERE donorID=#{sellerID}
+    </select>
+
+    <!-- 根据订单号查找订单 -->
+    <select id="findOrderByOrderID" parameterType="String" resultType="Order">
+        SELECT * FROM clothes_order
+        WHERE orderID=#{orderID}
+    </select>
+
+    <!-- 根据订单状态查找订单 -->
+    <select id="findOrderByStatus" parameterType="Integer" resultType="Order">
+        SELECT * FROM clothes_order
+        WHERE orderStatus=#{status}
+    </select>
+
+    <!-- 查找所有状态为公开的订单 -->
+    <select id="findAllPublicOrders" resultType="Order">
+        SELECT * FROM clothes_order
+        WHERE authority=1
+    </select>
+
+    <!-- 查找所有订单 -->
+    <select id="findAllOrders" resultType="Order">
+        SELECT * FROM clothes_order
+    </select>
+
+    <!-- findOrderByClothesID -->
+    <select id="findOrderByClothesID" resultType="Order" parameterType="String">
+        SELECT * FROM clothes_order
+        WHERE clothesID=#{clothesID}
+    </select>
+</mapper>

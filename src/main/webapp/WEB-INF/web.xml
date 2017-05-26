@@ -23,7 +23,7 @@
         <servlet-name>dispatcher</servlet-name> <!-- mvc调度器 -->
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <!-- 配置springMVC需要加载的配置文件
-            spring-dao.xml,spring-service.xml,spring-web.xml
+            sprmapper-dao.xml,spring-service.xml,spring-web.xml
             Mybatis - > spring -> springmvc
          -->
         <init-param>

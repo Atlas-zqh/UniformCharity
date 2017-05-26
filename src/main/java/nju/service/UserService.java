@@ -1,7 +1,6 @@
 package nju.service;
 
 import nju.domain.User;
-import nju.utils.ResultMessage;
 
 import java.io.Serializable;
 import java.util.List;

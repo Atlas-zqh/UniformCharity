@@ -1,39 +1,39 @@
-package nju.dao;
+package nju.mapper;
 
-import nju.utils.ResultMessage;
+import nju.domain.User;
+import org.springframework.stereotype.Repository;
 
 import java.io.Serializable;
 import java.util.List;
 
 /**
- * Dao的接口类
- *
- * @param <T> 范型
+ * Created by keenan on 04/05/2017.
  */
-public interface Dao<T> {
+
+public interface UserMapper extends Mapper<User> {
     /**
      * 增加某个对象
      *
-     * @param t 待添加的对象
+     * @param user 待添加的对象
      * @return 操作结果
      */
-    void add(T t);
+    void add(User user);
 
     /**
      * 删除某个对象
      *
-     * @param t 待删除的对象
+     * @param user 待删除的对象
      * @return 操作结果
      */
-    void delete(T t);
+    void delete(User user);
 
     /**
      * 更新某个对象
      *
-     * @param t 待更新的对象
+     * @param user 待更新的对象
      * @return 操作结果
      */
-    void update(T t);
+    void update(User user);
 
     /**
      * 根据ID查找某个对象
@@ -41,12 +41,12 @@ public interface Dao<T> {
      * @param ID
      * @return 查找结果，没找到返回null
      */
-    T findOneByID(Serializable ID);
+    User findOneByID(Serializable ID);
 
     /**
      * 获得所有该类对象
      *
      * @return 所有该类对象
      */
-    List<T> findAll();
+    List<User> findAll();
 }

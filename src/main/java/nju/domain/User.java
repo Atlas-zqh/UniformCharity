@@ -1,5 +1,7 @@
 package nju.domain;
 
+import org.omg.PortableInterceptor.Interceptor;
+
 import java.io.Serializable;
 
 /**
@@ -26,12 +28,14 @@ public class User implements Serializable {
 
     private String picurl;
 
+    private String school;
+
     private Boolean used = true;
 
     public User() {
     }
 
-    public User(String username, String password, String wechatID, String phone, String studentRealName, String gender, String personID, Integer credits, String email, String picurl, Boolean used) {
+    public User(String username, String password, String wechatID, String phone, String studentRealName, String gender, String personID, Integer credits, String email, String picurl, Boolean used, String school) {
         this.username = username;
         this.password = password;
         this.wechatID = wechatID;
@@ -43,6 +47,7 @@ public class User implements Serializable {
         this.email = email;
         this.picurl = picurl;
         this.used = used;
+        this.school = school;
     }
 
     public String getUsername() {
@@ -59,6 +64,14 @@ public class User implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getWechatID() {
+        return wechatID;
+    }
+
+    public void setWechatID(String wechatID) {
+        this.wechatID = wechatID;
     }
 
     public String getPhone() {
@@ -93,11 +106,11 @@ public class User implements Serializable {
         this.personID = personID;
     }
 
-    public int getCredits() {
+    public Integer getCredits() {
         return credits;
     }
 
-    public void setCredits(int credits) {
+    public void setCredits(Integer credits) {
         this.credits = credits;
     }
 
@@ -117,20 +130,20 @@ public class User implements Serializable {
         this.picurl = picurl;
     }
 
-    public String getWechatID() {
-        return wechatID;
-    }
-
-    public void setWechatID(String wechatID) {
-        this.wechatID = wechatID;
-    }
-
-    public boolean isUsed() {
+    public Boolean getUsed() {
         return used;
     }
 
-    public void setUsed(boolean used) {
+    public void setUsed(Boolean used) {
         this.used = used;
+    }
+
+    public String getSchool() {
+        return school;
+    }
+
+    public void setSchool(String school) {
+        this.school = school;
     }
 
     @Override
