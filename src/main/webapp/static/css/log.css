@@ -165,3 +165,14 @@
 .mybt:hover{
     color: #142535;
 }
+
+.iconImage{
+    position: absolute;
+    z-index: 2;
+    border-radius: 50%;
+    background-size: cover;
+    margin-left: 55%;
+    margin-top: 9%;
+    width: 40%;
+    padding-bottom: 0%;
+}

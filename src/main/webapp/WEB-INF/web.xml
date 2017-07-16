@@ -8,7 +8,7 @@
 
     <!--默认的首页-->
     <welcome-file-list>
-        <welcome-file>/static/html/index.html</welcome-file>
+        <welcome-file>/jsp/index.jsp</welcome-file>
         <welcome-file>index.htm</welcome-file>
         <welcome-file>index.jsp</welcome-file>
         <welcome-file>default.html</welcome-file>
@@ -95,4 +95,9 @@
         <error-code>404</error-code>
         <location>/static/view/404.html</location>
     </error-page>
+
+    <listener>
+        <listener-class>org.springframework.web.context.request.RequestContextListener
+        </listener-class>
+    </listener>
 </web-app>

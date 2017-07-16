@@ -1,7 +1,7 @@
 body{
     position: relative;
     width: 100%;
-    padding-bottom: 166.5%;
+    padding-bottom: 165.5%;
 }
 
 #nav{
@@ -61,6 +61,15 @@ body{
     color: white;
     margin-top: 35%;
     margin-left: 49%;
+}
+
+#schoolDropDown{
+    position: absolute;
+    z-index: 100;
+    width: 40%;
+    padding-bottom: 10%;
+    margin-left: 55%;
+    margin-top: 79%;
 }
 
 .maleButton{
@@ -216,6 +225,16 @@ body{
 
 }
 
+#fundBulletin #scroll {
+    overflow: hidden;
+    position: absolute;
+    width:97.5%;
+    height:75%;
+    margin-top: 20%;
+    background:#97D5DD;
+    text-align: center;
+}
+
 #transactionBulletin{
     position: absolute;
     z-index: 1;
@@ -228,6 +247,16 @@ body{
     min-width: 250px;
     padding-bottom: 27%;
     height: 0;
+}
+
+#transactionBulletin #scroll3 {
+    overflow: hidden;
+    position: absolute;
+    width:97.5%;
+    height:75%;
+    margin-top: 20%;
+    background: #8dbce3;
+    text-align: center;
 }
 
 #forumPage{
@@ -303,46 +332,63 @@ body{
 }
 
 
-.forumArea >div >a{
+.forumArea >div >button{
     display: block;
     position: absolute;
     z-index: 100;
     text-decoration: none;
     text-shadow: 0 2px 0 #39576e;
     background-color: #97d5dd;
-    border-right: none;
-    border-top-color: #39576e;
-    border-top-width: thick;
-    border-left-color: #39576e;
-    border-left-width: thick;
-    border-bottom-color: #7bcbff;
-    border-bottom-width: thick;
+    /*border-right: none;*/
+    /*border-top-color: #39576e;*/
+    /*border-top-width: thick;*/
+    /*border-left-color: #39576e;*/
+    /*border-left-width: thick;*/
+    /*border-bottom-color: #7bcbff;*/
+    /*border-bottom-width: thick;*/
     font-family: "Yuppy SC";
     text-align: center;
+    vertical-align: middle;
+    horiz-align: center;
     color: white;
-    font-size: 150%;
+    font-size: 120%;
     margin-top: 0%;
     margin-left: 0%;
     width: 5%;
     height: 50%;
     overflow: hidden;
-    line-height: 150%;
+    line-height: 120%;
+    border: none;
+    outline: none;
+}
+
+.forumArea >div >button:active{
+    outline: none;
 }
 
 
-.forumArea >div >a:hover{
+.forumArea >div >button:hover{
     color: #d6ad5c;
     text-shadow: 0 2px 0 #866536;
 
 }
-.forumArea > div:not(:target) > a {
-}
 
-.forumArea> div:target > a {
-    z-index: 100;
-    background: none repeat scroll 0 0 #39576e;
-    text-shadow: 0 2px 0 grey;
-}
+/*.table1{*/
+    /*z-index: 100;*/
+    /*background: none repeat scroll 0 0 #39576e;*/
+    /*text-shadow: 0 2px 0 grey;*/
+/*}*/
+
+/*.forumArea > div:not(:target) > a {*/
+    /*background: none repeat scroll 0 0 #97d5dd;*/
+    /*text-shadow: 0 2px 0 #39576e;*/
+/*}*/
+
+/*.forumArea> div:target > a {*/
+    /*z-index: 100;*/
+    /*background: none repeat scroll 0 0 #39576e;*/
+    /*text-shadow: 0 2px 0 grey;*/
+/*}*/
 
 .forumArea .forumTable a{
     font-family: Helvetica;
@@ -372,14 +418,14 @@ body{
     height: 50%;
 }
 
-.forumArea > div:not(:target) > div {
-    position: absolute; /* This keeps the tab module contained */
-}
+/*.forumArea > div:not(:target) > div {*/
+    /*position: absolute; !* This keeps the tab module contained *!*/
+/*}*/
 
-.forumArea > div:target > div {
-    position: absolute;
-    z-index: 4 !important; /* Brings the content to the front depending on the tab that was clicked */
-}
+/*.forumArea > div:target > div {*/
+    /*position: absolute;*/
+    /*z-index: 4 !important; !* Brings the content to the front depending on the tab that was clicked *!*/
+/*}*/
 
 #infoPage{
     position: absolute;
@@ -397,28 +443,36 @@ body{
 
 .select-select {
     position: absolute;
-    z-index: 100;
+    z-index: 2000;
     left: 0%;
     top: 0%;
     /* For when we are on a small touch device and want to use native controls */
     pointer-events: none;
     opacity: 0;
+    text-align: left;
+    float: left;
 }
 
 .select-element, .select-element:after, .select-element:before, .select-element *, .select-element *:after, .select-element *:before {
     box-sizing: border-box;
+    z-index: 2000;
 }
 
 .select-element {
     position: absolute;
     display: none;
+    z-index: 2000;
+    text-align: left;
 }
 .select-element.select-open {
     display: block;
+    z-index: 2000;
+    text-align: left;
 }
 
 .select-theme-dark, .select-theme-dark *, .select-theme-dark *:after, .select-theme-dark *:before {
     box-sizing: border-box;
+    z-index: 2000;
 }
 
 .select.select-theme-dark {
@@ -427,6 +481,7 @@ body{
     -ms-user-select: none;
     -o-user-select: none;
     user-select: none;
+    z-index: 2000;
 }
 .select.select-theme-dark .select-content {
     border-radius: .25em;
@@ -449,24 +504,28 @@ body{
     -webkit-touch-callout: none;
     margin: 0;
     padding: 0;
+    z-index: 2000;
 }
 .select.select-theme-dark .select-options .select-option {
+    z-index: 2000;
     -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none;
     position: relative;
-    list-style: none;
+    /*list-style: none;*/
     margin: 0;
-    line-height: 1.25rem;
-    padding: 0.5rem 1em 0.5rem 2.5em;
+    line-height: 120%;
+    font-size: 80%;
+    padding: 1rem 1em 1rem 1em;
     display: block;
     cursor: pointer;
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;
+    text-align: left;
 }
 .select.select-theme-dark .select-options .select-option:hover, .select.select-theme-dark .select-options .select-option.select-option-highlight {
     background: #63a2f1;
     color: #142535;
+    z-index: 2000;
 }
 
 .select.select-theme-dark .select-options .select-option:first-child {
@@ -477,10 +536,10 @@ body{
 }
 
 .select-target.select-theme-dark {
+    z-index: 2000;
     width: 100%;
     height: 100%;
     position: absolute;
-    z-index: 100;
     vertical-align: middle;
     *zoom: 1;
     *display: inline;
@@ -494,8 +553,8 @@ body{
     padding: 0.5rem 3em 0.5rem 1em;
     background: #97d5dd;
     border:  solid;
-    border-top-color: #3b83ac;
-    border-right-color: #3b83c1;
+    border-top-color: #21485f;
+    border-right-color: #6fb4e8;
     border-top-width: thick;
     border-right-width: thick;
     border-left: none;
@@ -506,7 +565,9 @@ body{
     white-space: nowrap;
     max-width: 100%;
     overflow: hidden;
-    text-overflow: ellipsis;
+    text-overflow: clip;
+    font-size: 70%;
+    line-height: 210%;
 }
 .select-target.select-theme-dark:hover {
     color: #142535;
@@ -594,13 +655,14 @@ body{
     border-left: none;
     border-bottom: none;
     width: 40%;
-    font-size: 120%;
+    font-size: 80%;
     padding-top: 1%;
     padding-bottom: 1%;
     line-height: 120%;
     color: #142535;
     outline: none;
     outline-width: 0px;
+    height: 7%;
 }
 
 .mybt{
@@ -633,17 +695,15 @@ body{
     outline: none;
 }
 
-
-
-
-#scroll {
-    overflow: hidden;
-    position: absolute;
-    width:97.5%;
-    height:75%;
-    margin-top: 20%;
-    background:#97D5DD;
-    text-align: center;
+ul li p{
+    list-style-type: none;
 }
 
-
+.foot{
+    display: inline-block;
+    position: absolute;
+    margin: 0px;
+    width: 100%;
+    height: 23px;
+    background: #BCD5D8;
+}
