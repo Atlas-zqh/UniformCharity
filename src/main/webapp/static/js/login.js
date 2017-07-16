@@ -20,23 +20,24 @@ function login() {
         },
         async: false,
         success: function (data) {
-            if(data.result == "success"){
+            if (data.result == "success") {
                 alert("登陆成功!");
                 document.getElementById("preLogIn").style.display = "none";
                 document.getElementById("afterLogIn").style.display = "inline-block";
                 var tmp = data.userInfo.username;
                 var name = "";
-                for (var i = 0; i < tmp.length; i++){
+                for (var i = 0; i < tmp.length; i++) {
                     name = name + (tmp.charAt(i)) + "<br>";
                 }
                 $('#userName').html(name);
                 $('#iconImage').attr("src", data.userInfo.picurl);
                 $('#loginPanel').css("display", "none");
                 $('#searchPanel').fadeIn();
-
+                setCookie("username", data.userInfo.username, "h1");
+                setCookie("picurl", data.userInfo.picurl, "h1");
                 return;
             }
-            if(data.result == "fail"){
+            if (data.result == "fail") {
                 alert(data.loginInfo);
                 return;
             }
@@ -58,7 +59,8 @@ function quitLog() {
     $('#loginPanel').fadeIn();
     $('#username').val("");
     $('#password').val("");
-
+    delCookie("username");
+    delCookie("picurl");
 }
 
 var gender = "";
@@ -196,3 +198,6 @@ function showSignupPanel() {
     document.getElementById("loginPanel").style.display = "none";
     $("#signupPanel").fadeIn(2000);
 }
+
+
+
