@@ -59,8 +59,8 @@ body{
     text-align: center;
     font-size: 200%;
     color: white;
-    margin-top: 35%;
-    margin-left: 49%;
+    margin-top: 33.2%;
+    margin-left: 48.5%;
 }
 
 #schoolDropDown{
@@ -70,58 +70,6 @@ body{
     padding-bottom: 10%;
     margin-left: 55%;
     margin-top: 79%;
-}
-
-.maleButton{
-    position: absolute;
-    z-index: 100;
-    background-color: #97d5dd;
-    border-top-color: #2d5064;
-    border-right-color: #79b1f0;
-    border-top-width: thick;
-    border-right-width: thick;
-    border-bottom: none;
-    border-left: none;
-    font-family: "Yuppy SC";
-    width: 20%;
-    padding-bottom: 0%;
-    text-align: center;
-    line-height: 200%;
-    color: white;
-    font-size: 100%;
-    margin-top: 35%;
-    margin-left: 25%;
-}
-
-.maleButton:hover{
-    color: #142535;
-    cursor: pointer;
-}
-
-.femaleButton{
-    position: absolute;
-    z-index: 100;
-    background-color: #97d5dd;
-    border-top-color: #2d5064;
-    border-right-color: #79b1f0;
-    border-top-width: thick;
-    border-right-width: thick;
-    border-bottom: none;
-    border-left: none;
-    font-family: "Yuppy SC";
-    width: 20%;
-    padding-bottom: 0%;
-    text-align: center;
-    line-height: 200%;
-    color: white;
-    font-size: 100%;
-    margin-top: 35%;
-    margin-left: 54.7%;
-}
-
-.femaleButton:hover{
-    color: #142535;
-    cursor: pointer;
 }
 
 #typeLabel{
@@ -671,8 +619,8 @@ body{
     z-index: 100;
     background-color: #97d5dd;
     text-shadow: 0 2px 0 grey;
-    border-top-color: #1c4658;
-    border-right-color: #61aeff;
+    border-top-color: #041014;
+    border-right-color: #98dcff;
     border-top-width: thick;
     border-right-width: thick;
     border-bottom: none;
@@ -686,6 +634,7 @@ body{
     font-size: 150%;
     margin-top: 110%;
     margin-left: 30%;
+    cursor: pointer;
 }
 
 .mybt:focus, .mybt:hover, .mybt:active{

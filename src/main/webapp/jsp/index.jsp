@@ -78,18 +78,16 @@
 
 <div id="mainPage"></div>
 
-<form name="loginForm">
-    <div id="loginPanel">
-        <p class="label"
-           style="background: url(/static/images/UserNameLabel.png); background-size: cover; margin-left: 15%; margin-top: 36%; margin-left: 43%; width: 20%"></p>
-        <input id="userName" name="username" class="textInput" style="width: 50%; margin-left: 25%; margin-top: 43%;">
-        <p class="label"
-           style="background: url(/static/images/PasswordLabel.png); background-size: cover; margin-left: 15%; margin-top: 66%; margin-left: 43%; width: 15%"></p>
-        <input id="pas" name="password" class="textInput" type="password"
-               style="width: 50%; margin-left: 25%; margin-top: 73%;">
-        <button id="loginBut" class="mybt" onclick="login()">登 录</button>
-    </div>
-</form>
+<div id="loginPanel">
+    <p class="label"
+       style="background: url(/static/images/UserNameLabel.png); background-size: cover; margin-left: 40.5%; margin-top: 36%; width: 20%"></p>
+    <input id="username" class="textInput" style="width: 50%; margin-left: 25%; margin-top: 43%;">
+    <p class="label"
+       style="background: url(/static/images/PasswordLabel.png); background-size: cover; margin-left: 15%; margin-top: 66%; margin-left: 43%; width: 15%"></p>
+    <input id="password" class="textInput" type="password"
+           style="width: 50%; margin-left: 25%; margin-top: 73%;">
+    <button id="loginBut" class="mybt" onclick="login()">登 录</button>
+</div>
 
 
 <!--图片上传框-->
@@ -208,25 +206,25 @@
 
 <div id="searchPanel" style="display: none">
     <div id="genderLabel"></div>
-    <button class="maleButton">男</button>
+    <button class="mybt" style="margin-top: 35%; margin-left: 25%; width: 20%;">男</button>
     <p class="genderLine">|</p>
-    <button class="femaleButton">女</button>
+    <button class="mybt" style="margin-top: 35%; margin-left: 54.7%; width: 20%;">女</button>
     <div id="typeLabel"></div>
     <div id="typeDropDown">
-        <select data-select-like-alignement="auto" class="drop-select">
+        <select data-select-like-alignement="auto" class="drop-select" style="font-size: 120%">
             <option value="summer">夏季</option>
             <option value="winter" selected="selected">冬季</option>
         </select>
     </div>
     <div id="sizeLabel"></div>
     <div id="sizeDropDown">
-        <select data-select-like-alignement="auto" class="drop-select">
+        <select data-select-like-alignement="auto" class="drop-select" style="font-size: 120%">
             <option value="S">S</option>
             <option value="M" selected="selected">M</option>
             <option value="L">L</option>
         </select>
     </div>
-    <button class="searchButton">搜 索</button>
+    <button class="mybt" style="margin-top: 122%; margin-left: 25%; width: 50%;">搜 索</button>
 
 </div>
 <div id="bulletinPage">

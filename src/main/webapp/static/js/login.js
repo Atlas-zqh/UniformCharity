@@ -1,8 +1,15 @@
 function login() {
-    var username = $('#userName').val();
-    var password = $('#pas').val();
-    alert(username);
-    alert(password)
+    var username = $('#username').val();
+    var password = $('#password').val();
+
+    // alert(username);
+    // alert(password);
+
+    if (username == "" || password == "") {
+        alert("请输入完整信息");
+        return;
+    }
+
     $.ajax({
         url: "userAction/userLogin",
         type: "POST",
@@ -13,10 +20,26 @@ function login() {
         },
         async: false,
         success: function (data) {
-            alert("success");
-//                    var jsonObj = eval('(' + data + ')');
-            alert(data.loginInfo);
-//                    alert(data.password);
+            if(data.result == "success"){
+                alert("登陆成功!");
+                document.getElementById("preLogIn").style.display = "none";
+                document.getElementById("afterLogIn").style.display = "inline-block";
+                var tmp = data.userInfo.username;
+                var name = "";
+                for (var i = 0; i < tmp.length; i++){
+                    name = name + (tmp.charAt(i)) + "<br>";
+                }
+                $('#userName').html(name);
+                $('#iconImage').attr("src", data.userInfo.picurl);
+                $('#loginPanel').css("display", "none");
+                $('#searchPanel').fadeIn();
+
+                return;
+            }
+            if(data.result == "fail"){
+                alert(data.loginInfo);
+                return;
+            }
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             alert("error");
@@ -25,6 +48,17 @@ function login() {
             alert(textStatus);
         }
     });
+}
+
+
+function quitLog() {
+    document.getElementById("preLogIn").style.display = "inline-block";
+    document.getElementById("afterLogIn").style.display = "none";
+    $('#searchPanel').css("display", "none");
+    $('#loginPanel').fadeIn();
+    $('#username').val("");
+    $('#password').val("");
+
 }
 
 var gender = "";

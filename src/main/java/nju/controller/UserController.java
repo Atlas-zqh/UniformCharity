@@ -44,31 +44,31 @@ public class UserController {
         try {
             User user = userService.findUserByID(username);
             if (user == null) {
-                loginInfo = "用户名不存在";
+                loginInfo = "用户名不存在或密码错误";
             } else {
                 loginInfo = "登录成功";
-                map.put("userInfo", user);
+                if(password.equals(user.getPassword())) {
+                    loginInfo = "登录成功";
+                    map.put("result", "success");
+                    map.put("userInfo", user);
+                    return map;
+                }else{
+                    loginInfo = "用户名不存在或密码错误";
+                }
             }
         } catch (Exception e) {
             loginInfo = "用户名不存在";
             e.printStackTrace();
         }
-
-        if (username == null || username.equals("")) {
-            loginInfo = "账号为空";
-        }
-        if (password == null || password.equals("")) {
-            loginInfo = "密码为空";
-        }
+        map.put("result", "fail");
         map.put("loginInfo", loginInfo);
 
-
-        System.out.println(username);
-        System.out.println(password);
-        System.out.println(loginInfo);
-
-        String jsonResult = JSONUtils.toJSONString(map);
-        System.out.println(jsonResult);
+//        System.out.println(username);
+//        System.out.println(password);
+//        System.out.println(loginInfo);
+//
+//        String jsonResult = JSONUtils.toJSONString(map);
+//        System.out.println(jsonResult);
         return map;
     }
 
