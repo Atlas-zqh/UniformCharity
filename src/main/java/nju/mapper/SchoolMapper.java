@@ -52,4 +52,21 @@ public interface SchoolMapper extends Mapper<School> {
      * @return 学校
      */
     List<School> findSchoolByName(String schoolName);
+
+    /**
+     * 根据城市查找学校
+     *
+     * @param schoolCity 城市名称
+     * @return 学校
+     */
+    List<School> findSchoolByCity(String schoolCity);
+
+    /**
+     * 根据城市和区域查找学校
+     *
+     * @param schoolCity     城市
+     * @param schoolDistrict 区
+     * @return 学校
+     */
+    List<School> findSchoolByCityAndDistrict(String schoolCity, String schoolDistrict);
 }

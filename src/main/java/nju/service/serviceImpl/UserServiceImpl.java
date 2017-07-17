@@ -35,7 +35,7 @@ public class UserServiceImpl implements UserService {
     public void addUser(User user) throws InvalidInfoException, UserExistedException, OtherException {
         if (!isValidUserInfo(user)) {
             throw new InvalidInfoException();
-        } else if (null != userMapper.findOneByID(user.getPersonID())) {
+        } else if (null != userMapper.findOneByUsername(user.getUsername())) {
             throw new UserExistedException();
         } else {
             try {
@@ -56,7 +56,7 @@ public class UserServiceImpl implements UserService {
     public void updateUser(User user) throws InvalidInfoException, UserNotExistException, OtherException {
         if (!isValidUserInfo(user)) {
             throw new InvalidInfoException();
-        } else if (null == userMapper.findOneByID(user.getPersonID())) {
+        } else if (null == userMapper.findOneByUsername(user.getUsername())) {
             throw new UserNotExistException();
         } else {
             try {
@@ -68,10 +68,22 @@ public class UserServiceImpl implements UserService {
     }
 
     /**
+     * 根据用户名搜索用户
+     *
+     * @param username 用户名
+     * @return 对应用户名的用户(搜不到传null)
+     * @throws Exception
+     */
+    @Override
+    public User findUserByUsername(Serializable username) throws Exception {
+        return userMapper.findOneByUsername(EncryptionUtil.encrypt("20170522", (String) username));
+    }
+
+    /**
      * 根据ID搜索用户
      *
      * @param ID 用户ID
-     * @return 对应ID的用户(搜不到传null)
+     * @return 对应ID的用户
      * @throws Exception
      */
     @Override

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace指定我们的到具体的bean -->
+<mapper namespace="nju.domain.Type">
+    <insert id="addType" parameterType="Type">
+        INSERT INTO clothes_type
+        (schoolName, clothestype, clothesPrice)
+        VALUES
+        (#{schoolName}, #{clothestype}, #{clothesPrice})
+    </insert>
+
+    <update id="modifyType" parameterType="Type">
+        UPDATE clothes_type
+        SET clothesPrice=#{clothesPrice},
+        WHERE schoolName=#{schoolName}, clothestype=#{clothestype}
+    </update>
+
+    <select id="findAllTypesOfSchool" resultType="Type" parameterType="String">
+       SELECT * FROM clothes_type
+       WHERE schoolName=#{schoolName}
+   </select>
+
+    <select id="findAllTypes" resultType="Type">
+        SELECT * FROM clothes_type
+    </select>
+
+    <select id="findType" resultType="Type">
+        SELECT * FROM clothes_type WHERE schoolName=#{0} AND clothestype=#{1}
+    </select>
+</mapper>

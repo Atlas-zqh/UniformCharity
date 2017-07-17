@@ -32,4 +32,12 @@
         SELECT * FROM school WHERE schoolName=#{schoolName}
     </select>
 
+    <select id="findSchoolByCity" resultType="School" parameterType="String">
+        SELECT * FROM school WHERE schoolCity=#{schoolCity}
+    </select>
+
+    <select id="findSchoolByCityAndDistrict" resultType="School">
+        SELECT * FROM school WHERE schoolCity=#{0} AND schoolDistrict=#{1}
+    </select>
+
 </mapper>

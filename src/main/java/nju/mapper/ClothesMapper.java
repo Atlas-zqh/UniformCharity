@@ -8,6 +8,7 @@ import java.util.List;
 /**
  * Created by keenan on 24/05/2017.
  */
+
 public interface ClothesMapper extends Mapper<Clothes> {
     /**
      * 增加某个对象

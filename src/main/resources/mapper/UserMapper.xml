@@ -8,6 +8,10 @@
         SELECT * FROM student WHERE personID=#{ID}
     </select>
 
+    <select id="findUserByUsername" resultType="User" parameterType="String">
+        SELECT * FROM student WHERE username=#{username}
+    </select>
+
     <!--新增-->
     <insert id="add" parameterType="User">
         INSERT

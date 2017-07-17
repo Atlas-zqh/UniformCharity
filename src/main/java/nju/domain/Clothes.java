@@ -1,12 +1,14 @@
 package nju.domain;
 
+import java.util.HashMap;
+
 /**
  * Created by keenan on 23/05/2017.
  */
 public class Clothes {
     public static final String XXXS = "XXXS", XXS = "XXS", XS = "XS", S = "S", M = "M", L = "L", XL = "XL", XXL = "XXL";
 
-    public static Integer AVAILABLE = 0, OCCUPIED = 1;
+    public static String AVAILABLE = "Available", OCCUPIED = "Occupied";
 
     private String clothesID;
 
@@ -24,9 +26,9 @@ public class Clothes {
 
     private String donor;
 
-    private Integer status;
+    private String status;
 
-    public Clothes(String clothesID, String schoolName, String size, String type, String picUrl, Double price, String donor, String gender, Integer status) {
+    public Clothes(String clothesID, String schoolName, String size, String type, String picUrl, Double price, String donor, String gender, String status) {
         this.clothesID = clothesID;
         this.schoolName = schoolName;
         this.size = size;
@@ -102,11 +104,26 @@ public class Clothes {
         this.gender = gender;
     }
 
-    public Integer getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(Integer status) {
+    public void setStatus(String status) {
         this.status = status;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Clothes)) return false;
+
+        Clothes clothes = (Clothes) o;
+
+        return clothesID.equals(clothes.clothesID);
+    }
+
+    @Override
+    public int hashCode() {
+        return clothesID.hashCode();
     }
 }
