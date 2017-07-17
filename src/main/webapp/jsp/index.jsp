@@ -78,6 +78,7 @@
 
 <div id="mainPage"></div>
 
+
 <div id="loginPanel">
     <p class="label"
        style="background: url(/static/images/UserNameLabel.png); background-size: cover; margin-left: 40.5%; margin-top: 36%; width: 20%"></p>
@@ -205,26 +206,27 @@
 </div>
 
 <div id="searchPanel" style="display: none">
-    <div id="genderLabel"></div>
-    <button class="mybt" style="margin-top: 35%; margin-left: 25%; width: 20%;">男</button>
+    <div id="genderLabel" style="margin-top: 20%"></div>
+    <button class="mybt" style="margin-top: 30%; margin-left: 25%; width: 20%;">男</button>
     <p class="genderLine">|</p>
-    <button class="mybt" style="margin-top: 35%; margin-left: 54.7%; width: 20%;">女</button>
-    <div id="typeLabel"></div>
-    <div id="typeDropDown">
-        <select data-select-like-alignement="auto" class="drop-select" style="font-size: 120%">
+    <button class="mybt" style="margin-top: 30%; margin-left: 54.7%; width: 20%;">女</button>
+    <div id="typeLabel" style="margin-top: 45%"></div>
+    <div id="typeDropDown" style="margin-top: 55%; font-size: 200%; font-family: 'Yuppy SC'; text-shadow: 0 2px 0 grey;">
+        <select data-select-like-alignement="auto" class="drop-select" style="font-size: 150%">
             <option value="summer">夏季</option>
             <option value="winter" selected="selected">冬季</option>
         </select>
     </div>
-    <div id="sizeLabel"></div>
-    <div id="sizeDropDown">
-        <select data-select-like-alignement="auto" class="drop-select" style="font-size: 120%">
+    <div id="sizeLabel" style="margin-top: 70%"></div>
+    <div id="sizeDropDown" style="margin-top: 80%; font-size: 200%; font-family: 'Yuppy SC'; text-shadow: 0 2px 0 grey;">
+        <select data-select-like-alignement="auto" class="drop-select" style="font-size: 150%">
             <option value="S">S</option>
             <option value="M" selected="selected">M</option>
             <option value="L">L</option>
         </select>
     </div>
-    <button class="mybt" style="margin-top: 122%; margin-left: 25%; width: 50%;">搜 索</button>
+    <button class="mybt" style="margin-top: 105%; margin-left: 25%; width: 50%;">搜 索</button>
+    <button class="mybt" style="margin-top: 120%; margin-left: 40%; width: 40%; display: inline-block">立即捐衣! ></button>
 
 </div>
 <div id="bulletinPage">

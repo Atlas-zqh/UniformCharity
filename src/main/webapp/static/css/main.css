@@ -59,7 +59,7 @@ body{
     text-align: center;
     font-size: 200%;
     color: white;
-    margin-top: 33.2%;
+    margin-top: 28.2%;
     margin-left: 48.5%;
 }
 
@@ -498,7 +498,7 @@ body{
     user-select: none;
     -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none;
-    padding: 0.5rem 3em 0.5rem 1em;
+    padding: 0.2rem 3em 0.2rem 0.5em;
     background: #97d5dd;
     border:  solid;
     border-top-color: #21485f;
@@ -515,7 +515,7 @@ body{
     overflow: hidden;
     text-overflow: clip;
     font-size: 70%;
-    line-height: 210%;
+    /*line-height: 210%;*/
 }
 .select-target.select-theme-dark:hover {
     color: #142535;
@@ -549,11 +549,11 @@ body{
     border: .263em solid transparent;
 }
 .select-target.select-theme-dark b:before {
-    top: 0;
+    top: -50%;
     border-bottom-color: inherit;
 }
 .select-target.select-theme-dark b:after {
-    bottom: 0;
+    bottom: -50%;
     border-top-color: inherit;
 }
 

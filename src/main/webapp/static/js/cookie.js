@@ -2,8 +2,7 @@
  * Created by island on 2017/7/16.
  */
 var username = document.cookie.split(";")[0].split("=")[1];
-//JS操作cookies方法!
-//写cookies
+//JS操作cookies方法
 function setCookie(name, value) {
     var Days = 30;
     var exp = new Date();
@@ -28,11 +27,7 @@ function delCookie(name) {
 }
 
 //如果需要设定自定义过期时间
-//那么把上面的setCookie　函数换成下面两个函数就ok;
-//这是有设定过期时间的使用示例：
-//s20是代表20秒
-//h是指小时，如12小时则是：h12
-//d是天数，30天则：d30
+//s秒 h小时 d天数
 function setCookie(name, value, time) {
     var strsec = getsec(time);
     var exp = new Date();
