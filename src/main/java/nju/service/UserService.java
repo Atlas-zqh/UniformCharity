@@ -26,6 +26,15 @@ public interface UserService {
     void updateUser(User user) throws Exception;
 
     /**
+     * 根据用户名搜索用户
+     *
+     * @param username 用户名
+     * @return 对应用户名的用户
+     * @throws Exception
+     */
+    User findUserByUsername(Serializable username) throws Exception;
+
+    /**
      * 根据ID搜索用户
      *
      * @param ID 用户ID

@@ -1,7 +1,6 @@
 package nju.utils;
 
-import nju.domain.Order;
-import nju.domain.User;
+import nju.domain.*;
 import org.apache.ibatis.executor.Executor;
 import org.apache.ibatis.mapping.MappedStatement;
 import org.apache.ibatis.plugin.*;
@@ -35,13 +34,27 @@ public class DBInterceptor implements Interceptor {
                 user.setStudentRealName(EncryptionUtil.encrypt(key, user.getStudentRealName()));
                 user.setEmail(EncryptionUtil.encrypt(key, user.getEmail()));
                 user.setPersonID(EncryptionUtil.encrypt(key, user.getPersonID()));
-//                user.setPassword(Digests.md5(user.getPassword().getBytes()));
             }
         } else if (parameter instanceof Order) {
             Order order = (Order) parameter;
             if (methodName.equals("update")) {
                 order.setBuyerID(EncryptionUtil.encrypt(key, order.getBuyerID()));
                 order.setDonorID(EncryptionUtil.encrypt(key, order.getDonorID()));
+            }
+        } else if (parameter instanceof Clothes) {
+            Clothes clothes = (Clothes) parameter;
+            if (methodName.equals("update")) {
+                clothes.setDonor(EncryptionUtil.encrypt(key, clothes.getDonor()));
+            }
+        } else if (parameter instanceof Post) {
+            Post post = (Post) parameter;
+            if (methodName.contains("update")) {
+                post.setPost_userID(EncryptionUtil.encrypt(key, post.getPost_userID()));
+            }
+        } else if (parameter instanceof Reply) {
+            Reply reply = (Reply) parameter;
+            if (methodName.equals("update")) {
+                reply.setReply_userID(EncryptionUtil.encrypt(key, reply.getReply_userID()));
             }
         }
 
@@ -62,8 +75,16 @@ public class DBInterceptor implements Interceptor {
                     Order order = (Order) val;
                     order.setBuyerID(EncryptionUtil.decrypt(key, order.getBuyerID()));
                     order.setDonorID(EncryptionUtil.decrypt(key, order.getDonorID()));
+                } else if (val instanceof Clothes) {
+                    Clothes clothes = (Clothes) val;
+                    clothes.setDonor(EncryptionUtil.decrypt(key, clothes.getDonor()));
+                } else if (val instanceof Post) {
+                    Post post = (Post) val;
+                    post.setPost_userID(EncryptionUtil.decrypt(key, post.getPost_userID()));
+                } else if (val instanceof Reply) {
+                    Reply reply = (Reply) val;
+                    reply.setReply_userID(EncryptionUtil.decrypt(key, reply.getReply_userID()));
                 }
-
 
             }
         }

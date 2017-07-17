@@ -42,7 +42,7 @@ public class UserController {
         String loginInfo = "";
 
         try {
-            User user = userService.findUserByID(username);
+            User user = userService.findUserByUsername(username);
             if (user == null) {
                 loginInfo = "用户名不存在或密码错误";
             } else {

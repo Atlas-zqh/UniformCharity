@@ -44,6 +44,14 @@ public interface UserMapper extends Mapper<User> {
     User findOneByID(Serializable ID);
 
     /**
+     * 根据用户名查找某个对象
+     *
+     * @param username 用户名
+     * @return 对应用户，没找到返回null
+     */
+    User findOneByUsername(Serializable username);
+
+    /**
      * 获得所有该类对象
      *
      * @return 所有该类对象
