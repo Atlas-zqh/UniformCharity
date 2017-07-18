@@ -50,6 +50,17 @@
             });
         });
 
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1000);
+            });
+        });
+
+        $(document).ready(function () {
+            checkCookie();
+        });
+
     </script>
     <%--<style type="text/css">--%>
     <%--.up-img-cover {width: 100px;height: 100px;}--%>
@@ -77,6 +88,8 @@
 <%--</div>--%>
 
 <div id="mainPage"></div>
+<p class="titleP">现在就加入我们！</p>
+<button class="mybt" style="margin-top: 120%; margin-left: 40%; width: 40%; display: inline-block">立即捐衣! ></button>
 
 
 <div id="loginPanel">
@@ -177,15 +190,11 @@
 
     <p class="label"
        style="background: url(/static/images/SchoolLabel.png); background-size: cover; margin-left: 61.5%; margin-top: 73%; width: 27%"></p>
-    <div id="schoolDropDown" style="height: 7%">
+    <div id="schoolDropDown" style="height: 7%; line-height: 200%">
         <select data-select-like-alignement="auto" class="drop-select" id="schoolDrop">
             <option value="a" selected="selected"></option>
-            <option value="b">南京外国语学校仙林分校</option>
-            <option value="c">南京外国语学校仙林分校</option>
-            <option value="d">南京外国语学校仙林分校</option>
-            <option value="e">南京外国语学校仙林分校</option>
-            <option value="f">南京外国语学校仙林分校</option>
-            <option value="g">南京</option>
+            <%--<option value="b">南京外国语学校仙林分校</option>--%>
+            <%--<option value="g">南京</option>--%>
         </select>
     </div>
     <%--<input id="schoolTextField" class="textInput" style="margin-left: 55%; margin-top: 79%">--%>
@@ -211,14 +220,16 @@
     <p class="genderLine">|</p>
     <button class="mybt" style="margin-top: 30%; margin-left: 54.7%; width: 20%;">女</button>
     <div id="typeLabel" style="margin-top: 45%"></div>
-    <div id="typeDropDown" style="margin-top: 55%; font-size: 200%; font-family: 'Yuppy SC'; text-shadow: 0 2px 0 grey;">
+    <div id="typeDropDown"
+         style="margin-top: 55%; font-size: 200%; font-family: 'Yuppy SC'; text-shadow: 0 2px 0 grey;">
         <select data-select-like-alignement="auto" class="drop-select" style="font-size: 150%">
             <option value="summer">夏季</option>
             <option value="winter" selected="selected">冬季</option>
         </select>
     </div>
     <div id="sizeLabel" style="margin-top: 70%"></div>
-    <div id="sizeDropDown" style="margin-top: 80%; font-size: 200%; font-family: 'Yuppy SC'; text-shadow: 0 2px 0 grey;">
+    <div id="sizeDropDown"
+         style="margin-top: 80%; font-size: 200%; font-family: 'Yuppy SC'; text-shadow: 0 2px 0 grey;">
         <select data-select-like-alignement="auto" class="drop-select" style="font-size: 150%">
             <option value="S">S</option>
             <option value="M" selected="selected">M</option>
@@ -226,8 +237,6 @@
         </select>
     </div>
     <button class="mybt" style="margin-top: 105%; margin-left: 25%; width: 50%;">搜 索</button>
-    <button class="mybt" style="margin-top: 120%; margin-left: 40%; width: 40%; display: inline-block">立即捐衣! ></button>
-
 </div>
 <div id="bulletinPage">
 </div>
@@ -394,6 +403,7 @@
     <%--<p style="position:absolute; display: inline-block; z-index: 2; color: grey; margin-top: 0%; text-align: center; line-height: 100%; width: 100%; font-size: 90%;">与子同袍项目组 copyright@2017</p>--%>
 </div>
 
+<script type="text/javascript" src="../static/js/SmoothScroll.min.js"></script>
 <script type="text/javascript" src="/static/js/jquery.min.js" charset="utf-8"></script>
 <script type="text/javascript" src="/static/js/tether.js"></script>
 <script type="text/javascript" src="/static/js/main.js"></script>
@@ -401,9 +411,12 @@
 <script type="text/javascript" src="/static/js/scroll.js"></script>
 <script type="text/javascript" src="/static/js/login.js"></script>
 <script type="text/javascript" src="/static/js/cookie.js"></script>
+<script type="text/javascript" src="/static/js/bootstrap.js"></script>
 <script type="text/javascript" src="http://cdn.amazeui.org/amazeui/2.7.2/js/amazeui.js" charset="utf-8"></script>
 <script type="text/javascript" src="/static/js/cropper.min.js" charset="utf-8"></script>
 <script type="text/javascript" src="/static/js/custom_up_img.js" charset="utf-8"></script>
+<script type="text/javascript" src="../static/js/move-top.js"></script>
+<script type="text/javascript" src="../static/js/easing.js"></script>
 
 <script>
     $('select.drop-select').each(function () {
@@ -414,5 +427,34 @@
         });
     });
 </script>
+
+<!-- here stars scrolling icon -->
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        var defaults = {
+            containerID: 'toTop', // fading element id
+            containerHoverID: 'toTopHover', // fading element hover id
+            scrollSpeed: 1200,
+            easingType: 'linear'
+        };
+
+
+        $().UItoTop({easingType: 'easeOutQuart'});
+
+        $('#toTop').css({"display": "block",
+        "position": "fixed",
+        "bottom": "0%",
+        "float": "right",
+        "margin-left": "96.5%",
+        "z-index": "5000",
+        "background" : "url(../images/up.png)no-repeat",
+        "width": "1.5%",
+        "padding-top": "1.5%",
+        "background-size": "cover"});
+
+    });
+</script>
+<!-- //here ends scrolling icon -->
 </body>
 </html>

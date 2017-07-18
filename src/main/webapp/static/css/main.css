@@ -656,3 +656,15 @@ ul li p{
     height: 23px;
     background: #BCD5D8;
 }
+
+.titleP {
+    display: inline-block;
+    position: absolute;
+    font-family: "Yuppy SC";
+    font-family: "Yuppy SC";
+    font-size: 3em;
+    color: white;
+    text-shadow: -0.05em 0.05em 0px lightgrey;
+    margin-top: 27%;
+    margin-left: 28%;
+}
