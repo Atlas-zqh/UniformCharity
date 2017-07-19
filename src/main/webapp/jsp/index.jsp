@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="../static/css/amazeui.min.css">
     <link rel="stylesheet" href="../static/css/amazeui.cropper.css">
     <link rel="stylesheet" href="../static/css/main.css"/>
+    <link rel="stylesheet" href="../static/css/upload.css"/>
     <link rel="stylesheet" type="text/css" href="http://cdn.amazeui.org/amazeui/2.7.2/css/amazeui.css">
     <link rel="stylesheet" type="text/css" href="http://cdn.amazeui.org/amazeui/2.7.2/css/amazeui.min.css">
 
@@ -60,7 +61,6 @@
         $(document).ready(function () {
             checkCookie();
         });
-
     </script>
     <%--<style type="text/css">--%>
     <%--.up-img-cover {width: 100px;height: 100px;}--%>
@@ -86,10 +86,12 @@
 <%--<div class="bt"><a href="#toSignupPanel" onclick="showSignupPanel()">注<br>册</a></div>--%>
 <%--</div>--%>
 <%--</div>--%>
+<div id="fullbg"></div>
 
 <div id="mainPage"></div>
 <p class="titleP">现在就加入我们！</p>
-<button class="mybt" style="margin-top: 120%; margin-left: 40%; width: 40%; display: inline-block">立即捐衣! ></button>
+<button class="uploadBut" onclick="showUploadView()">立即捐衣! ></button>
+<%@ include file="uploadClothes.jsp" %>
 
 
 <div id="loginPanel">
@@ -417,6 +419,7 @@
 <script type="text/javascript" src="/static/js/custom_up_img.js" charset="utf-8"></script>
 <script type="text/javascript" src="../static/js/move-top.js"></script>
 <script type="text/javascript" src="../static/js/easing.js"></script>
+<script type="text/javascript" src="../static/js/upload.js"></script>
 
 <script>
     $('select.drop-select').each(function () {
@@ -442,7 +445,7 @@
 
         $().UItoTop({easingType: 'easeOutQuart'});
 
-        $('#toTop').css({"display": "block",
+        $('#toTop').css({"display": "none",
         "position": "fixed",
         "bottom": "0%",
         "float": "right",

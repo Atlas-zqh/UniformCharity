@@ -618,7 +618,7 @@ body{
     position: absolute;
     z-index: 100;
     background-color: #97d5dd;
-    text-shadow: 0 2px 0 grey;
+    text-shadow: -2px 2px 0 grey;
     border-top-color: #041014;
     border-right-color: #98dcff;
     border-top-width: thick;
@@ -639,7 +639,40 @@ body{
 
 .mybt:focus, .mybt:hover, .mybt:active{
     color: #142535;
-    text-shadow: 0 2px 0 lightgrey;
+    text-shadow: -2px 2px 0 lightgrey;
+    outline-width: 0;
+    outline: none;
+}
+
+.uploadBut{
+    letter-spacing: normal;
+    position: absolute;
+    display: inline-block;
+    z-index: 100;
+    background-color: #39576e;
+    text-shadow: -1px 1px 0 #78652d;
+    border-color: #d6bd6f;
+    /*border-top-color: #041014;*/
+    /*border-right-color: #98dcff;*/
+    /*border-top-width: thick;*/
+    /*border-right-width: thick;*/
+    /*border-bottom: none;*/
+    /*border-left: none;*/
+    font-family: "Yuppy SC";
+    width: 10%;
+    padding-bottom: 0%;
+    text-align: center;
+    line-height: 130%;
+    color: #d6bd6f;
+    font-size: 150%;
+    margin-top: 32%;
+    margin-left: 42%;
+    cursor: pointer;
+}
+
+.uploadBut:focus, .uploadBut:hover, .uploadBut:active{
+    color: #ffffff;
+    text-shadow: -1px 1px 0 grey;
     outline-width: 0;
     outline: none;
 }
@@ -667,4 +700,16 @@ ul li p{
     text-shadow: -0.05em 0.05em 0px lightgrey;
     margin-top: 27%;
     margin-left: 28%;
+}
+
+#fullbg {
+    background-color:gray;
+    left:0;
+    opacity:0.5;
+    position:absolute;
+    top:0;
+    z-index:3;
+    filter:alpha(opacity=50);
+    -moz-opacity:0.5;
+    -khtml-opacity:0.5;
 }
