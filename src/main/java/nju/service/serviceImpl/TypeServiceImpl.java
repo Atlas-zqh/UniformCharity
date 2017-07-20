@@ -1,5 +1,7 @@
 package nju.service.serviceImpl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import nju.domain.Type;
 import nju.mapper.TypeMapper;
 import nju.service.TypeService;

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- namespace指定我们的到具体的bean -->
-<mapper namespace="nju.domain.Type">
+<mapper namespace="nju.mapper.TypeMapper">
     <insert id="addType" parameterType="Type">
         INSERT INTO clothes_type
         (schoolName, clothestype, clothesPrice)

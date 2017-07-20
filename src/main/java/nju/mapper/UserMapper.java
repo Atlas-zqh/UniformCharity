@@ -41,7 +41,7 @@ public interface UserMapper extends Mapper<User> {
      * @param ID
      * @return 查找结果，没找到返回null
      */
-    User findOneByID(Serializable ID);
+    User findOneByID(String ID);
 
     /**
      * 根据用户名查找某个对象
@@ -49,7 +49,7 @@ public interface UserMapper extends Mapper<User> {
      * @param username 用户名
      * @return 对应用户，没找到返回null
      */
-    User findOneByUsername(Serializable username);
+    User findOneByUsername(String username);
 
     /**
      * 获得所有该类对象

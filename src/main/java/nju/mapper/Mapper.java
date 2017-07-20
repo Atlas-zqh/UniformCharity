@@ -41,7 +41,7 @@ public interface Mapper<T> {
      * @param ID
      * @return 查找结果，没找到返回null
      */
-    T findOneByID(Serializable ID);
+    T findOneByID(String ID);
 
     /**
      * 获得所有该类对象

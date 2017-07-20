@@ -1,6 +1,8 @@
 package nju.mapper;
 
 import nju.domain.Clothes;
+import nju.utils.ClothesQueryHelper;
+import org.apache.ibatis.annotations.Param;
 
 import java.io.Serializable;
 import java.util.List;
@@ -35,7 +37,7 @@ public interface ClothesMapper extends Mapper<Clothes> {
      * @return 查找结果，没找到返回null
      */
     @Override
-    Clothes findOneByID(Serializable ID);
+    Clothes findOneByID(String ID);
 
     /**
      * 获得所有该类对象
@@ -44,4 +46,6 @@ public interface ClothesMapper extends Mapper<Clothes> {
      */
     @Override
     List<Clothes> findAll();
+
+    List<Clothes> findByAttribute(ClothesQueryHelper helper);
 }

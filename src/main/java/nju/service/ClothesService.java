@@ -1,5 +1,6 @@
 package nju.service;
 
+import com.github.pagehelper.PageInfo;
 import nju.domain.Clothes;
 import nju.utils.ClothesAttributes;
 
@@ -38,13 +39,13 @@ public interface ClothesService {
      * @param attributes 衣物属性
      * @return
      */
-    List<Clothes> findClothesByAttributes(Map<ClothesAttributes, String> attributes);
+    PageInfo<Clothes> findClothesByAttributes(Map<ClothesAttributes, String> attributes, int pageNo, int pageSize);
 
     /**
      * 获得所有衣物
      *
      * @return
      */
-    List<Clothes> getAllClothes();
+    PageInfo<Clothes> getAllClothes(int pageNo, int pageSize);
 
 }

@@ -1,16 +1,16 @@
 package nju.service.serviceImpl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import nju.domain.Clothes;
 import nju.mapper.ClothesMapper;
 import nju.service.ClothesService;
 import nju.utils.ClothesAttributes;
+import nju.utils.ClothesQueryHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.Collections;
+import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Map;
 
@@ -60,15 +60,12 @@ public class ClothesServiceImpl implements ClothesService {
      * @return
      */
     @Override
-    public List<Clothes> findClothesByAttributes(Map<ClothesAttributes, String> attributes) {
-        List<Clothes> allClothes = clothesMapper.findAll();
-        for (Map.Entry<ClothesAttributes, String> entry : attributes.entrySet()) {
-            allClothes = findCorreClothes(entry.getKey(), entry.getValue(), allClothes);
-            if (allClothes.isEmpty()) {
-                return allClothes;
-            }
-        }
-        return allClothes;
+    public PageInfo<Clothes> findClothesByAttributes(Map<ClothesAttributes, String> attributes, int pageNo, int pageSize) {
+        ClothesQueryHelper helper = getQueryHelper(attributes);
+        PageHelper.startPage(pageNo, pageSize);
+        List<Clothes> clothes = clothesMapper.findByAttribute(helper);
+        PageInfo<Clothes> pageInfo = new PageInfo<>(clothes);
+        return pageInfo;
     }
 
     /**
@@ -77,30 +74,32 @@ public class ClothesServiceImpl implements ClothesService {
      * @return
      */
     @Override
-    public List<Clothes> getAllClothes() {
-        return clothesMapper.findAll();
+    public PageInfo<Clothes> getAllClothes(int pageNo, int pageSize) {
+        PageHelper.startPage(pageNo, pageSize);
+        List<Clothes> clothes = clothesMapper.findAll();
+        PageInfo<Clothes> clothesPageInfo = new PageInfo<>(clothes);
+        return clothesPageInfo;
     }
 
-    private List<Clothes> findCorreClothes(ClothesAttributes attribute, String value, List<Clothes> fromCollection) {
-        Class<Clothes> clazz = Clothes.class;
-        List<Clothes> match = new ArrayList<>();
+    /**
+     * 将map封装为 ClothesQueryHelper
+     *
+     * @param attributes
+     * @return
+     */
+    private ClothesQueryHelper getQueryHelper(Map<ClothesAttributes, String> attributes) {
+        ClothesQueryHelper helper = new ClothesQueryHelper();
+        Class<ClothesQueryHelper> clazz = ClothesQueryHelper.class;
         try {
-            Method method = clazz.getMethod("get" + attribute.toString());
-            for (Clothes clothes : fromCollection) {
-                String val = (String) method.invoke(clothes);
-                if (val.equals(value)) {
-                    match.add(clothes);
-                }
+            for (Map.Entry<ClothesAttributes, String> entry : attributes.entrySet()) {
+                Field field = clazz.getDeclaredField(entry.getKey().toString());
+                field.setAccessible(true);
+                field.set(helper, entry.getValue());
             }
-        } catch (NoSuchMethodException e) {
-            return new ArrayList<>();
-        } catch (IllegalAccessException e) {
-            return new ArrayList<>();
-        } catch (InvocationTargetException e) {
-            return new ArrayList<>();
+            return helper;
+        } catch (Exception e) {
+            return new ClothesQueryHelper();
         }
-
-        return match;
     }
 
 }

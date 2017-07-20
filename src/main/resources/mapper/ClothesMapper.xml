@@ -26,4 +26,28 @@
     <select id="findAll" resultType="Clothes">
         SELECT * FROM clothes
     </select>
+
+    <select id="findByAttribute" parameterType="nju.utils.ClothesQueryHelper" resultType="Clothes">
+        SELECT * FROM clothes
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+            <if test="schoolName != null">
+                schoolName=#{schoolName}
+            </if>
+            <if test="size != null">
+                AND clothessize=#{size}
+            </if>
+            <if test="type != null">
+                AND clothesType=#{type}
+            </if>
+            <if test="gender != null">
+                AND gender=#{gender}
+            </if>
+            <if test="donor != donor">
+                AND donorID=#{donor}
+            </if>
+            <if test="status != null">
+                AND status=#{status}
+            </if>
+        </trim>
+    </select>
 </mapper>
