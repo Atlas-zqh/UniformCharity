@@ -35,7 +35,7 @@
     <div class="leftNavBar" align="left">
         <div class="bt"><a href="../jsp/index.jsp">首<br>页</a></div>
         <div class="navLabel"><p><br>—<br></p></div>
-        <div class="bt"><a href="userInfo.jsp">我<br>的<br>主<br>页</a></div>
+        <div class="bt"><a href="../jsp/userInfo.jsp">我<br>的<br>主<br>页</a></div>
         <div class="navLabel"><p><br>—<br></p></div>
         <div class="bt"><a href="../static/html/404.html">我<br>的<br>交<br>易</a></div>
     </div>

@@ -406,17 +406,17 @@
 </div>
 
 <script type="text/javascript" src="../static/js/SmoothScroll.min.js"></script>
-<script type="text/javascript" src="/static/js/jquery.min.js" charset="utf-8"></script>
-<script type="text/javascript" src="/static/js/tether.js"></script>
-<script type="text/javascript" src="/static/js/main.js"></script>
-<script type="text/javascript" src="/static/js/select.js"></script>
-<script type="text/javascript" src="/static/js/scroll.js"></script>
-<script type="text/javascript" src="/static/js/login.js"></script>
-<script type="text/javascript" src="/static/js/cookie.js"></script>
-<script type="text/javascript" src="/static/js/bootstrap.js"></script>
+<script type="text/javascript" src="../static/js/jquery.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="../static/js/tether.js"></script>
+<script type="text/javascript" src="../static/js/main.js"></script>
+<script type="text/javascript" src="../static/js/select.js"></script>
+<script type="text/javascript" src="../static/js/scroll.js"></script>
+<script type="text/javascript" src="../static/js/login.js"></script>
+<script type="text/javascript" src="../static/js/cookie.js"></script>
+<script type="text/javascript" src="../static/js/bootstrap.js"></script>
 <script type="text/javascript" src="http://cdn.amazeui.org/amazeui/2.7.2/js/amazeui.js" charset="utf-8"></script>
-<script type="text/javascript" src="/static/js/cropper.min.js" charset="utf-8"></script>
-<script type="text/javascript" src="/static/js/custom_up_img.js" charset="utf-8"></script>
+<script type="text/javascript" src="../static/js/cropper.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="../static/js/custom_up_img.js" charset="utf-8"></script>
 <script type="text/javascript" src="../static/js/move-top.js"></script>
 <script type="text/javascript" src="../static/js/easing.js"></script>
 <script type="text/javascript" src="../static/js/upload.js"></script>
