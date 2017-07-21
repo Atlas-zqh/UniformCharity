@@ -1,0 +1,121 @@
+body {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    height: 0;
+}
+html{
+    background-color: lightblue;
+
+}
+#detailArea {
+    display: inline-block;
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    z-index: 10;
+    margin-left: 23px;
+    margin-top: 23px;
+    margin-right: 23px;
+    background-size: cover;
+    min-height: 0%;
+    width: 97%;
+    padding-bottom: 100%;
+    height: 0;
+}
+
+#detailArea .titleP{
+
+}
+
+#detailArea #headPart {
+    display: inline-block;
+    background-color: #ffffff;
+    width: 95%;
+    margin-left: 2.5%;
+    margin-top: 2.5%;
+    padding-bottom: 2%;
+}
+
+
+#detailArea #headPart #imageArea{
+    display: inline-block;
+    width: 40%;
+    margin-left: 8%;
+    /*margin-top: 2.5%;*/
+}
+
+#detailArea #headPart .largeImage {
+    /*display: inline-block;*/
+    /*width: 418px;*/
+    /*height: 418px;*/
+    border: 1px solid rgba(0, 0, 0, .05);
+    /*border: 1px solid silver\9;*/
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#detailArea #headPart #imageArea .imageBox {
+    border: 1px solid rgba(0, 0, 0, .05);
+    /*border: 1px solid silver\9;*/
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+#detailArea #headPart #imageArea .imageBox:hover {
+    border: 1px solid #DABD61;
+    /*border: 1px solid silver\9;*/
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+#detailArea #headPart #infoArea{
+    display: inline-block;
+    width: 50%;
+    float: right;
+    background-color: white;
+}
+
+#detailArea #headPart #infoArea .contentP{
+    text-decoration: none;
+    font-size: 1.2vmax;
+    letter-spacing: 0.1vmax;
+    font-weight: bold;
+    color: #142535;
+    margin-left: 2%;
+    margin-top: 112%;
+    width: 20%;
+}
+
+#detailArea #headPart #infoArea a{
+    font-size: 1.5vmax;
+    color: #142535;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#detailArea #headPart #infoArea a:hover{
+    color: #DABD61;
+    text-decoration: underline;
+}
+
+#detailArea #detailPart {
+    display: inline-block;
+    background-color: #ffffff;
+    width: 95%;
+    margin-left: 2.5%;
+    margin-top: 2.5%;
+    padding-bottom: 2%;
+}
+
+#detailArea #detailPart img{
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 2%;
+    height: auto;
+}

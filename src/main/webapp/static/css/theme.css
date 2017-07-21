@@ -254,3 +254,53 @@ ul {
     bottom: -50%;
     border-top-color: inherit;
 }
+
+h1{
+    font-family: "Yuppy SC";
+    font-size: 3vmax;
+    white-space: nowrap;
+    color: #DABD61;
+    text-shadow: -0.2vmax 0.2vmax 0 #7A6420;
+    margin-top: 2%;
+    margin-left: 2%;
+}
+
+h2{
+    font-family: "Yuppy SC";
+    font-size: 2vmax;
+    white-space: nowrap;
+    color: #87b4bf;
+    text-shadow: -0.1vmax 0.1vmax 0 #315770;
+    margin-top: 1%;
+    margin-left: 1%;
+}
+
+h3{
+    font-family: "Yuppy SC";
+    font-size: 2vmax;
+    white-space: nowrap;
+    color: #DABD61;
+    text-shadow: -0.2vmax 0.2vmax 0 #7A6420;
+    margin-top: 1%;
+    margin-left: 1%;
+}
+
+h4{
+    font-family: "Yuppy SC";
+    font-size: 1.5vmax;
+    white-space: nowrap;
+    color: #87b4bf;
+    text-shadow: -0.1vmax 0.1vmax 0 #315770;
+    margin-top: 1%;
+    margin-left: 1%;
+}
+
+h5{
+    font-family: "Yuppy SC";
+    font-size: 1.5vmax;
+    white-space: nowrap;
+    color: #bfbfbf;
+    text-shadow: -0.1vmax 0.1vmax 0 grey;
+    margin-top: 1%;
+    margin-left: 1%;
+}
