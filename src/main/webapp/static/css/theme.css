@@ -61,25 +61,21 @@ ul {
 
 .mybt{
     letter-spacing: normal;
-    position: absolute;
     z-index: 100;
     background-color: #97d5dd;
-    text-shadow: -2px 2px 0 grey;
-    border-top-color: #041014;
-    border-right-color: #98dcff;
+    text-shadow: 0 2px 0 grey;
+    border-top-color: #1c4658;
+    border-right-color: #61aeff;
     border-top-width: thick;
     border-right-width: thick;
     border-bottom: none;
     border-left: none;
     font-family: "Yuppy SC";
-    width: 40%;
+    width: 10%;
     padding-bottom: 0%;
     text-align: center;
-    line-height: 130%;
     color: white;
-    font-size: 150%;
-    margin-top: 110%;
-    margin-left: 30%;
+    font-size: 1vmax;
     cursor: pointer;
 }
 
@@ -88,4 +84,173 @@ ul {
     text-shadow: -2px 2px 0 lightgrey;
     outline-width: 0;
     outline: none;
+}
+
+
+.select-select {
+    position: absolute;
+    z-index: 2000;
+    left: 0%;
+    top: 0%;
+    /* For when we are on a small touch device and want to use native controls */
+    pointer-events: none;
+    opacity: 0;
+    text-align: left;
+    float: left;
+}
+
+.select-element, .select-element:after, .select-element:before, .select-element *, .select-element *:after, .select-element *:before {
+    box-sizing: border-box;
+    z-index: 2000;
+}
+
+.select-element {
+    position: absolute;
+    display: none;
+    z-index: 2000;
+    text-align: left;
+}
+.select-element.select-open {
+    display: block;
+    z-index: 2000;
+    text-align: left;
+}
+
+.select-theme-dark, .select-theme-dark *, .select-theme-dark *:after, .select-theme-dark *:before {
+    box-sizing: border-box;
+    z-index: 2000;
+}
+
+.select.select-theme-dark {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    z-index: 2000;
+}
+.select.select-theme-dark .select-content {
+    border-radius: .25em;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    background: #97d5dd;
+    color: white;
+    font-family: inherit;
+    overflow: auto;
+    max-width: 18rem;
+    max-height: 18rem;
+    -webkit-overflow-scrolling: touch;
+}
+@media (max-width: 27rem), (max-height: 27rem) {
+    .select.select-theme-dark .select-content {
+        max-width: 11.25rem;
+        max-height: 11.25rem; }
+}
+.select.select-theme-dark .select-options {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    margin: 0;
+    padding: 0;
+    z-index: 2000;
+}
+.select.select-theme-dark .select-options .select-option {
+    z-index: 2000;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    position: relative;
+    /*list-style: none;*/
+    margin: 0;
+    line-height: 120%;
+    font-size: 80%;
+    padding: 1rem 1em 1rem 1em;
+    display: block;
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: left;
+}
+.select.select-theme-dark .select-options .select-option:hover, .select.select-theme-dark .select-options .select-option.select-option-highlight {
+    background: #63a2f1;
+    color: #142535;
+    z-index: 2000;
+}
+
+.select.select-theme-dark .select-options .select-option:first-child {
+    border-radius: 0.25em 0.25em 0 0;
+}
+.select.select-theme-dark .select-options .select-option:last-child {
+    border-radius: 0 0 0.25em 0.25em;
+}
+
+.select-target.select-theme-dark {
+    z-index: 2000;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    vertical-align: middle;
+    *zoom: 1;
+    *display: inline;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    padding: 0.2rem 3em 0.2rem 0.5em;
+    background: #97d5dd;
+    border:  solid;
+    border-top-color: #21485f;
+    border-right-color: #6fb4e8;
+    border-top-width: thick;
+    border-right-width: thick;
+    border-left: none;
+    border-bottom: none;
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+    white-space: nowrap;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: clip;
+    font-size: 1.5vmax;
+    /*line-height: 210%;*/
+}
+.select-target.select-theme-dark:hover {
+    color: #142535;
+}
+
+.select-target.select-theme-dark.select-target-focused, .select-target.select-theme-dark.select-target-focused:focus {
+    border-top-color: #2d5064;
+    border-right-color: #79b1f0;
+    border-top-width: thick;
+    border-right-width: thick;
+    outline: none;
+}
+
+.select-target.select-theme-dark b {
+    position: absolute;
+    right: 1em;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: 1.25rem;
+    width: 2em;
+}
+.select-target.select-theme-dark b:before, .select-target.select-theme-dark b:after {
+    content: "";
+    display: block;
+    position: absolute;
+    margin: auto;
+    right: 0;
+    height: 0;
+    width: 0;
+    border: .263em solid transparent;
+}
+.select-target.select-theme-dark b:before {
+    top: -50%;
+    border-bottom-color: inherit;
+}
+.select-target.select-theme-dark b:after {
+    bottom: -50%;
+    border-top-color: inherit;
 }
