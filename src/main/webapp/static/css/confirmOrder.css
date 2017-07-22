@@ -12,28 +12,43 @@ html {
 #orderArea {
     /* left: 0%; */
     display: inline-block;
+    position: fixed;
     /* top: 0%; */
     z-index: 1000;
-    margin-left: 1.6%;
-    margin-top: 1.6%;
-    margin-right: 1.6%;
+    /*margin-left: 1.6%;*/
+    /*margin-top: 1.6%;*/
+    /*margin-right: 1.6%;*/
     /* background-size: cover; */
     /* min-height: 0%; */
+    top: 2.8%;
+    left: 1.6%;
     width: 96.8%;
-    /* height: 0; */
+    height: 94.4%;    /* height: 0; */
     background: white;
-    padding-bottom: 5%;
+    /*padding-bottom: 5%;*/
 }
 
 #orderArea #mainPart {
+    position: absolute;
     display: inline-block;
     width: 90%;
+    height: 90%;
     margin-left: 5%;
-    margin-top: 5%;
+    top: 5%;
     padding-bottom: 2%;
     background-color: white;
     border: 2px solid #f5d76b;
     box-shadow: 0 0 5px 2px #DABD61;
+    overflow: hidden;
+}
+
+#orderArea #mainPart #orderTable{
+    position: absolute;
+    top: 35%;
+    width: 98%;
+    left: 1%;
+    height: 20%;
+    /*background-color: lightblue;*/
 }
 
 .table-head {
@@ -45,7 +60,7 @@ html {
     border-spacing: 0;
     color: #3c3c3c;
     table-layout: fixed;
-    margin-top: 15%;
+    /*margin-top: 15%;*/
     margin-left: 1%;
 }
 
@@ -140,4 +155,7 @@ html {
     margin-right: 1%;
     margin-top: 5%;
     padding: 0.3vmax;
+    position: absolute;
+    left: 78.5%;
+    top: 67%
 }
