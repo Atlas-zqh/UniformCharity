@@ -66,6 +66,11 @@ function checkCookie() {
         $('#iconImage').attr("src", picurl);
         $('#loginPanel').css("display", "none");
         $('#searchPanel').fadeIn();
+        return true;
+    }else{
+        document.getElementById("preLogIn").style.display = "inline-block";
+        document.getElementById("afterLogIn").style.display = "none";
+        return false;
     }
 
 }

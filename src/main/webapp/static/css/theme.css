@@ -11,6 +11,7 @@
 html,
 body {
     min-height: 100%;
+    background: #BCD5D8;
 }
 /**
  * 1. Prevent iOS text size adjust after orientation change, without disabling
@@ -208,13 +209,13 @@ ul {
     border-left: none;
     border-bottom: none;
     cursor: pointer;
-    color: white;
+    color: #142535;
     text-decoration: none;
     white-space: nowrap;
     max-width: 100%;
     overflow: hidden;
-    text-overflow: clip;
-    font-size: 1.5vmax;
+    text-overflow: ellipsis;
+    font-size: 1vmax;
     /*line-height: 210%;*/
 }
 .select-target.select-theme-dark:hover {
