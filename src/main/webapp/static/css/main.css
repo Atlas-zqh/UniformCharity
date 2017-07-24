@@ -1,28 +1,30 @@
+html{
+    background: #BCD5D8;
+    min-width: 800px;
+}
+
 body{
     position: relative;
     width: 100%;
-    padding-bottom: 165.5%;
-}
-
-#nav{
-    position: absolute;
-    left: 0%;
-    top: 0%;
-    z-index: 1;
-    width: 100%;
     height: 100%;
+    padding-bottom: 165.5%;
+    background: #BCD5D8;
+
 }
 
 #mainPage{
     display: inline-block;
     position: absolute;
-    left: 0%;
-    top: 0%;
+    /*left: 0%;*/
+    /*top: 0%;*/
     z-index: 0;
     margin: 0;
     background: url(../images/mainBG1.png);
     background-size:cover;
-    width: 100%;
+    /*width: 100%;*/
+    top: 3vh;
+    left: 1.6%;
+    width: 96.8%;
     min-width: 800px;
     padding-bottom: 41.7%;
     height: 0;
@@ -144,18 +146,20 @@ body{
 
 #bulletinPage{
     position: absolute;
-    left: 0%;
+    /*left: 0%;*/
     top: 0%;
     z-index: 0;
     margin: 0;
     background: url(../images/mainBG2.png);
     background-size:cover;
-    width: 100%;
+    /*width: 100%;*/
     min-width: 800px;
     min-height: 320px;
     padding-bottom: 41.7%;
     margin-top: 41.7%;
     height: 0;
+    left: 1.6%;
+    width: 96.8%;
 }
 
 #fundBulletin{
@@ -181,6 +185,7 @@ body{
     margin-top: 20%;
     background:#97D5DD;
     text-align: center;
+    font-size: 1vmax;
 }
 
 #transactionBulletin{
@@ -205,21 +210,24 @@ body{
     margin-top: 20%;
     background: #8dbce3;
     text-align: center;
+    font-size: 1vmax;
 }
 
 #forumPage{
     position: absolute;
-    left: 0%;
+    /*left: 0%;*/
     top: 0%;
     z-index: 0;
     margin: 0;
     background: #99cbd9;
     background-size:cover;
-    width: 100%;
+    /*width: 100%;*/
     min-width: 800px;
     padding-bottom: 41.7%;
     margin-top: 83.4%;
     height: 0;
+    left: 1.6%;
+    width: 96.8%;
 }
 
 #forumPage .forumTitle{
@@ -256,6 +264,7 @@ body{
     background-color: #39576e;
     overflow: hidden;
     height: 96.3%;
+    font-size: 1.5vmax;
 
     /*border: 5px solid #8ccafa;*/
 }
@@ -265,8 +274,9 @@ body{
     font-family: "Yuppy SC";
     color: white;
     text-shadow: 0 1px 0 grey;
-    font-size: 150%;
     white-space: nowrap;
+    font-size: 1.5vmax;
+
 }
 
 .forumArea .forumTable .bodyTr{
@@ -274,9 +284,9 @@ body{
     font-family: Helvetica;
     color: white;
     text-shadow: 0 1px 0 grey;
-    font-size: 100%;
     height: 0;
     padding-bottom: 5%;
+    font-size: 1vmax;
 }
 
 
@@ -299,7 +309,6 @@ body{
     vertical-align: middle;
     horiz-align: center;
     color: white;
-    font-size: 120%;
     margin-top: 0%;
     margin-left: 0%;
     width: 5%;
@@ -308,6 +317,8 @@ body{
     line-height: 120%;
     border: none;
     outline: none;
+    font-size: 1.2vmax;
+
 }
 
 .forumArea >div >button:active{
@@ -377,185 +388,20 @@ body{
 
 #infoPage{
     position: absolute;
-    left: 0%;
+    /*left: 0%;*/
     top: 0%;
     z-index: 0;
     margin: 0;
     background: #64bacb;
     background-size:cover;
-    width: 100%;
+    /*width: 100%;*/
     min-width: 800px;
     padding-bottom: 41.7%;
     margin-top: 125%;
+    left: 1.6%;
+    width: 96.8%;
 }
 
-.select-select {
-    position: absolute;
-    z-index: 2000;
-    left: 0%;
-    top: 0%;
-    /* For when we are on a small touch device and want to use native controls */
-    pointer-events: none;
-    opacity: 0;
-    text-align: left;
-    float: left;
-}
-
-.select-element, .select-element:after, .select-element:before, .select-element *, .select-element *:after, .select-element *:before {
-    box-sizing: border-box;
-    z-index: 2000;
-}
-
-.select-element {
-    position: absolute;
-    display: none;
-    z-index: 2000;
-    text-align: left;
-}
-.select-element.select-open {
-    display: block;
-    z-index: 2000;
-    text-align: left;
-}
-
-.select-theme-dark, .select-theme-dark *, .select-theme-dark *:after, .select-theme-dark *:before {
-    box-sizing: border-box;
-    z-index: 2000;
-}
-
-.select.select-theme-dark {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    -o-user-select: none;
-    user-select: none;
-    z-index: 2000;
-}
-.select.select-theme-dark .select-content {
-    border-radius: .25em;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    background: #97d5dd;
-    color: white;
-    font-family: inherit;
-    overflow: auto;
-    max-width: 18rem;
-    max-height: 18rem;
-    -webkit-overflow-scrolling: touch;
-}
-@media (max-width: 27rem), (max-height: 27rem) {
-    .select.select-theme-dark .select-content {
-        max-width: 11.25rem;
-        max-height: 11.25rem; }
-}
-.select.select-theme-dark .select-options {
-    -webkit-tap-highlight-color: transparent;
-    -webkit-touch-callout: none;
-    margin: 0;
-    padding: 0;
-    z-index: 2000;
-}
-.select.select-theme-dark .select-options .select-option {
-    z-index: 2000;
-    -webkit-tap-highlight-color: transparent;
-    -webkit-touch-callout: none;
-    position: relative;
-    /*list-style: none;*/
-    margin: 0;
-    line-height: 120%;
-    font-size: 80%;
-    padding: 1rem 1em 1rem 1em;
-    display: block;
-    cursor: pointer;
-    white-space: nowrap;
-    overflow: hidden;
-    text-align: left;
-}
-.select.select-theme-dark .select-options .select-option:hover, .select.select-theme-dark .select-options .select-option.select-option-highlight {
-    background: #63a2f1;
-    color: #142535;
-    z-index: 2000;
-}
-
-.select.select-theme-dark .select-options .select-option:first-child {
-    border-radius: 0.25em 0.25em 0 0;
-}
-.select.select-theme-dark .select-options .select-option:last-child {
-    border-radius: 0 0 0.25em 0.25em;
-}
-
-.select-target.select-theme-dark {
-    z-index: 2000;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    vertical-align: middle;
-    *zoom: 1;
-    *display: inline;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    -o-user-select: none;
-    user-select: none;
-    -webkit-tap-highlight-color: transparent;
-    -webkit-touch-callout: none;
-    padding: 0.2rem 3em 0.2rem 0.5em;
-    background: #97d5dd;
-    border:  solid;
-    border-top-color: #21485f;
-    border-right-color: #6fb4e8;
-    border-top-width: thick;
-    border-right-width: thick;
-    border-left: none;
-    border-bottom: none;
-    cursor: pointer;
-    color: white;
-    text-decoration: none;
-    white-space: nowrap;
-    max-width: 100%;
-    overflow: hidden;
-    text-overflow: clip;
-    font-size: 70%;
-    /*line-height: 210%;*/
-}
-.select-target.select-theme-dark:hover {
-    color: #142535;
-}
-
-.select-target.select-theme-dark.select-target-focused, .select-target.select-theme-dark.select-target-focused:focus {
-    border-top-color: #2d5064;
-    border-right-color: #79b1f0;
-    border-top-width: thick;
-    border-right-width: thick;
-    outline: none;
-}
-
-.select-target.select-theme-dark b {
-    position: absolute;
-    right: 1em;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    height: 1.25rem;
-    width: 2em;
-}
-.select-target.select-theme-dark b:before, .select-target.select-theme-dark b:after {
-    content: "";
-    display: block;
-    position: absolute;
-    margin: auto;
-    right: 0;
-    height: 0;
-    width: 0;
-    border: .263em solid transparent;
-}
-.select-target.select-theme-dark b:before {
-    top: -50%;
-    border-bottom-color: inherit;
-}
-.select-target.select-theme-dark b:after {
-    bottom: -50%;
-    border-top-color: inherit;
-}
 
 #loginPanel{
     position: absolute;
@@ -603,7 +449,7 @@ body{
     border-left: none;
     border-bottom: none;
     width: 40%;
-    font-size: 80%;
+    font-size: 1.5vmax;
     padding-top: 1%;
     padding-bottom: 1%;
     line-height: 120%;
@@ -611,37 +457,6 @@ body{
     outline: none;
     outline-width: 0px;
     height: 7%;
-}
-
-.mybt{
-    letter-spacing: normal;
-    position: absolute;
-    z-index: 100;
-    background-color: #97d5dd;
-    text-shadow: -2px 2px 0 grey;
-    border-top-color: #041014;
-    border-right-color: #98dcff;
-    border-top-width: thick;
-    border-right-width: thick;
-    border-bottom: none;
-    border-left: none;
-    font-family: "Yuppy SC";
-    width: 40%;
-    padding-bottom: 0%;
-    text-align: center;
-    line-height: 130%;
-    color: white;
-    font-size: 150%;
-    margin-top: 110%;
-    margin-left: 30%;
-    cursor: pointer;
-}
-
-.mybt:focus, .mybt:hover, .mybt:active{
-    color: #142535;
-    text-shadow: -2px 2px 0 lightgrey;
-    outline-width: 0;
-    outline: none;
 }
 
 .uploadBut{
@@ -664,10 +479,11 @@ body{
     text-align: center;
     line-height: 130%;
     color: #d6bd6f;
-    font-size: 150%;
     margin-top: 32%;
     margin-left: 42%;
     cursor: pointer;
+    font-size: 1.5vmax;
+    white-space: nowrap;
 }
 
 .uploadBut:focus, .uploadBut:hover, .uploadBut:active{
@@ -686,7 +502,7 @@ ul li p{
     position: absolute;
     margin: 0px;
     width: 100%;
-    height: 23px;
+    /*height: 23px;*/
     background: #BCD5D8;
 }
 
@@ -694,12 +510,11 @@ ul li p{
     display: inline-block;
     position: absolute;
     font-family: "Yuppy SC";
-    font-family: "Yuppy SC";
-    font-size: 3em;
+    font-size: 3vmax;
     color: white;
     text-shadow: -0.05em 0.05em 0px lightgrey;
     margin-top: 27%;
-    margin-left: 28%;
+    margin-left: 30%;
 }
 
 #fullbg {

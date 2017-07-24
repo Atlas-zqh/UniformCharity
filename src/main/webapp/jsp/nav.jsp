@@ -14,7 +14,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link rel="stylesheet" href="../static/css/nav.css"/>
     <link rel="stylesheet" href="../static/css/theme.css"/>
-    <link rel="stylesheet" href="../static/css/main.css"/>
+    <%--<link rel="stylesheet" href="../static/css/main.css"/>--%>
     <script>
         function showLoginPanel() {
             document.getElementById("signupPanel").style.display = "none";
@@ -35,7 +35,7 @@
     <div class="leftNavBar" align="left">
         <div class="bt"><a href="../jsp/index.jsp">首<br>页</a></div>
         <div class="navLabel"><p><br>—<br></p></div>
-        <div class="bt"><a href="userInfo.jsp">我<br>的<br>主<br>页</a></div>
+        <div class="bt"><a href="../jsp/userInfo.jsp">我<br>的<br>主<br>页</a></div>
         <div class="navLabel"><p><br>—<br></p></div>
         <div class="bt"><a href="../static/html/404.html">我<br>的<br>交<br>易</a></div>
     </div>
@@ -51,6 +51,7 @@
         <div class="navLabel"><p><br>—<br></p></div>
         <div class="bt" id="signupButton"><a href="#toSignupPanel" onclick="showSignupPanel()">注<br>册</a></div>
     </div>
+
 </div>
 
 <script type="text/javascript" src="/static/js/login.js"></script>

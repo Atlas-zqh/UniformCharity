@@ -1,0 +1,161 @@
+html {
+    background-image: url("../images/infoBG.png");
+    background-color: white;
+    background-size: cover;
+}
+
+body {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    height: 0;
+}
+
+ul {
+    display: inline-block;
+    position: absolute;
+    list-style: none;
+}
+
+li {
+    list-style: none;
+    display: inline;
+}
+
+#bgPage {
+    display: inline-block;
+    /*position: absolute;*/
+    left: 0%;
+    top: 0%;
+    z-index: 0;
+    margin: 0;
+    background-color: lightcyan;
+    background-size: cover;
+    min-height: 0%;
+    width: 100%;
+    /*padding-bottom: 120%;*/
+    height: auto;
+    /*height: 0;*/
+}
+
+#resultPage {
+    display: inline-block;
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    z-index: 10;
+    margin-left: 23px;
+    margin-top: 23px;
+    margin-right: 23px;
+    background-size: cover;
+    min-height: 0%;
+    width: 98%;
+    padding-bottom: 60%;
+    height: 0;
+}
+
+#resultPage #searchPane{
+    display: inline-block;
+    position: relative;
+    background-color: #B8D7F1;
+    width: 90%;
+    margin-left: 5%;
+    padding-bottom: 7%;
+}
+
+#resultPage #searchPane .labelP {
+    display: inline-block;
+    position: absolute;
+    font-family: "Yuppy SC";
+    font-size: 1.5vmax;
+    white-space: nowrap;
+    color: #DABD61;
+    text-shadow: -0.1vmax 0.1vmax 0 #7A6420;
+    margin-top: 2%;
+    margin-left: 5%;
+}
+
+#resultPage #searchPane .titleP {
+    display: inline-block;
+    position: absolute;
+    font-family: "Yuppy SC";
+    font-size: 2vmax;
+    white-space: nowrap;
+    color: #87b4bf;
+    text-shadow: -0.1vmax 0.1vmax 0 #315770;
+    margin-top: 1%;
+    margin-left: 1%;
+}
+
+#resultPage #contentPage{
+    display: inline-block;
+    position: relative;
+    background-color: #B8D7F1;
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 5%;
+}
+
+#resultPage #contentPage .singleClothe{
+    position: relative;
+    float: left;
+    background-color: white;
+    border: 2px solid #a3dbe6;
+    box-shadow: 0 0 5px 2px #87b4bf;
+    width: 23%;
+    padding-bottom: 35%;
+    margin-left: 1.6%;
+    margin-top: 2%;
+}
+
+#resultPage #contentPage .singleClothe:hover{
+    border: 2px solid #f5d76b;
+    box-shadow: 0 0 5px 2px #DABD61;
+}
+
+#resultPage #contentPage .singleClothe img{
+    position: absolute;
+    width: 100%;
+    padding-bottom: 100%;
+    background-color: black;
+    margin-left: 0%;
+    margin-top: 0%;
+}
+
+#resultPage #contentPage .singleClothe .priceP{
+    position: absolute;
+    float: left;
+    background-color: white;
+    font-size: 1.7vmax;
+    font-weight: bold;
+    color: #DABD61;
+    text-shadow: -0.1vmax 0.1vmax 0 #7A6420;
+    width: 23%;
+    padding-bottom: 35%;
+    margin-left: 2%;
+    margin-top: 100%;
+    letter-spacing: 0.2vmax;
+}
+
+#resultPage #contentPage .singleClothe .nameP{
+    text-decoration: none;
+    position: absolute;
+    font-size: 1.2vmax;
+    letter-spacing: 0.1vmax;
+    font-weight: bold;
+    color: #142535;
+    margin-left: 2%;
+    margin-top: 112%;
+    width: 98%;
+    word-break: break-word;
+}
+
+#resultPage #contentPage .singleClothe .userP{
+    position: absolute;
+    font-size: 1.2vmax;
+    letter-spacing: 0.1vmax;
+    font-weight: bold;
+    color: grey;
+    margin-left: 2%;
+    margin-top: 132%;
+}

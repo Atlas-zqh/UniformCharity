@@ -1,3 +1,5 @@
+var gender = "";
+
 function login() {
     var username = $('#username').val();
     var password = $('#password').val();
@@ -6,7 +8,7 @@ function login() {
     // alert(password);
 
     if (username == "" || password == "") {
-        alert("请输入完整信息");
+        fail_alert("请输入完整信息");
         return;
     }
 
@@ -21,7 +23,7 @@ function login() {
         async: false,
         success: function (data) {
             if (data.result == "success") {
-                alert("登陆成功!");
+                success_alert("登陆成功!");
                 document.getElementById("preLogIn").style.display = "none";
                 document.getElementById("afterLogIn").style.display = "inline-block";
                 var tmp = data.userInfo.username;
@@ -38,15 +40,12 @@ function login() {
                 return;
             }
             if (data.result == "fail") {
-                alert(data.loginInfo);
+                fail_alert(data.loginInfo);
                 return;
             }
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            alert("error");
-            alert(XMLHttpRequest.status);
-            alert(XMLHttpRequest.readyState);
-            alert(textStatus);
+            fail_alert("哎呀，网络似乎不太好...");
         }
     });
 }
@@ -63,29 +62,24 @@ function quitLog() {
     delCookie("picurl");
 }
 
-var gender = "";
-$(document).ready(function () {
-    $("#maleBut").click(function () {
-        gender = "男";
-        $("#maleBut").css("color", "#142535");
-        $("#maleBut").css("text-shadow", "0 2px 0 lightgrey");
-        $("#femaleBut").css("color", "white");
-        $("#femaleBut").css("text-shadow", "0 2px 0 grey");
-        if ($("#icon").attr('src') == "../images/femaleIcon.png")
-            $("#icon").attr('src', "../images/maleIcon.png")
-    })
+$("#maleBut").click(function () {
+    gender = "男";
+    $("#maleBut").css("color", "#142535");
+    $("#maleBut").css("text-shadow", "0 2px 0 lightgrey");
+    $("#femaleBut").css("color", "white");
+    $("#femaleBut").css("text-shadow", "0 2px 0 grey");
+    if ($("#icon").attr('src') == "../images/femaleIcon.png")
+        $("#icon").attr('src', "../images/maleIcon.png")
 });
 
-$(document).ready(function () {
-    $("#femaleBut").click(function () {
-        gender = "女";
-        $("#maleBut").css("color", "white");
-        $("#maleBut").css("text-shadow", "0 2px 0 grey");
-        $("#femaleBut").css("color", "#142535");
-        $("#femaleBut").css("text-shadow", "0 2px 0 lightgrey");
-        if ($("#icon").attr('src') == "../images/maleIcon.png")
-            $("#icon").attr('src', "../images/femaleIcon.png")
-    })
+$("#femaleBut").click(function () {
+    gender = "女";
+    $("#maleBut").css("color", "white");
+    $("#maleBut").css("text-shadow", "0 2px 0 grey");
+    $("#femaleBut").css("color", "#142535");
+    $("#femaleBut").css("text-shadow", "0 2px 0 lightgrey");
+    if ($("#icon").attr('src') == "../images/maleIcon.png")
+        $("#icon").attr('src', "../images/femaleIcon.png")
 });
 
 
@@ -110,24 +104,24 @@ function signup() {
     // alert(gender);
 
     if (username == "" || password == "" || id == "" || studentname == "" || school == "" || phone == "" || gender == "") {
-        alert("请输入完整信息");
+        fail_alert("请输入完整信息");
         return;
     }
 
     var reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
     if (reg.test(id) == false) {
-        alert("身份证输入不合法");
+        fail_alert("身份证输入不合法");
         return;
     }
 
     var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
     if (!myreg.test(phone) || phone.length != 11) {
-        alert('请输入有效的手机号码！');
+        fail_alert('请输入有效的手机号码！');
         return;
     }
 
     if (!image.startsWith("data:image/png;base64,")) {
-        alert(image);
+        // alert(image);
     } else {
         image = image.replace(/\+/g, "%2B");
         // image = image.replace(/ /g, "%20");
@@ -158,19 +152,15 @@ function signup() {
         async: false,
         success: function (data) {
             if (data.result == "fail") {
-                alert(data.errorType);
+                fail_alert(data.errorType);
             }
             if (data.result == "success") {
-                alert("注册成功");
+                success_alert("注册成功");
                 showLoginPanel();
-                //todo 自动登陆
             }
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            alert("error");
-            alert(XMLHttpRequest.status);
-            alert(XMLHttpRequest.readyState);
-            alert(textStatus);
+            fail_alert("哎呀，网络似乎不太好...");
         }
     });
 }

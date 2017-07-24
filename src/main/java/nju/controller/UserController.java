@@ -57,7 +57,7 @@ public class UserController {
                 }
             }
         } catch (Exception e) {
-            loginInfo = "用户名不存在";
+            loginInfo = "用户名不存在或密码错误";
             e.printStackTrace();
         }
         map.put("result", "fail");

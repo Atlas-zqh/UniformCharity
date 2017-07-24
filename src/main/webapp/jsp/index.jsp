@@ -13,15 +13,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <link rel="stylesheet" href="../static/css/theme.css"/>
     <link rel="stylesheet" href="../static/css/log.css"/>
+    <link rel="stylesheet" href="../static/css/alert.css"/>
     <link rel="stylesheet" href="../static/css/custom_up_img.css">
+    <link rel="stylesheet" href="../static/css/amazeui.css">
     <link rel="stylesheet" href="../static/css/amazeui.min.css">
     <link rel="stylesheet" href="../static/css/amazeui.cropper.css">
-    <link rel="stylesheet" href="../static/css/main.css"/>
     <link rel="stylesheet" href="../static/css/upload.css"/>
-    <link rel="stylesheet" type="text/css" href="http://cdn.amazeui.org/amazeui/2.7.2/css/amazeui.css">
-    <link rel="stylesheet" type="text/css" href="http://cdn.amazeui.org/amazeui/2.7.2/css/amazeui.min.css">
+    <link rel="stylesheet" href="../static/css/main.css"/>
+    <link rel="stylesheet" href="../static/css/theme.css"/>
 
     <script type="text/javascript" src="../static/js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
@@ -102,7 +102,7 @@
        style="background: url(/static/images/PasswordLabel.png); background-size: cover; margin-left: 15%; margin-top: 66%; margin-left: 43%; width: 15%"></p>
     <input id="password" class="textInput" type="password"
            style="width: 50%; margin-left: 25%; margin-top: 73%;">
-    <button id="loginBut" class="mybt" onclick="login()">登 录</button>
+    <button id="loginBut" class="mybt" onclick="login()" style="width: 40%; font-size: 1.5vmax;">登 录</button>
 </div>
 
 
@@ -203,17 +203,17 @@
 
     <p class="label"
        style="background: url(/static/images/GenderLabel.png); background-size: cover; margin-left: 18.5%; margin-top: 95%; width: 15%"></p>
-    <button id="maleBut" class="mybt" style="margin-left: 5%; margin-top: 101%; width: 15.7%">男</button>
+    <button id="maleBut" class="mybt" style="margin-left: 5%; margin-top: 101%; width: 15.7%; font-size: 1.5vmax;">男</button>
 
     <p style="position:absolute; color: white; margin-top: 101%; margin-left: 24%; text-align: center; font-size: 200%; width: 3%;">
         |</p>
-    <button id="femaleBut" class="mybt" style="margin-left: 29%; margin-top: 101%; width: 15.7%">女</button>
+    <button id="femaleBut" class="mybt" style="margin-left: 29%; margin-top: 101%; width: 15.7%; font-size: 1.5vmax;">女</button>
 
     <p class="label"
        style="background: url(/static/images/PhoneLabel.png); background-size: cover; margin-left: 68.5%; margin-top: 95%; width: 15%"></p>
     <input id="phoneTextField" class="textInput" style="margin-left: 55%; margin-top: 101%">
 
-    <button class="mybt" style="margin-left: 30%; margin-top: 120%; width: 40%" onclick="signup()">注 册</button>
+    <button class="mybt" style="margin-left: 30%; margin-top: 120%; width: 40%; font-size: 1.5vmax;" onclick="signup()">注 册</button>
 </div>
 
 <div id="searchPanel" style="display: none">
@@ -402,21 +402,22 @@
 <div id="infoPage"></div>
 
 <div class="foot" style="margin-top: 166.5%;">
-    <%--<p style="position:absolute; display: inline-block; z-index: 2; color: grey; margin-top: 0%; text-align: center; line-height: 100%; width: 100%; font-size: 90%;">与子同袍项目组 copyright@2017</p>--%>
+    <p class="navLabel" align="center" style="position: absolute; top:97.2%; text-align: center">与子同袍项目组 copyright@2017</p>
+<%--<p style="position:absolute; display: inline-block; z-index: 2; color: grey; margin-top: 0%; text-align: center; line-height: 100%; width: 100%; font-size: 90%;">与子同袍项目组 copyright@2017</p>--%>
 </div>
-
+<script type="text/javascript" src="../static/js/alert.js"></script>
 <script type="text/javascript" src="../static/js/SmoothScroll.min.js"></script>
-<script type="text/javascript" src="/static/js/jquery.min.js" charset="utf-8"></script>
-<script type="text/javascript" src="/static/js/tether.js"></script>
-<script type="text/javascript" src="/static/js/main.js"></script>
-<script type="text/javascript" src="/static/js/select.js"></script>
-<script type="text/javascript" src="/static/js/scroll.js"></script>
-<script type="text/javascript" src="/static/js/login.js"></script>
-<script type="text/javascript" src="/static/js/cookie.js"></script>
-<script type="text/javascript" src="/static/js/bootstrap.js"></script>
+<script type="text/javascript" src="../static/js/jquery.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="../static/js/tether.js"></script>
+<script type="text/javascript" src="../static/js/main.js"></script>
+<script type="text/javascript" src="../static/js/select.js"></script>
+<script type="text/javascript" src="../static/js/scroll.js"></script>
+<script type="text/javascript" src="../static/js/login.js"></script>
+<script type="text/javascript" src="../static/js/cookie.js"></script>
+<script type="text/javascript" src="../static/js/bootstrap.js"></script>
 <script type="text/javascript" src="http://cdn.amazeui.org/amazeui/2.7.2/js/amazeui.js" charset="utf-8"></script>
-<script type="text/javascript" src="/static/js/cropper.min.js" charset="utf-8"></script>
-<script type="text/javascript" src="/static/js/custom_up_img.js" charset="utf-8"></script>
+<script type="text/javascript" src="../static/js/cropper.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="../static/js/custom_up_img.js" charset="utf-8"></script>
 <script type="text/javascript" src="../static/js/move-top.js"></script>
 <script type="text/javascript" src="../static/js/easing.js"></script>
 <script type="text/javascript" src="../static/js/upload.js"></script>

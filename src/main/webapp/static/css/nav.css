@@ -3,37 +3,47 @@ body {
 
 }
 
+#nav{
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    z-index: 1;
+    width: 100%;
+    /*height: 100%;*/
+}
+
 .topNavBar {
-    display: inline-block;
+    /*display: inline-block;*/
     margin: 0px;
     width: 100%;
-    height: 23px;
-    background: #BCD5D8;
+    /*padding-bottom: 1.6%;*/
+    /*background: #BCD5D8;*/
 }
 
 .leftNavBar {
     display: inline-block;
     vertical-align: middle;
-    height: 100%;
-    width: 23px;
+    /*height: 100%;*/
+    width: 1.6%;
     background: #BCD5D8;
 }
 
 .rightNavBar {
     display: inline-block;
     vertical-align: middle;
-    height: 100%;
-    width: 23px;
+    /*height: 100%;*/
+    width: 1.6%;
     float: right;
     background: #BCD5D8;
 }
 
 .foot {
-    display: inline-block;
-    margin: 0px;
-    width: 100%;
-    height: 23px;
-    background: #BCD5D8;
+    display: block;
+    margin-top: 0px;
+    /* height: 23px; */
+    text-align: center;
+    vertical-align: middle;
+    color: #142535;
 }
 
 .navLabel {
@@ -54,6 +64,7 @@ body {
     text-align: center;
     vertical-align: middle;
     margin-top: 40px;
+    font-size: 1.1vmax;
 }
 
 .bt a:hover {
@@ -68,6 +79,7 @@ body {
     width: 100%;
     text-align: center;
     vertical-align: middle;
+    font-size: 1.1vmax;
 }
 
 .navBut {
@@ -81,11 +93,12 @@ body {
     border: none;
     margin-left: -10%;
     margin-top: 20px;
+    font-size: 1vmax;
 }
 
 .rightNavBar img {
     display: inline-block;
-    width: 23px;
+    width: 1.6%;
     border-radius: 50%;
     background-size: cover;
     margin-left: 0%;
@@ -95,4 +108,18 @@ body {
 .navBut:hover {
     text-decoration: none;
     color: #d6ad5c;
+}
+
+.topNavBar p{
+    color: #142535;
+    font-size: 2vh;
+}
+
+.foot p {
+    color: #142535;
+    font-size: 2vh;
+    position: absolute;
+    top: 97%;
+    text-align: center;
+    left: 43%;
 }
