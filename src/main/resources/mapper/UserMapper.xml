@@ -8,7 +8,7 @@
         SELECT * FROM student WHERE personID=#{ID}
     </select>
 
-    <select id="findUserByUsername" resultType="User" parameterType="String">
+    <select id="findOneByUsername" resultType="User" parameterType="String">
         SELECT * FROM student WHERE username=#{username}
     </select>
 

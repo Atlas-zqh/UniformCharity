@@ -170,8 +170,17 @@ public class User implements Serializable {
     public String toString() {
         return "User{" +
                 "username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", wechatID='" + wechatID + '\'' +
+                ", phone='" + phone + '\'' +
                 ", studentRealName='" + studentRealName + '\'' +
+                ", gender='" + gender + '\'' +
                 ", personID='" + personID + '\'' +
+                ", credits=" + credits +
+                ", email='" + email + '\'' +
+                ", picurl='" + picurl + '\'' +
+                ", school='" + school + '\'' +
+                ", used=" + used +
                 '}';
     }
 }

@@ -21,6 +21,7 @@ import java.util.Properties;
 public class DBInterceptor implements Interceptor {
     @Override
     public Object intercept(Invocation invocation) throws Throwable {
+        System.out.println("here!!~~");
         String key = "20170522";
         String methodName = invocation.getMethod().getName();
         Object parameter = invocation.getArgs()[1];
@@ -59,7 +60,9 @@ public class DBInterceptor implements Interceptor {
         }
 
         Object returnValue = invocation.proceed();
+        System.out.println("=====");
         if (returnValue instanceof ArrayList<?>) {
+            System.out.println("!!!!!!!");
             List<?> list = (ArrayList<?>) returnValue;
             for (Object val : list) {
                 if (val instanceof User) {
@@ -87,6 +90,16 @@ public class DBInterceptor implements Interceptor {
                 }
 
             }
+        } else if (returnValue instanceof User) {
+            System.out.println("here");
+            User user = (User) returnValue;
+            user.setUsername(EncryptionUtil.decrypt(key, user.getUsername()));
+            user.setPassword(EncryptionUtil.decrypt(key, user.getPassword()));
+            user.setWechatID(EncryptionUtil.decrypt(key, user.getWechatID()));
+            user.setPhone(EncryptionUtil.decrypt(key, user.getPhone()));
+            user.setStudentRealName(EncryptionUtil.decrypt(key, user.getStudentRealName()));
+            user.setEmail(EncryptionUtil.decrypt(key, user.getEmail()));
+            user.setPersonID(EncryptionUtil.decrypt(key, user.getPersonID()));
         }
         return returnValue;
     }

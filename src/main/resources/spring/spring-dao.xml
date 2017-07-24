@@ -74,6 +74,11 @@
         <!-- 配置插件 -->
         <property name="plugins">
             <array>
+                <bean class="com.github.pagehelper.PageInterceptor">
+                    <property name="properties">
+                        <value></value>
+                    </property>
+                </bean>
                 <bean class="nju.utils.DBInterceptor">
                     <property name="properties">
                         <value>
@@ -81,11 +86,7 @@
                         </value>
                     </property>
                 </bean>
-                <bean class="com.github.pagehelper.PageInterceptor">
-                    <property name="properties">
-                        <value></value>
-                    </property>
-                </bean>
+
             </array>
         </property>
     </bean>
