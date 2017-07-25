@@ -33,3 +33,60 @@ function closeUploadView() {
 
     $('#uploadView').css("display", "none");
 }
+
+function uploadClothes() {
+    var school = $('#uploadSchoolDrop option:selected').text();
+    var type = $('#uploadTypeDrop option:selected').text();
+    var gender = $('#uploadGenderDrop option:selected').text();
+    var size = $('#uploadSizeDrop option:selected').text();
+}
+
+Dropzone.options.myDropzone = {
+    init: function () {
+        this.on("addedfile", function (file) {
+
+            // Create the remove button
+            var removeButton = Dropzone.createElement("<button></button>");
+            removeButton.className = "removeButton";
+
+            // Capture the Dropzone instance as closure.
+            var _this = this;
+
+            // Listen to the click event
+            removeButton.addEventListener("click", function (e) {
+                // Make sure the button click doesn't submit the form:
+                e.preventDefault();
+                e.stopPropagation();
+
+                // Remove the file preview.
+                _this.removeFile(file);
+                // If you want to the delete the file on the server as well,
+                // you can do the AJAX request here.
+            });
+
+            // Add the button to the file preview element.
+            file.previewElement.appendChild(removeButton);
+        });
+
+        this.on("successmultiple", function(file, data) {
+            alert(data.success);
+        });
+
+        var submitButton = document.querySelector("#submit-all")
+        myDropzone = this; // closure
+
+        submitButton.addEventListener("click", function () {
+            var school = $('#uploadSchoolDrop option:selected').text();
+            var type = $('#uploadTypeDrop option:selected').text();
+            var gender = $('#uploadGenderDrop option:selected').text();
+            var size = $('#uploadSizeDrop option:selected').text();
+            if (school == "" || type == "" || gender == "" || size == "") {
+                fail_alert("请填写完整信息！");
+            }else {
+
+                myDropzone.processQueue(); // Tell Dropzone to process all queued files.
+            }
+        });
+
+    }
+};

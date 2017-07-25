@@ -127,11 +127,11 @@
         Dropzone.prototype.events = ["drop", "dragstart", "dragend", "dragenter", "dragover", "dragleave", "addedfile", "addedfiles", "removedfile", "thumbnail", "error", "errormultiple", "processing", "processingmultiple", "uploadprogress", "totaluploadprogress", "sending", "sendingmultiple", "success", "successmultiple", "canceled", "canceledmultiple", "complete", "completemultiple", "reset", "maxfilesexceeded", "maxfilesreached", "queuecomplete"];
 
         Dropzone.prototype.defaultOptions = {
-            url: null,
+            url: '/clothesAction/uploadClothes',
             method: "post",
             withCredentials: false,
             timeout: 30000,
-            parallelUploads: 2,
+            parallelUploads: 4,
             uploadMultiple: false,
             maxFilesize: 2,
             paramName: "file",
@@ -153,7 +153,7 @@
             ignoreHiddenFiles: true,
             acceptedFiles: null,
             acceptedMimeTypes: null,
-            autoProcessQueue: true,
+            autoProcessQueue: false,
             autoQueue: true,
             addRemoveLinks: false,
             previewsContainer: null,
@@ -416,12 +416,15 @@
             totaluploadprogress: noop,
             sending: noop,
             sendingmultiple: noop,
-            success: function (file) {
+            success: function (file, data) {
+                alert(data.clothesID);
                 if (file.previewElement) {
                     return file.previewElement.classList.add("dz-success");
                 }
             },
-            successmultiple: noop,
+            successmultiple:  function (file, data) {
+                alert("Aa");
+            },
             canceled: function (file) {
                 return this.emit("error", file, "Upload canceled.");
             },
@@ -434,7 +437,9 @@
                     return file.previewElement.classList.add("dz-complete");
                 }
             },
-            completemultiple: noop,
+            completemultiple: function (file, data) {
+                alert("Aa");
+            },
             maxfilesexceeded: noop,
             maxfilesreached: noop,
             queuecomplete: noop,
@@ -655,6 +660,8 @@
             })(this));
             this.on("complete", (function (_this) {
                 return function (file) {
+                    // success_alert("上传成功");
+                    // closeUploadView();
                     if (_this.getAddedFiles().length === 0 && _this.getUploadingFiles().length === 0 && _this.getQueuedFiles().length === 0) {
                         return setTimeout((function () {
                             return _this.emit("queuecomplete");
@@ -770,6 +777,8 @@
             if (typeof this.options.paramName === "function") {
                 return this.options.paramName(n);
             } else {
+                // fail_alert("" + this.options.paramName + (this.options.uploadMultiple ? "" : ""));
+                // fail_alert("" + this.options.paramName + (this.options.uploadMultiple ? "[" + n + "]" : ""));
                 return "" + this.options.paramName + (this.options.uploadMultiple ? "[" + n + "]" : "");
             }
         };
@@ -1056,7 +1065,7 @@
                     };
                 })(this));
             }else{
-                alert("最多只能上传4张图片！");
+                fail_alert("最多只能上传4张图片！");
             }
         };
 
@@ -1257,6 +1266,10 @@
         };
 
         Dropzone.prototype.processQueue = function () {
+            if(this.files.length == 0){
+                fail_alert("至少上传1张图片！");
+                return;
+            }
             var i, parallelUploads, processingLength, queuedFiles;
             parallelUploads = this.options.parallelUploads;
             processingLength = this.getUploadingFiles().length;
@@ -1365,6 +1378,7 @@
             }
             method = resolveOption(this.options.method, files);
             url = resolveOption(this.options.url, files);
+            // alert(url);
             xhr.open(method, url, true);
             xhr.timeout = resolveOption(this.options.timeout, files);
             xhr.withCredentials = !!this.options.withCredentials;
@@ -1492,7 +1506,7 @@
                         for (m = 0, len3 = ref3.length; m < len3; m++) {
                             option = ref3[m];
                             if (option.selected) {
-                                formData.append(inputName, option.value);
+                                formData.append(input.getAttribute("name"), option.value);
                             }
                         }
                     } else if (!inputType || ((ref4 = inputType.toLowerCase()) !== "checkbox" && ref4 !== "radio") || input.checked) {
@@ -1519,6 +1533,7 @@
         };
 
         Dropzone.prototype.submitRequest = function (xhr, formData, files) {
+            // alert(formData.);
             return xhr.send(formData);
         };
 
@@ -1738,6 +1753,9 @@
     };
 
     Dropzone.confirm = function (question, accepted, rejected) {
+        // alert(question);
+        // alert(accepted);
+        // alert(rejected);
         if (window.confirm(question)) {
             return accepted();
         } else if (rejected != null) {

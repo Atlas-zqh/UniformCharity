@@ -60,7 +60,10 @@
 
         $(document).ready(function () {
             checkCookie();
+            getAllSchool('school');
+
         });
+
     </script>
     <%--<style type="text/css">--%>
     <%--.up-img-cover {width: 100px;height: 100px;}--%>
@@ -217,28 +220,41 @@
 </div>
 
 <div id="searchPanel" style="display: none">
-    <div id="genderLabel" style="margin-top: 20%"></div>
-    <button class="mybt" style="margin-top: 30%; margin-left: 25%; width: 20%;">男</button>
-    <p class="genderLine">|</p>
-    <button class="mybt" style="margin-top: 30%; margin-left: 54.7%; width: 20%;">女</button>
-    <div id="typeLabel" style="margin-top: 45%"></div>
-    <div id="typeDropDown"
-         style="margin-top: 55%; font-size: 200%; font-family: 'Yuppy SC'; text-shadow: 0 2px 0 grey;">
-        <select data-select-like-alignement="auto" class="drop-select" style="font-size: 150%">
-            <option value="summer">夏季</option>
-            <option value="winter" selected="selected">冬季</option>
+    <h3 style="position:absolute; display: inline-block; margin-top: 20%; margin-left: 41%">性&nbsp别</h3>
+    <button class="mybt" style="margin-top: 30%; margin-left: 25%; width: 20%;  font-size: 1.5vmax" id="male" onclick="male()">男</button>
+    <p class="genderLine" style="margin-top: 28.8%">|</p>
+    <button class="mybt" style="margin-top: 30%; margin-left: 54.7%; width: 20%;  font-size: 1.5vmax" id="female" onclick="female()">女</button>
+    <h3 style="position:absolute; display: inline-block; margin-top: 45%; margin-left: 41%">学&nbsp校</h3>
+    <div class="dropdown"
+         style="margin-top: 55%; font-family: 'Yuppy SC'; text-shadow: -0.1vmax 0.1vmax 0 grey; font-size: 1.5vmax">
+        <select data-select-like-alignement="auto" class="drop-select" style="font-size: 150%" id="school" onchange="changeSchool('type', 'school')">
+            <option value="null" selected="selected"></option>
         </select>
     </div>
-    <div id="sizeLabel" style="margin-top: 70%"></div>
-    <div id="sizeDropDown"
-         style="margin-top: 80%; font-size: 200%; font-family: 'Yuppy SC'; text-shadow: 0 2px 0 grey;">
-        <select data-select-like-alignement="auto" class="drop-select" style="font-size: 150%">
+    <h3 style="position:absolute; display: inline-block; margin-top: 70%; margin-left: 41%">款&nbsp式</h3>
+    <div class="dropdown"
+         style="margin-top: 80%; font-family: 'Yuppy SC'; text-shadow: -0.1vmax 0.1vmax 0 grey; font-size: 1.5vmax;">
+        <select data-select-like-alignement="auto" class="drop-select" style="font-size: 150%" id="type">
+            <option value="null" selected="selected"></option>
+        </select>
+    </div>
+    <h3 style="position:absolute; display: inline-block; margin-top: 95%; margin-left: 41%">尺&nbsp码</h3>
+    <div class="dropdown"
+         style="margin-top: 105%; font-family: 'Yuppy SC'; text-shadow: -0.1vmax 0.1vmax 0 grey; font-size: 1.5vmax">
+        <select data-select-like-alignement="auto" class="drop-select" style="font-size: 150%" id="size">
+            <option value="null" selected="selected"></option>
+            <option value="XXXS">XXXS</option>
+            <option value="XXS">XXS</option>
+            <option value="XS">XS</option>
             <option value="S">S</option>
-            <option value="M" selected="selected">M</option>
+            <option value="M">M</option>
             <option value="L">L</option>
+            <option value="XL">XL</option>
+            <option value="XXL">XXL</option>
+            <option value="XXXL">XXXL</option>
         </select>
     </div>
-    <button class="mybt" style="margin-top: 105%; margin-left: 25%; width: 50%;">搜 索</button>
+    <button class="mybt" style="margin-top: 125%; margin-left: 25%; width: 50%; font-size: 1.5vmax" onclick="search()">搜 索</button>
 </div>
 <div id="bulletinPage">
 </div>
@@ -406,6 +422,7 @@
 <%--<p style="position:absolute; display: inline-block; z-index: 2; color: grey; margin-top: 0%; text-align: center; line-height: 100%; width: 100%; font-size: 90%;">与子同袍项目组 copyright@2017</p>--%>
 </div>
 <script type="text/javascript" src="../static/js/alert.js"></script>
+<script type="text/javascript" src="../static/js/util.js"></script>
 <script type="text/javascript" src="../static/js/SmoothScroll.min.js"></script>
 <script type="text/javascript" src="../static/js/jquery.min.js" charset="utf-8"></script>
 <script type="text/javascript" src="../static/js/tether.js"></script>
@@ -421,6 +438,8 @@
 <script type="text/javascript" src="../static/js/move-top.js"></script>
 <script type="text/javascript" src="../static/js/easing.js"></script>
 <script type="text/javascript" src="../static/js/upload.js"></script>
+<script type="text/javascript" src="../static/js/clothes.js"></script>
+<script type="text/javascript" src="../static/js/search.js"></script>
 
 <script>
     $('select.drop-select').each(function () {

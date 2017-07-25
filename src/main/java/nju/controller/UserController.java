@@ -3,6 +3,7 @@ package nju.controller;
 import com.alibaba.druid.support.json.JSONUtils;
 import nju.domain.User;
 import nju.service.UserService;
+import nju.utils.EncryptionUtil;
 import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,15 +46,17 @@ public class UserController {
             User user = userService.findUserByUsername(username);
             if (user == null) {
                 loginInfo = "用户名不存在或密码错误";
+                System.out.println("null");
             } else {
                 loginInfo = "登录成功";
-                if(password.equals(user.getPassword())) {
+                if((EncryptionUtil.encrypt("20170522",password)).equals(user.getPassword())) {
                     loginInfo = "登录成功";
                     map.put("result", "success");
                     map.put("userInfo", user);
                     return map;
                 }else{
                     loginInfo = "用户名不存在或密码错误";
+                    System.out.println("密码错误");
                 }
             }
         } catch (Exception e) {
@@ -63,7 +66,7 @@ public class UserController {
         map.put("result", "fail");
         map.put("loginInfo", loginInfo);
 
-//        System.out.println(username);
+        System.out.println(username);
 //        System.out.println(password);
 //        System.out.println(loginInfo);
 //
@@ -106,7 +109,7 @@ public class UserController {
                 url = "static/icons/femaleIcon.png";
         } else {
             image = image.replace("%2B", "+");
-            generateImage(image, "/Users/island/IdeaProjects/UniformCharity/src/main/webapp/static/icons/" + id + ".jpg");
+            generateImage(image, "static/icons/" + id + ".jpg");
             url = "static/icons/" + id + ".jpg";
         }
 

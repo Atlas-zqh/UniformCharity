@@ -101,7 +101,7 @@
                 return;
             }
         }
-
+        alert(options.length);
         if (options.length) {
             // We have multiple things that start with this prefix.  Based on the
             // behavior of native select, this is considered after the repeated case.

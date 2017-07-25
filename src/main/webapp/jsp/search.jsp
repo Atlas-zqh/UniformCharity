@@ -16,13 +16,60 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Title</title>
     <link rel="stylesheet" href="../static/css/searchResult.css"/>
-    <!--<link rel="stylesheet" href="../css/theme.css"/>-->
+    <link rel="stylesheet" href="../static/css/alert.css"/>
+    <link rel="stylesheet" href="../static/css/log.css"/>
     <link rel="stylesheet" href="../static/css/theme.css"/>
-    <link rel="stylesheet" href="../static/css/menu.css" media="screen" type="text/css" />
+    <link rel="stylesheet" href="../static/css/menu.css" media="screen" type="text/css"/>
     <!--<link rel="stylesheet" href="../css/main.css"/>-->
     <!--<link rel="stylesheet" type="text/css" href="http://cdn.amazeui.org/amazeui/2.7.2/css/amazeui.css">-->
     <!--<link rel="stylesheet" type="text/css" href="http://cdn.amazeui.org/amazeui/2.7.2/css/amazeui.min.css">-->
     <script type="text/javascript" src="../static/js/jquery-3.2.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            getAllSchool('school');
+//            alert(school);
+            var school = decodeURIComponent(getArgsFromHref(window.location.href, 'school'));
+            var type = decodeURIComponent(getArgsFromHref(window.location.href, 'type'));
+            var gender = decodeURIComponent(getArgsFromHref(window.location.href, 'gender'));
+            var size = decodeURIComponent(getArgsFromHref(window.location.href, 'size'));
+            var page = decodeURIComponent(getArgsFromHref(window.location.href, 'page'));
+            getAllTypesOfSchool('type', school);
+            showResult(school, type, gender, size, page);
+
+
+            clearSelectList('type');
+            jQuery.ajax( {
+                type : 'POST',
+                url : '/clothesAction/allTypesOfSchool',
+                data:{
+                    "school": school
+                },
+                dataType : 'json',
+                success : function(data) {
+                    // alert("success");
+                    if (data && data.success == "true") {
+                        addOption('type', "null", "");
+                        $.each(data.type, function(i, item) {
+                            addOption('type', item, item);
+                            // fail_alert(i);
+                        });
+                    }
+
+
+                    setSelected('school', school);
+                    setSelected('size', size);
+//                    fail_alert(type);
+                    setSelected('type', type);
+                    setSelected('gender', gender);
+                },
+                error : function() {
+                    fail_alert("哎呀呀，初始化信息失败...")
+                }
+            });
+
+//            showResult(school, type, gender, size, 1);
+        });
+    </script>
 
 </head>
 <body>
@@ -30,65 +77,86 @@
 <div id="resultPage">
     <div id="searchPane">
         <p class="titleP">搜<br>索</p>
-        <p class="labelP" style="margin-left: 10%; margin-top: 2.8%">性别</p>
-        <div style="display: inline-block; position:absolute; width: 7%; margin-top: 2.4%; padding-bottom: 3.2%; margin-left: 15%">
-            <select data-select-like-alignement="auto" class="drop-select" style="display:inline; width: 20%;">
-                <option value="b" selected="selected">男</option>
-                <option value="g">女</option>
+        <p class="labelP" style="margin-left: 15%; margin-top: 2.8%">性别</p>
+        <div style="display: inline-block; position:absolute; width: 10%; margin-top: 2.4%; padding-bottom: 3.2%; margin-left: 20%">
+            <select data-select-like-alignement="auto" class="drop-select" style="display:inline; width: 20%;"
+                    id="gender">
+                <option value="男" selected="selected">男</option>
+                <option value="女">女</option>
             </select>
         </div>
-        <p class="labelP" style="margin-left: 30%; margin-top: 2.8%">尺寸</p>
-        <div style="display: inline-block; position:absolute; width: 10%; margin-top: 2.4%; padding-bottom: 3.2%; margin-left: 35%">
-            <select data-select-like-alignement="auto" class="drop-select">
-                <option value="a" selected="selected">S</option>
-                <option value="b">M</option>
-                <option value="c">L</option>
-                <option value="d">XL</option>
+        <p class="labelP" style="margin-left: 15%; margin-top: 7.8%">尺寸</p>
+        <div style="display: inline-block; position:absolute; width: 10%; margin-top: 7.4%; padding-bottom: 3.2%; margin-left: 20%">
+            <select data-select-like-alignement="auto" class="drop-select" id="size">
+                <option value="XXXS">XXXS</option>
+                <option value="XXS">XXS</option>
+                <option value="XS">XS</option>
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+                <option value="XXL">XXL</option>
+                <option value="XXXL">XXXL</option>
             </select>
         </div>
         <p class="labelP" style="margin-left: 50%; margin-top: 2.8%">学校</p>
-        <div style="display: inline-block; position:absolute; width: 25%; margin-top: 2.4%; padding-bottom: 3.2%; margin-left: 55%">
-
-            <select data-select-like-alignement="auto" class="drop-select">
-                <option value="a" selected="selected"></option>
-                <option value="b">南京外国语学校仙林分校</option>
-                <option value="g">南京</option>
+        <div style="display: inline-block; position:absolute; width: 25%; margin-top: 2.4%; padding-bottom: 3.2%; margin-left: 55%"
+             onchange="changeSchool('type', 'school')">
+            <select data-select-like-alignement="auto" class="drop-select" id="school">
             </select>
         </div>
-        <button class="mybt" style="margin-left: 85%;margin-top: 2.5%; position: absolute; font-size: 1.5vmax;">搜索
+        <p class="labelP" style="margin-left: 50%; margin-top: 7.8%">款式</p>
+        <div style="display: inline-block; position:absolute; width: 13%; margin-top: 7.4%; padding-bottom: 3.2%; margin-left: 55%">
+            <select data-select-like-alignement="auto" class="drop-select" id="type">
+            </select>
+        </div>
+        <button class="mybt"
+                style="margin-left: 70%; margin-top: 7.5%; position: absolute; font-size: 1.5vmax; padding-bottom: 0.3%"
+                onclick="search()">搜索
         </button>
     </div>
     <div id="contentPage">
+        <h1>搜索结果</h1>
         <div class="singleClothe">
             <img src="">
             <p class="priceP">¥188.00</p>
             <a href="" class="nameP">hahahahahahahahahahahahahahahahahahahahahahahaha</a>
             <a href="" class="userP">XXX</a>
+            <p class="infoP">男</p>
+            <p class="infoP" style="margin-left: 20%;">L</p>
+
         </div>
-        <div class="singleClothe"></div>
-        <div class="singleClothe"></div>
-        <div class="singleClothe"></div>
-        <div class="singleClothe"></div>
 
     </div>
-    <div style="text-align: center">
+    <div style="text-align: center; padding-bottom: 3%">
         <ul id="menu">
-            <li><a href="#">Previous</a></li>
+            <li><a href="#" onclick="previousPage()">Previous</a></li>
             <li><a href="#">1</a></li>
             <li><a href="#">2</a></li>
             <li><a href="#">3</a></li>
             <li><a href="#">4</a></li>
             <li><a href="#">5</a></li>
             <li><a href="#">6</a></li>
-            <li><a href="#">Next</a></li>
+            <li><a href="#" onclick="nextPage()">Next</a></li>
         </ul>
     </div>
 
+    <div class="foot" style="height: 2.8%;">
+        <p class="navLabel" align="center" style="position: absolute; text-align: center">与子同袍项目组 copyright@2017</p>
+        <%--<p style="position:absolute; display: inline-block; z-index: 2; color: grey; margin-top: 0%; text-align: center; line-height: 100%; width: 100%; font-size: 90%;">与子同袍项目组 copyright@2017</p>--%>
+    </div>
+</div>
 
 </div>
+
 <script type="text/javascript" src="../static/js/jquery.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="../static/js/alert.js" charset="utf-8"></script>
 <script type="text/javascript" src="../static/js/tether.js"></script>
+<script type="text/javascript" src="../static/js/alert.js"></script>
 <script type="text/javascript" src="../static/js/select.js"></script>
+<script type="text/javascript" src="../static/js/clothes.js"></script>
+<script type="text/javascript" src="../static/js/util.js" charset="utf-8"></script>
+<script type="text/javascript" src="../static/js/search.js" charset="utf-8"></script>
 <!--<script type="text/javascript" src="http://cdn.amazeui.org/amazeui/2.7.2/js/amazeui.js" charset="utf-8"></script>-->
 <script>
     $('select.drop-select').each(function () {
@@ -98,6 +166,24 @@
             className: 'select-theme-dark'
         });
     });
+
+    $(document).ready(function () {
+//        var school = decodeURIComponent(getArgsFromHref(window.location.href, 'school'));
+//        var type = decodeURIComponent(getArgsFromHref(window.location.href, 'type'));
+//        var gender = decodeURIComponent(getArgsFromHref(window.location.href, 'gender'));
+//        var size = decodeURIComponent(getArgsFromHref(window.location.href, 'size'));
+////        $('#type').find("option[text=" + type + "]").attr("selected", "selected");
+////        $('#size').find("option[text=" + size + "]").attr("selected", true);
+//        setSelected('size', size);
+//        setSelected('school', school);
+//        getAllTypesOfSchool('type', school);
+//        fail_alert(type);
+//        setSelected('type', type);
+//        setSelected('gender', gender);
+    });
+
+    function setAllSelect() {
+    }
 </script>
 </body>
 </html>
