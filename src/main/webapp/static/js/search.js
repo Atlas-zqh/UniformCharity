@@ -1,11 +1,14 @@
 /**
  * Created by island on 2017/7/24.
  */
-
 var gender = "";
-
+var type = "";
+var school = "";
+var size = "";
+var gender1 = "";
 function male() {
     gender = "男";
+    gender1 = "男";
     $("#male").css("color", "#142535");
     $("#male").css("text-shadow", "-0.1vmax 0.1vmax 0 lightgrey");
     $("#female").css("color", "white");
@@ -14,6 +17,7 @@ function male() {
 
 function female() {
     gender = "女";
+    gender1 = "女";
     $("#male").css("color", "white");
     $("#male").css("text-shadow", "-0.1vmax 0.1vmax 0 grey");
     $("#female").css("color", "#142535");
@@ -22,18 +26,28 @@ function female() {
 }
 
 function search() {
-    var type = $('#type option:selected').text();
-    var size = $('#size option:selected').text();
-    var school = $('#school option:selected').text();
-    var gender1 = $('#gender option:selected').text();
-    if (gender == "")
+    delCookie("gender");
+    delCookie("school");
+    delCookie("size");
+    delCookie("type");
+    type = $('#type option:selected').text();
+    size = $('#size option:selected').text();
+    school = $('#school option:selected').text();
+    gender1 = $('#gender option:selected').text();
+    if (gender == null || gender == 'null' || gender == '' || (gender != gender1 && gender1 != "")) {
         gender = gender1;
+        gender1 = "";
+    }
     if (gender == "" || school == "" || size == "" || type == "") {
         fail_alert("请选择完整的搜索条件！");
     } else {
+        setCookie("gender", gender);
+        setCookie("school", school);
+        setCookie("size", size);
+        setCookie("type", type);
         window.location.href = '../jsp/search.jsp?school=' + school + "&gender=" + gender + "&size=" + size + "&type=" + type + "&page=1";
+        gender = '';
     }
-    gender = "";
     $("#male").css("color", "white");
     $("#male").css("text-shadow", "-0.1vmax 0.1vmax 0 grey");
     $("#female").css("color", "white");
@@ -68,6 +82,42 @@ function showResult(school, type, gender, size, page) {
             fail_alert("哎呀呀，网络似乎不太好...")
         }
     });
+}
+
+function initPage(page){
+    clearSelectList('type');
+    getInfo();
+
+    jQuery.ajax( {
+        type : 'POST',
+        url : '/clothesAction/allTypesOfSchool',
+        data:{
+            "school": school
+        },
+        dataType : 'json',
+        success : function(data) {
+            // alert("success");
+            if (data && data.success == "true") {
+                addOption('type', "null", "");
+                $.each(data.type, function(i, item) {
+                    addOption('type', item, item);
+                    // fail_alert(i);
+                });
+            }
+
+
+            setSelected('school', school);
+            setSelected('size', size);
+//                    fail_alert(type);
+            setSelected('type', type);
+            setSelected('gender', gender);
+        },
+        error : function() {
+            fail_alert("哎呀呀，初始化信息失败...")
+        }
+    });
+    showResult(school, type, gender, size, page);
+
 }
 
 function addSingleClothesPanel(clothes) {
@@ -108,39 +158,8 @@ function addSingleClothesPanel(clothes) {
 
 }
 
-function previousPage() {
-    var school = decodeURIComponent(getArgsFromHref(window.location.href, 'school'));
-    var type = decodeURIComponent(getArgsFromHref(window.location.href, 'type'));
-    var gender = decodeURIComponent(getArgsFromHref(window.location.href, 'gender'));
-    var size = decodeURIComponent(getArgsFromHref(window.location.href, 'size'));
-    var page = parseInt(decodeURIComponent(getArgsFromHref(window.location.href, 'page')).split('#')[0]);
-    if (page > 1) {
-        page = page - 1;
-        window.location.href = '../jsp/search.jsp?school=' + school + "&gender=" + gender + "&size=" + size + "&type=" + type + "&page=" + page;
-    }
-    else {
-        fail_alert("当前已经是第一页！")
-    }
-}
-
-function nextPage() {
-    var school = decodeURIComponent(getArgsFromHref(window.location.href, 'school'));
-    var type = decodeURIComponent(getArgsFromHref(window.location.href, 'type'));
-    var gender = decodeURIComponent(getArgsFromHref(window.location.href, 'gender'));
-    var size = decodeURIComponent(getArgsFromHref(window.location.href, 'size'));
-    var page = parseInt(decodeURIComponent(getArgsFromHref(window.location.href, 'page')).split('#')[0]);
-
-    var maxPage = getMaxPage(school, type, gender, size);
-    if(page < maxPage){
-        page = page + 1;
-        window.location.href = '../jsp/search.jsp?school=' + school + "&gender=" + gender + "&size=" + size + "&type=" + type + "&page=" + page;
-    }else{
-        fail_alert("当前已经是最后一页！")
-    }
-
-}
-
-function getMaxPage(school, type, gender, size){
+function getMaxPage(school, type, gender, size) {
+    getInfo();
     jQuery.ajax({
         type: 'POST',
         url: '/clothesAction/searchClothes',
@@ -164,17 +183,54 @@ function getMaxPage(school, type, gender, size){
             fail_alert("哎呀呀，网络似乎不太好...")
         }
     });
-    return 5;
+    return 0;
 }
 
-function initMenu(){
-
-    var school = decodeURIComponent(getArgsFromHref(window.location.href, 'school'));
-    var type = decodeURIComponent(getArgsFromHref(window.location.href, 'type'));
-    var gender = decodeURIComponent(getArgsFromHref(window.location.href, 'gender'));
-    var size = decodeURIComponent(getArgsFromHref(window.location.href, 'size'));
-    var max = getMaxPage(school, type, gender, size);
-    if(max > 5){
-
+function first() {
+    var page = parseInt(decodeURIComponent(getArgsFromHref(window.location.href, 'page')).split('#')[0]);
+    getInfo();
+    if (page == 1) {
+        fail_alert("当前已经是第一页！");
+    } else {
+        window.location.href = '../jsp/search.jsp?school=' + school + "&gender=" + gender + "&size=" + size + "&type=" + type + "&page=" + 1;
     }
+}
+
+function previous() {
+    var page = parseInt(decodeURIComponent(getArgsFromHref(window.location.href, 'page')).split('#')[0]);
+    getInfo();
+    if (page > 1) {
+        page = page - 1;
+        window.location.href = '../jsp/search.jsp?school=' + school + "&gender=" + gender + "&size=" + size + "&type=" + type + "&page=" + page;
+    }
+    else {
+        fail_alert("当前已经是第一页！")
+    }
+}
+
+
+function next() {
+    var page = parseInt(decodeURIComponent(getArgsFromHref(window.location.href, 'page')).split('#')[0]);
+    getInfo();
+
+    var maxPage = getMaxPage(school, type, gender, size);
+    if (page < maxPage) {
+        page = page + 1;
+        window.location.href = '../jsp/search.jsp?school=' + school + "&gender=" + gender + "&size=" + size + "&type=" + type + "&page=" + page;
+    } else {
+        fail_alert("当前已经是最后一页！")
+    }
+}
+
+function last() {
+    getInfo();
+    var maxPage = getMaxPage(school, type, gender, size);
+    window.location.href = '../jsp/search.jsp?school=' + school + "&gender=" + gender + "&size=" + size + "&type=" + type + "&page=" + maxPage;
+}
+
+function getInfo(){
+    school = getCookie("school");
+    size = getCookie("size");
+    type = getCookie("type");
+    gender = getCookie("gender");
 }

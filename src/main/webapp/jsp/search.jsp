@@ -34,38 +34,12 @@
             var size = decodeURIComponent(getArgsFromHref(window.location.href, 'size'));
             var page = decodeURIComponent(getArgsFromHref(window.location.href, 'page'));
             getAllTypesOfSchool('type', school);
-            showResult(school, type, gender, size, page);
+            initPage(page);
+//            showResult(school, type, gender, size, page);
+
+            initMenu(getMaxPage(school, type, gender, size), 'menu', page);
 
 
-            clearSelectList('type');
-            jQuery.ajax( {
-                type : 'POST',
-                url : '/clothesAction/allTypesOfSchool',
-                data:{
-                    "school": school
-                },
-                dataType : 'json',
-                success : function(data) {
-                    // alert("success");
-                    if (data && data.success == "true") {
-                        addOption('type', "null", "");
-                        $.each(data.type, function(i, item) {
-                            addOption('type', item, item);
-                            // fail_alert(i);
-                        });
-                    }
-
-
-                    setSelected('school', school);
-                    setSelected('size', size);
-//                    fail_alert(type);
-                    setSelected('type', type);
-                    setSelected('gender', gender);
-                },
-                error : function() {
-                    fail_alert("哎呀呀，初始化信息失败...")
-                }
-            });
 
 //            showResult(school, type, gender, size, 1);
         });
@@ -150,6 +124,7 @@
 </div>
 
 <script type="text/javascript" src="../static/js/jquery.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="../static/js/cookie.js" charset="utf-8"></script>
 <script type="text/javascript" src="../static/js/alert.js" charset="utf-8"></script>
 <script type="text/javascript" src="../static/js/tether.js"></script>
 <script type="text/javascript" src="../static/js/alert.js"></script>
@@ -157,6 +132,7 @@
 <script type="text/javascript" src="../static/js/clothes.js"></script>
 <script type="text/javascript" src="../static/js/util.js" charset="utf-8"></script>
 <script type="text/javascript" src="../static/js/search.js" charset="utf-8"></script>
+<script type="text/javascript" src="../static/js/menu.js" charset="utf-8"></script>
 <!--<script type="text/javascript" src="http://cdn.amazeui.org/amazeui/2.7.2/js/amazeui.js" charset="utf-8"></script>-->
 <script>
     $('select.drop-select').each(function () {

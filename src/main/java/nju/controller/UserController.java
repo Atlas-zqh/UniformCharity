@@ -49,7 +49,7 @@ public class UserController {
                 System.out.println("null");
             } else {
                 loginInfo = "登录成功";
-                if((EncryptionUtil.encrypt("20170522",password)).equals(user.getPassword())) {
+                if(password.equals(user.getPassword())) {
                     loginInfo = "登录成功";
                     map.put("result", "success");
                     map.put("userInfo", user);
