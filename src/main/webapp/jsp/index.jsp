@@ -16,15 +16,16 @@
     <link rel="stylesheet" href="../static/css/log.css"/>
     <link rel="stylesheet" href="../static/css/alert.css"/>
     <link rel="stylesheet" href="../static/css/custom_up_img.css">
-    <link rel="stylesheet" href="../static/css/amazeui.css">
-    <link rel="stylesheet" href="../static/css/amazeui.min.css">
+    <%--<link rel="stylesheet" href="../static/css/amazeui.min.css">--%>
     <link rel="stylesheet" href="../static/css/amazeui.cropper.css">
+    <link rel="stylesheet" href="../static/css/amazeui.css">
+    <link rel="stylesheet" href="../static/css/font-awesome.css">
     <link rel="stylesheet" href="../static/css/upload.css"/>
     <link rel="stylesheet" href="../static/css/main.css"/>
     <link rel="stylesheet" href="../static/css/theme.css"/>
 
     <script type="text/javascript" src="../static/js/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <%--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>--%>
     <%--<script type="text/javascript" src="http://jquery-json.googlecode.com/files/jquery.json-2.2.min.js"></script>--%>
     <script>
         $(document).ready(function () {
@@ -112,7 +113,7 @@
 <!--图片上传框-->
 <div class="am-modal am-modal-no-btn up-frame-bj " tabindex="-1" id="doc-modal-1"
      style="display: none; margin-left: 20%;">
-    <div class="am-modal-dialog up-frame-parent up-frame-radius" style="width: 600px;">
+    <div class="am-modal-dialog up-frame-parent up-frame-radius" style="width: 70%;">
         <div class="am-modal-hd up-frame-header">
             <label>修改头像</label>
             <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>x</a>
@@ -153,19 +154,6 @@
         <div class="am-modal-hd">正在上传...</div>
         <div class="am-modal-bd">
             <span class="am-icon-spinner am-icon-spin"></span>
-        </div>
-    </div>
-</div>
-
-<!--警告框-->
-<div class="am-modal am-modal-alert" tabindex="-1" id="my-alert">
-    <div class="am-modal-dialog">
-        <div class="am-modal-hd">信息</div>
-        <div class="am-modal-bd" id="alert_content">
-            成功了
-        </div>
-        <div class="am-modal-footer">
-            <span class="am-modal-btn">确定</span>
         </div>
     </div>
 </div>
@@ -432,7 +420,7 @@
 <script type="text/javascript" src="../static/js/login.js"></script>
 <script type="text/javascript" src="../static/js/cookie.js"></script>
 <script type="text/javascript" src="../static/js/bootstrap.js"></script>
-<script type="text/javascript" src="http://cdn.amazeui.org/amazeui/2.7.2/js/amazeui.js" charset="utf-8"></script>
+<script type="text/javascript" src="../static/js/amazeui.min.js" charset="utf-8"></script>
 <script type="text/javascript" src="../static/js/cropper.min.js" charset="utf-8"></script>
 <script type="text/javascript" src="../static/js/custom_up_img.js" charset="utf-8"></script>
 <script type="text/javascript" src="../static/js/move-top.js"></script>

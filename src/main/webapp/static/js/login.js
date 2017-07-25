@@ -1,6 +1,7 @@
 var gender = "";
 
 function login() {
+    delCookie("username");
     var username = $('#username').val();
     var password = $('#password').val();
 
@@ -52,14 +53,15 @@ function login() {
 
 
 function quitLog() {
+    delCookie("username");
+    delCookie("picurl");
     document.getElementById("preLogIn").style.display = "inline-block";
     document.getElementById("afterLogIn").style.display = "none";
     $('#searchPanel').css("display", "none");
     $('#loginPanel').fadeIn();
     $('#username').val("");
     $('#password').val("");
-    delCookie("username");
-    delCookie("picurl");
+
 }
 
 $("#maleBut").click(function () {

@@ -1,6 +1,7 @@
 $(document).ready(function () {
     $("#up-img-touch").click(function () {
-        $("#doc-modal-1").modal({width: '600px'});
+        $("#doc-modal-1").modal();
+        // $("#doc-modal-1").css("display", "block");
     });
 });
 $(function () {
@@ -85,7 +86,7 @@ $(function () {
         var $modal_alert = $('#my-alert');
         var img_src=$image.attr("src");
         if(img_src==""){
-            set_alert_info("没有选择上传的图片");
+            fail_alert("没有选择上传的图片");
             $modal_alert.modal();
             return false;
         }
@@ -100,9 +101,39 @@ $(function () {
         // $modal_alert.modal();
         $modal.modal('close');
         $("#icon").attr("src", data);
-        $("#doc-modal-1").modal('close');
-        set_alert_info("上传成功");
-        $modal_alert.modal();
+
+        var image = data.replace(/\+/g, "%2B");
+        image = image.split(',')[1];
+        if(getCookie("username") != null){
+            $.ajax({
+                url: "/userAction/uploadIcon",
+                type: "POST",
+                dataType: "json",
+                data: {
+                    "image": image,
+                    "username": getCookie("username")
+                },
+                async: false,
+                success: function (d) {
+                    if (d.result == "fail") {
+                        fail_alert("哎呀，上传失败了...");
+                    }
+                    if (d.result == "success") {
+                        $('#iconLabel').css("background-image", "url(" + data + ")");
+                        $("#doc-modal-1").modal('close');
+                        success_alert("上传成功");
+                        $modal_alert.modal();
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    fail_alert("哎呀，网络似乎不太好...");
+                }
+            });
+        }else {
+            $("#doc-modal-1").modal('close');
+            success_alert("上传成功");
+            $modal_alert.modal();
+        }
         // $.ajax( {
         //     url:url,
         //     dataType:'json',
