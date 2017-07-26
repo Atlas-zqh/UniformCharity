@@ -11,17 +11,18 @@ html{
 #detailArea {
     display: inline-block;
     position: absolute;
-    left: 0%;
-    top: 0%;
+
     z-index: 10;
-    margin-left: 23px;
-    margin-top: 23px;
-    margin-right: 23px;
+    top: 2.8%;
+    left: 1.6%;
+    width: 96.8%;
     background-size: cover;
     min-height: 0%;
-    width: 97%;
-    padding-bottom: 100%;
-    height: 0;
+    /*padding-bottom: 100%;*/
+    height: auto;
+    background: white;
+    padding-bottom: 2%;
+
 }
 
 #detailArea .titleP{
@@ -35,6 +36,8 @@ html{
     margin-left: 2.5%;
     margin-top: 2.5%;
     padding-bottom: 2%;
+    border: 2px solid #a3dbe6;
+    box-shadow: 0 0 5px 2px #87b4bf;
 }
 
 
@@ -90,6 +93,7 @@ html{
     margin-left: 2%;
     margin-top: 112%;
     width: 20%;
+    white-space: nowrap;
 }
 
 #detailArea #headPart #infoArea a{
@@ -111,6 +115,8 @@ html{
     margin-left: 2.5%;
     margin-top: 2.5%;
     padding-bottom: 2%;
+    border: 2px solid #f5d76b;
+    box-shadow: 0 0 5px 2px #DABD61;
 }
 
 #detailArea #detailPart img{

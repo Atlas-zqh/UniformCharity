@@ -216,7 +216,7 @@
     <div class="dropdown"
          style="margin-top: 55%; font-family: 'Yuppy SC'; text-shadow: -0.1vmax 0.1vmax 0 grey; font-size: 1.5vmax">
         <select data-select-like-alignement="auto" class="drop-select" style="font-size: 150%" id="school" onchange="changeSchool('type', 'school')">
-            <option value="null" selected="selected"></option>
+            <%--<option value="null" selected="selected"></option>--%>
         </select>
     </div>
     <h3 style="position:absolute; display: inline-block; margin-top: 70%; margin-left: 41%">款&nbsp式</h3>

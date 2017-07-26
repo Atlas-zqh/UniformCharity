@@ -29,6 +29,10 @@ function initMenu(maxPage, id, page){
                     item.className = "click";
                 }
             }
+            if(maxPage == 0){
+                item = addMenuItem(id, 1);
+                item.className = "click";
+            }
         }
     }else{
         if(page + 2 <= maxPage) {

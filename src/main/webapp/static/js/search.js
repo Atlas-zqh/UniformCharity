@@ -26,6 +26,7 @@ function female() {
 }
 
 function search() {
+    $('#noResultLabel').css("display", "none");
     delCookie("gender");
     delCookie("school");
     delCookie("size");
@@ -63,7 +64,7 @@ function showResult(school, type, gender, size, page) {
             "type": type,
             "gender": gender,
             "size": size,
-            "page": page,
+            "page": page
         },
         dataType: 'json',
         success: function (data) {
@@ -71,11 +72,9 @@ function showResult(school, type, gender, size, page) {
             if (data && data.success == "true") {
                 $.each(data.clothes, function (i, item) {
                     addSingleClothesPanel(item);
-                    // addOption('type', item, item);
-                    // fail_alert(i);
                 });
             } else {
-                fail_alert("无结果");
+                // fail_alert("无结果");
             }
         },
         error: function () {
@@ -159,6 +158,7 @@ function addSingleClothesPanel(clothes) {
 }
 
 function getMaxPage(school, type, gender, size) {
+    var max = 0;
     getInfo();
     jQuery.ajax({
         type: 'POST',
@@ -172,18 +172,19 @@ function getMaxPage(school, type, gender, size) {
         },
         dataType: 'json',
         success: function (data) {
-            // alert("success");
             if (data && data.success == "true") {
+                max = data.maxPage
                 return data.maxPage;
             } else {
-                fail_alert("无结果");
+                // fail_alert("无结果");
+                $('#noResultLabel').css("display", "inline-block");
             }
         },
         error: function () {
             fail_alert("哎呀呀，网络似乎不太好...")
         }
     });
-    return 0;
+    return max;
 }
 
 function first() {
@@ -225,7 +226,12 @@ function next() {
 function last() {
     getInfo();
     var maxPage = getMaxPage(school, type, gender, size);
-    window.location.href = '../jsp/search.jsp?school=' + school + "&gender=" + gender + "&size=" + size + "&type=" + type + "&page=" + maxPage;
+    var page = parseInt(decodeURIComponent(getArgsFromHref(window.location.href, 'page')).split('#')[0]);
+    if (page >= maxPage) {
+        fail_alert("当前已经是最后一页！")
+    } else {
+        window.location.href = '../jsp/search.jsp?school=' + school + "&gender=" + gender + "&size=" + size + "&type=" + type + "&page=" + maxPage;
+    }
 }
 
 function getInfo(){

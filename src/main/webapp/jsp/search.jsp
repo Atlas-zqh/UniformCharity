@@ -36,7 +36,7 @@
             getAllTypesOfSchool('type', school);
             initPage(page);
 //            showResult(school, type, gender, size, page);
-
+//            alert(getMaxPage(school, type, gender, size));
             initMenu(getMaxPage(school, type, gender, size), 'menu', page);
 
 
@@ -91,27 +91,23 @@
     </div>
     <div id="contentPage">
         <h1>搜索结果</h1>
-        <div class="singleClothe">
-            <img src="">
-            <p class="priceP">¥188.00</p>
-            <a href="" class="nameP">hahahahahahahahahahahahahahahahahahahahahahahaha</a>
-            <a href="" class="userP">XXX</a>
-            <p class="infoP">男</p>
-            <p class="infoP" style="margin-left: 20%;">L</p>
+        <h2 style="width: 100%; text-align: center; padding: 3%; display: none;" id="noResultLabel">哎呀，没有搜索结果，换个条件再试试吧！</h2>
+        <%--<div class="singleClothe">--%>
+            <%--<img src="">--%>
+            <%--<p class="priceP">¥188.00</p>--%>
+            <%--<a href="../jsp/clothesDetails.jsp" class="nameP">hahahahahahahahahahahahahahahahahahahahahahahaha</a>--%>
+            <%--<a href="" class="userP">XXX</a>--%>
+            <%--<p class="infoP">男</p>--%>
+            <%--<p class="infoP" style="margin-left: 20%;">L</p>--%>
 
-        </div>
+        <%--</div>--%>
 
     </div>
     <div style="text-align: center; padding-bottom: 3%">
         <ul id="menu">
-            <li><a href="#" onclick="previousPage()">Previous</a></li>
+            <li><a href="#" onclick="previous()">Previous</a></li>
             <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li><a href="#">6</a></li>
-            <li><a href="#" onclick="nextPage()">Next</a></li>
+            <li><a href="#" onclick="next()">Next</a></li>
         </ul>
     </div>
 

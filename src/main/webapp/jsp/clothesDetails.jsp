@@ -16,6 +16,13 @@
     <%--<link rel="stylesheet" type="text/css" href="http://cdn.amazeui.org/amazeui/2.7.2/css/amazeui.css">--%>
     <%--<link rel="stylesheet" type="text/css" href="http://cdn.amazeui.org/amazeui/2.7.2/css/amazeui.min.css">--%>
     <link rel="stylesheet" type="text/css" href="../static/css/theme.css">
+    <script type="text/javascript" src="../static/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../static/js/jquery.min.js" charset="utf-8"></script>
+    <script>
+        $(document).ready(function () {
+            checkCookie();
+        });
+    </script>
 </head>
 <body>
 
@@ -31,8 +38,8 @@
                 <div class="imageBox" style="width: 9vmax; height: 9vmax;" id="pic1">
                     <img src="../static/images/mainBG2.png" class="largeImage"/>
                 </div>
-                <div class="imageBox" style="width: 9vmax; height: 9vmax;" id="pic2">
-                    <img src="../static/images/mainBG2.png" class="largeImage"/>
+                <div class="imageBox" style="width: 9vmax; height: 9vmax; display: none" id="pic2">
+                    <img src="../static/images/mainBG1.png" class="largeImage"/>
                 </div>
                 <div class="imageBox" style="width: 12vmax; height: 12vmax; display: none" id="pic3">
                     <img src="../static/images/mainBG2.png" class="largeImage"/>
@@ -46,16 +53,16 @@
             <h2 id="title">南京外国语学校仙林分校夏季男款短袖</h2>
             <br>
             <h5 style="position: absolute; margin-left: 1%; margin-top: 0%;">捐赠者:</h5>
-            <a href="" id="user" style="position: absolute; margin-left: 7%; margin-top: 0%;">123456(XXX)</a>
+            <a href="" id="user" style="position: absolute; margin-left: 10%; margin-top: 0%;">123456(XXX)</a>
             <h5 style="position: absolute; margin-left: 1%; margin-top: 5%">学校:</h5>
-            <p id="school" class="contentP" style="position: absolute; margin-left: 5.5%; margin-top: 5.3%">
+            <p id="school" class="contentP" style="position: absolute; margin-left: 10%; margin-top: 5.3%">
                 南京外国语学校仙林分校</p>
             <h5 style="position: absolute; margin-left: 1%; margin-top: 10%">款式:</h5>
-            <p id="type" class="contentP" style="position: absolute; margin-left: 5.5%; margin-top: 10.3%">夏季短袖T恤</p>
+            <p id="type" class="contentP" style="position: absolute; margin-left: 10%; margin-top: 10.3%">夏季短袖T恤</p>
             <h5 style="position: absolute; margin-left: 1%; margin-top: 15%">性别:</h5>
-            <p id="gender" class="contentP" style="position: absolute; margin-left: 5.5%; margin-top: 15.3%">男</p>
+            <p id="gender" class="contentP" style="position: absolute; margin-left: 10%; margin-top: 15.3%">男</p>
             <h5 style="position: absolute; margin-left: 1%; margin-top: 20%">尺寸:</h5>
-            <p id="size" class="contentP" style="position: absolute; margin-left: 5.5%; margin-top: 20.3%">M</p>
+            <p id="size" class="contentP" style="position: absolute; margin-left: 10%; margin-top: 20.3%">M</p>
             <button class="mybt" style="position:absolute; margin-top: 28%; margin-left: 20%; font-size: 1.5vmax; width: 20%">立 即 购 买</button>
         </div>
     </div>
@@ -82,8 +89,7 @@
     <!--</div>-->
 </div>
 
-<script type="text/javascript" src="../static/js/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="../static/js/jquery.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="../static/js/cookie.js" charset="utf-8"></script>
 
 <%--<script type="text/javascript" src="http://cdn.amazeui.org/amazeui/2.7.2/js/amazeui.js" charset="utf-8"></script>--%>
 

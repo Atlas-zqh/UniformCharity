@@ -124,6 +124,7 @@ public class ClothesController {
         long maxPage = clothesPageInfo.getTotal();
         if(clothesPageInfo != null){
             List<Clothes> clothes = clothesPageInfo.getList();
+            System.out.println("有几件衣服：" + clothes.size());
 
             if(clothes.size() > 0){
                 map.put("success", "true");

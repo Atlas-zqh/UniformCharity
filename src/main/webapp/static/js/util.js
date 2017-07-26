@@ -37,3 +37,13 @@ function setSelected(id, value) {
         }
     }
 }
+
+function delAllChile(id) {
+    var menu = document.getElementById(id);
+    var num = menu.childNodes.length;
+    for (num - 1; num >= 0; num--) {
+        if (menu.childNodes.item(num) != null)
+        // alert(case_list.childNodes.item(num));
+            menu.removeChild(menu.childNodes.item(num));
+    }
+}
