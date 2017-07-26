@@ -16,15 +16,16 @@
     <link rel="stylesheet" href="../static/css/log.css"/>
     <link rel="stylesheet" href="../static/css/alert.css"/>
     <link rel="stylesheet" href="../static/css/custom_up_img.css">
-    <link rel="stylesheet" href="../static/css/amazeui.css">
-    <link rel="stylesheet" href="../static/css/amazeui.min.css">
+    <%--<link rel="stylesheet" href="../static/css/amazeui.min.css">--%>
     <link rel="stylesheet" href="../static/css/amazeui.cropper.css">
+    <link rel="stylesheet" href="../static/css/amazeui.css">
+    <link rel="stylesheet" href="../static/css/font-awesome.css">
     <link rel="stylesheet" href="../static/css/upload.css"/>
     <link rel="stylesheet" href="../static/css/main.css"/>
     <link rel="stylesheet" href="../static/css/theme.css"/>
 
     <script type="text/javascript" src="../static/js/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <%--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>--%>
     <%--<script type="text/javascript" src="http://jquery-json.googlecode.com/files/jquery.json-2.2.min.js"></script>--%>
     <script>
         $(document).ready(function () {
@@ -60,7 +61,10 @@
 
         $(document).ready(function () {
             checkCookie();
+            getAllSchool('school');
+
         });
+
     </script>
     <%--<style type="text/css">--%>
     <%--.up-img-cover {width: 100px;height: 100px;}--%>
@@ -109,7 +113,7 @@
 <!--图片上传框-->
 <div class="am-modal am-modal-no-btn up-frame-bj " tabindex="-1" id="doc-modal-1"
      style="display: none; margin-left: 20%;">
-    <div class="am-modal-dialog up-frame-parent up-frame-radius" style="width: 600px;">
+    <div class="am-modal-dialog up-frame-parent up-frame-radius" style="width: 70%;">
         <div class="am-modal-hd up-frame-header">
             <label>修改头像</label>
             <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>x</a>
@@ -150,19 +154,6 @@
         <div class="am-modal-hd">正在上传...</div>
         <div class="am-modal-bd">
             <span class="am-icon-spinner am-icon-spin"></span>
-        </div>
-    </div>
-</div>
-
-<!--警告框-->
-<div class="am-modal am-modal-alert" tabindex="-1" id="my-alert">
-    <div class="am-modal-dialog">
-        <div class="am-modal-hd">信息</div>
-        <div class="am-modal-bd" id="alert_content">
-            成功了
-        </div>
-        <div class="am-modal-footer">
-            <span class="am-modal-btn">确定</span>
         </div>
     </div>
 </div>
@@ -217,28 +208,41 @@
 </div>
 
 <div id="searchPanel" style="display: none">
-    <div id="genderLabel" style="margin-top: 20%"></div>
-    <button class="mybt" style="margin-top: 30%; margin-left: 25%; width: 20%;">男</button>
-    <p class="genderLine">|</p>
-    <button class="mybt" style="margin-top: 30%; margin-left: 54.7%; width: 20%;">女</button>
-    <div id="typeLabel" style="margin-top: 45%"></div>
-    <div id="typeDropDown"
-         style="margin-top: 55%; font-size: 200%; font-family: 'Yuppy SC'; text-shadow: 0 2px 0 grey;">
-        <select data-select-like-alignement="auto" class="drop-select" style="font-size: 150%">
-            <option value="summer">夏季</option>
-            <option value="winter" selected="selected">冬季</option>
+    <h3 style="position:absolute; display: inline-block; margin-top: 20%; margin-left: 41%">性&nbsp别</h3>
+    <button class="mybt" style="margin-top: 30%; margin-left: 25%; width: 20%;  font-size: 1.5vmax" id="male" onclick="male()">男</button>
+    <p class="genderLine" style="margin-top: 28.8%">|</p>
+    <button class="mybt" style="margin-top: 30%; margin-left: 54.7%; width: 20%;  font-size: 1.5vmax" id="female" onclick="female()">女</button>
+    <h3 style="position:absolute; display: inline-block; margin-top: 45%; margin-left: 41%">学&nbsp校</h3>
+    <div class="dropdown"
+         style="margin-top: 55%; font-family: 'Yuppy SC'; text-shadow: -0.1vmax 0.1vmax 0 grey; font-size: 1.5vmax">
+        <select data-select-like-alignement="auto" class="drop-select" style="font-size: 150%" id="school" onchange="changeSchool('type', 'school')">
+            <%--<option value="null" selected="selected"></option>--%>
         </select>
     </div>
-    <div id="sizeLabel" style="margin-top: 70%"></div>
-    <div id="sizeDropDown"
-         style="margin-top: 80%; font-size: 200%; font-family: 'Yuppy SC'; text-shadow: 0 2px 0 grey;">
-        <select data-select-like-alignement="auto" class="drop-select" style="font-size: 150%">
+    <h3 style="position:absolute; display: inline-block; margin-top: 70%; margin-left: 41%">款&nbsp式</h3>
+    <div class="dropdown"
+         style="margin-top: 80%; font-family: 'Yuppy SC'; text-shadow: -0.1vmax 0.1vmax 0 grey; font-size: 1.5vmax;">
+        <select data-select-like-alignement="auto" class="drop-select" style="font-size: 150%" id="type">
+            <option value="null" selected="selected"></option>
+        </select>
+    </div>
+    <h3 style="position:absolute; display: inline-block; margin-top: 95%; margin-left: 41%">尺&nbsp码</h3>
+    <div class="dropdown"
+         style="margin-top: 105%; font-family: 'Yuppy SC'; text-shadow: -0.1vmax 0.1vmax 0 grey; font-size: 1.5vmax">
+        <select data-select-like-alignement="auto" class="drop-select" style="font-size: 150%" id="size">
+            <option value="null" selected="selected"></option>
+            <option value="XXXS">XXXS</option>
+            <option value="XXS">XXS</option>
+            <option value="XS">XS</option>
             <option value="S">S</option>
-            <option value="M" selected="selected">M</option>
+            <option value="M">M</option>
             <option value="L">L</option>
+            <option value="XL">XL</option>
+            <option value="XXL">XXL</option>
+            <option value="XXXL">XXXL</option>
         </select>
     </div>
-    <button class="mybt" style="margin-top: 105%; margin-left: 25%; width: 50%;">搜 索</button>
+    <button class="mybt" style="margin-top: 125%; margin-left: 25%; width: 50%; font-size: 1.5vmax" onclick="search()">搜 索</button>
 </div>
 <div id="bulletinPage">
 </div>
@@ -406,6 +410,7 @@
 <%--<p style="position:absolute; display: inline-block; z-index: 2; color: grey; margin-top: 0%; text-align: center; line-height: 100%; width: 100%; font-size: 90%;">与子同袍项目组 copyright@2017</p>--%>
 </div>
 <script type="text/javascript" src="../static/js/alert.js"></script>
+<script type="text/javascript" src="../static/js/util.js"></script>
 <script type="text/javascript" src="../static/js/SmoothScroll.min.js"></script>
 <script type="text/javascript" src="../static/js/jquery.min.js" charset="utf-8"></script>
 <script type="text/javascript" src="../static/js/tether.js"></script>
@@ -415,12 +420,14 @@
 <script type="text/javascript" src="../static/js/login.js"></script>
 <script type="text/javascript" src="../static/js/cookie.js"></script>
 <script type="text/javascript" src="../static/js/bootstrap.js"></script>
-<script type="text/javascript" src="http://cdn.amazeui.org/amazeui/2.7.2/js/amazeui.js" charset="utf-8"></script>
+<script type="text/javascript" src="../static/js/amazeui.min.js" charset="utf-8"></script>
 <script type="text/javascript" src="../static/js/cropper.min.js" charset="utf-8"></script>
 <script type="text/javascript" src="../static/js/custom_up_img.js" charset="utf-8"></script>
 <script type="text/javascript" src="../static/js/move-top.js"></script>
 <script type="text/javascript" src="../static/js/easing.js"></script>
 <script type="text/javascript" src="../static/js/upload.js"></script>
+<script type="text/javascript" src="../static/js/clothes.js"></script>
+<script type="text/javascript" src="../static/js/search.js"></script>
 
 <script>
     $('select.drop-select').each(function () {

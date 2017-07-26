@@ -1,9 +1,9 @@
-html{
+html {
     background: #BCD5D8;
     min-width: 800px;
 }
 
-body{
+body {
     position: relative;
     width: 100%;
     height: 100%;
@@ -12,7 +12,7 @@ body{
 
 }
 
-#mainPage{
+#mainPage {
     display: inline-block;
     position: absolute;
     /*left: 0%;*/
@@ -20,7 +20,7 @@ body{
     z-index: 0;
     margin: 0;
     background: url(../images/mainBG1.png);
-    background-size:cover;
+    background-size: cover;
     /*width: 100%;*/
     top: 3vh;
     left: 1.6%;
@@ -30,11 +30,11 @@ body{
     height: 0;
 }
 
-#searchPanel{
+#searchPanel {
     position: absolute;
     z-index: 1;
     background: url(../images/SearchPanel.png);
-    background-size:cover;
+    background-size: cover;
     width: 27.2%;
     min-width: 218px;
     padding-bottom: 38.2%;
@@ -43,29 +43,29 @@ body{
     height: 0;
 }
 
-#genderLabel{
+#genderLabel {
     position: absolute;
     z-index: 2;
     background: url(../images/GenderLabel.png);
-    background-size:cover;
+    background-size: cover;
     width: 20%;
     min-width: 30px;
     padding-bottom: 7.6%;
-    margin-top: 25%;
+    margin-top: 35%;
     margin-left: 40%;
 }
 
-.genderLine{
+.genderLine {
     position: absolute;
     z-index: 100;
     text-align: center;
     font-size: 200%;
     color: white;
-    margin-top: 28.2%;
+    margin-top: 33.2%;
     margin-left: 48.5%;
 }
 
-#schoolDropDown{
+#schoolDropDown {
     position: absolute;
     z-index: 100;
     width: 40%;
@@ -74,50 +74,15 @@ body{
     margin-top: 79%;
 }
 
-#typeLabel{
-    position: absolute;
-    z-index: 2;
-    background: url(../images/TypeLabel.png);
-    background-size:cover;
-    width: 20%;
-    min-width: 30px;
-    padding-bottom: 7.6%;
-    margin-top: 55%;
-    margin-left: 40%;
-}
-
-#typeDropDown{
+.dropdown {
     position: absolute;
     z-index: 100;
     width: 40%;
     padding-bottom: 10%;
-    margin-top: 65%;
-    margin-left: 30%;
-
-}
-
-#sizeLabel{
-    position: absolute;
-    z-index: 2;
-    background: url(../images/SizeLabel.png);
-    background-size:cover;
-    width: 20%;
-    min-width: 30px;
-    padding-bottom: 7.6%;
-    margin-top: 85%;
-    margin-left: 40%;
-}
-
-#sizeDropDown{
-    position: absolute;
-    z-index: 100;
-    width: 40%;
-    padding-bottom: 10%;
-    margin-top: 95%;
     margin-left: 30%;
 }
 
-.searchButton{
+.searchButton {
     position: absolute;
     z-index: 100;
     background-color: #97d5dd;
@@ -138,20 +103,19 @@ body{
     margin-left: 30%;
 }
 
-.searchButton:hover{
+.searchButton:hover {
     color: #142535;
     cursor: pointer;
 }
 
-
-#bulletinPage{
+#bulletinPage {
     position: absolute;
     /*left: 0%;*/
     top: 0%;
     z-index: 0;
     margin: 0;
     background: url(../images/mainBG2.png);
-    background-size:cover;
+    background-size: cover;
     /*width: 100%;*/
     min-width: 800px;
     min-height: 320px;
@@ -162,12 +126,12 @@ body{
     width: 96.8%;
 }
 
-#fundBulletin{
+#fundBulletin {
     position: absolute;
     z-index: 1;
     display: inline;
     background: url(../images/FundBulletin.png);
-    background-size:cover;
+    background-size: cover;
     width: 31.25%;
     margin-top: 49%;
     margin-left: 9%;
@@ -180,20 +144,20 @@ body{
 #fundBulletin #scroll {
     overflow: hidden;
     position: absolute;
-    width:97.5%;
-    height:75%;
+    width: 97.5%;
+    height: 75%;
     margin-top: 20%;
-    background:#97D5DD;
+    background: #97D5DD;
     text-align: center;
     font-size: 1vmax;
 }
 
-#transactionBulletin{
+#transactionBulletin {
     position: absolute;
     z-index: 1;
     display: inline;
     background: url(../images/TransactionBulletin.png);
-    background-size:cover;
+    background-size: cover;
     width: 31.25%;
     margin-top: 49%;
     margin-left: 59%;
@@ -205,22 +169,22 @@ body{
 #transactionBulletin #scroll3 {
     overflow: hidden;
     position: absolute;
-    width:97.5%;
-    height:75%;
+    width: 97.5%;
+    height: 75%;
     margin-top: 20%;
     background: #8dbce3;
     text-align: center;
     font-size: 1vmax;
 }
 
-#forumPage{
+#forumPage {
     position: absolute;
     /*left: 0%;*/
     top: 0%;
     z-index: 0;
     margin: 0;
     background: #99cbd9;
-    background-size:cover;
+    background-size: cover;
     /*width: 100%;*/
     min-width: 800px;
     padding-bottom: 41.7%;
@@ -230,11 +194,11 @@ body{
     width: 96.8%;
 }
 
-#forumPage .forumTitle{
+#forumPage .forumTitle {
     position: absolute;
     z-index: 1;
     background: url(../images/ForumTitle.png);
-    background-size:cover;
+    background-size: cover;
     width: 10.5%;
     margin-top: 2.5%;
     margin-left: 5%;
@@ -242,7 +206,7 @@ body{
     padding-bottom: 37%;
 }
 
-.forumArea{
+.forumArea {
     position: absolute;
     z-index: 1;
     background-color: #99cbd9;
@@ -255,7 +219,7 @@ body{
     overflow: hidden;
 }
 
-.forumArea >div .forumTable{
+.forumArea > div .forumTable {
     position: absolute;
     z-index: 3;
     width: 94%;
@@ -269,7 +233,7 @@ body{
     /*border: 5px solid #8ccafa;*/
 }
 
-.forumArea .forumTable .titleTr{
+.forumArea .forumTable .titleTr {
     width: 80%;
     font-family: "Yuppy SC";
     color: white;
@@ -279,7 +243,7 @@ body{
 
 }
 
-.forumArea .forumTable .bodyTr{
+.forumArea .forumTable .bodyTr {
     width: 100%;
     font-family: Helvetica;
     color: white;
@@ -289,8 +253,7 @@ body{
     font-size: 1vmax;
 }
 
-
-.forumArea >div >button{
+.forumArea > div > button {
     display: block;
     position: absolute;
     z-index: 100;
@@ -321,35 +284,34 @@ body{
 
 }
 
-.forumArea >div >button:active{
+.forumArea > div > button:active {
     outline: none;
 }
 
-
-.forumArea >div >button:hover{
+.forumArea > div > button:hover {
     color: #d6ad5c;
     text-shadow: 0 2px 0 #866536;
 
 }
 
 /*.table1{*/
-    /*z-index: 100;*/
-    /*background: none repeat scroll 0 0 #39576e;*/
-    /*text-shadow: 0 2px 0 grey;*/
+/*z-index: 100;*/
+/*background: none repeat scroll 0 0 #39576e;*/
+/*text-shadow: 0 2px 0 grey;*/
 /*}*/
 
 /*.forumArea > div:not(:target) > a {*/
-    /*background: none repeat scroll 0 0 #97d5dd;*/
-    /*text-shadow: 0 2px 0 #39576e;*/
+/*background: none repeat scroll 0 0 #97d5dd;*/
+/*text-shadow: 0 2px 0 #39576e;*/
 /*}*/
 
 /*.forumArea> div:target > a {*/
-    /*z-index: 100;*/
-    /*background: none repeat scroll 0 0 #39576e;*/
-    /*text-shadow: 0 2px 0 grey;*/
+/*z-index: 100;*/
+/*background: none repeat scroll 0 0 #39576e;*/
+/*text-shadow: 0 2px 0 grey;*/
 /*}*/
 
-.forumArea .forumTable a{
+.forumArea .forumTable a {
     font-family: Helvetica;
     color: white;
     text-shadow: 0 1px 0 grey;
@@ -359,10 +321,9 @@ body{
     overflow: hidden;
 }
 
-.forumArea .forumTable a:hover{
+.forumArea .forumTable a:hover {
     text-decoration: underline;
 }
-
 
 .forumArea > div > div {
     position: absolute;
@@ -378,22 +339,22 @@ body{
 }
 
 /*.forumArea > div:not(:target) > div {*/
-    /*position: absolute; !* This keeps the tab module contained *!*/
+/*position: absolute; !* This keeps the tab module contained *!*/
 /*}*/
 
 /*.forumArea > div:target > div {*/
-    /*position: absolute;*/
-    /*z-index: 4 !important; !* Brings the content to the front depending on the tab that was clicked *!*/
+/*position: absolute;*/
+/*z-index: 4 !important; !* Brings the content to the front depending on the tab that was clicked *!*/
 /*}*/
 
-#infoPage{
+#infoPage {
     position: absolute;
     /*left: 0%;*/
     top: 0%;
     z-index: 0;
     margin: 0;
     background: #64bacb;
-    background-size:cover;
+    background-size: cover;
     /*width: 100%;*/
     min-width: 800px;
     padding-bottom: 41.7%;
@@ -402,12 +363,11 @@ body{
     width: 96.8%;
 }
 
-
-#loginPanel{
+#loginPanel {
     position: absolute;
     z-index: 1;
     background: url(../images/LoginPanel.png);
-    background-size:cover;
+    background-size: cover;
     width: 27.2%;
     min-width: 218px;
     padding-bottom: 38.2%;
@@ -415,11 +375,11 @@ body{
     margin-left: 67%;
 }
 
-#signupPanel{
+#signupPanel {
     position: absolute;
     z-index: 1;
     background: url(../images/SignupPanel.png);
-    background-size:cover;
+    background-size: cover;
     width: 27.2%;
     min-width: 218px;
     padding-bottom: 38.2%;
@@ -427,10 +387,10 @@ body{
     margin-left: 67%;
 }
 
-.label{
+.label {
     position: absolute;
     z-index: 2;
-    background-size:cover;
+    background-size: cover;
     width: 14%;
     min-width: 30px;
     padding-bottom: 5.4%;
@@ -438,7 +398,7 @@ body{
     margin-left: 40%;
 }
 
-.textInput{
+.textInput {
     position: absolute;
     z-index: 2;
     background-color: #97d5dd;
@@ -456,10 +416,10 @@ body{
     color: #142535;
     outline: none;
     outline-width: 0px;
-    height: 7%;
+    /*height: 7%;*/
 }
 
-.uploadBut{
+.uploadBut {
     letter-spacing: normal;
     position: absolute;
     display: inline-block;
@@ -486,18 +446,18 @@ body{
     white-space: nowrap;
 }
 
-.uploadBut:focus, .uploadBut:hover, .uploadBut:active{
+.uploadBut:focus, .uploadBut:hover, .uploadBut:active {
     color: #ffffff;
     text-shadow: -1px 1px 0 grey;
     outline-width: 0;
     outline: none;
 }
 
-ul li p{
+ul li p {
     list-style-type: none;
 }
 
-.foot{
+.foot {
     display: inline-block;
     position: absolute;
     margin: 0px;
@@ -518,13 +478,14 @@ ul li p{
 }
 
 #fullbg {
-    background-color:gray;
-    left:0;
-    opacity:0.5;
-    position:absolute;
-    top:0;
-    z-index:3;
-    filter:alpha(opacity=50);
-    -moz-opacity:0.5;
-    -khtml-opacity:0.5;
+    background-color: gray;
+    left: 0;
+    opacity: 0.5;
+    position: absolute;
+    top: 0;
+    z-index: 3;
+    filter: alpha(opacity=50);
+    -moz-opacity: 0.5;
+    -khtml-opacity: 0.5;
 }
+

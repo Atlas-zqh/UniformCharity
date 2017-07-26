@@ -7,8 +7,8 @@ html {
 body {
     position: relative;
     width: 100%;
+    height: 100%;
     margin: 0;
-    height: 0;
 }
 
 ul {
@@ -41,26 +41,28 @@ li {
 #resultPage {
     display: inline-block;
     position: absolute;
-    left: 0%;
-    top: 0%;
     z-index: 10;
-    margin-left: 23px;
-    margin-top: 23px;
-    margin-right: 23px;
+    top: 2.8%;
+    left: 1.6%;
+    width: 96.8%;
     background-size: cover;
     min-height: 0%;
-    width: 98%;
-    padding-bottom: 60%;
-    height: 0;
+    height: auto;
+    /*padding-bottom: 60%;*/
+    /*height: 0;*/
+    background-color: white;
 }
 
 #resultPage #searchPane{
     display: inline-block;
     position: relative;
-    background-color: #B8D7F1;
+    /*background-color: #B8D7F1;*/
     width: 90%;
     margin-left: 5%;
-    padding-bottom: 7%;
+    padding-bottom: 12%;
+    margin-top: 5%;
+    border: 2px solid #a3dbe6;
+    box-shadow: 0 0 5px 2px #87b4bf;
 }
 
 #resultPage #searchPane .labelP {
@@ -71,7 +73,7 @@ li {
     white-space: nowrap;
     color: #DABD61;
     text-shadow: -0.1vmax 0.1vmax 0 #7A6420;
-    margin-top: 2%;
+    margin-top: 1%;
     margin-left: 5%;
 }
 
@@ -90,10 +92,13 @@ li {
 #resultPage #contentPage{
     display: inline-block;
     position: relative;
-    background-color: #B8D7F1;
+    /*background-color: #B8D7F1;*/
     width: 90%;
     margin-left: 5%;
     margin-top: 5%;
+    border: 2px solid #f5d76b;
+    box-shadow: 0 0 5px 2px #DABD61;
+    padding-bottom: 3%;
 }
 
 #resultPage #contentPage .singleClothe{
@@ -117,7 +122,7 @@ li {
     position: absolute;
     width: 100%;
     padding-bottom: 100%;
-    background-color: black;
+    background-color: white;
     margin-left: 0%;
     margin-top: 0%;
 }
@@ -158,4 +163,22 @@ li {
     color: grey;
     margin-left: 2%;
     margin-top: 132%;
+}
+
+#resultPage #contentPage .singleClothe .infoP{
+    position: absolute;
+    font-size: 1.2vmax;
+    letter-spacing: 0.1vmax;
+    font-weight: bold;
+    color: #DABD61;
+    text-shadow: -0.1vmax 0.1vmax 0 #7A6420;
+    margin-left: 2%;
+    margin-top: 142%;
+    background-color: #99bfd6;
+    border-radius: 10%;
+    padding-top: 0.3vmax;
+    padding-bottom: 0.3vmax;
+    padding-left: 1vmax;
+    padding-right: 1vmax;
+    height: 7%;
 }

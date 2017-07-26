@@ -98,7 +98,7 @@ body {
 
 .rightNavBar img {
     display: inline-block;
-    width: 1.6%;
+    width: 100%;
     border-radius: 50%;
     background-size: cover;
     margin-left: 0%;
@@ -119,7 +119,7 @@ body {
     color: #142535;
     font-size: 2vh;
     position: absolute;
-    top: 97%;
+    /*top: 97%;*/
     text-align: center;
     left: 43%;
 }

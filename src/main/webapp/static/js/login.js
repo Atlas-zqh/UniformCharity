@@ -1,6 +1,7 @@
 var gender = "";
 
 function login() {
+    delCookie("username");
     var username = $('#username').val();
     var password = $('#password').val();
 
@@ -13,7 +14,7 @@ function login() {
     }
 
     $.ajax({
-        url: "userAction/userLogin",
+        url: "/userAction/userLogin",
         type: "POST",
         dataType: "json",
         data: {
@@ -52,22 +53,23 @@ function login() {
 
 
 function quitLog() {
+    delCookie("username");
+    delCookie("picurl");
     document.getElementById("preLogIn").style.display = "inline-block";
     document.getElementById("afterLogIn").style.display = "none";
     $('#searchPanel').css("display", "none");
     $('#loginPanel').fadeIn();
     $('#username').val("");
     $('#password').val("");
-    delCookie("username");
-    delCookie("picurl");
+
 }
 
 $("#maleBut").click(function () {
     gender = "男";
     $("#maleBut").css("color", "#142535");
-    $("#maleBut").css("text-shadow", "0 2px 0 lightgrey");
+    $("#maleBut").css("text-shadow", "-0.1vmax 0.1vmax 0 lightgrey");
     $("#femaleBut").css("color", "white");
-    $("#femaleBut").css("text-shadow", "0 2px 0 grey");
+    $("#femaleBut").css("text-shadow", "-0.1vmax 0.1vmax 0 grey");
     if ($("#icon").attr('src') == "../images/femaleIcon.png")
         $("#icon").attr('src', "../images/maleIcon.png")
 });
@@ -75,9 +77,9 @@ $("#maleBut").click(function () {
 $("#femaleBut").click(function () {
     gender = "女";
     $("#maleBut").css("color", "white");
-    $("#maleBut").css("text-shadow", "0 2px 0 grey");
+    $("#maleBut").css("text-shadow", "-0.1vmax 0.1vmax 0 grey");
     $("#femaleBut").css("color", "#142535");
-    $("#femaleBut").css("text-shadow", "0 2px 0 lightgrey");
+    $("#femaleBut").css("text-shadow", "-0.1vmax 0.1vmax 0 lightgrey");
     if ($("#icon").attr('src') == "../images/maleIcon.png")
         $("#icon").attr('src', "../images/femaleIcon.png")
 });
@@ -136,7 +138,7 @@ function signup() {
     }
     // alert(image);
     $.ajax({
-        url: "userAction/userSignUp",
+        url: "/userAction/userSignUp",
         type: "POST",
         dataType: "json",
         data: {

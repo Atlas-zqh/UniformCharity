@@ -1,9 +1,9 @@
 #uploadView {
-    z-index: 5000;
+    z-index: 100;
     position: absolute;
     display: none;
     width: 60%;
-    padding-bottom: 35%;
+    padding-bottom: 1%;
     margin-top: 10%;
     margin-left: 20%;
     background: white;
@@ -37,37 +37,42 @@
 #uploadView p {
     font-family: "Yuppy SC";
     display: inline-block;
-    color: #d6bd6f;
-    text-shadow: -2px 2px 0 #78652d;
-    font-size: 150%;
+    color: #87b4bf;
+    text-shadow: -0.1vmax 0.1vmax 0 #315770;
+    font-size: 1.5vmax;
     /*min-width: 400px;!**!*/
     overflow: scroll;
 }
 
 #uploadView .select {
-    width: 30%;
-    padding-bottom: 5%;
+    margin-left: 2%;
+    width: 80%;
+    padding-bottom: 11%;
     position: absolute;
     display: inline-block;
-    min-width: 259px;
-    min-height: 34px;
+    /* min-width: 259px; */
+    /* min-height: 34px; */
     overflow: scroll;
+    font-size: 1.5vmax;
 }
 
 #uploadView ul{
-    display: inline-block;
+    display: block;
     position: absolute;
-    margin-top: 10%;
-    margin-left: 5%;
-    overflow: scroll;
-    width: 90%;
+    /* margin-top: 10%; */
+    margin-left: 45%;
+    /*overflow: scroll;*/
+    width: 40%;
+    height: 80%;
+    font-family: Helvetica;
+    text-shadow: none;
 }
 
 #uploadView li {
     width: 100%;
     list-style:none;
-    display: inline;
-    overflow: scroll;
+    display: inline-block;
+    overflow: auto;
 }
 
 #uploadView .removeButton {

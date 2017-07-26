@@ -33,6 +33,75 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @RequestMapping(value = "getUser", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Object> getUser(HttpServletRequest request, HttpServletResponse response) {
+        Map<String, Object> map = new HashMap<>();
+
+        String username = request.getParameter("username");
+
+        User user;
+
+        try {
+            user = userService.findUserByUsername(username);
+            if (user == null) {
+                map.put("success", "fail");
+            } else {
+                map.put("success", "true");
+                map.put("user", user);
+                System.out.println("username:" + user.getUsername());
+                System.out.println("studentRealName:" + user.getStudentRealName());
+                System.out.println("id:" + user.getPersonID());
+                System.out.println("gender:" + user.getGender());
+                System.out.println("school:" + user.getSchool());
+                System.out.println("credits:" + user.getCredits());
+                System.out.println("phone:" + user.getPhone());
+                System.out.println("pic:" + user.getPicurl());
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            map.put("success", "fail");
+        }
+
+
+        return map;
+    }
+
+    @RequestMapping(value = "modifyPassword", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Object> modifyPassword(HttpServletRequest request, HttpServletResponse response) {
+        Map<String, Object> map = new HashMap<>();
+
+        String username = request.getParameter("username");
+        String newPassword = request.getParameter("newPassword");
+        String oldPassword = request.getParameter("oldPassword");
+        User user;
+
+        try {
+            user = userService.findUserByUsername(username);
+            if (user == null) {
+                map.put("success", "fail");
+            } else {
+                String password = user.getPassword();
+                if(password.equals(oldPassword)) {
+                    user.setPassword(newPassword);
+                    userService.updateUser(user);
+                    map.put("success", "true");
+                }else{
+                    map.put("success", "fail");
+                }
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            map.put("success", "fail");
+        }
+
+
+        return map;
+    }
+
     @RequestMapping(value = "userLogin", method = RequestMethod.POST)
     @ResponseBody
     public Map<String, Object> login(HttpServletRequest request, HttpServletResponse response) {
@@ -46,15 +115,17 @@ public class UserController {
             User user = userService.findUserByUsername(username);
             if (user == null) {
                 loginInfo = "用户名不存在或密码错误";
+                System.out.println("null");
             } else {
                 loginInfo = "登录成功";
-                if(password.equals(user.getPassword())) {
+                if (password.equals(user.getPassword())) {
                     loginInfo = "登录成功";
                     map.put("result", "success");
                     map.put("userInfo", user);
                     return map;
-                }else{
+                } else {
                     loginInfo = "用户名不存在或密码错误";
+                    System.out.println("密码错误");
                 }
             }
         } catch (Exception e) {
@@ -64,18 +135,12 @@ public class UserController {
         map.put("result", "fail");
         map.put("loginInfo", loginInfo);
 
-//        System.out.println(username);
-//        System.out.println(password);
-//        System.out.println(loginInfo);
-//
-//        String jsonResult = JSONUtils.toJSONString(map);
-//        System.out.println(jsonResult);
         return map;
     }
 
     @RequestMapping(value = "userSignUp", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, Object> signUp(HttpServletRequest request, HttpServletResponse response) {
+    public Map<String, Object> signUp(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
         Map<String, Object> map = new HashMap<>();
         String result = "";
         String errorType = "";
@@ -107,18 +172,18 @@ public class UserController {
                 url = "static/icons/femaleIcon.png";
         } else {
             image = image.replace("%2B", "+");
-            generateImage(image, "/Users/island/IdeaProjects/UniformCharity/src/main/webapp/static/icons/" + id + ".jpg");
+            generateImage(image, session.getServletContext().getRealPath("/") + "static/icons/" + id + ".jpg");
             url = "static/icons/" + id + ".jpg";
         }
 
 
         try {
-            if (userService.findUserByID(id) != null){
+            if (userService.findUserByID(id) != null) {
                 result = "fail";
                 errorType = "哎呀呀，该身份证已注册过账户！";
                 map.put("result", result);
                 map.put("errorType", errorType);
-            }else{
+            } else {
                 User user = new User();
                 user.setUsername(username);
                 user.setPassword(password);
@@ -135,39 +200,55 @@ public class UserController {
                 map.put("user", user);
             }
             return map;
-        }catch (Exception e){
+        } catch (Exception e) {
             result = "fail";
             errorType = "哎呀呀，请稍后重试！";
             map.put("result", result);
             map.put("errorType", errorType);
             e.printStackTrace();
         }
-//        image = image.replace("%20", " ");
-//        image = image.replace("%2F", "/");
-//        image = image.replace("%3F", "?");
-//        image = image.replace("%25", "%");
-//        image = image.replace("%23", "#");
-//        image = image.replace("%26", "&");
-//        image = image.replace("%3D", "=");
-//        try {
-//            byte[] base64 = (new sun.misc.BASE64Decoder()).decodeBuffer((image));
-//            generateImage(base64, "/Users/island/IdeaProjects/UniformCharity/src/main/webapp/static/icons/" + id + ".jpg");
-//        }catch (IOException e){
-//            e.printStackTrace();
-//        }
-//        byte[] decode = Base64Util.decode(base64);
-//        String s = new String(decode);
-        // 加密
-
 
         return map;
     }
 
     @RequestMapping(value = "uploadIcon", method = RequestMethod.POST)
     @ResponseBody
-    public void upload(@RequestParam String image, HttpServletRequest request, HttpServletResponse response) {
-        System.out.println("upload");
+    public Map<String, Object> upload(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
+        Map<String, Object> map = new HashMap<>();
+        String result = "";
+
+        String image = request.getParameter("image");
+        String username = request.getParameter("username");
+
         System.out.println(image);
+        System.out.println(username);
+
+        String url = "";
+//        System.out.println(UserController.class.getResource(""));
+//        System.out.println(UserController.class.getResource("/"));
+        System.out.println(UserController.class.getResource("/"));
+        System.out.println(session.getServletContext().getRealPath("/"));
+//        String url = session.getServletContext().getRealPath("/") + "resources\\images\\act\\worldcup_merge\\worldcup720.png";
+//        String url = session.getServletContext().getRealPath("/") + "resources/images/act/worldcup_merge/worldcup720.png";
+        try {
+            User user = userService.findUserByUsername(username);
+            if (user != null) {
+                String id= user.getPersonID();
+                image = image.replace("%2B", "+");
+                generateImage(image, session.getServletContext().getRealPath("/") + "static/icons/" + id + ".jpg");
+                url = "../static/icons/" + id + ".jpg";
+
+                map.put("result", "success");
+            }
+            return map;
+        } catch (Exception e) {
+            result = "fail";
+            map.put("result", result);
+            e.printStackTrace();
+        }
+
+
+        return map;
     }
 
     /**
