@@ -38,6 +38,7 @@ function login() {
                 $('#searchPanel').fadeIn();
                 setCookie("username", data.userInfo.username, "h1");
                 setCookie("picurl", data.userInfo.picurl, "h1");
+                setCookie("id", data.userInfo.personID, "h1");
                 return;
             }
             if (data.result == "fail") {
@@ -55,6 +56,7 @@ function login() {
 function quitLog() {
     delCookie("username");
     delCookie("picurl");
+    delCookie("id");
     document.getElementById("preLogIn").style.display = "inline-block";
     document.getElementById("afterLogIn").style.display = "none";
     $('#searchPanel').css("display", "none");

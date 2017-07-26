@@ -52,11 +52,22 @@ public class ClothesController {
         String school = multipartRequest.getParameter("school");
         String type = multipartRequest.getParameter("type");
         String gender = multipartRequest.getParameter("gender");
+        String donor = multipartRequest.getParameter("donor");
         String size = multipartRequest.getParameter("size");
         System.out.println(school);
         System.out.println(type);
         System.out.println(gender);
         System.out.println(size);
+        int i = 0;
+        Clothes clothes = new Clothes();
+        clothes.setSchoolName(school);
+        clothes.setGender(gender);
+        clothes.setClothesType(type);
+        clothes.setClothessize(size);
+        clothes.setDonorID(donor);
+        clothes.setStatus("Available");
+
+        String clothesID = clothesService.addClothes(clothes);
 
         if(multipartFile != null) {
             String trueFileName = school + type + String.valueOf(System.currentTimeMillis()) + ".jpg";
@@ -135,6 +146,25 @@ public class ClothesController {
                 map.put("error", "无结果");
             }
         }
+        return map;
+    }
+
+    @RequestMapping(value = "/findClothesByID", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Object> findClothesByID(HttpServletRequest request) {
+        Map<String, Object> map = new HashedMap();
+        String id = request.getParameter("clothesID");
+
+        System.out.println(id);
+        Clothes clothes = clothesService.findClothesByClothesID(id);
+
+        if(clothes != null){
+            map.put("success", "true");
+            map.put("clothes", clothes);
+        }else{
+            map.put("success", "false");
+        }
+
         return map;
     }
 }

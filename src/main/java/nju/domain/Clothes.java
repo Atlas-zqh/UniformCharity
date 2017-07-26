@@ -24,6 +24,10 @@ public class Clothes {
 
     private String status;
 
+    public Clothes(){
+
+    }
+
     public Clothes(String clothesID, String schoolName, String clothessize, String clothesType, Double clothesPrice, String donorID, String gender, String status) {
         this.clothesID = clothesID;
         this.schoolName = schoolName;

@@ -127,6 +127,7 @@ function addSingleClothesPanel(clothes) {
 
     var img = document.createElement("img");
     img.src = clothes.picUrl;
+    img.onclick = setOpenUrl(clothes.clothesID);
     clothe_item.appendChild(img);
 
     var priceLabel = document.createElement("p");
@@ -134,10 +135,11 @@ function addSingleClothesPanel(clothes) {
     priceLabel.appendChild(document.createTextNode('¥' + clothes.price));
     clothe_item.appendChild(priceLabel);
 
-    var nameLbale = document.createElement("a");
-    nameLbale.className = "nameP";
-    nameLbale.appendChild(document.createTextNode(clothes.school + '-' + clothes.type));
-    clothe_item.appendChild(nameLbale);
+    var nameLable = document.createElement("a");
+    nameLable.className = "nameP";
+    nameLable.appendChild(document.createTextNode(clothes.school + '-' + clothes.type));
+    nameLable.onclick = setOpenUrl(clothes.clothesID);
+    clothe_item.appendChild(nameLable);
 
     var userLabel = document.createElement("a");
     userLabel.className = "userP";
@@ -155,6 +157,10 @@ function addSingleClothesPanel(clothes) {
     sizeLabel.css("margin-left", "20%");
     clothe_item.appendChild(sizeLabel);
 
+}
+
+function setOpenUrl(clothesID){
+    window.open("../jsp/clothesDetails.jsp?input=" + clothesID);
 }
 
 function getMaxPage(school, type, gender, size) {

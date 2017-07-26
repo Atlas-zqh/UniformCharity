@@ -16,6 +16,11 @@
     <link rel="stylesheet" type="text/css" href="../static/css/payed.css">
     <link rel="stylesheet" type="text/css" href="../static/css/theme.css">
     <script type="text/javascript" src="../static/js/jquery-3.2.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+           checkCookie();
+        });
+    </script>
 </head>
 <body>
 <div id="contentArea">
@@ -27,10 +32,12 @@
             <h2 style="width: 60%; display: inline;">感谢您对"与子同袍"的支持！</h2>
             <a href="" style="font-size: 1.2vmax;">点击查看订单详情</a>
             <br>
-            <button class="mybt" style="font-size: 1.5vmax; width: 30%; margin-top: 5%; margin-left: 10%;">返回首页</button>
-            <button class="mybt" style="font-size: 1.5vmax; width: 30%; margin-left: 10%">我的订单</button>
+            <button class="mybt" style="font-size: 1.5vmax; width: 30%; margin-top: 5%; margin-left: 10%;" onclick="window.location.href = '../jsp/index.jsp'">返回首页</button>
+            <button class="mybt" style="font-size: 1.5vmax; width: 30%; margin-left: 10%" onclick="window.location.href = '../jsp/order.jsp'">我的订单</button>
         </div>
     </div>
 </div>
+<script type="text/javascript" src="../static/js/cookie.js" charset="utf-8"></script>
+<script type="text/javascript" src="../static/js/alert.js" charset="utf-8"></script>
 </body>
 </html>

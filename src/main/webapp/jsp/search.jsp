@@ -92,15 +92,15 @@
     <div id="contentPage">
         <h1>搜索结果</h1>
         <h2 style="width: 100%; text-align: center; padding: 3%; display: none;" id="noResultLabel">哎呀，没有搜索结果，换个条件再试试吧！</h2>
-        <%--<div class="singleClothe">--%>
-            <%--<img src="">--%>
-            <%--<p class="priceP">¥188.00</p>--%>
-            <%--<a href="../jsp/clothesDetails.jsp" class="nameP">hahahahahahahahahahahahahahahahahahahahahahahaha</a>--%>
-            <%--<a href="" class="userP">XXX</a>--%>
-            <%--<p class="infoP">男</p>--%>
-            <%--<p class="infoP" style="margin-left: 20%;">L</p>--%>
+        <div class="singleClothe">
+            <img src="">
+            <p class="priceP">¥188.00</p>
+            <a href="../jsp/clothesDetails.jsp?id=111" class="nameP">hahahahahahahahahahahahahahahahahahahahahahahaha</a>
+            <a href="" class="userP">XXX</a>
+            <p class="infoP">男</p>
+            <p class="infoP" style="margin-left: 20%;">L</p>
 
-        <%--</div>--%>
+        </div>
 
     </div>
     <div style="text-align: center; padding-bottom: 3%">

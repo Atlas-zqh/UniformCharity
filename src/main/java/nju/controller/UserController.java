@@ -13,6 +13,7 @@ import sun.misc.BASE64Decoder;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -50,7 +51,7 @@ public class UserController {
                 map.put("success", "true");
                 map.put("user", user);
                 System.out.println("username:" + user.getUsername());
-                System.out.println("studentRealName:" + user.getStudentRealName());
+                System.out.println("studentRealName:" + user.getRealName());
                 System.out.println("id:" + user.getPersonID());
                 System.out.println("gender:" + user.getGender());
                 System.out.println("school:" + user.getSchool());

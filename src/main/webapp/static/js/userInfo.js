@@ -20,7 +20,7 @@ function showInfoContent(){
             if (data.success == "true") {
                 // success_alert(data.user.username);
                 $('#usernameLabel').val(data.user.username);
-                $('#nameLabel').val(data.user.studentRealName);
+                $('#nameLabel').val(data.user.realName);
                 $('#idLabel').val(data.user.personID);
                 $('#wechatLabel').val(data.user.wechatID);
                 $('#phoneLabel').val(data.user.phone);
