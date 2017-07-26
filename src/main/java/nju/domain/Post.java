@@ -6,37 +6,43 @@ package nju.domain;
 public class Post {
     private Integer post_id;
 
-    private String post_userID;
+    /**
+     * user id
+     */
+    private String post_uid;
 
     private String post_topic;
 
-    private Integer post_commnt_count;
+    private Integer post_commentcount;
 
-    private String post_updateTime;
+    private String post_updatetime;
 
-    private String post_createTime;
+    private String post_createtime;
 
-    private Boolean post_isLocked;
+    private Boolean post_islocked;
 
-    private Integer post_boardID;
+    /**
+     * board id
+     */
+    private Integer post_bid;
 
-    public Post(Integer post_id, String post_userID, String post_topic, Integer post_commnt_count, String post_updateTime, String post_createTime, Boolean post_isLocked, Integer post_boardID) {
+    public Post(Integer post_id, String post_uid, String post_topic, Integer post_commentcount, String post_updatetime, String post_createtime, Boolean post_islocked, Integer post_bid) {
         this.post_id = post_id;
-        this.post_userID = post_userID;
+        this.post_uid = post_uid;
         this.post_topic = post_topic;
-        this.post_commnt_count = post_commnt_count;
-        this.post_updateTime = post_updateTime;
-        this.post_createTime = post_createTime;
-        this.post_isLocked = post_isLocked;
-        this.post_boardID = post_boardID;
+        this.post_commentcount = post_commentcount;
+        this.post_updatetime = post_updatetime;
+        this.post_createtime = post_createtime;
+        this.post_islocked = post_islocked;
+        this.post_bid = post_bid;
     }
 
-    public Post(String post_userID, String post_topic, String post_createTime, Integer post_boardID) {
-        this.post_userID = post_userID;
+    public Post(String post_uid, String post_topic, String post_createtime, Integer post_bid) {
+        this.post_uid = post_uid;
         this.post_topic = post_topic;
-        this.post_updateTime = post_createTime;
-        this.post_createTime = post_createTime;
-        this.post_boardID = post_boardID;
+        this.post_updatetime = post_createtime;
+        this.post_createtime = post_createtime;
+        this.post_bid = post_bid;
     }
 
     public Integer getPost_id() {
@@ -47,12 +53,12 @@ public class Post {
         this.post_id = post_id;
     }
 
-    public String getPost_userID() {
-        return post_userID;
+    public String getPost_uid() {
+        return post_uid;
     }
 
-    public void setPost_userID(String post_userID) {
-        this.post_userID = post_userID;
+    public void setPost_uid(String post_uid) {
+        this.post_uid = post_uid;
     }
 
     public String getPost_topic() {
@@ -63,43 +69,43 @@ public class Post {
         this.post_topic = post_topic;
     }
 
-    public Integer getPost_commnt_count() {
-        return post_commnt_count;
+    public Integer getPost_commentcount() {
+        return post_commentcount;
     }
 
-    public void setPost_commnt_count(Integer post_commnt_count) {
-        this.post_commnt_count = post_commnt_count;
+    public void setPost_commentcount(Integer post_commentcount) {
+        this.post_commentcount = post_commentcount;
     }
 
-    public String getPost_updateTime() {
-        return post_updateTime;
+    public String getPost_updatetime() {
+        return post_updatetime;
     }
 
-    public void setPost_updateTime(String post_updateTime) {
-        this.post_updateTime = post_updateTime;
+    public void setPost_updatetime(String post_updatetime) {
+        this.post_updatetime = post_updatetime;
     }
 
-    public String getPost_createTime() {
-        return post_createTime;
+    public String getPost_createtime() {
+        return post_createtime;
     }
 
-    public void setPost_createTime(String post_createTime) {
-        this.post_createTime = post_createTime;
+    public void setPost_createtime(String post_createtime) {
+        this.post_createtime = post_createtime;
     }
 
-    public Boolean getPost_isLocked() {
-        return post_isLocked;
+    public Boolean getPost_islocked() {
+        return post_islocked;
     }
 
-    public void setPost_isLocked(Boolean post_isLocked) {
-        this.post_isLocked = post_isLocked;
+    public void setPost_islocked(Boolean post_islocked) {
+        this.post_islocked = post_islocked;
     }
 
-    public Integer getPost_boardID() {
-        return post_boardID;
+    public Integer getPost_bid() {
+        return post_bid;
     }
 
-    public void setPost_boardID(Integer post_boardID) {
-        this.post_boardID = post_boardID;
+    public void setPost_bid(Integer post_bid) {
+        this.post_bid = post_bid;
     }
 }

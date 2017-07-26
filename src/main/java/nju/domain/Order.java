@@ -7,7 +7,7 @@ public class Order {
     /**
      * 无效订单（撤销等操作导致）；待确认交易；待线下交易；确认交易待支付；确认交易支付成功
      */
-    public static final Integer Invalid = -1, ToBeConfirmed = 0, ToBeTraded = 1, Confirmed_NotPaied = 2, Confirmed_Paied = 3;
+    public static final Integer Invalid = -1, ToBeConfirmed = 0, ToBeTraded = 1, Confirmed_Unpaied = 2, Confirmed_Paied = 3;
 
     /**
      * 仅个人查看；对外公开
@@ -28,6 +28,9 @@ public class Order {
 
     private String endTime;
 
+    /**
+     * 权限
+     */
     private Integer authority;
 
     public Order(String orderID, String clothesID, String donorID, String buyerID, Integer orderStatus, String startTime, String endTime, Integer authority) {

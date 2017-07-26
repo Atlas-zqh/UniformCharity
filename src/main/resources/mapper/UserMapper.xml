@@ -16,9 +16,9 @@
     <insert id="add" parameterType="User">
         INSERT
         INTO student
-        (username, password, wechatID, phone, realName, gender, personID, credits, email, picurl, used,schoolName)
+        (username, password, wechatID, phone, realName, gender, personID, credits, email, picurl, used,school)
         VALUES
-        (#{username},#{password},#{wechatID},#{phone},#{studentRealName},#{gender},#{personID},#{credits},#{email},#{picurl},#{used},#{school})
+        (#{username},#{password},#{wechatID},#{phone},#{realName},#{gender},#{personID},#{credits},#{email},#{picurl},#{used},#{school})
     </insert>
 
     <!--删除-->
@@ -36,7 +36,7 @@
         student
         SET
         username=#{username}, password=#{password}, wechatID=#{wechatID},phone=#{phone},
-        realName=#{studentRealName},gender=#{gender},personID=#{personID},credits=#{credits},email=#{email},picurl=#{picurl},used=#{used},schoolName=#{school}
+        realName=#{realName},gender=#{gender},personID=#{personID},credits=#{credits},email=#{email},picurl=#{picurl},used=#{used},school=#{school}
         WHERE
         personID=#{personID}
     </update>

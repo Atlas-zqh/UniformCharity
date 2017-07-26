@@ -6,16 +6,16 @@ package nju.domain;
 public class School {
     private String schoolName;
 
-    private String city;
+    private String schoolCity;
 
-    private String district;
+    private String schoolDistrict;
 
     private Boolean used = true;
 
-    public School(String schoolName, String city, String district, Boolean used) {
+    public School(String schoolName, String schoolCity, String schoolDistrict, Boolean used) {
         this.schoolName = schoolName;
-        this.city = city;
-        this.district = district;
+        this.schoolCity = schoolCity;
+        this.schoolDistrict = schoolDistrict;
         this.used = used;
     }
 
@@ -27,20 +27,20 @@ public class School {
         this.schoolName = schoolName;
     }
 
-    public String getCity() {
-        return city;
+    public String getSchoolCity() {
+        return schoolCity;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setSchoolCity(String schoolCity) {
+        this.schoolCity = schoolCity;
     }
 
-    public String getDistrict() {
-        return district;
+    public String getSchoolDistrict() {
+        return schoolDistrict;
     }
 
-    public void setDistrict(String district) {
-        this.district = district;
+    public void setSchoolDistrict(String schoolDistrict) {
+        this.schoolDistrict = schoolDistrict;
     }
 
     public Boolean getUsed() {
@@ -70,8 +70,8 @@ public class School {
     public String toString() {
         return "School{" +
                 "schoolName='" + schoolName + '\'' +
-                ", city='" + city + '\'' +
-                ", district='" + district + '\'' +
+                ", schoolCity='" + schoolCity + '\'' +
+                ", schoolDistrict='" + schoolDistrict + '\'' +
                 '}';
     }
 }

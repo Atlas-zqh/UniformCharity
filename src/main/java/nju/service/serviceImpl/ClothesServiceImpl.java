@@ -28,8 +28,11 @@ public class ClothesServiceImpl implements ClothesService {
      * @param clothes
      */
     @Override
-    public void addClothes(Clothes clothes) {
+    public String addClothes(Clothes clothes) {
+        String auto_id = clothes.getSchoolName().hashCode() + "" + System.currentTimeMillis() + "";
+        clothes.setClothesID(auto_id);
         clothesMapper.add(clothes);
+        return auto_id;
     }
 
     /**
@@ -102,4 +105,41 @@ public class ClothesServiceImpl implements ClothesService {
         }
     }
 
+    @Override
+    public boolean addPic(String clothes_id, String pic_url) {
+        try {
+            clothesMapper.addPic(clothes_id, pic_url);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    /**
+     * 根据衣物ID搜索图片
+     *
+     * @param clothes_id
+     * @return
+     */
+    @Override
+    public List<String> findPicsByClothesID(String clothes_id) {
+        return clothesMapper.findPicsByClothesID(clothes_id);
+    }
+
+    /**
+     * 移除图片
+     *
+     * @param clothes_id
+     * @param pic_url
+     * @return 是否成功
+     */
+    @Override
+    public boolean removePic(String clothes_id, String pic_url) {
+        try {
+            clothesMapper.removePic(clothes_id, pic_url);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
 }

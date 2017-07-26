@@ -2,9 +2,7 @@ package nju.mapper;
 
 import nju.domain.Clothes;
 import nju.utils.ClothesQueryHelper;
-import org.apache.ibatis.annotations.Param;
 
-import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -47,5 +45,17 @@ public interface ClothesMapper extends Mapper<Clothes> {
     @Override
     List<Clothes> findAll();
 
+    /**
+     * 根据属性搜索
+     *
+     * @param helper
+     * @return
+     */
     List<Clothes> findByAttribute(ClothesQueryHelper helper);
+
+    List<String> findPicsByClothesID(String clothes_id);
+
+    void addPic(String clothes_id, String pic_url);
+
+    void removePic(String clothes_id, String pic_url);
 }

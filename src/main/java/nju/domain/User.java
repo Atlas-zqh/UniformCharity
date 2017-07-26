@@ -1,7 +1,5 @@
 package nju.domain;
 
-import org.omg.PortableInterceptor.Interceptor;
-
 import java.io.Serializable;
 
 /**
@@ -16,13 +14,13 @@ public class User implements Serializable {
 
     private String phone;
 
-    private String studentRealName;
+    private String realName;
 
     private String gender;
 
     private String personID;
 
-    private Integer credits;
+    private Double credits;
 
     private String email;
 
@@ -35,12 +33,12 @@ public class User implements Serializable {
     public User() {
     }
 
-    public User(String username, String password, String wechatID, String phone, String studentRealName, String gender, String personID, Integer credits, String email, String picurl, Boolean used, String school) {
+    public User(String username, String password, String wechatID, String phone, String realName, String gender, String personID, Double credits, String email, String picurl, Boolean used, String school) {
         this.username = username;
         this.password = password;
         this.wechatID = wechatID;
         this.phone = phone;
-        this.studentRealName = studentRealName;
+        this.realName = realName;
         this.gender = gender;
         this.personID = personID;
         this.credits = credits;
@@ -82,12 +80,12 @@ public class User implements Serializable {
         this.phone = phone;
     }
 
-    public String getStudentRealName() {
-        return studentRealName;
+    public String getRealName() {
+        return realName;
     }
 
-    public void setStudentRealName(String studentRealName) {
-        this.studentRealName = studentRealName;
+    public void setRealName(String realName) {
+        this.realName = realName;
     }
 
     public String getGender() {
@@ -106,11 +104,11 @@ public class User implements Serializable {
         this.personID = personID;
     }
 
-    public Integer getCredits() {
+    public Double getCredits() {
         return credits;
     }
 
-    public void setCredits(Integer credits) {
+    public void setCredits(Double credits) {
         this.credits = credits;
     }
 
@@ -154,14 +152,14 @@ public class User implements Serializable {
         User user = (User) o;
 
         if (!password.equals(user.password)) return false;
-        if (!studentRealName.equals(user.studentRealName)) return false;
+        if (!realName.equals(user.realName)) return false;
         return personID.equals(user.personID);
     }
 
     @Override
     public int hashCode() {
         int result = password.hashCode();
-        result = 31 * result + studentRealName.hashCode();
+        result = 31 * result + realName.hashCode();
         result = 31 * result + personID.hashCode();
         return result;
     }
@@ -173,7 +171,7 @@ public class User implements Serializable {
                 ", password='" + password + '\'' +
                 ", wechatID='" + wechatID + '\'' +
                 ", phone='" + phone + '\'' +
-                ", studentRealName='" + studentRealName + '\'' +
+                ", realName='" + realName + '\'' +
                 ", gender='" + gender + '\'' +
                 ", personID='" + personID + '\'' +
                 ", credits=" + credits +

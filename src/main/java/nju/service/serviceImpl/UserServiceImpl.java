@@ -1,11 +1,13 @@
 package nju.service.serviceImpl;
 
-import nju.mapper.UserMapper;
+import nju.domain.CreditRecord;
 import nju.domain.User;
 import nju.exception.InvalidInfoException;
 import nju.exception.OtherException;
 import nju.exception.UserExistedException;
 import nju.exception.UserNotExistException;
+import nju.mapper.CreditRecordMapper;
+import nju.mapper.UserMapper;
 import nju.service.UserService;
 import nju.utils.EncryptionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import java.io.Serializable;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -24,6 +27,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserMapper userMapper;
+
+    @Autowired
+    private CreditRecordMapper creditRecordMapper;
 
     /**
      * 新增用户
@@ -111,11 +117,48 @@ public class UserServiceImpl implements UserService {
     private boolean isValidUserInfo(User user) {
         return !(null == user
                 || StringUtils.isEmpty(user.getUsername())
-                || StringUtils.isEmpty(user.getStudentRealName())
+                || StringUtils.isEmpty(user.getRealName())
                 || StringUtils.isEmpty(user.getPassword())
                 || StringUtils.isEmpty(user.getPersonID())
                 || StringUtils.isEmpty(user.getPhone())
                 || StringUtils.isEmpty(user.getGender())
                 || StringUtils.isEmpty(user.getCredits()));
+    }
+
+    /**
+     * 增加信用记录
+     *
+     * @param userID
+     * @param recordtype 记录类型 CreditRecord.____
+     * @param clothesID
+     * @param variance   变化值
+     */
+    @Override
+    public void addCreditRecord(String userID, Integer recordtype, String clothesID, Double variance) {
+        User user = userMapper.findOneByID(EncryptionUtil.encrypt("20170522", userID));
+        Double credit = user.getCredits();
+        credit += variance;
+        user.setCredits(credit);
+        userMapper.update(user);
+
+        String createTime = System.currentTimeMillis() + "";
+        CreditRecord record = new CreditRecord(EncryptionUtil.encrypt("20170522", userID), recordtype, clothesID, variance, credit, createTime);
+        creditRecordMapper.addRecord(record);
+    }
+
+    /**
+     * 根据用户ID搜索信用记录（返回的信用记录按时间倒序排列）
+     *
+     * @param userID
+     * @return
+     */
+    @Override
+    public List<CreditRecord> findRecordByUserID(String userID) {
+        String id = EncryptionUtil.encrypt("20170522", userID);
+        List<CreditRecord> creditRecords = creditRecordMapper.findRecordByUserID(id);
+
+        Comparator<CreditRecord> creditRecordComparator = (c1, c2) -> new Long(c1.getCreateTime()).compareTo(new Long(c2.getCreateTime()));
+        creditRecords.sort(creditRecordComparator.reversed());
+        return creditRecords;
     }
 }

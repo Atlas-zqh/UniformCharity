@@ -21,7 +21,6 @@ import java.util.Properties;
 public class DBInterceptor implements Interceptor {
     @Override
     public Object intercept(Invocation invocation) throws Throwable {
-        System.out.println("here!!~~");
         String key = "20170522";
         String methodName = invocation.getMethod().getName();
         Object parameter = invocation.getArgs()[1];
@@ -32,7 +31,7 @@ public class DBInterceptor implements Interceptor {
                 user.setPassword(EncryptionUtil.encrypt(key, user.getPassword()));
                 user.setWechatID(EncryptionUtil.encrypt(key, user.getWechatID()));
                 user.setPhone(EncryptionUtil.encrypt(key, user.getPhone()));
-                user.setStudentRealName(EncryptionUtil.encrypt(key, user.getStudentRealName()));
+                user.setRealName(EncryptionUtil.encrypt(key, user.getRealName()));
                 user.setEmail(EncryptionUtil.encrypt(key, user.getEmail()));
                 user.setPersonID(EncryptionUtil.encrypt(key, user.getPersonID()));
             }
@@ -45,17 +44,17 @@ public class DBInterceptor implements Interceptor {
         } else if (parameter instanceof Clothes) {
             Clothes clothes = (Clothes) parameter;
             if (methodName.equals("update")) {
-                clothes.setDonor(EncryptionUtil.encrypt(key, clothes.getDonor()));
+                clothes.setDonorID(EncryptionUtil.encrypt(key, clothes.getDonorID()));
             }
         } else if (parameter instanceof Post) {
             Post post = (Post) parameter;
             if (methodName.contains("update")) {
-                post.setPost_userID(EncryptionUtil.encrypt(key, post.getPost_userID()));
+                post.setPost_uid(EncryptionUtil.encrypt(key, post.getPost_uid()));
             }
         } else if (parameter instanceof Reply) {
             Reply reply = (Reply) parameter;
             if (methodName.equals("update")) {
-                reply.setReply_userID(EncryptionUtil.encrypt(key, reply.getReply_userID()));
+                reply.setReply_uid(EncryptionUtil.encrypt(key, reply.getReply_uid()));
             }
         }
 
@@ -71,7 +70,7 @@ public class DBInterceptor implements Interceptor {
                     user.setPassword(EncryptionUtil.decrypt(key, user.getPassword()));
                     user.setWechatID(EncryptionUtil.decrypt(key, user.getWechatID()));
                     user.setPhone(EncryptionUtil.decrypt(key, user.getPhone()));
-                    user.setStudentRealName(EncryptionUtil.decrypt(key, user.getStudentRealName()));
+                    user.setRealName(EncryptionUtil.decrypt(key, user.getRealName()));
                     user.setEmail(EncryptionUtil.decrypt(key, user.getEmail()));
                     user.setPersonID(EncryptionUtil.decrypt(key, user.getPersonID()));
                 } else if (val instanceof Order) {
@@ -80,13 +79,16 @@ public class DBInterceptor implements Interceptor {
                     order.setDonorID(EncryptionUtil.decrypt(key, order.getDonorID()));
                 } else if (val instanceof Clothes) {
                     Clothes clothes = (Clothes) val;
-                    clothes.setDonor(EncryptionUtil.decrypt(key, clothes.getDonor()));
+                    clothes.setDonorID(EncryptionUtil.decrypt(key, clothes.getDonorID()));
                 } else if (val instanceof Post) {
                     Post post = (Post) val;
-                    post.setPost_userID(EncryptionUtil.decrypt(key, post.getPost_userID()));
+                    post.setPost_uid(EncryptionUtil.decrypt(key, post.getPost_uid()));
                 } else if (val instanceof Reply) {
                     Reply reply = (Reply) val;
-                    reply.setReply_userID(EncryptionUtil.decrypt(key, reply.getReply_userID()));
+                    reply.setReply_uid(EncryptionUtil.decrypt(key, reply.getReply_uid()));
+                } else if (val instanceof CreditRecord) {
+                    CreditRecord creditRecord = (CreditRecord) val;
+                    ((CreditRecord) val).setUserid(EncryptionUtil.decrypt(key, creditRecord.getUserid()));
                 }
 
             }
@@ -97,7 +99,7 @@ public class DBInterceptor implements Interceptor {
             user.setPassword(EncryptionUtil.decrypt(key, user.getPassword()));
             user.setWechatID(EncryptionUtil.decrypt(key, user.getWechatID()));
             user.setPhone(EncryptionUtil.decrypt(key, user.getPhone()));
-            user.setStudentRealName(EncryptionUtil.decrypt(key, user.getStudentRealName()));
+            user.setRealName(EncryptionUtil.decrypt(key, user.getRealName()));
             user.setEmail(EncryptionUtil.decrypt(key, user.getEmail()));
             user.setPersonID(EncryptionUtil.decrypt(key, user.getPersonID()));
         }

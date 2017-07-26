@@ -7,13 +7,13 @@
         INSERT INTO school
         (schoolName, schoolCity, schoolDistrict, used)
          VALUES
-        (#{schoolName}, #{city}, #{district}, #{used})
+        (#{schoolName}, #{schoolCity}, #{schoolDistrict}, #{used})
     </insert>
 
     <update id="update" parameterType="School">
         UPDATE school
         SET
-        schoolName=#{schoolName}, schoolCity=#{city}, schoolDistrict=#{district}, used=#{used}
+        schoolName=#{schoolName}, schoolCity=#{schoolCity}, schoolDistrict=#{schoolDistrict}, used=#{used}
         WHERE
         schoolName=#{schoolName}
     </update>

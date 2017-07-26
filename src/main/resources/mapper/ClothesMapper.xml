@@ -7,13 +7,14 @@
         INSERT INTO clothes
         (clothesID, schoolName, clothessize, clothesType, clothesPrice, donorID, gender, status)
          VALUES
-        (#{clothesID}, #{schoolName}, #{size}, #{type},#{price},#{donor}, #{gender},#{status})
+        (#{clothesID}, #{schoolName}, #{clothessize}, #{clothesType},#{clothesPrice},#{donorID}, #{gender},#{status})
     </insert>
 
     <update id="update" parameterType="Clothes">
         UPDATE clothes
         SET
-        schoolName=#{schoolName}, clothessize=#{size}, clothesType=#{type},clothesPrice=#{price},donorID=#{donor},
+        schoolName=#{schoolName}, clothessize=#{clothessize},
+        clothesType=#{clothesType},clothesPrice=#{clothesPrice},donorID=#{donorID},
         gender=#{gender}, status=#{status}
         WHERE
         clothesID=#{clothesID}
@@ -33,21 +34,37 @@
             <if test="schoolName != null">
                 schoolName=#{schoolName}
             </if>
-            <if test="size != null">
-                AND clothessize=#{size}
+            <if test="clothessize != null">
+                AND clothessize=#{clothessize}
             </if>
-            <if test="type != null">
-                AND clothesType=#{type}
+            <if test="clothesType != null">
+                AND clothesType=#{clothesType}
             </if>
             <if test="gender != null">
                 AND gender=#{gender}
             </if>
-            <if test="donor != donor">
-                AND donorID=#{donor}
+            <if test="donorID != null">
+                AND donorID=#{donorID}
             </if>
             <if test="status != null">
                 AND status=#{status}
             </if>
         </trim>
     </select>
+
+    <insert id="addPic">
+        INSERT INTO clothes_pics
+        (clothes_id, pic_url)
+        VALUES (#{0}, #{1})
+    </insert>
+
+    <select id="findPicsByClothesID" parameterType="String" resultType="String">
+        SELECT pic_url FROM clothes_pics
+        WHERE clothes_id=#{clothes_id}
+    </select>
+
+    <delete id="removePic">
+        DELETE FROM clothes_pics
+        WHERE clothes_id=#{0} AND pic_url=#{1}
+    </delete>
 </mapper>

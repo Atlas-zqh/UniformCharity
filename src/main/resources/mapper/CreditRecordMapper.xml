@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace指定我们的到具体的bean -->
+<mapper namespace="nju.mapper.CreditRecordMapper">
+    <insert id="addRecord" parameterType="CreditRecord">
+        INSERT INTO credit_record
+        (userid,recordtype,clothesID,variance,afterCredits,createtime)
+        VALUES (#{userid}, #{recordtype}, #{clothesID}, #{variance}, #{afterCredits})
+    </insert>
+
+    <select id="findRecordByUserID" parameterType="String" resultType="CreditRecord">
+        SELECT * FROM credit_record
+        WHERE userid=#{userid}
+    </select>
+</mapper>

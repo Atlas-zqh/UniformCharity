@@ -1,5 +1,6 @@
 package nju.service;
 
+import nju.domain.CreditRecord;
 import nju.domain.User;
 
 import java.io.Serializable;
@@ -50,4 +51,22 @@ public interface UserService {
      * @throws Exception
      */
     List<User> findAllUsers() throws Exception;
+
+    /**
+     * 增加信用记录
+     *
+     * @param userID
+     * @param recordtype 记录类型
+     * @param clothesID
+     * @param variance   变化值
+     */
+    void addCreditRecord(String userID, Integer recordtype, String clothesID, Double variance);
+
+    /**
+     * 根据用户ID搜索信用记录（返回的信用记录按时间倒序排列）
+     *
+     * @param userID
+     * @return
+     */
+    List<CreditRecord> findRecordByUserID(String userID);
 }

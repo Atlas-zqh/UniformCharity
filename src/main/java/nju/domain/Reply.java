@@ -6,35 +6,46 @@ package nju.domain;
 public class Reply {
     private Integer reply_id;
 
-    private String reply_userID;
+    /**
+     * user id
+     */
+    private String reply_uid;
 
     private String reply_content;
 
-    private Integer reply_postID;
+    /**
+     * post id
+     */
+    private Integer reply_pid;
 
     private String reply_time;
-    // 当前回复所处层数（0表示主题帖）
+    /**
+     * 当前回复所处层数（0表示主题帖）
+     */
     private Integer reply_layer;
-    // 所处层数为2时使用，表示回复层数为1的帖子号
-    private Integer reply_replyID;
+    /**
+     * reply id
+     * 所处层数为2时使用，表示回复层数为1的帖子号
+     */
+    private Integer reply_rid;
 
-    public Reply(Integer reply_id, String reply_userID, String reply_content, Integer reply_postID, String reply_time, Integer reply_layer, Integer reply_replyID) {
+    public Reply(Integer reply_id, String reply_uid, String reply_content, Integer reply_pid, String reply_time, Integer reply_layer, Integer reply_rid) {
         this.reply_id = reply_id;
-        this.reply_userID = reply_userID;
+        this.reply_uid = reply_uid;
         this.reply_content = reply_content;
-        this.reply_postID = reply_postID;
+        this.reply_pid = reply_pid;
         this.reply_time = reply_time;
         this.reply_layer = reply_layer;
-        this.reply_replyID = reply_replyID;
+        this.reply_rid = reply_rid;
     }
 
-    public Reply(String reply_userID, String reply_content, Integer reply_postID, String reply_time, Integer reply_layer, Integer reply_replyID) {
-        this.reply_userID = reply_userID;
+    public Reply(String reply_uid, String reply_content, Integer reply_pid, String reply_time, Integer reply_layer, Integer reply_rid) {
+        this.reply_uid = reply_uid;
         this.reply_content = reply_content;
-        this.reply_postID = reply_postID;
+        this.reply_pid = reply_pid;
         this.reply_time = reply_time;
         this.reply_layer = reply_layer;
-        this.reply_replyID = reply_replyID;
+        this.reply_rid = reply_rid;
     }
 
     public Integer getReply_id() {
@@ -45,12 +56,12 @@ public class Reply {
         this.reply_id = reply_id;
     }
 
-    public String getReply_userID() {
-        return reply_userID;
+    public String getReply_uid() {
+        return reply_uid;
     }
 
-    public void setReply_userID(String reply_userID) {
-        this.reply_userID = reply_userID;
+    public void setReply_uid(String reply_uid) {
+        this.reply_uid = reply_uid;
     }
 
     public String getReply_content() {
@@ -61,12 +72,12 @@ public class Reply {
         this.reply_content = reply_content;
     }
 
-    public Integer getReply_postID() {
-        return reply_postID;
+    public Integer getReply_pid() {
+        return reply_pid;
     }
 
-    public void setReply_postID(Integer reply_postID) {
-        this.reply_postID = reply_postID;
+    public void setReply_pid(Integer reply_pid) {
+        this.reply_pid = reply_pid;
     }
 
     public String getReply_time() {
@@ -85,11 +96,11 @@ public class Reply {
         this.reply_layer = reply_layer;
     }
 
-    public Integer getReply_replyID() {
-        return reply_replyID;
+    public Integer getReply_rid() {
+        return reply_rid;
     }
 
-    public void setReply_replyID(Integer reply_replyID) {
-        this.reply_replyID = reply_replyID;
+    public void setReply_rid(Integer reply_rid) {
+        this.reply_rid = reply_rid;
     }
 }

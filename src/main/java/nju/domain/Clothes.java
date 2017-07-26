@@ -1,7 +1,5 @@
 package nju.domain;
 
-import java.util.HashMap;
-
 /**
  * Created by keenan on 23/05/2017.
  */
@@ -14,28 +12,25 @@ public class Clothes {
 
     private String schoolName;
 
-    private String size;
+    private String clothessize;
 
-    private String type;
+    private String clothesType;
 
-    private String picUrl;
-
-    private Double price;
+    private Double clothesPrice;
 
     private String gender;
 
-    private String donor;
+    private String donorID;
 
     private String status;
 
-    public Clothes(String clothesID, String schoolName, String size, String type, String picUrl, Double price, String donor, String gender, String status) {
+    public Clothes(String clothesID, String schoolName, String clothessize, String clothesType, Double clothesPrice, String donorID, String gender, String status) {
         this.clothesID = clothesID;
         this.schoolName = schoolName;
-        this.size = size;
-        this.type = type;
-        this.picUrl = picUrl;
-        this.price = price;
-        this.donor = donor;
+        this.clothessize = clothessize;
+        this.clothesType = clothesType;
+        this.clothesPrice = clothesPrice;
+        this.donorID = donorID;
         this.gender = gender;
         this.status = status;
     }
@@ -56,44 +51,36 @@ public class Clothes {
         this.schoolName = schoolName;
     }
 
-    public String getSize() {
-        return size;
+    public String getClothessize() {
+        return clothessize;
     }
 
-    public void setSize(String size) {
-        this.size = size;
+    public void setClothessize(String clothessize) {
+        this.clothessize = clothessize;
     }
 
-    public String getType() {
-        return type;
+    public String getClothesType() {
+        return clothesType;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setClothesType(String clothesType) {
+        this.clothesType = clothesType;
     }
 
-    public String getPicUrl() {
-        return picUrl;
+    public Double getClothesPrice() {
+        return clothesPrice;
     }
 
-    public void setPicUrl(String picUrl) {
-        this.picUrl = picUrl;
+    public void setClothesPrice(Double clothesPrice) {
+        this.clothesPrice = clothesPrice;
     }
 
-    public Double getPrice() {
-        return price;
+    public String getDonorID() {
+        return donorID;
     }
 
-    public void setPrice(Double price) {
-        this.price = price;
-    }
-
-    public String getDonor() {
-        return donor;
-    }
-
-    public void setDonor(String donor) {
-        this.donor = donor;
+    public void setDonorID(String donorID) {
+        this.donorID = donorID;
     }
 
     public String getGender() {

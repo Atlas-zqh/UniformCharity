@@ -36,7 +36,7 @@
         INSERT INTO posts
         (post_uid, post_topic, post_updatetime, post_createtime, post_bid)
         VALUES
-            (#{post_userID}, #{post_topic}, #{post_updateTime}, #{post_createTime}, #{post_boardID})
+        (#{post_uid}, #{post_topic}, #{post_updatetime}, #{post_createtime}, #{post_bid})
     </insert>
 
     <!-- 新增回复 -->
@@ -44,7 +44,7 @@
         INSERT INTO reply
         (reply_uid, reply_content, reply_pid, reply_time, reply_layer, reply_rid)
         VALUES
-        (#{reply_userID}, #{reply_content}, #{reply_postID}, #{reply_time}, #{reply_layer}, #{reply_replyID})
+        (#{reply_uid}, #{reply_content}, #{reply_pid}, #{reply_time}, #{reply_layer}, #{reply_rid})
     </insert>
 
     <!-- 更新帖子 -->
@@ -52,8 +52,8 @@
         UPDATE
             posts
         SET
-            post_commentcount = #{post_commnt_count}, post_updatetime = #{post_updateTime},
-            post_islocked     = #{post_isLocked}
+        post_commentcount = #{post_commentcount}, post_updatetime = #{post_updatetime},
+        post_islocked = #{post_islocked}
         WHERE
             post_id = #{post_id}
     </update>
