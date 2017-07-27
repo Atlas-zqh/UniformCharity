@@ -1,5 +1,7 @@
 package nju.domain;
 
+import java.util.Date;
+
 /**
  * Created by keenan on 24/05/2017.
  */
@@ -24,16 +26,19 @@ public class Order {
 
     private Integer orderStatus;
 
-    private String startTime;
+    private Long startTime;
 
-    private String endTime;
+    private Long endTime;
+
+    public Order() {
+    }
 
     /**
      * 权限
      */
     private Integer authority;
 
-    public Order(String orderID, String clothesID, String donorID, String buyerID, Integer orderStatus, String startTime, String endTime, Integer authority) {
+    public Order(String orderID, String clothesID, String donorID, String buyerID, Integer orderStatus, Long startTime, Long endTime, Integer authority) {
         this.orderID = orderID;
         this.clothesID = clothesID;
         this.donorID = donorID;
@@ -41,6 +46,21 @@ public class Order {
         this.orderStatus = orderStatus;
         this.startTime = startTime;
         this.endTime = endTime;
+        this.authority = authority;
+    }
+
+    /**
+     * 订单号和创建时间将自动生成
+     *
+     * @param clothesID
+     * @param donorID
+     * @param buyerID
+     */
+    public Order(String clothesID, String donorID, String buyerID, Integer orderStatus, Integer authority) {
+        this.clothesID = clothesID;
+        this.donorID = donorID;
+        this.buyerID = buyerID;
+        this.orderStatus = orderStatus;
         this.authority = authority;
     }
 
@@ -84,19 +104,19 @@ public class Order {
         this.orderStatus = orderStatus;
     }
 
-    public String getStartTime() {
+    public Long getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(String startTime) {
+    public void setStartTime(Long startTime) {
         this.startTime = startTime;
     }
 
-    public String getEndTime() {
+    public Long getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(String endTime) {
+    public void setEndTime(Long endTime) {
         this.endTime = endTime;
     }
 
@@ -106,5 +126,19 @@ public class Order {
 
     public void setAuthority(Integer authority) {
         this.authority = authority;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "orderID='" + orderID + '\'' +
+                ", clothesID='" + clothesID + '\'' +
+                ", donorID='" + donorID + '\'' +
+                ", buyerID='" + buyerID + '\'' +
+                ", orderStatus=" + orderStatus +
+                ", startTime=" + new Date(startTime) +
+                ", endTime=" + endTime +
+                ", authority=" + authority +
+                '}';
     }
 }

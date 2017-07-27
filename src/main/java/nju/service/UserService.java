@@ -1,5 +1,6 @@
 package nju.service;
 
+import com.github.pagehelper.PageInfo;
 import nju.domain.CreditRecord;
 import nju.domain.User;
 
@@ -54,6 +55,7 @@ public interface UserService {
 
     /**
      * 增加信用记录
+     * 完成订单 和 捐赠衣物 的同时会创建公益记录，不需要调这个方法
      *
      * @param userID
      * @param recordtype 记录类型
@@ -68,5 +70,5 @@ public interface UserService {
      * @param userID
      * @return
      */
-    List<CreditRecord> findRecordByUserID(String userID);
+    PageInfo<CreditRecord> findRecordByUserID(String userID, int pageNo, int pageSize);
 }

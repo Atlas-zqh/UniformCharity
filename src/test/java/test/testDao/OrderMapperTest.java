@@ -18,7 +18,7 @@ public class OrderMapperTest extends BaseTest {
 
     @Test
     public void testCreateOrder() {
-        Order order = new Order("201705230002", "7654321", "123456789123456789", "987654321987654321", Order.ToBeConfirmed, "2017-05-22", null, Order.PRIVATE);
+        Order order = new Order("201705230002", "7654321", "123456789123456789", "987654321987654321", Order.ToBeConfirmed, System.currentTimeMillis(), null, Order.PRIVATE);
         orderMapper.createOrder(order);
     }
 
@@ -33,11 +33,11 @@ public class OrderMapperTest extends BaseTest {
 
     @Test
     public void testFindOrderByOrderID() {
-        String orderID = "201705230102";
+        String orderID = "201705230002";
         Order order = orderMapper.findOrderByOrderID(orderID);
 
         if (order != null) {
-            System.out.println(order.getOrderID() + " " + order.getBuyerID());
+            System.out.println(order.toString());
         } else {
             System.out.println(" Invalid order ID");
         }

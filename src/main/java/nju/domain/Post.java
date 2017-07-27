@@ -15,9 +15,9 @@ public class Post {
 
     private Integer post_commentcount;
 
-    private String post_updatetime;
+    private Long post_updatetime;
 
-    private String post_createtime;
+    private Long post_createtime;
 
     private Boolean post_islocked;
 
@@ -26,7 +26,7 @@ public class Post {
      */
     private Integer post_bid;
 
-    public Post(Integer post_id, String post_uid, String post_topic, Integer post_commentcount, String post_updatetime, String post_createtime, Boolean post_islocked, Integer post_bid) {
+    public Post(Integer post_id, String post_uid, String post_topic, Integer post_commentcount, Long post_updatetime, Long post_createtime, Boolean post_islocked, Integer post_bid) {
         this.post_id = post_id;
         this.post_uid = post_uid;
         this.post_topic = post_topic;
@@ -37,7 +37,7 @@ public class Post {
         this.post_bid = post_bid;
     }
 
-    public Post(String post_uid, String post_topic, String post_createtime, Integer post_bid) {
+    public Post(String post_uid, String post_topic, Long post_createtime, Integer post_bid) {
         this.post_uid = post_uid;
         this.post_topic = post_topic;
         this.post_updatetime = post_createtime;
@@ -77,19 +77,19 @@ public class Post {
         this.post_commentcount = post_commentcount;
     }
 
-    public String getPost_updatetime() {
+    public Long getPost_updatetime() {
         return post_updatetime;
     }
 
-    public void setPost_updatetime(String post_updatetime) {
+    public void setPost_updatetime(Long post_updatetime) {
         this.post_updatetime = post_updatetime;
     }
 
-    public String getPost_createtime() {
+    public Long getPost_createtime() {
         return post_createtime;
     }
 
-    public void setPost_createtime(String post_createtime) {
+    public void setPost_createtime(Long post_createtime) {
         this.post_createtime = post_createtime;
     }
 

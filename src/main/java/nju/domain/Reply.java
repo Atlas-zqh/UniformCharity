@@ -18,7 +18,7 @@ public class Reply {
      */
     private Integer reply_pid;
 
-    private String reply_time;
+    private Long reply_time;
     /**
      * 当前回复所处层数（0表示主题帖）
      */
@@ -29,7 +29,7 @@ public class Reply {
      */
     private Integer reply_rid;
 
-    public Reply(Integer reply_id, String reply_uid, String reply_content, Integer reply_pid, String reply_time, Integer reply_layer, Integer reply_rid) {
+    public Reply(Integer reply_id, String reply_uid, String reply_content, Integer reply_pid, Long reply_time, Integer reply_layer, Integer reply_rid) {
         this.reply_id = reply_id;
         this.reply_uid = reply_uid;
         this.reply_content = reply_content;
@@ -39,7 +39,7 @@ public class Reply {
         this.reply_rid = reply_rid;
     }
 
-    public Reply(String reply_uid, String reply_content, Integer reply_pid, String reply_time, Integer reply_layer, Integer reply_rid) {
+    public Reply(String reply_uid, String reply_content, Integer reply_pid, Long reply_time, Integer reply_layer, Integer reply_rid) {
         this.reply_uid = reply_uid;
         this.reply_content = reply_content;
         this.reply_pid = reply_pid;
@@ -80,11 +80,11 @@ public class Reply {
         this.reply_pid = reply_pid;
     }
 
-    public String getReply_time() {
+    public Long getReply_time() {
         return reply_time;
     }
 
-    public void setReply_time(String reply_time) {
+    public void setReply_time(Long reply_time) {
         this.reply_time = reply_time;
     }
 

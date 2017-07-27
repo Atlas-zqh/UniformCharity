@@ -1,5 +1,7 @@
 package nju.service.serviceImpl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import nju.domain.CreditRecord;
 import nju.domain.User;
 import nju.exception.InvalidInfoException;
@@ -15,7 +17,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import java.io.Serializable;
-import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -127,6 +128,7 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 增加信用记录
+     * 完成订单 和 捐赠衣物 的同时会创建公益记录，不需要调这个方法
      *
      * @param userID
      * @param recordtype 记录类型 CreditRecord.____
@@ -141,8 +143,8 @@ public class UserServiceImpl implements UserService {
         user.setCredits(credit);
         userMapper.update(user);
 
-        String createTime = System.currentTimeMillis() + "";
-        CreditRecord record = new CreditRecord(EncryptionUtil.encrypt("20170522", userID), recordtype, clothesID, variance, credit, createTime);
+//        String createTime = System.currentTimeMillis() + "";
+        CreditRecord record = new CreditRecord(EncryptionUtil.encrypt("20170522", userID), recordtype, clothesID, variance, credit, System.currentTimeMillis());
         creditRecordMapper.addRecord(record);
     }
 
@@ -153,12 +155,11 @@ public class UserServiceImpl implements UserService {
      * @return
      */
     @Override
-    public List<CreditRecord> findRecordByUserID(String userID) {
+    public PageInfo<CreditRecord> findRecordByUserID(String userID, int pageNo, int pageSize) {
+        PageHelper.startPage(pageNo, pageSize);
         String id = EncryptionUtil.encrypt("20170522", userID);
         List<CreditRecord> creditRecords = creditRecordMapper.findRecordByUserID(id);
-
-        Comparator<CreditRecord> creditRecordComparator = (c1, c2) -> new Long(c1.getCreateTime()).compareTo(new Long(c2.getCreateTime()));
-        creditRecords.sort(creditRecordComparator.reversed());
-        return creditRecords;
+        creditRecords.sort((CreditRecord l1, CreditRecord l2) -> l2.getCreateTime().compareTo(l1.getCreateTime()));
+        return new PageInfo<>(creditRecords);
     }
 }

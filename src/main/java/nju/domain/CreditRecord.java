@@ -1,5 +1,8 @@
 package nju.domain;
 
+/**
+ * 公益记录
+ */
 public class CreditRecord {
     public static final Integer BUY_CLOTHES = 0, DONATE_CLOTHES = 1;
 
@@ -15,9 +18,9 @@ public class CreditRecord {
 
     private Double afterCredits;
 
-    private String createTime;
+    private Long createTime;
 
-    public CreditRecord(String userid, Integer recordtype, String clothesID, Double variance, Double afterCredits, String createTime) {
+    public CreditRecord(String userid, Integer recordtype, String clothesID, Double variance, Double afterCredits, Long createTime) {
         this.userid = userid;
         this.recordtype = recordtype;
         this.clothesID = clothesID;
@@ -74,11 +77,11 @@ public class CreditRecord {
         this.afterCredits = afterCredits;
     }
 
-    public String getCreateTime() {
+    public Long getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(String createTime) {
+    public void setCreateTime(Long createTime) {
         this.createTime = createTime;
     }
 }
