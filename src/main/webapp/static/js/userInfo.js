@@ -71,7 +71,7 @@ function getInfo() {
                 // success_alert(data.user.username);
                 $('#briefSchool').html(data.user.school);
                 $('#briefUser').html(data.user.username);
-                $('#briefName').html(data.user.studentRealName);
+                $('#briefName').html(data.user.realName);
                 $('#briefScore').html(data.user.credits + '分');
                 if(data.user.gender == "男"){
                     $('#briefGender').css("background-image", "url(/static/images/male.png)");

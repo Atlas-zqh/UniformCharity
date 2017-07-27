@@ -236,7 +236,7 @@ public class UserController {
             if (user != null) {
                 String id= user.getPersonID();
                 image = image.replace("%2B", "+");
-                generateImage(image, session.getServletContext().getRealPath("/") + "static/icons/" + id + ".jpg");
+                generateImage(image, session.getServletContext().getRealPath("/") + "static/clothesPics/" + id + ".jpg");
                 url = "../static/icons/" + id + ".jpg";
 
                 map.put("result", "success");

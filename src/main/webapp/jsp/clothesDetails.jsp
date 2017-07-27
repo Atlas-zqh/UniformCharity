@@ -91,6 +91,10 @@
     <!--<img src="../images/mainBG2.png"/></li>-->
     <!--</ul>-->
     <!--</div>-->
+    <div class="foot" style="height: 2.8%; position: absolute; width: 100%;">
+        <p class="navLabel" align="center" style="position: absolute; top:97.2%; text-align: center">与子同袍项目组
+            copyright@2017</p>
+    </div>
 </div>
 
 <script type="text/javascript" src="../static/js/cookie.js" charset="utf-8"></script>

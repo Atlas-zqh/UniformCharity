@@ -205,6 +205,10 @@
         修 改
     </button>
 </div>
+<div class="foot">
+    <p class="navLabel" align="center" style="position: absolute; top:97.2%; text-align: center">与子同袍项目组
+        copyright@2017</p>
+</div>
 <%--<script type="text/javascript" src="http://cdn.amazeui.org/amazeui/2.7.2/js/amazeui.js" charset="utf-8"></script>--%>
 <script type="text/javascript" src="../static/js/amazeui.js" charset="utf-8"></script>
 <script type="text/javascript" src="../static/js/login.js" charset="utf-8"></script>

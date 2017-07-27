@@ -121,5 +121,6 @@ body {
     position: absolute;
     /*top: 97%;*/
     text-align: center;
-    left: 43%;
+    left: 0%;
+    width: 100%;
 }

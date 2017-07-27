@@ -9,6 +9,7 @@
 <script>
     $(document).ready(function () {
         getAllSchool('uploadSchoolDrop');
+        $('#id').val(getCookie("id"));
     });
 
 
@@ -19,7 +20,7 @@
     <h1>上&nbsp; 传&nbsp; 衣&nbsp; 物</h1>
 
     <p style="position: absolute; margin-top: 10%; margin-left: 3%;">图 片</p>
-    <form action="/clothesAction/uploadClothes" class="dropzone" id="my-dropzone" method="post" target="hiddenIFrame" enctype="multipart/form-data">
+    <form action="/clothesAction/uploadClothesPics" class="dropzone" id="my-dropzone" method="post" target="hiddenIFrame" enctype="multipart/form-data">
         <ul style="margin-top: 0%">
             <li>
                 <p>学 校</p>
@@ -82,7 +83,8 @@
                     id="submit-all">上&nbsp;传
             </button>
         </ul>
-        <%--<input type="hidden" name="additionalSchool" value="1" multiple/>--%>
+        <input type="hidden" name="id" value="1" multiple id="id"/>
+        <input type="hidden" name="clothesID" value="1" multiple id="clothesID"/>
         <div class="fallback">
             <input name="file" type="file" multiple/>
         </div>
@@ -95,5 +97,4 @@
     <link rel="stylesheet" href="../static/css/dropzone.css">
     <script type="application/javascript" src="../static/js/dropzone.js"></script>
     <script type="application/javascript" src="../static/js/upload.js"></script>
-
 </div>

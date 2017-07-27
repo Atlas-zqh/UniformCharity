@@ -69,7 +69,7 @@ Dropzone.options.myDropzone = {
         });
 
         this.on("successmultiple", function(file, data) {
-            alert(data.success);
+            success_alert(data.success);
         });
 
         var submitButton = document.querySelector("#submit-all")
@@ -80,11 +80,40 @@ Dropzone.options.myDropzone = {
             var type = $('#uploadTypeDrop option:selected').text();
             var gender = $('#uploadGenderDrop option:selected').text();
             var size = $('#uploadSizeDrop option:selected').text();
+            var donor = $('#id').val();
+            // alert(donor);
             if (school == "" || type == "" || gender == "" || size == "") {
                 fail_alert("请填写完整信息！");
             }else {
+                $.ajax({
+                    url: "/clothesAction/uploadClothes",
+                    type: "POST",
+                    dataType: "json",
+                    data: {
+                        "id": donor,
+                        "school": school,
+                        "type": type,
+                        "gender": gender,
+                        "size": size
+                    },
+                    async: false,
+                    success: function (data) {
+                        if (data.success == "true") {
+                            $('#clothesID').val(data.clothesID);
+                            myDropzone.processQueue(); // Tell Dropzone to process all queued files.
+                            return;
+                        }
+                        if (data.success == "false") {
+                            fail_alert("上传失败！");
+                            return;
+                        }
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        fail_alert("哎呀，网络似乎不太好...");
+                    }
+                });
 
-                myDropzone.processQueue(); // Tell Dropzone to process all queued files.
+                // myDropzone.processQueue(); // Tell Dropzone to process all queued files.
             }
         });
 

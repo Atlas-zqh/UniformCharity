@@ -127,7 +127,7 @@
         Dropzone.prototype.events = ["drop", "dragstart", "dragend", "dragenter", "dragover", "dragleave", "addedfile", "addedfiles", "removedfile", "thumbnail", "error", "errormultiple", "processing", "processingmultiple", "uploadprogress", "totaluploadprogress", "sending", "sendingmultiple", "success", "successmultiple", "canceled", "canceledmultiple", "complete", "completemultiple", "reset", "maxfilesexceeded", "maxfilesreached", "queuecomplete"];
 
         Dropzone.prototype.defaultOptions = {
-            url: '/clothesAction/uploadClothes',
+            url: '/clothesAction/uploadClothesPics',
             method: "post",
             withCredentials: false,
             timeout: 30000,
@@ -417,7 +417,6 @@
             sending: noop,
             sendingmultiple: noop,
             success: function (file, data) {
-                alert(data.clothesID);
                 if (file.previewElement) {
                     return file.previewElement.classList.add("dz-success");
                 }

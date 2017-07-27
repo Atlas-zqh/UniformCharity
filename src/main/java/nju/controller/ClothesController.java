@@ -19,6 +19,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -42,47 +43,67 @@ public class ClothesController {
     @ResponseBody
     public Map<String, Object> uploadClothes(HttpServletRequest request) {
         Map<String, Object> map = new HashedMap();
-        System.out.println(1);
 
-//        String school = request.getParameter("school");
 
-        MultipartResolver resolver = new CommonsMultipartResolver(request.getSession().getServletContext());
-        MultipartHttpServletRequest multipartRequest = resolver.resolveMultipart(request);
-        MultipartFile multipartFile = multipartRequest.getFile("file");
-        String school = multipartRequest.getParameter("school");
-        String type = multipartRequest.getParameter("type");
-        String gender = multipartRequest.getParameter("gender");
-        String donor = multipartRequest.getParameter("donor");
-        String size = multipartRequest.getParameter("size");
+
+        String school = request.getParameter("school");
+        String type = request.getParameter("type");
+        String gender = request.getParameter("gender");
+        String size = request.getParameter("size");
+        String id = request.getParameter("id");
         System.out.println(school);
         System.out.println(type);
         System.out.println(gender);
         System.out.println(size);
+        System.out.println(id);
         int i = 0;
         Clothes clothes = new Clothes();
         clothes.setSchoolName(school);
         clothes.setGender(gender);
         clothes.setClothesType(type);
         clothes.setClothessize(size);
-        clothes.setDonorID(donor);
+        clothes.setDonorID(id);
+        clothes.setClothesPrice(0.0);
         clothes.setStatus("Available");
 
         String clothesID = clothesService.addClothes(clothes);
+        System.out.println("上传衣物：" + clothesID);
+        if(clothesID != null){
+            map.put("success", "true");
+            map.put("clothesID", clothesID);
+        }else{
+            map.put("success", "false");
+
+        }
+
+        return map;
+    }
+
+    @RequestMapping(value = "/uploadClothesPics", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Object> uploadClothesPics(HttpServletRequest request, HttpSession session) {
+        Map<String, Object> map = new HashedMap();
+
+        MultipartResolver resolver = new CommonsMultipartResolver(request.getSession().getServletContext());
+        MultipartHttpServletRequest multipartRequest = resolver.resolveMultipart(request);
+        MultipartFile multipartFile = multipartRequest.getFile("file");
+        String clothesID = multipartRequest.getParameter("clothesID");
+        System.out.println("上传图片获得的：" + clothesID);
 
         if(multipartFile != null) {
-            String trueFileName = school + type + String.valueOf(System.currentTimeMillis()) + ".jpg";
-            String path = "/Users/island/IdeaProjects/UniformCharity/src/main/webapp/static/icons/" + trueFileName;
-            System.out.println(path);
+            String trueFileName = clothesID + String.valueOf(System.currentTimeMillis()) + ".jpg";
+            String path = session.getServletContext().getRealPath("/") + "static/icons/" + trueFileName;
+            //todo 存到数据库
+//            System.out.println(path);
             try {
                 multipartFile.transferTo(new File(path));
             } catch (IOException e) {
                 e.printStackTrace();
             }
             map.put("success", "true");
-            map.put("clothesID", "123");
+            map.put("clothesID", clothesID);
         }else{
-            map.put("clothesID", "123");
-
+            map.put("success", "false");
         }
 
 //        clothesService.addClothes();

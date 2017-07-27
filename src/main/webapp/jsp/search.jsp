@@ -26,6 +26,7 @@
     <script type="text/javascript" src="../static/js/jquery-3.2.1.min.js"></script>
     <script>
         $(document).ready(function () {
+            checkCookie();
             getAllSchool('school');
 //            alert(school);
             var school = decodeURIComponent(getArgsFromHref(window.location.href, 'school'));

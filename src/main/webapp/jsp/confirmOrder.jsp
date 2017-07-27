@@ -94,7 +94,6 @@
 </div>
 <div class="foot">
     <p class="navLabel" align="center" style="position: absolute; top:97.2%; text-align: center">与子同袍项目组 copyright@2017</p>
-    <%--<p style="position:absolute; display: inline-block; z-index: 2; color: grey; margin-top: 0%; text-align: center; line-height: 100%; width: 100%; font-size: 90%;">与子同袍项目组 copyright@2017</p>--%>
 </div>
 <script type="text/javascript" src="../static/js/cookie.js" charset="utf-8"></script>
 <script type="text/javascript" src="../static/js/alert.js" charset="utf-8"></script>
