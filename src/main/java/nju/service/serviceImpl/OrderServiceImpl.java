@@ -23,7 +23,7 @@ public class OrderServiceImpl implements OrderService {
      * @param order
      */
     @Override
-    public void createOrder(Order order) {
+    public String createOrder(Order order) {
         long current = System.currentTimeMillis();
         order.setStartTime(current);
         Date date = new Date(current);
@@ -31,6 +31,7 @@ public class OrderServiceImpl implements OrderService {
         String oid = format.format(date);
         order.setOrderID(oid);
         orderMapper.createOrder(order);
+        return oid;
     }
 
     /**

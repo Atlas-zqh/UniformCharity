@@ -11,7 +11,7 @@ public interface OrderService {
     /**
      * 创建订单(自动生成订单号和订单开始时间)
      */
-    void createOrder(Order order);
+    String createOrder(Order order);
 
     /**
      * 更新订单
