@@ -63,7 +63,7 @@ public class ClothesController {
         clothes.setClothesType(type);
         clothes.setClothessize(size);
         clothes.setDonorID(id);
-        clothes.setClothesPrice(0.0);
+//        clothes.setClothesPrice(0.0);
         clothes.setStatus("Available");
 
         String clothesID = clothesService.addClothes(clothes);
@@ -150,8 +150,8 @@ public class ClothesController {
         Map<ClothesAttributes, String> clothesMap = new HashedMap();
         clothesMap.put(ClothesAttributes.schoolName, school);
         clothesMap.put(ClothesAttributes.gender, gender);
-        clothesMap.put(ClothesAttributes.size, size);
-        clothesMap.put(ClothesAttributes.type, type);
+        clothesMap.put(ClothesAttributes.clothessize, size);
+        clothesMap.put(ClothesAttributes.clothesType, type);
         PageInfo<Clothes> clothesPageInfo = clothesService.findClothesByAttributes(clothesMap, page, 20);
         long maxPage = clothesPageInfo.getTotal();
         if(clothesPageInfo != null){

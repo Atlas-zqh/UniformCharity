@@ -5,16 +5,16 @@
 <mapper namespace="nju.mapper.ClothesMapper">
     <insert id="add" parameterType="Clothes">
         INSERT INTO clothes
-        (clothesID, schoolName, clothessize, clothesType, clothesPrice, donorID, gender, status)
+        (clothesID, schoolName, clothessize, clothesType, donorID, gender, status)
          VALUES
-        (#{clothesID}, #{schoolName}, #{clothessize}, #{clothesType},#{clothesPrice},#{donorID}, #{gender},#{status})
+        (#{clothesID}, #{schoolName}, #{clothessize}, #{clothesType},#{donorID}, #{gender},#{status})
     </insert>
 
     <update id="update" parameterType="Clothes">
         UPDATE clothes
         SET
         schoolName=#{schoolName}, clothessize=#{clothessize},
-        clothesType=#{clothesType},clothesPrice=#{clothesPrice},donorID=#{donorID},
+        clothesType=#{clothesType},donorID=#{donorID},
         gender=#{gender}, status=#{status}
         WHERE
         clothesID=#{clothesID}

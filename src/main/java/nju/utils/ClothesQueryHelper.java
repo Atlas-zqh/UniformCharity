@@ -2,15 +2,10 @@ package nju.utils;
 
 public class ClothesQueryHelper {
     private String schoolName;
-
-    private String size;
-
-    private String type;
-
+    private String clothessize;
+    private String clothesType;
     private String gender;
-
-    private String donor;
-
+    private String donorID;
     private String status;
 
     public String getSchoolName() {
@@ -21,20 +16,20 @@ public class ClothesQueryHelper {
         this.schoolName = schoolName;
     }
 
-    public String getSize() {
-        return size;
+    public String getClothessize() {
+        return clothessize;
     }
 
-    public void setSize(String size) {
-        this.size = size;
+    public void setClothessize(String clothessize) {
+        this.clothessize = clothessize;
     }
 
-    public String getType() {
-        return type;
+    public String getClothesType() {
+        return clothesType;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setClothesType(String clothesType) {
+        this.clothesType = clothesType;
     }
 
     public String getGender() {
@@ -45,12 +40,12 @@ public class ClothesQueryHelper {
         this.gender = gender;
     }
 
-    public String getDonor() {
-        return donor;
+    public String getDonorID() {
+        return donorID;
     }
 
-    public void setDonor(String donor) {
-        this.donor = donor;
+    public void setDonorID(String donorID) {
+        this.donorID = donorID;
     }
 
     public String getStatus() {

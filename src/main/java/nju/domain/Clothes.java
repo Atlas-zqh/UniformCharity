@@ -16,8 +16,6 @@ public class Clothes {
 
     private String clothesType;
 
-    private Double clothesPrice;
-
     private String gender;
 
     private String donorID;
@@ -28,12 +26,11 @@ public class Clothes {
 
     }
 
-    public Clothes(String clothesID, String schoolName, String clothessize, String clothesType, Double clothesPrice, String donorID, String gender, String status) {
+    public Clothes(String clothesID, String schoolName, String clothessize, String clothesType, String donorID, String gender, String status) {
         this.clothesID = clothesID;
         this.schoolName = schoolName;
         this.clothessize = clothessize;
         this.clothesType = clothesType;
-        this.clothesPrice = clothesPrice;
         this.donorID = donorID;
         this.gender = gender;
         this.status = status;
@@ -69,14 +66,6 @@ public class Clothes {
 
     public void setClothesType(String clothesType) {
         this.clothesType = clothesType;
-    }
-
-    public Double getClothesPrice() {
-        return clothesPrice;
-    }
-
-    public void setClothesPrice(Double clothesPrice) {
-        this.clothesPrice = clothesPrice;
     }
 
     public String getDonorID() {
