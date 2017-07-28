@@ -36,7 +36,7 @@
     <tbody class="table-content-body">
     <tr>
         <th style="width: 10%">
-            11111
+            <a href="" onclick="window.open('orderDetails.jsp?orderID=111')">1111111</a>
         </th>
         <th style="width: 30%">
             <div class="imageBox">

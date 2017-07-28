@@ -3,8 +3,10 @@ package nju.controller;
 import com.github.pagehelper.PageInfo;
 import nju.domain.Clothes;
 import nju.domain.Type;
+import nju.domain.User;
 import nju.service.ClothesService;
 import nju.service.TypeService;
+import nju.service.UserService;
 import nju.utils.ClothesAttributes;
 import org.apache.commons.collections.map.HashedMap;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,11 +41,13 @@ public class ClothesController {
     @Autowired
     private ClothesService clothesService;
 
+    @Autowired
+    private UserService userService;
+
     @RequestMapping(value = "/uploadClothes", method = RequestMethod.POST)
     @ResponseBody
     public Map<String, Object> uploadClothes(HttpServletRequest request) {
         Map<String, Object> map = new HashedMap();
-
 
 
         String school = request.getParameter("school");
@@ -68,10 +72,10 @@ public class ClothesController {
 
         String clothesID = clothesService.addClothes(clothes);
         System.out.println("上传衣物：" + clothesID);
-        if(clothesID != null){
+        if (clothesID != null) {
             map.put("success", "true");
             map.put("clothesID", clothesID);
-        }else{
+        } else {
             map.put("success", "false");
 
         }
@@ -90,11 +94,11 @@ public class ClothesController {
         String clothesID = multipartRequest.getParameter("clothesID");
         System.out.println("上传图片获得的：" + clothesID);
 
-        if(multipartFile != null) {
+        if (multipartFile != null) {
             String trueFileName = clothesID + String.valueOf(System.currentTimeMillis()) + ".jpg";
             String path = session.getServletContext().getRealPath("/") + "static/icons/" + trueFileName;
-            //todo 存到数据库
-//            System.out.println(path);
+            String p = "../static/icons/" + trueFileName;
+            clothesService.addPic(clothesID, p);
             try {
                 multipartFile.transferTo(new File(path));
             } catch (IOException e) {
@@ -102,7 +106,7 @@ public class ClothesController {
             }
             map.put("success", "true");
             map.put("clothesID", clothesID);
-        }else{
+        } else {
             map.put("success", "false");
         }
 
@@ -152,20 +156,41 @@ public class ClothesController {
         clothesMap.put(ClothesAttributes.gender, gender);
         clothesMap.put(ClothesAttributes.clothessize, size);
         clothesMap.put(ClothesAttributes.clothesType, type);
+        //获得衣物信息
         PageInfo<Clothes> clothesPageInfo = clothesService.findClothesByAttributes(clothesMap, page, 20);
         long maxPage = clothesPageInfo.getTotal();
-        if(clothesPageInfo != null){
-            List<Clothes> clothes = clothesPageInfo.getList();
-            System.out.println("有几件衣服：" + clothes.size());
+        System.out.println(maxPage);
+        try {
+            if (clothesPageInfo != null) {
+                List<Clothes> clothes = clothesPageInfo.getList();
+                List<String> pics = new ArrayList<>();
+                List<String> username = new ArrayList<>();
+                List<Double> prices = new ArrayList<>();
+                String clotheID = "";
+                for (int i = 0; i < clothes.size(); i++) {
+                    clotheID = clothes.get(i).getClothesID();
+                    List<String> clothesPics = clothesService.findPicsByClothesID(clotheID);
+                    pics.add(clothesPics.get(0));
+                    User user = userService.findUserByID(clothes.get(i).getDonorID());
+                    username.add(user.getUsername());
+                    prices.add(typeService.findType(clothes.get(i).getSchoolName(), clothes.get(i).getClothesType()).getClothesPrice());
+                }
+                System.out.println("有几件衣服：" + clothes.size());
 
-            if(clothes.size() > 0){
-                map.put("success", "true");
-                map.put("clothes", clothes);
-                map.put("maxPage", maxPage);
-            }else{
-                map.put("success", "false");
-                map.put("error", "无结果");
+                if (clothes.size() > 0) {
+                    map.put("success", "true");
+                    map.put("clothes", clothes);
+                    map.put("maxPage", maxPage);
+                    map.put("pics", pics);
+                    map.put("username", username);
+                    map.put("prices", prices);
+                } else {
+                    map.put("success", "false");
+                    map.put("error", "无结果");
+                }
             }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return map;
     }
@@ -179,10 +204,10 @@ public class ClothesController {
         System.out.println(id);
         Clothes clothes = clothesService.findClothesByClothesID(id);
 
-        if(clothes != null){
+        if (clothes != null) {
             map.put("success", "true");
             map.put("clothes", clothes);
-        }else{
+        } else {
             map.put("success", "false");
         }
 

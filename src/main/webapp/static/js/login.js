@@ -25,8 +25,9 @@ function login() {
         success: function (data) {
             if (data.result == "success") {
                 success_alert("登陆成功!");
-                document.getElementById("preLogIn").style.display = "none";
-                document.getElementById("afterLogIn").style.display = "inline-block";
+                document.getElementById("preLogInLeft").style.display = "none";
+                document.getElementById("afterLogInLeft").style.display = "inline-block";
+                document.getElementById("afterLogInRight").style.display = "inline-block";
                 var tmp = data.userInfo.username;
                 var name = "";
                 for (var i = 0; i < tmp.length; i++) {

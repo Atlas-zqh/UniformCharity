@@ -32,21 +32,21 @@
     <div class="topNavBar">
         <p class="navLabel" align="center">与 子 同 袍</p>
     </div>
-    <div class="leftNavBar" align="left">
+    <div class="leftNavBar" align="left" id="afterLogInLeft" style="display: none">
         <div class="bt"><a href="../jsp/index.jsp">首<br>页</a></div>
         <div class="navLabel"><p><br>—<br></p></div>
         <div class="bt"><a href="../jsp/userInfo.jsp">我<br>的<br>主<br>页</a></div>
         <div class="navLabel"><p><br>—<br></p></div>
         <div class="bt"><a href="../jsp/order.jsp">我<br>的<br>交<br>易</a></div>
     </div>
-    <div class="rightNavBar" align="left" id="afterLogIn" style="display: none">
+    <div class="rightNavBar" align="left" id="afterLogInRight" style="display: none">
         <img id="iconImage" src="">
         <br>
         <p id="userName" class="navP"></p>
         <div class="navLabel"><p>—<br></p></div>
         <button id="quitButton" class="navBut" onclick="quitLog()">退<br>出<br>登<br>陆</button>
     </div>
-    <div class="rightNavBar" align="right" id="preLogIn" style="display: inline-block">
+    <div class="leftNavBar" align="left" id="preLogInLeft" style="display: inline-block">
         <div class="bt" id="loginButton"><a href="#toLoginPanel" onclick="showLoginPanel()">登<br>录</a></div>
         <div class="navLabel"><p><br>—<br></p></div>
         <div class="bt" id="signupButton"><a href="#toSignupPanel" onclick="showSignupPanel()">注<br>册</a></div>

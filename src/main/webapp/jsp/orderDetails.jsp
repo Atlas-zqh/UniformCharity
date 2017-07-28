@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: island
-  Date: 2017/7/22
-  Time: 下午5:00
+  Date: 2017/7/27
+  Time: 上午10:34
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -17,6 +17,15 @@
     <link rel="stylesheet" type="text/css" href="../static/css/theme.css">
     <link rel="stylesheet" type="text/css" href="../static/css/alert.css">
     <script type="text/javascript" src="../static/js/jquery-3.2.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            checkCookie();
+            var orderID = getArgsFromHref(window.location.href, "orderID");
+            $('#orderID').html(orderID);
+
+
+        });
+    </script>
 </head>
 <body>
 <div id="orderArea">
@@ -25,7 +34,36 @@
         <img src="../static/images/procedure1.png" style="width: 25%; float: right; margin-right: 5%; margin-top: 2%">
         <input type="hidden" id="clothesID">
         <div id="orderTable">
-            <table class="table-head orderTable" >
+            <table class="table-head orderTable">
+                <tbody class="table-title">
+                <tr>
+                    <th style="width: 10%">
+                        订单号
+                    </th>
+                    <th style="width: 20%" id="orderID">
+                        111111
+                    </th>
+                    <th style="width: 10%">
+                        日期
+                    </th>
+                    <th style="width: 10%" id="date">
+                        111111
+                    </th>
+                    <th style="width: 10%">
+
+                    </th>
+                    <th style="width: 10%">
+
+                    </th>
+                    <th style="width: 10%">
+                        订单状态
+                    </th>
+                    <th style="width: 10%" id="status">
+                        待付款
+                    </th>
+                </tr>
+                </tbody>
+                <tbody>
                 <tr>
                     <th style="width: 10%">
                         图片
@@ -86,15 +124,17 @@
             </table>
         </div>
 
-        <div id="pricePart">
-            <h5 style="float: left; margin-top: 3%;">需付款:</h5>
-            <h3 id="priceLabel" style="float: right">¥188.00</h3>
-            <button class="mybt" style="float: right; width: 60%; font-size: 1.5vmax;" onclick="pay()">立即付款</button>
-        </div>
+
+        <button class="mybt"
+                style="float: right; width: 10%; font-size: 1.5vmax; left: 85%; top: 90%; position: absolute"
+                onclick="processOrder()"
+                id="doButton">立即付款
+        </button>
     </div>
 </div>
 <div class="foot">
-    <p class="navLabel" align="center" style="position: absolute; top:97.2%; text-align: center">与子同袍项目组 copyright@2017</p>
+    <p class="navLabel" align="center" style="position: absolute; top:97.2%; text-align: center">与子同袍项目组
+        copyright@2017</p>
 </div>
 <script type="text/javascript" src="../static/js/cookie.js" charset="utf-8"></script>
 <script type="text/javascript" src="../static/js/alert.js" charset="utf-8"></script>

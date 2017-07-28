@@ -51,6 +51,7 @@ li {
     /*padding-bottom: 60%;*/
     /*height: 0;*/
     background-color: white;
+    min-height: 94.4%;
 }
 
 #resultPage #searchPane{
@@ -85,7 +86,7 @@ li {
     white-space: nowrap;
     color: #87b4bf;
     text-shadow: -0.1vmax 0.1vmax 0 #315770;
-    margin-top: 1%;
+    margin-top: 4%;
     margin-left: 1%;
 }
 
@@ -121,10 +122,11 @@ li {
 #resultPage #contentPage .singleClothe img{
     position: absolute;
     width: 100%;
-    padding-bottom: 100%;
+    /*padding-bottom: 100%;*/
     background-color: white;
     margin-left: 0%;
     margin-top: 0%;
+    height: 65%;
 }
 
 #resultPage #contentPage .singleClothe .priceP{
@@ -138,7 +140,7 @@ li {
     width: 23%;
     padding-bottom: 35%;
     margin-left: 2%;
-    margin-top: 100%;
+    margin-top: 88%;
     letter-spacing: 0.2vmax;
 }
 
@@ -150,7 +152,7 @@ li {
     font-weight: bold;
     color: #142535;
     margin-left: 2%;
-    margin-top: 112%;
+    margin-top: 100%;
     width: 98%;
     word-break: break-word;
 }
@@ -162,7 +164,7 @@ li {
     font-weight: bold;
     color: grey;
     margin-left: 2%;
-    margin-top: 132%;
+    margin-top: 125%;
 }
 
 #resultPage #contentPage .singleClothe .infoP{
@@ -181,4 +183,5 @@ li {
     padding-left: 1vmax;
     padding-right: 1vmax;
     height: 7%;
+    min-height: 16px;
 }

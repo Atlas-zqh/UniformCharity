@@ -124,3 +124,7 @@ function changePassword() {
         });
     }
 }
+
+function getCreditRecord() {
+    
+}

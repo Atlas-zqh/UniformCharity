@@ -2,11 +2,13 @@
  * Created by island on 2017/7/26.
  */
 $(document).ready(function () {
+    checkCookie();
     var clothesID = (decodeURIComponent(getArgsFromHref(window.location.href, 'id')).split('#')[0]);
     findClothesByID(clothesID);
 });
 
 function findClothesByID(clothesID) {
+    $('#clothesID').val(clothesID);
     jQuery.ajax({
         type: 'POST',
         url: '/clothesAction/findClothesByID',
@@ -43,6 +45,95 @@ function findClothesByID(clothesID) {
     });
 }
 
-function pay(){
-    window.location.href = "../jsp/payed.jsp";
+function pay() {
+    $.ajax({
+        url: "/orderAction/createOrder",
+        type: "POST",
+        dataType: "json",
+        data: {
+            "buyer": getCookie("id"),
+            "clothesID": $('#clothesID').val()
+        },
+        async: false,
+        success: function (data) {
+            if (data.result == "success") {
+
+                var orderID = data.orderID;
+                window.location.href = "../jsp/payed.jsp?orderID=" + orderID;
+                return;
+            }
+            if (data.result == "fail") {
+                fail_alert("哎呀，创建订单失败...");
+                return;
+            }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            fail_alert("哎呀，网络似乎不太好...");
+        }
+
+    });
+}
+
+function findOrderByID(id) {
+    $.ajax({
+        url: "/orderAction/getOrderByID",
+        type: "POST",
+        dataType: "json",
+        data: {
+            "orderID": id
+        },
+        async: false,
+        success: function (data) {
+            if (data.result == "success") {
+                $('#data').html(data.order.startTime);
+                var status = data.order.orderStatus;
+                if (status == -1) {
+                    $('#status').html("已撤销订单");
+                    $('#doButton').val("删除订单");
+                }
+                if (status == 1) {
+                    $('#status').html("待交易订单");
+                    $('#doButton').val("确认交易");
+                }
+                if (status == 2) {
+                    $('#status').html("待付款订单");
+                    $('#doButton').val("立即付款");
+                }
+                if (status == 3) {
+                    $('#status').html("已完成订单");
+                    $('#doButton').val("删除订单");
+                }
+                $('#pic').attr("src", data.pic);
+                $('#title').html(data.clothes.school + data.clothes.clothesType);
+                $('#school').html(data.clothes.school);
+                $('#type').html(data.clothes.clothesType);
+                $('#size').html(data.clothes.clothessize);
+                $('#gender').html(data.clothes.gender);
+                $('#price').html(data.clothes.orderPrice);
+
+                return;
+            }
+            if (data.result == "fail") {
+                fail_alert("哎呀，获取订单失败...");
+                return;
+            }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            fail_alert("哎呀，网络似乎不太好...");
+        }
+
+    });
+}
+
+function processOrder() {
+    var buttonType = $('#doButton').val();
+    if (buttonType == "删除订单") {
+
+    }
+    if (buttonType == "确认交易") {
+
+    }
+    if (buttonType == "立即付款") {
+
+    }
 }

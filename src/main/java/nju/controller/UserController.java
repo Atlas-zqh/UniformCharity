@@ -1,8 +1,11 @@
 package nju.controller;
 
 import com.alibaba.druid.support.json.JSONUtils;
+import com.github.pagehelper.PageInfo;
+import nju.domain.CreditRecord;
 import nju.domain.User;
 import nju.service.UserService;
+import org.apache.commons.collections.map.HashedMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,6 +37,12 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    /**
+     * 根据用户名获得用户
+     * @param request
+     * @param response
+     * @return
+     */
     @RequestMapping(value = "getUser", method = RequestMethod.POST)
     @ResponseBody
     public Map<String, Object> getUser(HttpServletRequest request, HttpServletResponse response) {
@@ -69,6 +78,12 @@ public class UserController {
         return map;
     }
 
+    /**
+     * 修改密码
+     * @param request
+     * @param response
+     * @return
+     */
     @RequestMapping(value = "modifyPassword", method = RequestMethod.POST)
     @ResponseBody
     public Map<String, Object> modifyPassword(HttpServletRequest request, HttpServletResponse response) {
@@ -103,6 +118,12 @@ public class UserController {
         return map;
     }
 
+    /**
+     * 用户登录
+     * @param request
+     * @param response
+     * @return
+     */
     @RequestMapping(value = "userLogin", method = RequestMethod.POST)
     @ResponseBody
     public Map<String, Object> login(HttpServletRequest request, HttpServletResponse response) {
@@ -139,6 +160,13 @@ public class UserController {
         return map;
     }
 
+    /**
+     * 用户注册
+     * @param request
+     * @param response
+     * @param session
+     * @return
+     */
     @RequestMapping(value = "userSignUp", method = RequestMethod.POST)
     @ResponseBody
     public Map<String, Object> signUp(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
@@ -212,6 +240,13 @@ public class UserController {
         return map;
     }
 
+    /**
+     * 上传头像
+     * @param request
+     * @param response
+     * @param session
+     * @return
+     */
     @RequestMapping(value = "uploadIcon", method = RequestMethod.POST)
     @ResponseBody
     public Map<String, Object> upload(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
@@ -249,6 +284,27 @@ public class UserController {
         }
 
 
+        return map;
+    }
+
+
+    @RequestMapping(value = "getCreditRecord", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Object> getCreditRecordByID(HttpServletRequest request){
+        Map<String, Object> map = new HashMap<>();
+        int page = Integer.parseInt(request.getParameter("page"));
+        String userID = request.getParameter("userID");
+        PageInfo<CreditRecord> creditRecordPageInfo = userService.findRecordByUserID(userID, page, 5);
+        List<CreditRecord> creditRecords = creditRecordPageInfo.getList();
+        int maxSize = creditRecordPageInfo.getPages();
+        System.out.println(maxSize);
+        if(creditRecords != null && creditRecords.size() != 0){
+            map.put("success", "true");
+            map.put("creditList", creditRecords);
+            map.put("maxSize", maxSize);
+        }else{
+            map.put("success", false);
+        }
         return map;
     }
 

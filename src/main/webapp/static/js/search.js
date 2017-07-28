@@ -71,7 +71,7 @@ function showResult(school, type, gender, size, page) {
             // alert("success");
             if (data && data.success == "true") {
                 $.each(data.clothes, function (i, item) {
-                    addSingleClothesPanel(item);
+                    addSingleClothesPanel(item, data.pics[i], data.username[i], data.prices[i]);
                 });
             } else {
                 // fail_alert("无结果");
@@ -119,31 +119,38 @@ function initPage(page){
 
 }
 
-function addSingleClothesPanel(clothes) {
+function addSingleClothesPanel(clothes, pic, username, price) {
+
     var clothe_list = document.getElementById('contentPage');
     var clothe_item = document.createElement("div");
     clothe_item.className = "singleClothe";
     clothe_list.appendChild(clothe_item);
 
     var img = document.createElement("img");
-    img.src = clothes.picUrl;
-    img.onclick = setOpenUrl(clothes.clothesID);
+    img.src = pic;
+    img.onclick = function () {
+        window.open("../jsp/clothesDetails.jsp?input=" + clothes.clothesID);
+    };
+    img.style.cursor = "pointer";
     clothe_item.appendChild(img);
 
     var priceLabel = document.createElement("p");
     priceLabel.className = "priceP";
-    priceLabel.appendChild(document.createTextNode('¥' + clothes.price));
+    priceLabel.appendChild(document.createTextNode('¥' + price));
     clothe_item.appendChild(priceLabel);
 
-    var nameLable = document.createElement("a");
-    nameLable.className = "nameP";
-    nameLable.appendChild(document.createTextNode(clothes.school + '-' + clothes.type));
-    nameLable.onclick = setOpenUrl(clothes.clothesID);
-    clothe_item.appendChild(nameLable);
+    var nameLabel = document.createElement("a");
+    nameLabel.className = "nameP";
+    nameLabel.appendChild(document.createTextNode(clothes.schoolName + '-' + clothes.clothesType));
+    nameLabel.href = "../jsp/clothesDetails.jsp?input=" + clothes.clothesID;
+    nameLabel.target = "_blank";
+    clothe_item.appendChild(nameLabel);
 
     var userLabel = document.createElement("a");
     userLabel.className = "userP";
-    userLabel.appendChild(document.createTextNode(clothes.donor));
+    userLabel.appendChild(document.createTextNode(username));
+    userLabel.href = "../jsp/userDetail.jsp?id=" + clothes.donorID;
+    userLabel.target = "_blank";
     clothe_item.appendChild(userLabel);
 
     var genderLabel = document.createElement("p");
@@ -153,8 +160,8 @@ function addSingleClothesPanel(clothes) {
 
     var sizeLabel = document.createElement("p");
     sizeLabel.className = "infoP";
-    sizeLabel.appendChild(document.createTextNode(clothes.size));
-    sizeLabel.css("margin-left", "20%");
+    sizeLabel.appendChild(document.createTextNode(clothes.clothessize));
+    sizeLabel.style.marginLeft = "20%";
     clothe_item.appendChild(sizeLabel);
 
 }

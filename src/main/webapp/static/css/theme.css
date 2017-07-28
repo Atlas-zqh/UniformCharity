@@ -218,6 +218,7 @@ ul {
     font-size: 1.2vmax;
     text-shadow: none;
     /*line-height: 210%;*/
+    min-height: 20px;
 }
 .select-target.select-theme-dark:hover {
     color: #142535;

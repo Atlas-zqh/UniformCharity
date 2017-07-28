@@ -14,7 +14,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Title</title>
+    <title>与子同袍-搜索结果</title>
     <link rel="stylesheet" href="../static/css/searchResult.css"/>
     <link rel="stylesheet" href="../static/css/alert.css"/>
     <link rel="stylesheet" href="../static/css/log.css"/>
@@ -93,15 +93,15 @@
     <div id="contentPage">
         <h1>搜索结果</h1>
         <h2 style="width: 100%; text-align: center; padding: 3%; display: none;" id="noResultLabel">哎呀，没有搜索结果，换个条件再试试吧！</h2>
-        <div class="singleClothe">
-            <img src="">
-            <p class="priceP">¥188.00</p>
-            <a href="../jsp/clothesDetails.jsp?id=111" class="nameP">hahahahahahahahahahahahahahahahahahahahahahahaha</a>
-            <a href="" class="userP">XXX</a>
-            <p class="infoP">男</p>
-            <p class="infoP" style="margin-left: 20%;">L</p>
+        <%--<div class="singleClothe">--%>
+            <%--<img src="">--%>
+            <%--<p class="priceP">¥188.00</p>--%>
+            <%--<a href="../jsp/clothesDetails.jsp?id=111" class="nameP">hahahahahahahahahahahahahahahahahahahahahahahaha</a>--%>
+            <%--<a href="" class="userP">XXX</a>--%>
+            <%--<p class="infoP">男</p>--%>
+            <%--<p class="infoP" style="margin-left: 20%;">L</p>--%>
 
-        </div>
+        <%--</div>--%>
 
     </div>
     <div style="text-align: center; padding-bottom: 3%">
@@ -112,7 +112,7 @@
         </ul>
     </div>
 
-    <div class="foot" style="height: 2.8%;">
+    <div class="foot" style="height: 2.8%;bottom: -2.8%; position: absolute; width: 100%;">
         <p class="navLabel" align="center" style="position: absolute; text-align: center">与子同袍项目组 copyright@2017</p>
         <%--<p style="position:absolute; display: inline-block; z-index: 2; color: grey; margin-top: 0%; text-align: center; line-height: 100%; width: 100%; font-size: 90%;">与子同袍项目组 copyright@2017</p>--%>
     </div>
