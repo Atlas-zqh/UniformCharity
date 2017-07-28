@@ -14,6 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <%--<link rel="stylesheet" type="text/css" href="../static/css/amazeui.min.css">--%>
+
     <link rel="stylesheet" type="text/css" href="../static/css/amazeui.cropper.css">
     <link rel="stylesheet" type="text/css" href="../static/css/amazeui.css">
     <link rel="stylesheet" href="../static/css/theme.css"/>
@@ -21,6 +22,7 @@
     <link rel="stylesheet" href="../static/css/userInfo.css"/>
     <link rel="stylesheet" href="../static/css/alert.css"/>
     <link rel="stylesheet" href="../static/css/font-awesome.css">
+    <link rel="stylesheet" href="../static/css/menu.css"/>
 
     <script type="text/javascript" src="../static/js/jquery-3.2.1.min.js"></script>
     <title>我的主页</title>
@@ -90,26 +92,29 @@
     </div>
     <div id="friendBlock" class="briefInfoBlock" style="top: 35%;">
         <p class="titleP">好 友 信 息</p>
-        <div id="friend1">
+        <div id="friend1" style="display: none">
             <button class="iconButton"
                     style="background-image: url(/static/images/maleIcon.png); top: 25%; margin-left: 2%;"></button>
             <a href="" class="labelP" id="username1" style="top: 25%; margin-left: 25%;">X X X</a>
             <button class="genderButton"
                     style="background-image: url(/static/images/male.png); top: 24%; margin-left: 10%; background-color: #ffffff"></button>
         </div>
-        <div id="friend2">
+        <div id="friend2" style="display: none">
             <button class="iconButton"
                     style="background-image: url(/static/images/maleIcon.png); top: 50%; margin-left: 2%;"></button>
             <a href="" class="labelP" id="username2" style="top: 50%; margin-left: 25%;">X X X</a>
             <button class="genderButton"
                     style="background-image: url(/static/images/male.png); top: 49%; margin-left: 10%; background-color: #ffffff"></button>
         </div>
-        <div id="friend3">
+        <div id="friend3" style="display: none">
             <button class="iconButton"
                     style="background-image: url(/static/images/maleIcon.png); top: 75%; margin-left: 2%;"></button>
             <a href="" class="labelP" id="username3" style="top: 75%; left: 25%;">X X X</a>
             <button class="genderButton"
                     style="background-image: url(/static/images/male.png); top: 74%; margin-left: 10%; background-color: #ffffff"></button>
+        </div>
+        <div id="noFriends" style="top: 45%; position: absolute; width: 50%; margin-left: 30%">
+            <h4>暂&nbsp;无&nbsp;好&nbsp;友</h4>
         </div>
         <a href="#" style="top: 90%; margin-left: 65%" onclick="showFriendContent()">查 看 更 多 ></a>
 
@@ -119,7 +124,7 @@
         <p class="labelP" style="top: 25%; margin-left: 2%;">积 分:</p>
         <p class="contentP" style="left: 30%; top: 28%" id="briefScore">X X X</p>
         <p class="labelP" style="top: 45%; margin-left: 2%;">最 新 记 录:</p>
-        <p class="contentP" style="margin-left: 2%; top: 60%">xxxxxxxxxxxxxxxxxxx</p>
+        <p class="contentP" style="margin-left: 2%; top: 60%">暂无公益记录</p>
         <a href="#" style="top: 90%; left: 65%" onclick="showPublicContent()">查 看 更 多 ></a>
     </div>
 
@@ -133,22 +138,22 @@
             <%--data-am-popover="{content: '点击上传', trigger: 'hover focus'}">--%>
         </div>
         <p class="labelP" style="left: 5%; top: 12%">用 户 名:</p>
-        <input class="contentP" id="usernameLabel" style="left: 23%; top: 12%" value="哈哈哈哈" disabled>
+        <input class="contentP" id="usernameLabel" style="left: 23%; top: 12%" value="" disabled>
         <img style="top: 24.5%; left: 4%;">
         <p class="labelP" style="left: 8.5%; top: 24%">姓 名:</p>
-        <input class="contentP" id="nameLabel" style="left: 23%; top: 24%" value="哈哈哈哈" disabled>
+        <input class="contentP" id="nameLabel" style="left: 23%; top: 24%" value="" disabled>
 
         <p class="labelP" style="left: 5%; top: 36%">身 份 证:</p>
-        <input class="contentP" id="idLabel" style="left: 23%; top: 36%" value="哈哈哈哈" disabled>
+        <input class="contentP" id="idLabel" style="left: 23%; top: 36%" value="" disabled>
 
         <p class="labelP" style="left: 5%; top: 48%">微 信 号:</p>
-        <input class="contentP" id="wechatLabel" style="left: 23%; top: 48%" value="哈哈哈哈" disabled>
+        <input class="contentP" id="wechatLabel" style="left: 23%; top: 48%" value="" disabled>
         <%--<a href="" style="position:absolute; text-decoration: underline; top: 48%; left: 56%">修改</a>--%>
         <p class="labelP" style="left: 5%; top: 60%">手 机 号:</p>
-        <input class="contentP" id="phoneLabel" style="left: 23%; top: 60%" value="哈哈哈哈" disabled>
+        <input class="contentP" id="phoneLabel" style="left: 23%; top: 60%" value="" disabled>
         <%--<a href="" style="position:absolute; text-decoration: underline; top: 60%; left: 56%">修改</a>--%>
         <p class="labelP" style="left: 5%; top: 72%">学 校:</p>
-        <input class="contentP" id="schoolLabel" style="left: 23%; top: 72%" value="哈哈哈哈" disabled>
+        <input class="contentP" id="schoolLabel" style="left: 23%; top: 72%" value="" disabled>
         <%--<a href="" style="position:absolute; text-decoration: underline; top: 72%; left: 56%">修改</a>--%>
         <p class="labelP" style="left: 5%; top: 84%">密 码:</p>
         <input class="contentP" id="passwordLabel" style="left: 23%; top: 84%" value="******" disabled>
@@ -179,17 +184,42 @@
     <div id="publicContent" class="contentBlock" style="display: none">
         <p class="titleP">公 益 信 息</p>
         <p class="subtitle" id="score">666分</p>
-        <div class="singleRecord">
-            <p class="labelP" style="margin-top: 0%; margin-left: 5%;">获得积分数量:</p>
-            <p class="labelP" style="margin-top: 0%; margin-left: 55%;">当前积分:</p>
-            <p class="labelP" style="margin-top: 7%; margin-left: 5%;">获得积分方式:</p>
-            <p class="labelP" style="margin-top: 7%; margin-left: 55%;">衣服编号:</p>
-
+        <table class="table-head" style="position: absolute; width: 92%; left: 3%; top: 12%;">
+            <tbody>
+            <tr>
+                <th style="width: 25%">
+                    获得积分方式
+                </th>
+                <th style="width: 25%">
+                    相关衣物编号
+                </th>
+                <th style="width: 25%">
+                    获得积分数量
+                </th>
+                <th style="width: 25%">
+                    当前积分总数
+                </th>
+            </tr>
+            </tbody>
+        </table>
+        <iframe style="background: #DFEDF0; position: absolute; top: 20%; left: 4%; width: 92%; height: 70%;" src="creditList.jsp">
+        </iframe>
+        <div style="text-align: center; width: 100%; position: absolute; top: 90%;">
+            <ul id="menu" style="left: 10%; margin-top: 1%; width: 80%">
+                <li><a href="#">Previous</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">6</a></li>
+                <li><a href="#">Next</a></li>
+            </ul>
         </div>
     </div>
 </div>
 
-<div class="am-popup" id="my-popup" style="left: ">
+<div class="am-popup" id="my-popup">
     <h1 style="width: 50%; float: left;">修&nbsp;改&nbsp;密&nbsp;码</h1>
     <span data-am-modal-close
           class="am-close" style="top: 30%; float: right;">&times;</span>
@@ -201,7 +231,8 @@
     <h2 style="margin-left: 0%; width: 100%; text-align: center; margin-top: 10%">确 认 新 密 码</h2>
     <input id="newPassword2" style="margin-left: 20%; margin-top: -2%; width: 60%" type="password">
 
-    <button class="mybt" style="width: 20%; font-size: 1.5vmax; margin-left: 40%; margin-top: 20%;" onclick="changePassword()">
+    <button class="mybt" style="width: 20%; font-size: 1.5vmax; margin-left: 40%; margin-top: 20%;"
+            onclick="changePassword()">
         修 改
     </button>
 </div>

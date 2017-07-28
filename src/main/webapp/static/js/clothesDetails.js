@@ -8,6 +8,7 @@ function changePic(id) {
 
 $(document).ready(function () {
     var clothesID = (decodeURIComponent(getArgsFromHref(window.location.href, 'id')).split('#')[0]);
+    alert(clothesID);
     findClothesByID(clothesID);
 });
 

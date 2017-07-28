@@ -111,10 +111,11 @@ li {
     color: #ffffff;
     /*text-shadow: -0.1vmax 0.1vmax 0 #7A6420;*/
     margin-top: 0%;
-    letter-spacing: 0.2vmax;
+    letter-spacing: 0.15vmax;
     width: 90%;
     overflow: scroll;
     word-wrap: break-word;
+    font-weight: bold;
 }
 
 #userPage .briefInfoBlock a {
@@ -318,15 +319,17 @@ li {
     outline: none;
 }
 
-#userPage .contentBlock .singleRecord {
+.singleRecord {
     display: inline-block;
     position: absolute;
     margin-top: 15%;
     margin-left: 5%;
     width: 90%;
     padding-bottom: 12%;
-    border: 2px solid #d6bd6f;
-    box-shadow: 0 0 5px 2px #d6bd6f;
+    /*border: 2px solid #d6bd6f;*/
+    /*box-shadow: 0 0 5px 2px #d6bd6f;*/
+    border: 2px solid #a3dbe6;
+    box-shadow: 0 0 5px 2px #87b4bf;
 }
 
 #userPage .contentBlock .subtitle {
@@ -343,14 +346,14 @@ li {
     /*top: -0.5%;*/
 }
 
-#userPage .contentBlock .singleRecord .labelP {
+.singleRecord .labelP {
     display: inline-block;
     position: absolute;
     font-family: "Yuppy SC";
-    font-size: 1.5vmax;
+    font-size: 3vmax;
     white-space: nowrap;
     color: #87b4bf;
-    text-shadow: -0.1vmax 0.1vmax 0 #315770;
+    text-shadow: -0.2vmax 0.2vmax 0 #315770;
     letter-spacing: 0.2vmax;
     text-decoration: none;
 }
@@ -408,7 +411,7 @@ li {
     padding-bottom: 0%;
 }
 
-#my-popup input{
+#my-popup input {
     position: absolute;
     z-index: 2;
     background-color: #97d5dd;
@@ -427,4 +430,49 @@ li {
     outline: none;
     outline-width: 0px;
     height: 7%;
+}
+
+.table-content tr td {
+    font-size: 2.5vmax;
+    padding: 0.2vmax;
+    font-weight: bold;
+    color: #142635;
+}
+
+.table-content {
+    position: absolute;
+}
+
+.table-content tr th {
+    font-size: 2.5vmax;
+    padding: 0.5vmax;
+    font-weight: normal;
+    color: #142635;
+}
+
+.table-content .table-content-body a {
+    font-size: 2.5vmax;
+    padding: 0.2vmax;
+    color: #142535;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#userPage .contentBlock #menu li a {
+    background: #a1d0dd;
+    display: block;
+    border-radius: 3px;
+    padding: 0 1vw;
+    color: white;
+    position: relative;
+    text-decoration: none;
+    /*height: 100%;*/
+    font: 1vmax / 2vmax "Yuppy SC", Arial, sans-serif;
+    /* Now the 3d effect */
+    box-shadow: 0px 3px #7fafbc, 0px 4px 5px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+#userPage .contentBlock #menu li a:hover {
+    background: #bae0ea
 }

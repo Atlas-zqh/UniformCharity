@@ -10,7 +10,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>与子同袍-衣物详情</title>
     <link rel="stylesheet" type="text/css" href="../static/css/clothesDetail.css">
 
     <%--<link rel="stylesheet" type="text/css" href="http://cdn.amazeui.org/amazeui/2.7.2/css/amazeui.css">--%>

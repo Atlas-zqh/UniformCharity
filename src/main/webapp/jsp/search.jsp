@@ -86,7 +86,7 @@
             </select>
         </div>
         <button class="mybt"
-                style="margin-left: 70%; margin-top: 7.5%; position: absolute; font-size: 1.5vmax; padding-bottom: 0.3%"
+                style="margin-left: 70%; margin-top: 7.5%; position: absolute; font-size: 1.5vmax; padding-bottom: 0.3%; white-space: nowrap"
                 onclick="search()">搜索
         </button>
     </div>

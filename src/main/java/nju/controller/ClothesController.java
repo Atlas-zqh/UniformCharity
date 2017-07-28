@@ -202,7 +202,13 @@ public class ClothesController {
         String id = request.getParameter("clothesID");
 
         System.out.println(id);
+        List<String> pics = clothesService.findPicsByClothesID(id);
+        System.out.println("有几张图片： " + pics.size());
+        for(int i = 0; i < pics.size(); i++){
+            System.out.println(pics.get(i));
+        }
         Clothes clothes = clothesService.findClothesByClothesID(id);
+        System.out.println(clothes.getClothesID());
 
         if (clothes != null) {
             map.put("success", "true");
