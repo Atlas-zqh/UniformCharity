@@ -1,7 +1,7 @@
 * {box-sizing: border-box}
 
 /* First styling the menu */
-#menu {
+.menu {
     list-style: none;
     /* padding: 0 12px; */
     margin: 0;
@@ -22,18 +22,19 @@
 }
 
 /* Now the list items */
-#menu li {
+.menu li {
     margin-left: 0.1vmax;
     display: inline-block;
     position: relative;
-    bottom: -11px;
+    padding-top: 1%;
+    /*padding-bottom: 0.25%;*/
     white-space: nowrap;
 }
 
-#menu li:first-child {margin: 0}
+.menu li:first-child {margin: 0}
 
 /* The real fun begins here :D */
-#menu li a {
+.menu li a {
     background: #a1d0dd;
     display: block;
     border-radius: 3px;
@@ -48,7 +49,7 @@
     transition: all 0.3s ease;
 }
 
-#menu .click {
+.menu .click {
     /*background: #a1d0dd;*/
     display: block;
     border-radius: 3px;
@@ -70,8 +71,8 @@
 /* Basic design is ready, now let's make it animate when hovered or clicked */
 /* For this, we'll use transition property */
 
-#menu li a:hover {background: #bae0ea}
-#menu li a:active {
+.menu li a:hover {background: #bae0ea}
+.menu li a:active {
     background: #bae0ea;
     /* Now, let's make it look like its pressed down when clicked */
     bottom: -3px;

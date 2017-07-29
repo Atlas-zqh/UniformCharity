@@ -296,8 +296,12 @@ public class UserController {
         String userID = request.getParameter("userID");
         PageInfo<CreditRecord> creditRecordPageInfo = userService.findRecordByUserID(userID, page, 5);
         List<CreditRecord> creditRecords = creditRecordPageInfo.getList();
-        int maxSize = creditRecordPageInfo.getPages();
-        System.out.println(maxSize);
+        long maxSize = creditRecordPageInfo.getTotal();
+        System.out.println(creditRecordPageInfo.getPages());
+        System.out.println(creditRecordPageInfo.getNavigateLastPage());
+        System.out.println(creditRecordPageInfo.getNavigatePages());
+        System.out.println(creditRecordPageInfo.getPageNum());
+        System.out.println(creditRecordPageInfo.getTotal());
         if(creditRecords != null && creditRecords.size() != 0){
             map.put("success", "true");
             map.put("creditList", creditRecords);

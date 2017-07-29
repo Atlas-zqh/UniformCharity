@@ -202,10 +202,11 @@
             </tr>
             </tbody>
         </table>
-        <iframe style="background: #DFEDF0; position: absolute; top: 20%; left: 4%; width: 92%; height: 70%;" src="creditList.jsp">
+        <iframe style="background: #DFEDF0; position: absolute; top: 20%; left: 4%; width: 92%; height: 70%;" src="creditList.jsp?page=1" id="creditFrame">
         </iframe>
+        <script type="text/javascript" src="../static/js/creditInfo.js" charset="utf-8"></script>
         <div style="text-align: center; width: 100%; position: absolute; top: 90%;">
-            <ul id="menu" style="left: 10%; margin-top: 1%; width: 80%">
+            <ul id="creditMenu" class="menu" style="left: 10%; margin-top: 1%; width: 80%">
                 <li><a href="#">Previous</a></li>
                 <li><a href="#">1</a></li>
                 <li><a href="#">2</a></li>
@@ -242,6 +243,8 @@
 </div>
 <%--<script type="text/javascript" src="http://cdn.amazeui.org/amazeui/2.7.2/js/amazeui.js" charset="utf-8"></script>--%>
 <script type="text/javascript" src="../static/js/amazeui.js" charset="utf-8"></script>
+<script type="text/javascript" src="../static/js/util.js" charset="utf-8"></script>
+<script type="text/javascript" src="../static/js/menu.js" charset="utf-8"></script>
 <script type="text/javascript" src="../static/js/login.js" charset="utf-8"></script>
 <script type="text/javascript" src="../static/js/cookie.js" charset="utf-8"></script>
 <script type="text/javascript" src="../static/js/userInfo.js" charset="utf-8"></script>

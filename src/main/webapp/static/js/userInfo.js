@@ -52,7 +52,8 @@ function showPublicContent(){
     $('#infoContent').css("display", "none");
 
     $('#score').html($('#briefScore').html());
-
+    getCreditRecord(1);
+    initMenu(getMaxCreditPage(), 'creditMenu', 1);
 }
 
 function getInfo() {
@@ -123,8 +124,4 @@ function changePassword() {
             }
         });
     }
-}
-
-function getCreditRecord() {
-    
 }

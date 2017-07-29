@@ -74,7 +74,7 @@ function showResult(school, type, gender, size, page) {
                     addSingleClothesPanel(item, data.pics[i], data.username[i], data.prices[i]);
                 });
             } else {
-                // fail_alert("无结果");
+                fail_alert("无结果");
             }
         },
         error: function () {

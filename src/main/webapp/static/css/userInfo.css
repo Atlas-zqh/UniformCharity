@@ -458,7 +458,7 @@ li {
     cursor: pointer;
 }
 
-#userPage .contentBlock #menu li a {
+#userPage .contentBlock .menu li a {
     background: #a1d0dd;
     display: block;
     border-radius: 3px;
@@ -473,6 +473,6 @@ li {
     transition: all 0.3s ease;
 }
 
-#userPage .contentBlock #menu li a:hover {
+#userPage .contentBlock .menu li a:hover {
     background: #bae0ea
 }
