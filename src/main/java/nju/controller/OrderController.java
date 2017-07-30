@@ -1,5 +1,6 @@
 package nju.controller;
 
+import com.github.pagehelper.PageInfo;
 import nju.domain.Clothes;
 import nju.domain.Order;
 import nju.domain.Type;
@@ -12,8 +13,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import sun.jvm.hotspot.debugger.Page;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -96,6 +99,53 @@ public class OrderController {
 
         }
 
+        return map;
+    }
+
+    @RequestMapping(value = "/getOrderByUser", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Object> getOrderByUser(HttpServletRequest request) {
+        Map<String, Object> map = new HashedMap();
+
+        String userID = request.getParameter("userID");
+        int page = Integer.parseInt(request.getParameter("page"));
+        int status = Integer.parseInt(request.getParameter("status"));
+        System.out.println(userID);
+        System.out.println(page);
+        System.out.println(status);
+
+        //获得订单
+        PageInfo<Order> orderPageInfo = orderService.findOrderByBuyerID(userID, page, 10);
+        if(orderPageInfo != null){
+            List<Order> order = orderPageInfo.getList();
+            long maxPage = orderPageInfo.getTotal();
+            List<Clothes> clothesList = new ArrayList<>();
+            List<Double> priceList = new ArrayList<>();
+            List<String> picsList = new ArrayList<>();
+            // 获得订单对应衣物
+            for( int i = 0; i < order.size(); i++){
+                String clothesID = order.get(i).getClothesID();
+                Clothes clothes = clothesService.findClothesByClothesID(clothesID);
+                clothesList.add(clothes);
+                String school = clothes.getSchoolName();
+                String type = clothes.getClothesType();
+                double price = typeService.findType(school, type).getClothesPrice();
+                priceList.add(price);
+                //获得衣物图片
+                List<String> pics = clothesService.findPicsByClothesID(clothesID);
+                picsList.add(pics.get(0));
+            }
+
+            map.put("success", "true");
+            map.put("maxSize", maxPage);
+            map.put("order", order);
+            map.put("orderPrice", priceList);
+            map.put("clothes", clothesList);
+            map.put("pics", picsList);
+        }else{
+            map.put("success", "false");
+
+        }
         return map;
     }
 }

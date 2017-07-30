@@ -12,13 +12,19 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="../static/css/order.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/alert.css">
     <link rel="stylesheet" type="text/css" href="../static/css/amazeui.css">
     <link rel="stylesheet" type="text/css" href="../static/css/theme.css">
     <link rel="stylesheet" href="../static/css/menu.css" media="screen" type="text/css"/>
     <script type="text/javascript" src="../static/js/jquery-3.2.1.min.js"></script>
     <script>
         $(document).ready(function () {
-           checkCookie();
+            $('#all').css({"color": "#DABD61", "text-shadow": "-0.1vmax 0.1vmax 0 #7A6420"});
+            checkCookie();
+            getSelected();
+            var max = getMaxOrderPage();
+            initMenu(max, 'orderMenu', 1);
+            initPageLabel(1, max);
         });
     </script>
 
@@ -62,97 +68,20 @@
                     </table>
                     <div>
                         <p style="float: left; margin-top: 0.6%; font-size: 1vmax; margin-left:1%;">当前页: </p>
-                        <p style="margin-left: 10%; margin-top: 0.5%; float: left; position: absolute; font-size: 1vmax" class="pageLabel"> 1 / 15</p>
+                        <p style="margin-left: 10%; margin-top: 0.5%; float: left; position: absolute; font-size: 1vmax"
+                           class="pageLabel"> 1 / 15</p>
                         <button class="mybt"
-                                style="margin-left: 1%; float: right; width: 6%; border-width: medium; margin-top: 0.5%">
+                                style="margin-left: 1%; float: right; width: 6%; border-width: medium; margin-top: 0.5%"
+                                onclick="next()">
                             下一页
                         </button>
                         <button class="mybt"
-                                style="margin-left: 1%; float: right; width: 6%; border-width: medium; margin-top: 0.5%">
+                                style="margin-left: 1%; float: right; width: 6%; border-width: medium; margin-top: 0.5%"
+                                onclick="previous()">
                             上一页
                         </button>
                     </div>
-                    <iframe src="orderList.jsp" style="width: 100%; height: 80%">
-                        <%--<table class="table-head">--%>
-                        <%--<tbody>--%>
-                        <%--<tr>--%>
-                        <%--<th style="width: 10%">--%>
-                        <%--编号--%>
-                        <%--</th>--%>
-                        <%--<th style="width: 30%">--%>
-                        <%--品名--%>
-                        <%--</th>--%>
-                        <%--<th style="width: 20%">--%>
-                        <%--捐赠人--%>
-                        <%--</th>--%>
-                        <%--<th style="width: 10%">--%>
-                        <%--价格--%>
-                        <%--</th>--%>
-                        <%--<th style="width: 10%">--%>
-                        <%--交易状态--%>
-                        <%--</th>--%>
-                        <%--<th style="width: 10%">--%>
-                        <%--交易操作--%>
-                        <%--</th>--%>
-                        <%--</tr>--%>
-                        <%--</tbody>--%>
-                        <%--</table>--%>
-                        <%--<div id="briefPagePane">--%>
-                        <%--<p style="float: left; margin-top: 0.6%;">当前页: </p>--%>
-                        <%--<p style="margin-left: 10%; margin-top: 0.5%; float: left; position: absolute;"> 1 / 15</p>--%>
-                        <%--<button class="mybt"--%>
-                        <%--style="margin-left: 1%; float: right; width: 6%; border-width: medium; margin-top: 0.5%">--%>
-                        <%--下一页--%>
-                        <%--</button>--%>
-                        <%--<button class="mybt"--%>
-                        <%--style="margin-left: 1%; float: right; width: 6%; border-width: medium; margin-top: 0.5%">--%>
-                        <%--上一页--%>
-                        <%--</button>--%>
-                        <%--</div>--%>
-                        <%--<table class="table-content">--%>
-                        <%--<tbody class="table-content-title">--%>
-                        <%--<tr>--%>
-                        <%--<td style="width: 10%">--%>
-                        <%--2017-07-17--%>
-                        <%--</td>--%>
-                        <%--<td style="width: 30%">--%>
-                        <%--</td>--%>
-                        <%--<td style="width: 20%">--%>
-                        <%--</td>--%>
-                        <%--<td style="width: 10%">--%>
-                        <%--</td>--%>
-                        <%--<td style="width: 10%">--%>
-                        <%--</td>--%>
-                        <%--<td style="width: 10%">--%>
-                        <%--</td>--%>
-                        <%--</tr>--%>
-                        <%--</tbody>--%>
-                        <%--<tbody class="table-content-body">--%>
-                        <%--<tr>--%>
-                        <%--<th style="width: 10%">--%>
-                        <%--11111--%>
-                        <%--</th>--%>
-                        <%--<th style="width: 30%">--%>
-                        <%--<div class="imageBox">--%>
-                        <%--<img src="../static/images/mainBG2.png" class="largeImage"/>--%>
-                        <%--</div>--%>
-                        <%--<a href="" class="nameP">asaasaasaasaasaasaasaasaasaasaasaasaasaasaasa</a>--%>
-                        <%--</th>--%>
-                        <%--<th style="width: 20%">--%>
-                        <%--<a href="">捐赠人</a>--%>
-                        <%--</th>--%>
-                        <%--<th style="width: 10%">--%>
-                        <%--¥188.00--%>
-                        <%--</th>--%>
-                        <%--<th style="width: 10%">--%>
-                        <%--待付款--%>
-                        <%--</th>--%>
-                        <%--<th style="width: 10%">--%>
-                        <%--<button class="mybt orderbt">取消订单</button>--%>
-                        <%--</th>--%>
-                        <%--</tr>--%>
-                        <%--</tbody>--%>
-                        <%--</table>--%>
+                    <iframe src="orderList.jsp?page=1&status=-2" style="width: 100%; height: 80%" class="orderFrame">
                     </iframe>
 
 
@@ -186,7 +115,8 @@
                     </table>
                     <div>
                         <p style="float: left; margin-top: 0.6%;">当前页: </p>
-                        <p style="margin-left: 10%; margin-top: 0.5%; float: left; position: absolute;" class="pageLabel"> 1 / 15</p>
+                        <p style="margin-left: 10%; margin-top: 0.5%; float: left; position: absolute;"
+                           class="pageLabel"> 1 / 15</p>
                         <button class="mybt"
                                 style="margin-left: 1%; float: right; width: 6%; border-width: medium; margin-top: 0.5%">
                             下一页
@@ -196,7 +126,7 @@
                             上一页
                         </button>
                     </div>
-                    <iframe src="orderList.jsp" style="width: 100%; height: 80%"></iframe>
+                    <iframe src="orderList.jsp?page=1&status=3" style="width: 100%; height: 80%"></iframe>
 
                 </div>
                 <div class="am-tab-panel" style="height: 65%">
@@ -226,7 +156,8 @@
                     </table>
                     <div id="briefPagePane3">
                         <p style="float: left; margin-top: 0.6%;">当前页: </p>
-                        <p style="margin-left: 10%; margin-top: 0.5%; float: left; position: absolute;" class="pageLabel"> 1 / 15</p>
+                        <p style="margin-left: 10%; margin-top: 0.5%; float: left; position: absolute;"
+                           class="pageLabel"> 1 / 15</p>
                         <button class="mybt"
                                 style="margin-left: 1%; float: right; width: 6%; border-width: medium; margin-top: 0.5%">
                             下一页
@@ -236,7 +167,7 @@
                             上一页
                         </button>
                     </div>
-                    <iframe src="orderList.jsp" style="width: 100%; height: 80%"></iframe>
+                    <iframe src="orderList.jsp?page=1&status=2" style="width: 100%; height: 80%"></iframe>
 
                 </div>
                 <div class="am-tab-panel" style="height: 65%">
@@ -266,7 +197,8 @@
                     </table>
                     <div>
                         <p style="float: left; margin-top: 0.6%;">当前页: </p>
-                        <p style="margin-left: 10%; margin-top: 0.5%; float: left; position: absolute;" class="pageLabel"> 1 / 15</p>
+                        <p style="margin-left: 10%; margin-top: 0.5%; float: left; position: absolute;"
+                           class="pageLabel"> 1 / 15</p>
                         <button class="mybt"
                                 style="margin-left: 1%; float: right; width: 6%; border-width: medium; margin-top: 0.5%">
                             下一页
@@ -276,13 +208,13 @@
                             上一页
                         </button>
                     </div>
-                    <iframe src="orderList.jsp" style="width: 100%; height: 80%"></iframe>
+                    <iframe src="orderList.jsp?page=1&status=1" style="width: 100%; height: 80%"></iframe>
 
                 </div>
             </div>
 
             <div style="text-align: center; width: 76%; position: absolute;">
-                <ul id="menu" style="left: 25%; margin-top: 1%">
+                <ul class="menu" style="left: 25%; margin-top: 1%" id="orderMenu">
                     <li><a href="#">Previous</a></li>
                     <li><a href="#">1</a></li>
                     <li><a href="#">2</a></li>
@@ -305,6 +237,22 @@
                 $('#unpaid').css({"color": "#87b4bf", "text-shadow": "-0.1vmax 0.1vmax 0 #315770"});
 
                 $(id).css({"color": "#DABD61", "text-shadow": "-0.1vmax 0.1vmax 0 #7A6420"});
+                initPageLabel(1, getMaxOrderPage());
+                if(id == '#all'){
+                    first();
+                }
+
+                if(id == '#unchecked'){
+                    first();
+                }
+
+                if(id == '#uncomformed'){
+                    first();
+                }
+
+                if(id == '#unpaid'){
+                    first();
+                }
             }
         </script>
     </div>
@@ -315,5 +263,9 @@
 </div>
 <script type="text/javascript" src="../static/js/amazeui.min.js" charset="utf-8"></script>
 <script type="text/javascript" src="../static/js/cookie.js" charset="utf-8"></script>
+<script type="text/javascript" src="../static/js/alert.js" charset="utf-8"></script>
+<script type="text/javascript" src="../static/js/util.js" charset="utf-8"></script>
+<script type="text/javascript" src="../static/js/menu.js" charset="utf-8"></script>
+<script type="text/javascript" src="../static/js/order.js" charset="utf-8"></script>
 </body>
 </html>
