@@ -104,8 +104,8 @@
         <%--</div>--%>
 
     </div>
-    <div style="text-align: center; padding-bottom: 3%">
-        <ul id="menu">
+    <div style="text-align: center;">
+        <ul class="menu" id="menu">
             <li><a href="#" onclick="previous()">Previous</a></li>
             <li><a href="#">1</a></li>
             <li><a href="#" onclick="next()">Next</a></li>

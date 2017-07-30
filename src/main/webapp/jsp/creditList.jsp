@@ -62,6 +62,7 @@
     <%--</tbody>--%>
 <%--</table>--%>
 <script type="text/javascript" src="../static/js/util.js" charset="utf-8"></script>
+<script type="text/javascript" src="../static/js/cookie.js" charset="utf-8"></script>
 <script type="text/javascript" src="../static/js/userInfo.js" charset="utf-8"></script>
 <script type="text/javascript" src="../static/js/creditInfo.js" charset="utf-8"></script>
 </body>
