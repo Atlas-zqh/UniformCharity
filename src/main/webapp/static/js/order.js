@@ -223,17 +223,48 @@ function addSingleOrder(date, orderID, picurl, clothesID, userID, price, status)
 
     var th5 = document.createElement("th");
     th5.style.width = "10%";
-    th5.appendChild(document.createTextNode(status));
     tr2.appendChild(th5);
 
     var th6 = document.createElement("th");
     th6.style.width = "10%";
     var button = document.createElement("button");
     button.className = "mybt orderbt";
-    button.appendChild(document.createTextNode("取消订单"));
+    status = parseInt(data.order.orderStatus);
+    if (status == -1) {
+        th5.appendChild(document.createTextNode("已撤销订单"));
+        button.appendChild(document.createTextNode("删除订单"));
+        button.onclick = processOrder("删除订单");
+    }
+    if (status == 1) {
+        th5.appendChild(document.createTextNode("待交易订单"));
+        button.appendChild(document.createTextNode("确认交易"));
+        button.onclick = processOrder("确认交易");
+    }
+    if (status == 2) {
+        th5.appendChild(document.createTextNode("待付款订单"));
+        button.appendChild(document.createTextNode("立即付款"));
+        button.onclick = processOrder("立即付款");
+    }
+    if (status == 3) {
+        th5.appendChild(document.createTextNode("已完成订单"));
+        button.appendChild(document.createTextNode("删除订单"));
+        button.onclick = processOrder("删除订单");
+    }
     th6.appendChild(button);
     tr2.appendChild(th6);
+}
 
+function processOrder(type) {
+    //todo 订单操作
+    if (type == "删除订单") {
+
+    }
+    if (type == "确认交易") {
+
+    }
+    if (type == "立即付款") {
+
+    }
 }
 
 function initPageLabel(current, max) {

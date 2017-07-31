@@ -22,7 +22,7 @@
             checkCookie();
             var orderID = getArgsFromHref(window.location.href, "orderID");
             $('#orderID').html(orderID);
-
+            findOrderByID(orderID);
 
         });
     </script>
@@ -30,8 +30,8 @@
 <body>
 <div id="orderArea">
     <div id="mainPart">
-        <h1 style="float: left">确认订单</h1>
-        <img src="../static/images/procedure1.png" style="width: 25%; float: right; margin-right: 5%; margin-top: 2%">
+        <h1 style="float: left">订单详情</h1>
+        <img src="../static/images/procedure1.png" style="width: 35%; float: right; margin-right: 5%; margin-top: 2%" id="image">
         <input type="hidden" id="clothesID">
         <div id="orderTable">
             <table class="table-head orderTable">
@@ -130,6 +130,9 @@
                 onclick="processOrder()"
                 id="doButton">立即付款
         </button>
+
+        <button class="mybt" style="position:absolute; left: 73%; top: 90%; font-size: 1.5vmax; display: none;" id="cancelButton" onclick="cancelOrder()">取消订单</button>
+
     </div>
 </div>
 <div class="foot">

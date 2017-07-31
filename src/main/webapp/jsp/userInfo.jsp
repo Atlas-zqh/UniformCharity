@@ -73,7 +73,9 @@
     </div>
 </div>
 <%--<div id="pageBackground"></div>--%>
-<div id="userPage">
+<%--style="background-color: white; background-image: url('../static/images/background.png'); background-size: auto"--%>
+
+<div id="userPage" >
     <div id="infoBlock" class="briefInfoBlock" style="top: 3%;">
         <p class="titleP">个 人 信 息</p>
         <button class="iconButton"

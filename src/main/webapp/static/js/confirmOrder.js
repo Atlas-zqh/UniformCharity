@@ -86,22 +86,27 @@ function findOrderByID(id) {
         success: function (data) {
             if (data.result == "success") {
                 $('#data').html(data.order.startTime);
-                var status = data.order.orderStatus;
+                var status = parseInt(data.order.orderStatus);
                 if (status == -1) {
                     $('#status').html("已撤销订单");
                     $('#doButton').val("删除订单");
+                    $('#image').css("display", "none");
                 }
                 if (status == 1) {
                     $('#status').html("待交易订单");
                     $('#doButton').val("确认交易");
+                    $('#image').attr("src", "../static/images/procedure3.png");
                 }
                 if (status == 2) {
                     $('#status').html("待付款订单");
                     $('#doButton').val("立即付款");
+                    $('#cancelButton').css("display", "inline-block");
+                    $('#image').attr("src", "../static/images/procedure2.png");
                 }
                 if (status == 3) {
                     $('#status').html("已完成订单");
                     $('#doButton').val("删除订单");
+                    $('#image').attr("src", "../static/images/procedure4.png");
                 }
                 $('#pic').attr("src", data.pic);
                 $('#title').html(data.clothes.school + data.clothes.clothesType);
@@ -127,6 +132,7 @@ function findOrderByID(id) {
 
 function processOrder() {
     var buttonType = $('#doButton').val();
+    //todo 订单操作
     if (buttonType == "删除订单") {
 
     }
@@ -136,4 +142,9 @@ function processOrder() {
     if (buttonType == "立即付款") {
 
     }
+}
+
+function cancelOrder() {
+    var orderID = $('#orderID').val();
+    //todo 取消订单
 }
