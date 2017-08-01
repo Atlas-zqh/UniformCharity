@@ -38,6 +38,9 @@
         <div class="bt"><a href="../jsp/userInfo.jsp">我<br>的<br>主<br>页</a></div>
         <div class="navLabel"><p><br>—<br></p></div>
         <div class="bt"><a href="../jsp/order.jsp">我<br>的<br>交<br>易</a></div>
+        <div class="navLabel"><p><br>—<br></p></div>
+        <div class="bt"><a href="../jsp/forum.jsp">讨<br>论<br>区</a></div>
+
     </div>
     <div class="rightNavBar" align="left" id="afterLogInRight" style="display: none">
         <img id="iconImage" src="">
