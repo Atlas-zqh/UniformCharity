@@ -53,7 +53,7 @@ public class ClothesServiceImpl implements ClothesService {
      */
     @Override
     public Clothes findClothesByClothesID(String clothesID) {
-        return null;
+        return clothesMapper.findOneByID(clothesID);
     }
 
     /**
