@@ -47,7 +47,8 @@
         <br>
         <p id="userName" class="navP"></p>
         <div class="navLabel"><p>—<br></p></div>
-        <button id="quitButton" class="navBut" onclick="quitLog()">退<br>出<br>登<br>陆</button>
+        <div class="bt"><a href="#" onclick="quitLog()">退<br>出<br>登<br>陆</a></div>
+
     </div>
     <div class="leftNavBar" align="left" id="preLogInLeft" style="display: inline-block">
         <div class="bt" id="loginButton"><a href="#toLoginPanel" onclick="showLoginPanel()">登<br>录</a></div>

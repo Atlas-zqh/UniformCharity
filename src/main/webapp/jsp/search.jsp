@@ -118,8 +118,6 @@
     </div>
 </div>
 
-</div>
-
 <script type="text/javascript" src="../static/js/jquery.min.js" charset="utf-8"></script>
 <script type="text/javascript" src="../static/js/cookie.js" charset="utf-8"></script>
 <script type="text/javascript" src="../static/js/alert.js" charset="utf-8"></script>
