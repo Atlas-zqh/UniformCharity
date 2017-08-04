@@ -75,7 +75,7 @@ html {
     font-size: 2vmax;
     font-weight: lighter;
     padding: 0.2vmax;
-    color: #142535;
+    color: #2a4c70;
     cursor: pointer;
     width: 100%;
     display: block;
@@ -115,9 +115,43 @@ html {
     border-right: none;
     border-left: none;
     display: block;
-    width: 120%;
-    margin-left: -10%;
+    width: 100%;
+    /* margin-left: -10%; */
+    /* padding: 2%; */
     /*background-color: #c2cfdc;*/
+}
+
+#forumArea #forumPart .postArea .postTitle {
+    /*margin-left: 5%;*/
+    margin-top: 1%;
+    display: block;
+    width: 70%;
+    height: 2.2vmax;
+    font-size: 1.5vmax;
+    letter-spacing: 0.2vmax;
+    color: grey;
+}
+
+#forumArea #forumPart .postArea .postTitle:focus {
+    outline: none;
+    border: thin solid #f5d76b;
+}
+
+#forumArea #forumPart .postArea .postContent {
+    /*margin-left: 5%;*/
+    margin-top: 1%;
+    display: block;
+    width: 70%;
+    height: 20vmax;
+    font-size: 1.5vmax;
+    letter-spacing: 0.2vmax;
+    border: thin solid lightgrey;
+    color: grey;
+}
+
+#forumArea #forumPart .postArea .postContent:focus {
+    outline: none;
+    border: thin solid #f5d76b;
 }
 
 /*#b4d2dd*/

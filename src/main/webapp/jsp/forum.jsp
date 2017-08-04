@@ -37,7 +37,7 @@
             <div class="am-tabs-bd">
                 <div class="am-tab-panel am-active" style="height: 65%">
                     <div class="boardIntroduction">
-                        <h4 style="padding: 8%; text-align: center;">板块介绍</h4>
+                        <h4 style="padding: 10%; text-align: center;">板块介绍</h4>
                     </div>
 
                     <div class="notesArea">
@@ -67,6 +67,16 @@
                         </ul>
                     </div>
                     <div class="postArea">
+                        <div style="display: block">
+                            <h4 style="margin-left: 13%; float: left;">标题</h4>
+                            <input type="text" class="postTitle">
+                        </div>
+                        <div style="display: block">
+                            <h4 style="margin-left: -3.5%; float: left;">正文</h4>
+                            <textarea class="postContent"></textarea>
+                        </div>
+
+
 
                     </div>
 
@@ -78,7 +88,7 @@
 
         </div>
     </div>
-    <div class="foot" style="height: 2.8%;bottom: -2.8%; position: absolute; width: 100%;">
+    <div class="foot" style="height: 2%;bottom: -2%; position: absolute; width: 100%;">
         <p class="navLabel" align="center" style="position: absolute; text-align: center">与子同袍项目组 copyright@2017</p>
         <%--<p style="position:absolute; display: inline-block; z-index: 2; color: grey; margin-top: 0%; text-align: center; line-height: 100%; width: 100%; font-size: 90%;">与子同袍项目组 copyright@2017</p>--%>
     </div>
