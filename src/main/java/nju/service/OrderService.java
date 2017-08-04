@@ -18,14 +18,15 @@ public interface OrderService {
      *
      * @param order 订单
      */
-    void updateOrder(Order order);
+    void updateOrder(Order order, double price);
 
     /**
      * 结束订单
      *
      * @param order
+     * @param credit 要给买方增加的积分
      */
-    void finishOrder(Order order);
+    void finishOrder(Order order, double credit);
 
     /**
      * 根据买方ID查找订单

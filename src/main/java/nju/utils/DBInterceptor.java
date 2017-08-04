@@ -89,6 +89,9 @@ public class DBInterceptor implements Interceptor {
                 } else if (val instanceof CreditRecord) {
                     CreditRecord creditRecord = (CreditRecord) val;
                     ((CreditRecord) val).setUserid(EncryptionUtil.decrypt(key, creditRecord.getUserid()));
+                } else if (val instanceof FinancialRecord) {
+                    FinancialRecord financialRecord = (FinancialRecord) val;
+                    financialRecord.setUser_id(EncryptionUtil.decrypt(key, financialRecord.getUser_id()));
                 }
 
             }

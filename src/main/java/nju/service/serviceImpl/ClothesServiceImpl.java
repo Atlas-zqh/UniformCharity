@@ -3,10 +3,16 @@ package nju.service.serviceImpl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import nju.domain.Clothes;
+import nju.domain.CreditRecord;
+import nju.domain.User;
 import nju.mapper.ClothesMapper;
+import nju.mapper.CreditRecordMapper;
+import nju.mapper.TypeMapper;
+import nju.mapper.UserMapper;
 import nju.service.ClothesService;
 import nju.utils.ClothesAttributes;
 import nju.utils.ClothesQueryHelper;
+import nju.utils.EncryptionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +27,12 @@ import java.util.Map;
 public class ClothesServiceImpl implements ClothesService {
     @Autowired
     private ClothesMapper clothesMapper;
+    @Autowired
+    private UserMapper userMapper;
+    @Autowired
+    private CreditRecordMapper creditRecordMapper;
+    @Autowired
+    private TypeMapper typeMapper;
 
     /**
      * 新增衣物
@@ -32,6 +44,9 @@ public class ClothesServiceImpl implements ClothesService {
         String auto_id = clothes.getSchoolName().hashCode() + "" + System.currentTimeMillis() + "";
         clothes.setClothesID(auto_id);
         clothesMapper.add(clothes);
+        // 增加公益记录
+        double price = typeMapper.findType(clothes.getSchoolName(), clothes.getClothesType()).getClothesPrice();
+        addCreditRecord(clothes.getDonorID(), CreditRecord.DONATE_CLOTHES, auto_id, price);
         return auto_id;
     }
 
@@ -141,5 +156,28 @@ public class ClothesServiceImpl implements ClothesService {
         } catch (Exception e) {
             return false;
         }
+    }
+
+
+    /**
+     * 增加信用记录
+     * 完成订单 和 捐赠衣物 的同时会创建公益记录，不需要调这个方法
+     *
+     * @param userID
+     * @param recordtype 记录类型 CreditRecord.____
+     * @param clothesID
+     * @param variance   变化值
+     */
+    @SuppressWarnings("Duplicates")
+    private void addCreditRecord(String userID, Integer recordtype, String clothesID, Double variance) {
+        User user = userMapper.findOneByID(EncryptionUtil.encrypt("20170522", userID));
+        Double credit = user.getCredits();
+        credit += variance;
+        user.setCredits(credit);
+        userMapper.update(user);
+
+//        String createTime = System.currentTimeMillis() + "";
+        CreditRecord record = new CreditRecord(EncryptionUtil.encrypt("20170522", userID), recordtype, clothesID, variance, credit, System.currentTimeMillis());
+        creditRecordMapper.addRecord(record);
     }
 }

@@ -5,12 +5,10 @@ import com.github.pagehelper.PageInfo;
 import nju.domain.CreditRecord;
 import nju.domain.User;
 import nju.service.UserService;
-import org.apache.commons.collections.map.HashedMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import sun.misc.BASE64Decoder;
 
@@ -294,7 +292,7 @@ public class UserController {
         Map<String, Object> map = new HashMap<>();
         int page = Integer.parseInt(request.getParameter("page"));
         String userID = request.getParameter("userID");
-        PageInfo<CreditRecord> creditRecordPageInfo = userService.findRecordByUserID(userID, page, 5);
+        PageInfo<CreditRecord> creditRecordPageInfo = userService.findCreditRecordByUserID(userID, page, 5);
         List<CreditRecord> creditRecords = creditRecordPageInfo.getList();
         long maxSize = creditRecordPageInfo.getTotal();
         System.out.println(creditRecordPageInfo.getPages());

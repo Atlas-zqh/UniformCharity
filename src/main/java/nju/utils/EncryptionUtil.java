@@ -4,7 +4,6 @@ import javax.crypto.Cipher;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESKeySpec;
 import javax.crypto.spec.IvParameterSpec;
-import java.security.InvalidAlgorithmParameterException;
 import java.security.Key;
 import java.security.spec.AlgorithmParameterSpec;
 

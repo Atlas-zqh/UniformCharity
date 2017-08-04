@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace指定我们的到具体的bean -->
+<mapper namespace="nju.mapper.FinancialRecordMapper">
+    <insert id="addRecord" parameterType="FinancialRecord">
+        INSERT INTO financial_record
+        (recordtype, amount, createTime, user_id)
+        VALUES
+        (#{recordtype}, #{amount}, #{createTime}, #{user_id})
+    </insert>
+
+    <select id="findRecordByUserID" parameterType="String" resultType="FinancialRecord">
+        SELECT * FROM financial_record
+        WHERE user_id=#{user_id}
+        ORDER BY createTime DESC
+    </select>
+</mapper>

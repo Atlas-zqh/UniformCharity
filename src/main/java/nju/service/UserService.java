@@ -2,6 +2,7 @@ package nju.service;
 
 import com.github.pagehelper.PageInfo;
 import nju.domain.CreditRecord;
+import nju.domain.FinancialRecord;
 import nju.domain.User;
 
 import java.io.Serializable;
@@ -54,21 +55,12 @@ public interface UserService {
     List<User> findAllUsers() throws Exception;
 
     /**
-     * 增加信用记录
-     * 完成订单 和 捐赠衣物 的同时会创建公益记录，不需要调这个方法
-     *
-     * @param userID
-     * @param recordtype 记录类型
-     * @param clothesID
-     * @param variance   变化值
-     */
-    void addCreditRecord(String userID, Integer recordtype, String clothesID, Double variance);
-
-    /**
      * 根据用户ID搜索信用记录（返回的信用记录按时间倒序排列）
      *
      * @param userID
      * @return
      */
-    PageInfo<CreditRecord> findRecordByUserID(String userID, int pageNo, int pageSize);
+    PageInfo<CreditRecord> findCreditRecordByUserID(String userID, int pageNo, int pageSize);
+
+    PageInfo<FinancialRecord> findFinancialRecordByUserID(String user_id, int pageNo, int pageSize);
 }

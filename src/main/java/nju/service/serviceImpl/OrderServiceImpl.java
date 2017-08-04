@@ -2,9 +2,16 @@ package nju.service.serviceImpl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import nju.domain.CreditRecord;
+import nju.domain.FinancialRecord;
 import nju.domain.Order;
+import nju.domain.User;
+import nju.mapper.CreditRecordMapper;
+import nju.mapper.FinancialRecordMapper;
 import nju.mapper.OrderMapper;
+import nju.mapper.UserMapper;
 import nju.service.OrderService;
+import nju.utils.EncryptionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +23,12 @@ import java.util.List;
 public class OrderServiceImpl implements OrderService {
     @Autowired
     private OrderMapper orderMapper;
+    @Autowired
+    private UserMapper userMapper;
+    @Autowired
+    private CreditRecordMapper creditRecordMapper;
+    @Autowired
+    private FinancialRecordMapper financialRecordMapper;
 
     /**
      * 创建订单(自动生成订单号和订单开始时间)
@@ -40,7 +53,11 @@ public class OrderServiceImpl implements OrderService {
      * @param order 订单
      */
     @Override
-    public void updateOrder(Order order) {
+    public void updateOrder(Order order, double price) {
+        // 撤销或删除订单
+        if (order.getOrderStatus() == Order.Invalid) {
+            addCreditRecord(order.getBuyerID(), CreditRecord.REVOKE_CANCEL_ORDER, order.getClothesID(), 0.0 - price);
+        }
         orderMapper.updateOrder(order);
     }
 
@@ -48,10 +65,23 @@ public class OrderServiceImpl implements OrderService {
      * 结束订单
      *
      * @param order
+     * @param credit 要给买方增加的积分
      */
     @Override
-    public void finishOrder(Order order) {
-        // TODO 结束订单时给谁增加公益积分？
+    public void finishOrder(Order order, double credit) {
+        /**
+         * 增加公益记录
+         */
+        addCreditRecord(order.getBuyerID(), CreditRecord.BUY_CLOTHES, order.getClothesID(), credit);
+        /**
+         * 增加资金记录
+         */
+        addFinancialRecord(order.getBuyerID(), order.getDonorID(), credit);
+        /**
+         * 更新订单状态
+         */
+        order.setOrderStatus(Order.Confirmed_Paied);
+        orderMapper.updateOrder(order);
     }
 
     /**
@@ -153,4 +183,48 @@ public class OrderServiceImpl implements OrderService {
         PageInfo<Order> pageInfo = new PageInfo<>(orders);
         return pageInfo;
     }
+
+    /**
+     * 增加信用记录(同时更新用户信用）
+     * 完成订单 和 捐赠衣物 的同时会创建公益记录，不需要调这个方法
+     *
+     * @param userID
+     * @param recordtype 记录类型 CreditRecord.____
+     * @param clothesID
+     * @param variance   变化值
+     */
+    @SuppressWarnings("Duplicates")
+    public void addCreditRecord(String userID, Integer recordtype, String clothesID, Double variance) {
+        User user = userMapper.findOneByID(EncryptionUtil.encrypt("20170522", userID));
+        Double credit = user.getCredits();
+        credit += variance;
+        user.setCredits(credit);
+        userMapper.update(user);
+
+//        String createTime = System.currentTimeMillis() + "";
+        CreditRecord record = new CreditRecord(EncryptionUtil.encrypt("20170522", userID), recordtype, clothesID, variance, credit, System.currentTimeMillis());
+        creditRecordMapper.addRecord(record);
+    }
+
+    /**
+     * 增加资金记录
+     *
+     * @param buyerID
+     * @param donorID
+     * @param amount
+     */
+    private void addFinancialRecord(String buyerID, String donorID, double amount) {
+        long createTime = System.currentTimeMillis();
+
+        String bid = EncryptionUtil.encrypt("20170522", buyerID);
+        String did = EncryptionUtil.decrypt("20170522", donorID);
+
+        FinancialRecord buyerR = new FinancialRecord(bid, FinancialRecord.OUT, amount, createTime);
+        FinancialRecord donorR = new FinancialRecord(did, FinancialRecord.IN, amount, createTime);
+
+        financialRecordMapper.addRecord(buyerR);
+        financialRecordMapper.addRecord(donorR);
+    }
+
+
 }

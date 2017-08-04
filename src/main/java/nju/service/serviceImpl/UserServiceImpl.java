@@ -3,12 +3,14 @@ package nju.service.serviceImpl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import nju.domain.CreditRecord;
+import nju.domain.FinancialRecord;
 import nju.domain.User;
 import nju.exception.InvalidInfoException;
 import nju.exception.OtherException;
 import nju.exception.UserExistedException;
 import nju.exception.UserNotExistException;
 import nju.mapper.CreditRecordMapper;
+import nju.mapper.FinancialRecordMapper;
 import nju.mapper.UserMapper;
 import nju.service.UserService;
 import nju.utils.EncryptionUtil;
@@ -31,6 +33,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private CreditRecordMapper creditRecordMapper;
+
+    @Autowired
+    private FinancialRecordMapper financialRecordMapper;
 
     /**
      * 新增用户
@@ -127,39 +132,31 @@ public class UserServiceImpl implements UserService {
     }
 
     /**
-     * 增加信用记录
-     * 完成订单 和 捐赠衣物 的同时会创建公益记录，不需要调这个方法
-     *
-     * @param userID
-     * @param recordtype 记录类型 CreditRecord.____
-     * @param clothesID
-     * @param variance   变化值
-     */
-    @Override
-    public void addCreditRecord(String userID, Integer recordtype, String clothesID, Double variance) {
-        User user = userMapper.findOneByID(EncryptionUtil.encrypt("20170522", userID));
-        Double credit = user.getCredits();
-        credit += variance;
-        user.setCredits(credit);
-        userMapper.update(user);
-
-//        String createTime = System.currentTimeMillis() + "";
-        CreditRecord record = new CreditRecord(EncryptionUtil.encrypt("20170522", userID), recordtype, clothesID, variance, credit, System.currentTimeMillis());
-        creditRecordMapper.addRecord(record);
-    }
-
-    /**
      * 根据用户ID搜索信用记录（返回的信用记录按时间倒序排列）
      *
      * @param userID
      * @return
      */
     @Override
-    public PageInfo<CreditRecord> findRecordByUserID(String userID, int pageNo, int pageSize) {
+    public PageInfo<CreditRecord> findCreditRecordByUserID(String userID, int pageNo, int pageSize) {
         PageHelper.startPage(pageNo, pageSize);
         String id = EncryptionUtil.encrypt("20170522", userID);
         List<CreditRecord> creditRecords = creditRecordMapper.findRecordByUserID(id);
         creditRecords.sort((CreditRecord l1, CreditRecord l2) -> l2.getCreateTime().compareTo(l1.getCreateTime()));
         return new PageInfo<>(creditRecords);
+    }
+
+    /**
+     * 根据用户ID搜索资金记录（返回的信用记录按时间倒序排列）
+     *
+     * @param user_id
+     * @return
+     */
+    @Override
+    public PageInfo<FinancialRecord> findFinancialRecordByUserID(String user_id, int pageNo, int pageSize) {
+        PageHelper.startPage(pageNo, pageSize);
+        String id = EncryptionUtil.encrypt("20170522", user_id);
+        List<FinancialRecord> financialRecords = financialRecordMapper.findRecordByUserID(id);
+        return new PageInfo<>(financialRecords);
     }
 }
