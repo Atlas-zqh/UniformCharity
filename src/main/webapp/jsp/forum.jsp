@@ -44,14 +44,137 @@
                         <div class="singleNote">
                             <a href="" class="titleP" target="_blank">ABCDEFGHIGKLMNOPQ</a>
                             <a href="" class="userP" target="_blank">ABCDEFG</a>
+                            <p class="timeP">2017-07-18 12:12:12</p>
+                            <img  src="../static/images/browse.png" class="browseIcon">
+                            <p class="browseP">123</p>
+                            <img  src="../static/images/comments.png" class="commentIcon">
+                            <p class="commentP">12</p>
                         </div>
                         <div class="singleNote">
                             <a href="" class="titleP" target="_blank">ABCDEFGHIGKLMNOPQRSTUVWXYZABCDEFG</a>
                             <a href="" class="userP" target="_blank">HIJKLMN</a>
+                            <p class="timeP">2017-07-18 12:12:12</p>
+                            <img  src="../static/images/browse.png" class="browseIcon">
+                            <p class="browseP">123</p>
+                            <img  src="../static/images/comments.png" class="commentIcon">
+                            <p class="commentP">12</p>
                         </div>
                         <div class="singleNote">
                             <a href="" class="titleP" target="_blank">ABCDEFGHIGKLMNOPQRSTUVWXYZABCDEFGHIGKLMNOPQRSTUVWXYZABCDEFGHIGKLMNOPQRSTUVWXYZ</a>
                             <a href="" class="userP" target="_blank">OPQRST</a>
+                            <p class="timeP">2017-07-18 12:12:12</p>
+                            <img  src="../static/images/browse.png" class="browseIcon">
+                            <p class="browseP">123</p>
+                            <img  src="../static/images/comments.png" class="commentIcon">
+                            <p class="commentP">12</p>
+                        </div>
+                        <div class="singleNote">
+                            <a href="" class="titleP" target="_blank">ABCDEFGHIGKLMNOPQ</a>
+                            <a href="" class="userP" target="_blank">ABCDEFG</a>
+                            <p class="timeP">2017-07-18 12:12:12</p>
+                            <img  src="../static/images/browse.png" class="browseIcon">
+                            <p class="browseP">123</p>
+                            <img  src="../static/images/comments.png" class="commentIcon">
+                            <p class="commentP">12</p>
+                        </div>
+                        <div class="singleNote">
+                            <a href="" class="titleP" target="_blank">ABCDEFGHIGKLMNOPQRSTUVWXYZABCDEFG</a>
+                            <a href="" class="userP" target="_blank">HIJKLMN</a>
+                            <p class="timeP">2017-07-18 12:12:12</p>
+                            <img  src="../static/images/browse.png" class="browseIcon">
+                            <p class="browseP">123</p>
+                            <img  src="../static/images/comments.png" class="commentIcon">
+                            <p class="commentP">12</p>
+                        </div>
+                        <div class="singleNote">
+                            <a href="" class="titleP" target="_blank">ABCDEFGHIGKLMNOPQRSTUVWXYZABCDEFGHIGKLMNOPQRSTUVWXYZABCDEFGHIGKLMNOPQRSTUVWXYZ</a>
+                            <a href="" class="userP" target="_blank">OPQRST</a>
+                            <p class="timeP">2017-07-18 12:12:12</p>
+                            <img  src="../static/images/browse.png" class="browseIcon">
+                            <p class="browseP">123</p>
+                            <img  src="../static/images/comments.png" class="commentIcon">
+                            <p class="commentP">12</p>
+                        </div>
+                        <div class="singleNote">
+                            <a href="" class="titleP" target="_blank">ABCDEFGHIGKLMNOPQ</a>
+                            <a href="" class="userP" target="_blank">ABCDEFG</a>
+                            <p class="timeP">2017-07-18 12:12:12</p>
+                            <img  src="../static/images/browse.png" class="browseIcon">
+                            <p class="browseP">123</p>
+                            <img  src="../static/images/comments.png" class="commentIcon">
+                            <p class="commentP">12</p>
+                        </div>
+                        <div class="singleNote">
+                            <a href="" class="titleP" target="_blank">ABCDEFGHIGKLMNOPQRSTUVWXYZABCDEFG</a>
+                            <a href="" class="userP" target="_blank">HIJKLMN</a>
+                            <p class="timeP">2017-07-18 12:12:12</p>
+                            <img  src="../static/images/browse.png" class="browseIcon">
+                            <p class="browseP">123</p>
+                            <img  src="../static/images/comments.png" class="commentIcon">
+                            <p class="commentP">12</p>
+                        </div>
+                        <div class="singleNote">
+                            <a href="" class="titleP" target="_blank">ABCDEFGHIGKLMNOPQRSTUVWXYZABCDEFGHIGKLMNOPQRSTUVWXYZABCDEFGHIGKLMNOPQRSTUVWXYZ</a>
+                            <a href="" class="userP" target="_blank">OPQRST</a>
+                            <p class="timeP">2017-07-18 12:12:12</p>
+                            <img  src="../static/images/browse.png" class="browseIcon">
+                            <p class="browseP">123</p>
+                            <img  src="../static/images/comments.png" class="commentIcon">
+                            <p class="commentP">12</p>
+                        </div>
+                        <div class="singleNote">
+                            <a href="" class="titleP" target="_blank">ABCDEFGHIGKLMNOPQ</a>
+                            <a href="" class="userP" target="_blank">ABCDEFG</a>
+                            <p class="timeP">2017-07-18 12:12:12</p>
+                            <img  src="../static/images/browse.png" class="browseIcon">
+                            <p class="browseP">123</p>
+                            <img  src="../static/images/comments.png" class="commentIcon">
+                            <p class="commentP">12</p>
+                        </div>
+                        <div class="singleNote">
+                            <a href="" class="titleP" target="_blank">ABCDEFGHIGKLMNOPQRSTUVWXYZABCDEFG</a>
+                            <a href="" class="userP" target="_blank">HIJKLMN</a>
+                            <p class="timeP">2017-07-18 12:12:12</p>
+                            <img  src="../static/images/browse.png" class="browseIcon">
+                            <p class="browseP">123</p>
+                            <img  src="../static/images/comments.png" class="commentIcon">
+                            <p class="commentP">12</p>
+                        </div>
+                        <div class="singleNote">
+                            <a href="" class="titleP" target="_blank">ABCDEFGHIGKLMNOPQRSTUVWXYZABCDEFGHIGKLMNOPQRSTUVWXYZABCDEFGHIGKLMNOPQRSTUVWXYZ</a>
+                            <a href="" class="userP" target="_blank">OPQRST</a>
+                            <p class="timeP">2017-07-18 12:12:12</p>
+                            <img  src="../static/images/browse.png" class="browseIcon">
+                            <p class="browseP">123</p>
+                            <img  src="../static/images/comments.png" class="commentIcon">
+                            <p class="commentP">12</p>
+                        </div>
+                        <div class="singleNote">
+                            <a href="" class="titleP" target="_blank">ABCDEFGHIGKLMNOPQ</a>
+                            <a href="" class="userP" target="_blank">ABCDEFG</a>
+                            <p class="timeP">2017-07-18 12:12:12</p>
+                            <img  src="../static/images/browse.png" class="browseIcon">
+                            <p class="browseP">123</p>
+                            <img  src="../static/images/comments.png" class="commentIcon">
+                            <p class="commentP">12</p>
+                        </div>
+                        <div class="singleNote">
+                            <a href="" class="titleP" target="_blank">ABCDEFGHIGKLMNOPQRSTUVWXYZABCDEFG</a>
+                            <a href="" class="userP" target="_blank">HIJKLMN</a>
+                            <p class="timeP">2017-07-18 12:12:12</p>
+                            <img  src="../static/images/browse.png" class="browseIcon">
+                            <p class="browseP">123</p>
+                            <img  src="../static/images/comments.png" class="commentIcon">
+                            <p class="commentP">12</p>
+                        </div>
+                        <div class="singleNote">
+                            <a href="" class="titleP" target="_blank">ABCDEFGHIGKLMNOPQRSTUVWXYZABCDEFGHIGKLMNOPQRSTUVWXYZABCDEFGHIGKLMNOPQRSTUVWXYZ</a>
+                            <a href="" class="userP" target="_blank">OPQRST</a>
+                            <p class="timeP">2017-07-18 12:12:12</p>
+                            <img  src="../static/images/browse.png" class="browseIcon">
+                            <p class="browseP">123</p>
+                            <img  src="../static/images/comments.png" class="commentIcon">
+                            <p class="commentP">12</p>
                         </div>
                     </div>
                     <div style="text-align: center; width: 100%;">
@@ -67,15 +190,15 @@
                         </ul>
                     </div>
                     <div class="postArea">
-                        <div style="display: block">
+                        <div style="display: inline">
                             <h4 style="margin-left: 13%; float: left;">标题</h4>
                             <input type="text" class="postTitle">
                         </div>
-                        <div style="display: block">
-                            <h4 style="margin-left: -3.5%; float: left;">正文</h4>
+                        <div style="display: inline">
+                            <h4 style="margin-left: -4%; float: left;">正文</h4>
                             <textarea class="postContent"></textarea>
                         </div>
-
+                        <button class="mybt" style="margin-left: 79%; margin-top: 1%; font-size: 1vmax; width: 8%; border-width: medium;">发表帖子</button>
 
 
                     </div>
@@ -88,7 +211,7 @@
 
         </div>
     </div>
-    <div class="foot" style="height: 2%;bottom: -2%; position: absolute; width: 100%;">
+    <div class="foot" style="bottom: 0%; position: absolute; width: 100%;">
         <p class="navLabel" align="center" style="position: absolute; text-align: center">与子同袍项目组 copyright@2017</p>
         <%--<p style="position:absolute; display: inline-block; z-index: 2; color: grey; margin-top: 0%; text-align: center; line-height: 100%; width: 100%; font-size: 90%;">与子同袍项目组 copyright@2017</p>--%>
     </div>

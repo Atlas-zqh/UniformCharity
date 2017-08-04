@@ -100,13 +100,74 @@ html {
     display: block;
     letter-spacing: 0.2vmax;
     width: 20%;
-
+    float: left;
+    white-space: nowrap;
 }
 
 #forumArea #forumPart .notesArea .singleNote .userP:hover {
     color: #DABD61;
     text-decoration: underline;
     cursor: pointer;
+}
+
+#forumArea #forumPart .notesArea .singleNote .timeP {
+    font-size: 1vmax;
+    font-weight: lighter;
+    padding: 0.2vmax;
+    color: grey;
+    display: block;
+    letter-spacing: 0.1vmax;
+    width: 20%;
+    margin: 0;
+    padding: 0;
+    margin-top: 0.3%;
+    margin-left: 60%;
+    white-space: nowrap;
+    padding-bottom: 1%;
+}
+
+#forumArea #forumPart .notesArea .singleNote .browseIcon {
+    width: 2%;
+    margin-top: -3%;
+    margin-left: 82%;
+}
+
+#forumArea #forumPart .notesArea .singleNote .commentIcon {
+    width: 2%;
+    margin-top: -3%;
+    margin-left: 92%;
+}
+
+#forumArea #forumPart .notesArea .singleNote .browseP {
+    font-size: 1vmax;
+    font-weight: lighter;
+    padding: 0.2vmax;
+    color: grey;
+    display: block;
+    letter-spacing: 0.1vmax;
+    width: 20%;
+    margin: 0;
+    padding: 0;
+    margin-top: -3%;
+    margin-left: 85%;
+    white-space: nowrap;
+    padding-bottom: 1%;
+}
+
+#forumArea #forumPart .notesArea .singleNote .commentP {
+    font-size: 1vmax;
+    font-weight: lighter;
+    padding: 0.2vmax;
+    color: grey;
+    display: block;
+    letter-spacing: 0.1vmax;
+    width: 20%;
+    margin: 0;
+    padding: 0;
+    margin-top: -3%;
+    margin-left: 95%;
+    white-space: nowrap;
+    padding-bottom: 1%;
 }
 
 #forumArea #forumPart .postArea {
@@ -116,6 +177,7 @@ html {
     border-left: none;
     display: block;
     width: 100%;
+    padding-bottom: 1%;
     /* margin-left: -10%; */
     /* padding: 2%; */
     /*background-color: #c2cfdc;*/
