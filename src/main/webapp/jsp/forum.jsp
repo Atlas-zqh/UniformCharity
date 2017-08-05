@@ -42,7 +42,7 @@
 
                     <div class="notesArea">
                         <div class="singleNote">
-                            <a href="" class="titleP" target="_blank">ABCDEFGHIGKLMNOPQ</a>
+                            <a href="../jsp/noteDetails.jsp" class="titleP" target="_blank">ABCDEFGHIGKLMNOPQ</a>
                             <a href="" class="userP" target="_blank">ABCDEFG</a>
                             <p class="timeP">2017-07-18 12:12:12</p>
                             <img  src="../static/images/browse.png" class="browseIcon">
@@ -178,7 +178,7 @@
                         </div>
                     </div>
                     <div style="text-align: center; width: 100%;">
-                        <ul class="menu" style="left: 25%; margin-top: 1%" id="orderMenu">
+                        <ul class="menu" style="left: 25%; margin-top: 1%" id="notesMenu">
                             <li><a href="#">Previous</a></li>
                             <li><a href="#">1</a></li>
                             <li><a href="#">2</a></li>
@@ -191,14 +191,14 @@
                     </div>
                     <div class="postArea">
                         <div style="display: inline">
-                            <h4 style="margin-left: 13%; float: left;">标题</h4>
+                            <h4 style="margin-left: 13%; position: absolute;">标题</h4>
                             <input type="text" class="postTitle">
                         </div>
                         <div style="display: inline">
-                            <h4 style="margin-left: -4%; float: left;">正文</h4>
+                            <h4 style="margin-left: 13%; position: absolute; margin-top:5%;">正文</h4>
                             <textarea class="postContent"></textarea>
                         </div>
-                        <button class="mybt" style="margin-left: 79%; margin-top: 1%; font-size: 1vmax; width: 8%; border-width: medium;">发表帖子</button>
+                        <button class="mybt" style="position: absolute; margin-left: 77%; margin-top: 31%; font-size: 1vmax; width: 8%; border-width: medium; white-space: nowrap; overflow: visible">发表帖子</button>
 
 
                     </div>

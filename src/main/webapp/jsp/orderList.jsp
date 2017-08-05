@@ -23,7 +23,7 @@
     </script>
 </head>
 <body style="background-color: white" id="body">
-<h4 id="noRecordLabel" style="position: absolute; font-size: 3vmax; top: 40%; width: 100%; text-align: center; text-shadow: -0.2vmax 0.2vmax 0 #315770;">暂无公益记录</h4>
+<h4 id="noRecordLabel" style="position: absolute; font-size: 3vmax; top: 40%; width: 100%; text-align: center; text-shadow: -0.2vmax 0.2vmax 0 #315770;">暂无订单记录</h4>
 
 <table class="table-content">
     <tbody class="table-content-title">

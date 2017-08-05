@@ -1,0 +1,184 @@
+body {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    height: 100%;
+}
+
+html {
+    background-color: lightblue;
+    height: 100%;
+}
+
+#noteArea {
+    display: inline-block;
+    position: absolute;
+    z-index: 10;
+    top: 2.8%;
+    left: 1.6%;
+    width: 96.8%;
+    background-size: cover;
+    height: auto;
+    /*padding-bottom: 60%;*/
+    /*height: 0;*/
+    background-color: white;
+    min-height: 94.4%;
+    /*height: 94.4%;*/
+    padding-bottom: 2.5%;
+
+}
+
+#noteArea #notePart {
+    display: inline-block;
+    width: 95%;
+    margin-left: 2.5%;
+    margin-top: 2.5%;
+    padding-bottom: 2%;
+    height: 91%;
+    background-color: white;
+    border: 2px solid #f5d76b;
+    box-shadow: 0 0 5px 2px #DABD61;
+    /*min-height: 91%;*/
+}
+
+#noteArea #notePart #notetitle {
+    background-color: #d5e0ea;
+    font-size: 2vmax;
+    padding: 2vmax;
+    font-family: "Helvetica Neue";
+    width: 80%;
+    margin-left: 10%;
+    letter-spacing: 0.2vmax;
+}
+
+#noteArea #notePart #notetitle p {
+    margin: 0;
+    font-size: 2vmax;
+}
+
+#noteArea #notePart .singleNote {
+    border: thin solid #d5e0ea;
+    width: 80%;
+    margin-left: 10%;
+    background-color: #e2edf7;
+    white-space: nowrap;
+}
+
+#noteArea #notePart .singleNote .userBlock {
+    background-color: #e2edf7;
+    width: 25%;
+    text-align: center;
+    height: 100%;
+    display: inline-table;
+    vertical-align: top;
+}
+
+#noteArea #notePart .singleNote img {
+    width: 10vw;
+    border-radius: 50%;
+    height: 10vw;
+    margin: 10%;
+}
+
+#noteArea #notePart .singleNote .userP {
+    font-size: 1.2vmax;
+    font-weight: lighter;
+    padding: 0.2vmax;
+    color: #142535;
+    cursor: pointer;
+    display: block;
+    letter-spacing: 0.2vmax;
+    width: 100%;
+    text-align: center;
+    white-space: nowrap;
+    padding-bottom: 10%;
+}
+
+#noteArea #notePart .singleNote .userP:hover {
+    color: #DABD61;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#noteArea #notePart .singleNote .contentBlock {
+    background-color: white;
+    width: 74.3%;
+    /* text-align: center; */
+    display: inline-table;
+    /*padding-bottom: 100%;*/
+    /* margin-top: -8%; */
+    padding: 3%;
+    padding-bottom: 18%;
+    height: 100%;
+    border: thin solid #d5e0ea;
+    vertical-align: top;
+    position: relative;
+}
+
+#noteArea #notePart .singleNote .contentBlock .contentP{
+    font-size: 1.5vmax;
+    letter-spacing: 0.1vmax;
+    width: 49vw;
+    margin: 0;
+    word-wrap: break-word;
+    white-space:normal;
+    font-family: "Helvetica Neue", Helvetica;
+    font-weight: normal;
+}
+
+#noteArea #notePart .singleNote .contentBlock .timeP{
+    position: absolute;
+    bottom: 0px;
+    padding: 0px;
+    margin: 0px;
+    /* float: right; */
+    right: 2%;
+    font-size: 1vmax;
+    color: grey;
+    letter-spacing: 0.1vmax;
+}
+
+
+#noteArea #notePart .postArea {
+    border: medium solid #d5e0ea;
+    display: block;
+    width: 80%;
+    margin-left: 10%;
+    padding: 2%;
+    padding-bottom: 32%;
+}
+
+#noteArea #notePart .postArea .postTitle {
+    position: absolute;
+    margin-left: 15%;
+    margin-top: 1%;
+    display: block;
+    width: 45%;
+    height: 2.2vmax;
+    font-size: 1.5vmax;
+    letter-spacing: 0.2vmax;
+    color: grey;
+}
+
+#noteArea #notePart .postArea .postTitle:focus {
+    outline: none;
+    border: thin solid #f5d76b;
+}
+
+#noteArea #notePart .postArea .postContent {
+    position: absolute;
+    margin-left: 15%;
+    margin-top: 5%;
+    display: block;
+    width: 45%;
+    font-size: 1.5vmax;
+    letter-spacing: 0.2vmax;
+    border: thin solid lightgrey;
+    color: grey;
+    height: 20vw;
+}
+
+#noteArea #notePart .postArea .postContent:focus {
+    outline: none;
+    border: thin solid #f5d76b;
+}
