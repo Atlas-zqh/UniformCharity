@@ -14187,14 +14187,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	    });
 
 	  var $holder = $('<div class="am-sticky-placeholder"></div>').css({
-	    height: $element.css('position') !== 'absolute' ?
-	      $element.outerHeight() : '',
+	    // height: $element.css('position') !== 'absolute' ?
+	    //   $element.outerHeight() : '',
+		 //  height: '0',
 	    float: $element.css('float') != 'none' ? $element.css('float') : '',
 	    margin: $elementMargin
 	  });
 
 	  this.$holder = $element.css('margin', 0).wrap($holder).parent();
-	  this.inited = 1;
+        this.$holder = $element.css('height', '0px').wrap($holder).parent();
+
+        this.inited = 1;
 
 	  return true;
 	};
@@ -14299,7 +14302,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    $element.css({
 	      top: offsetTop,
 	      left: this.$holder.offset().left,
-	      width: this.$holder.width()
+	      width: '9.7%'
 	    });
 
 	    /*
