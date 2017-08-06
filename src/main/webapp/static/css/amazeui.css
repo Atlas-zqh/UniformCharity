@@ -2980,17 +2980,22 @@ fieldset[disabled] .am-checkbox-inline {
   display: block;
   padding: 0.4em 1em;
   border-radius: 0;
+  font-family: Yuppy SC;
+  color: #2a4c70;
+  font-size: 1.5vmax;
+  text-shadow: -0.1vmax 0.1vmax 0 lightgrey;
 }
 .am-nav > li > a:hover,
 .am-nav > li > a:focus {
   text-decoration: none;
-  background-color: #eeeeee;
+  background-color: #ade0f0;
 }
 .am-nav > li.am-active > a,
 .am-nav > li.am-active > a:hover,
 .am-nav > li.am-active > a:focus {
-  color: #fff;
-  background-color: #0e90d2;
+  color: #DABD61;
+  text-shadow: -0.1vmax 0.1vmax 0 #7A6420;
+  /* background-color: #0e90d2; */
   cursor: default;
 }
 .am-nav > li.am-disabled > a {

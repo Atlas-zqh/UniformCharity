@@ -58,8 +58,9 @@ function quitLog() {
     delCookie("username");
     delCookie("picurl");
     delCookie("id");
-    document.getElementById("preLogIn").style.display = "inline-block";
-    document.getElementById("afterLogIn").style.display = "none";
+    document.getElementById("preLogInLeft").style.display = "inline-block";
+    document.getElementById("afterLogInLeft").style.display = "none";
+    document.getElementById("afterLogInRight").style.display = "none";
     $('#searchPanel').css("display", "none");
     $('#loginPanel').fadeIn();
     $('#username').val("");
