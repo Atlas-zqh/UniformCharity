@@ -27,7 +27,7 @@
                 <div class="select" style="">
                     <select data-select-like-alignement="auto" class="drop-select" id="uploadSchoolDrop"
                             onchange="changeSchool('uploadTypeDrop', 'uploadSchoolDrop')" name="school" multiple>
-                        <option value="null" selected="selected"></option>
+                        <%--<option value="null" selected="selected"></option>--%>
                         <%--<option value="b">南京外国语学校仙林分校</option>--%>
                         <%--<option value="g">南京</option>--%>
                     </select>
