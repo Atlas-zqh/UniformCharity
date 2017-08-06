@@ -15,7 +15,20 @@ public class BBSMapperTest extends BaseTest {
 
     @Test
     public void testAddBoard() {
-        Board board = new Board("斑斑驳驳");
-        bbsMapper.insertBoard(board);
+//        Board board = new Board("斑斑驳驳");
+//        bbsMapper.insertBoard(board);
+    }
+
+
+    @Test
+    public void testGetBoard() {
+        Board board = bbsMapper.findBoardByBoardID(4);
+
+        if (board == null) {
+            System.out.println("NULL");
+        } else {
+            System.out.println(board.toString());
+
+        }
     }
 }
