@@ -28,6 +28,22 @@ function initBoardNav() {
     });
 }
 
-function selectBoard() {
+function selectBoard(id) {
+    var nav = document.getElementById('board');
+    var num = nav.childNodes.length;
+    alert(num);
+    for (num - 1; num >= 0; num--) {
+        if (nav.childNodes.item(num) != null)
+            nav.childNodes.item(num).style.color = "#2a4c70";
+            // nav.childNodes.item(num).css({
+            //     color: '#2a4c70',
+            //     'text-shadow': '-0.1vmax 0.1vmax 0 lightgrey'
+            // });
+    }
 
+    var item = document.getElementById(id);
+    item.css({
+        color: '#DABD61',
+        'text-shadow': '-0.1vmax 0.1vmax 0 #7A6420'
+    });
 }

@@ -33,9 +33,9 @@
             <div id="boardNav" data-am-sticky>
                 <ul id="board" class="am-nav"
                     style="background-color: #B8D7F1; border: thick solid #98BBD7;border-bottom: none; border-left: none; box-sizing: content-box;">
-                    <li class="am-active"><a href="#">board1</a></li>
-                    <li><a href="#">board2</a></li>
-                    <li><a href="#">board3</a></li>
+                    <li class="am-active"><a href="#" onclick="selectBoard(this.id)" id="board1">board1</a></li>
+                    <li><a href="#" id="board2" onclick="selectBoard(this.id)">board2</a></li>
+                    <li><a href="#" id="board3" onclick="selectBoard(this.id)">board3</a></li>
                 </ul>
             </div>
         </div>
