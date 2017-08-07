@@ -59,9 +59,7 @@ public class DBInterceptor implements Interceptor {
         }
 
         Object returnValue = invocation.proceed();
-        System.out.println("=====");
         if (returnValue instanceof ArrayList<?>) {
-            System.out.println("!!!!!!!");
             List<?> list = (ArrayList<?>) returnValue;
             for (Object val : list) {
                 if (val instanceof User) {
@@ -96,7 +94,6 @@ public class DBInterceptor implements Interceptor {
 
             }
         } else if (returnValue instanceof User) {
-            System.out.println("here");
             User user = (User) returnValue;
             user.setUsername(EncryptionUtil.decrypt(key, user.getUsername()));
             user.setPassword(EncryptionUtil.decrypt(key, user.getPassword()));
@@ -106,6 +103,8 @@ public class DBInterceptor implements Interceptor {
             user.setEmail(EncryptionUtil.decrypt(key, user.getEmail()));
             user.setPersonID(EncryptionUtil.decrypt(key, user.getPersonID()));
         }
+
+        System.out.println(returnValue.toString());
         return returnValue;
     }
 

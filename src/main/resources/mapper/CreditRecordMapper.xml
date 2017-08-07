@@ -6,7 +6,7 @@
     <insert id="addRecord" parameterType="CreditRecord">
         INSERT INTO credit_record
         (userid,recordtype,clothesID,variance,afterCredits,createtime)
-        VALUES (#{userid}, #{recordtype}, #{clothesID}, #{variance}, #{afterCredits})
+        VALUES (#{userid}, #{recordtype}, #{clothesID}, #{variance}, #{afterCredits}, #{createTime})
     </insert>
 
     <select id="findRecordByUserID" parameterType="String" resultType="CreditRecord">

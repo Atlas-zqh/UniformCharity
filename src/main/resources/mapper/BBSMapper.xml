@@ -59,42 +59,42 @@
     </update>
 
     <!-- 根据板块ID搜索板块 -->
-    <select id="findBoardByBoardID" parameterType="Integer">
+    <select id="findBoardByBoardID" resultType="Board" parameterType="Integer">
         SELECT *
         FROM board
         WHERE board_id = #{board_id}
     </select>
 
     <!-- 根据帖子ID搜索梯子 -->
-    <select id="findPostByPostID" parameterType="Integer">
+    <select id="findPostByPostID" parameterType="Integer" resultType="Post">
         SELECT *
         FROM posts
         WHERE post_id = #{post_id}
     </select>
 
     <!-- 根据用户ID搜索帖子 -->
-    <select id="findPostsByUserID" parameterType="String">
+    <select id="findPostsByUserID" parameterType="String" resultType="Post">
         SELECT *
         FROM posts
         WHERE post_uid = #{user_id}
     </select>
 
     <!-- 根据回复ID搜索回复 -->
-    <select id="findReplyByReplyID" parameterType="Integer">
+    <select id="findReplyByReplyID" parameterType="Integer" resultType="Reply">
         SELECT *
         FROM reply
         WHERE reply_id = #{reply_id}
     </select>
 
     <!-- 根据用户ID搜索回复 -->
-    <select id="findReplyByUserID" parameterType="String">
+    <select id="findReplyByUserID" parameterType="String" resultType="Reply">
         SELECT *
         FROM reply
         WHERE reply_uid = #{user_id}
     </select>
 
     <!-- 根据回复号获得所有子回复 -->
-    <select id="findSubReplyByReplyID" parameterType="Integer">
+    <select id="findSubReplyByReplyID" parameterType="Integer" resultType="Reply">
         SELECT *
         FROM reply
         WHERE reply_rid = #{reply_rid}

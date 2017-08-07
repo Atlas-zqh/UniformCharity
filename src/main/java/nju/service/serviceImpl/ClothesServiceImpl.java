@@ -17,6 +17,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Field;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -41,12 +43,18 @@ public class ClothesServiceImpl implements ClothesService {
      */
     @Override
     public String addClothes(Clothes clothes) {
-        String auto_id = clothes.getSchoolName().hashCode() + "" + System.currentTimeMillis() + "";
+        String donor_id = clothes.getDonorID();
+        long current = System.currentTimeMillis();
+        Date date = new Date(current);
+        SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmssSSS");
+        String did = format.format(date);
+        String auto_id = donor_id.substring(donor_id.length() - 4) + did;
         clothes.setClothesID(auto_id);
         clothesMapper.add(clothes);
+
         // 增加公益记录
         double price = typeMapper.findType(clothes.getSchoolName(), clothes.getClothesType()).getClothesPrice();
-        addCreditRecord(clothes.getDonorID(), CreditRecord.DONATE_CLOTHES, auto_id, price);
+        addCreditRecord(donor_id, CreditRecord.DONATE_CLOTHES, auto_id, price);
         return auto_id;
     }
 
@@ -170,6 +178,7 @@ public class ClothesServiceImpl implements ClothesService {
      */
     @SuppressWarnings("Duplicates")
     private void addCreditRecord(String userID, Integer recordtype, String clothesID, Double variance) {
+        System.out.println(" = = =  = = = = " + userID);
         User user = userMapper.findOneByID(EncryptionUtil.encrypt("20170522", userID));
         Double credit = user.getCredits();
         credit += variance;

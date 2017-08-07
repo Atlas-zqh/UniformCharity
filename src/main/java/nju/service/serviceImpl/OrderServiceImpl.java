@@ -69,14 +69,16 @@ public class OrderServiceImpl implements OrderService {
      */
     @Override
     public void finishOrder(Order order, double credit) {
+        String buyerID = order.getBuyerID();
+        String donorID = order.getDonorID();
         /**
          * 增加公益记录
          */
-        addCreditRecord(order.getBuyerID(), CreditRecord.BUY_CLOTHES, order.getClothesID(), credit);
+        addCreditRecord(buyerID, CreditRecord.BUY_CLOTHES, order.getClothesID(), credit);
         /**
          * 增加资金记录
          */
-        addFinancialRecord(order.getBuyerID(), order.getDonorID(), credit);
+        addFinancialRecord(buyerID, donorID, credit);
         /**
          * 更新订单状态
          */
