@@ -19,7 +19,10 @@
     <script>
         $(document).ready(function () {
             checkCookie();
-            initBoardNav();
+            var board = decodeURIComponent(getArgsFromHref(window.location.href, 'board'));
+            var page = decodeURIComponent(getArgsFromHref(window.location.href, 'page'));
+            initBoardNav(board);
+            initNotesArea(board, page);
 
         });
     </script>
@@ -33,9 +36,9 @@
             <div id="boardNav" data-am-sticky>
                 <ul id="board" class="am-nav"
                     style="background-color: #B8D7F1; border: thick solid #98BBD7;border-bottom: none; border-left: none; box-sizing: content-box;">
-                    <li class="am-active"><a href="#" onclick="selectBoard(this.id)" id="board1">board1</a></li>
-                    <li><a href="#" id="board2" onclick="selectBoard(this.id)">board2</a></li>
-                    <li><a href="#" id="board3" onclick="selectBoard(this.id)">board3</a></li>
+                    <%--<li class="am-active"><a href="#" onclick="selectBoard(this.id)" id="board1">board1</a></li>--%>
+                    <%--<li><a href="#" id="board2" onclick="selectBoard(this.id)">board2</a></li>--%>
+                    <%--<li><a href="#" id="board3" onclick="selectBoard(this.id)">board3</a></li>--%>
                 </ul>
             </div>
         </div>
@@ -44,7 +47,7 @@
                 <h4 style="padding: 10%; text-align: center;">板块介绍</h4>
             </div>
 
-            <div class="notesArea">
+            <div class="notesArea" id="notesArea">
                 <div class="singleNote" data-am-scrollspy="{animation:'fade'}">
                     <a href="../jsp/noteDetails.jsp" class="titleP" target="_blank">ABCDEFGHIGKLMNOPQ</a>
                     <a href="" class="userP" target="_blank">ABCDEFG</a>

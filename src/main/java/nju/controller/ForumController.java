@@ -1,10 +1,9 @@
 package nju.controller;
 
-import nju.domain.Board;
-import nju.domain.Clothes;
-import nju.domain.Order;
+import com.github.pagehelper.PageInfo;
+import nju.domain.*;
 import nju.service.BBSService;
-import org.apache.commons.collections.map.HashedMap;
+import nju.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -26,27 +27,52 @@ public class ForumController {
     @Autowired
     private BBSService bbsService;
 
+    @Autowired
+    private UserService userService;
+
     @RequestMapping(value = "/getAllBoards", method = RequestMethod.GET)
     @ResponseBody
     public Map<String, Object> getAllBoards() {
-        Map<String, Object> map = new HashedMap();
+        Map<String, Object> map = new HashMap();
 
         List<Board> boards = bbsService.getAllBoards();
-        System.out.println("boards!!!!!!!!!");
-        System.out.println(boards.size());
-
-        List<String> boardNames = new ArrayList<>();
-
-        for(int i = 0; i < boards.size(); i++){
-            System.out.println(i);
-            System.out.println(boards.get(i).getBoard_id());
-            System.out.println(boards.get(i).getBoard_name());
-            boardNames.add(boards.get(i).getBoard_name());
-        }
 
         map.put("success", "true");
-        map.put("boards", boardNames);
+        map.put("boards", boards);
 
         return map;
     }
+
+    @RequestMapping(value = "/getPostsByBoard", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Object> getPostsByBoard(HttpServletRequest request) {
+        Map<String, Object> map = new HashMap();
+        int board = Integer.parseInt(request.getParameter("board"));
+        int page = Integer.parseInt(request.getParameter("page"));
+
+        System.out.println("board_id: " + board);
+        System.out.println("page: " + page);
+
+        PageInfo<Post> posts = bbsService.getPostsByBoard(board, page, 20);
+
+        List<Post> postList = posts.getList();
+        List<User> userList = new ArrayList<>();
+        try {
+            for (int i = 0; i < postList.size(); i++) {
+                userList.add(userService.findUserByID(postList.get(i).getPost_uid()));
+            }
+            map.put("success", "true");
+            map.put("posts", postList);
+            map.put("users", userList);
+            map.put("maxPage", posts.getPages());
+        }catch (Exception e){
+            e.printStackTrace();
+            map.put("success", "false");
+        }
+
+
+        return map;
+    }
+
+
 }

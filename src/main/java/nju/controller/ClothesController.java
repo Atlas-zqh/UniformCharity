@@ -77,7 +77,6 @@ public class ClothesController {
             map.put("clothesID", clothesID);
         } else {
             map.put("success", "false");
-
         }
 
         return map;
@@ -123,7 +122,7 @@ public class ClothesController {
 
     @RequestMapping(value = "/allTypesOfSchool", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, Object> getAllSchool(HttpServletRequest request, HttpServletResponse response) {
+    public Map<String, Object> getAllTypes(HttpServletRequest request, HttpServletResponse response) {
         Map<String, Object> map = new HashedMap();
         String school = request.getParameter("school");
         List<Type> types = typeService.findAllTypesOfSchool(school);
