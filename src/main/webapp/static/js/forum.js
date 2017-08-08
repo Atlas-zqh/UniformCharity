@@ -82,7 +82,7 @@ function initNotesArea(board, page) {
             // alert("success");
             if (data && data.success == "true") {
                 $.each(data.posts, function (i, item) {
-                    addSinglePost(item.post_id, item.post_topic, item.post_commentcount, item.post_updatetime, item.post_uid, data.users[i].username);
+                    addSinglePost(item.post_id, item.post_topic, item.post_commentcount, data.times[i], item.post_uid, data.users[i].username);
                     // addOption(id, item, item);
                     // fail_alert(i);
                 });
@@ -98,6 +98,7 @@ function initNotesArea(board, page) {
 function addSinglePost(pid, topic, comment, time, uid, username) {
     var note = document.createElement('div');
     note.className = 'singleNote';
+    note.id = pid;
 
     var topic_a = document.createElement('a');
     topic_a.target = '_blank';
@@ -139,5 +140,124 @@ function addSinglePost(pid, topic, comment, time, uid, username) {
     comment_p.appendChild(document.createTextNode(comment));
     note.appendChild(comment_p);
 
+
     document.getElementById('notesArea').appendChild(note);
+    $('#' + pid).scrollspy({
+        animation: 'fade'
+    });
+}
+
+function postTopic() {
+    var title = $('#postTitle').val();
+    var content = $('#postContent').val();
+    var id = getCookie("id");
+    var board = decodeURIComponent(getArgsFromHref(window.location.href, 'board'));
+    if (board == "")
+        board = 1;
+    jQuery.ajax({
+        type: 'POST',
+        url: '/forumAction/insertPost',
+        data: {
+            "board": board,
+            "uid": id,
+            "content": content,
+            "title": title
+        },
+        dataType: 'json',
+        success: function (data) {
+            // alert("success");
+            if (data && data.success == "true") {
+                window.location.href = "../jsp/forum.jsp?page=1&board=" + board;
+            }
+        },
+        error: function () {
+            fail_alert("哎呀呀，初始化信息失败...")
+        }
+    });
+
+}
+
+function getMaxPage(board, page) {
+    var max = 0;
+    jQuery.ajax({
+        type: 'POST',
+        url: '/forumAction/getPostsByBoard',
+        data: {
+            "board": board,
+            "page": page
+        },
+        dataType: 'json',
+        success: function (data) {
+            // alert("success");
+            if (data && data.success == "true") {
+                max = data.maxPage;
+            }
+        },
+        error: function () {
+            fail_alert("哎呀呀，初始化信息失败...")
+        }
+    });
+    return max;
+}
+
+function first() {
+    var board = decodeURIComponent(getArgsFromHref(window.location.href, 'board'));
+    var page = decodeURIComponent(getArgsFromHref(window.location.href, 'page'));
+    if (board == "")
+        board = 1;
+    if (page == "")
+        page = 1;
+    if (page == 1) {
+        fail_alert("当前已经是第一页！");
+    } else {
+        window.location.href = "../jsp/forum.jsp?page=1&board=" + board;
+    }
+}
+
+function previous() {
+    var board = decodeURIComponent(getArgsFromHref(window.location.href, 'board'));
+    var page = decodeURIComponent(getArgsFromHref(window.location.href, 'page'));
+    if (board == "")
+        board = 1;
+    if (page == "")
+        page = 1;
+    if (page > 1) {
+        page = page - 1;
+        window.location.href = "../jsp/forum.jsp?page=" + page + "&board=" + board;
+    }
+    else {
+        fail_alert("当前已经是第一页！")
+    }
+}
+
+
+function next() {
+    var board = decodeURIComponent(getArgsFromHref(window.location.href, 'board'));
+    var page = decodeURIComponent(getArgsFromHref(window.location.href, 'page'));
+    if (board == "")
+        board = 1;
+    if (page == "")
+        page = 1;
+    var maxPage = getMaxPage(board, page);
+    if (page < maxPage) {
+        page = page + 1;
+        window.location.href = "../jsp/forum.jsp?page=" + page + "&board=" + board;
+    } else {
+        fail_alert("当前已经是最后一页！")
+    }
+}
+
+function last() {
+    var board = decodeURIComponent(getArgsFromHref(window.location.href, 'board'));
+    var page = decodeURIComponent(getArgsFromHref(window.location.href, 'page'));
+    if (board == "")
+        board = 1;
+    if (page == "")
+        page = 1;
+    var maxPage = getMaxPage(board, page);
+    if (page >= maxPage) {
+        fail_alert("当前已经是最后一页！")
+    } else {
+        window.location.href = "../jsp/forum.jsp?page=" + page + "&board=" + board;
+    }
 }

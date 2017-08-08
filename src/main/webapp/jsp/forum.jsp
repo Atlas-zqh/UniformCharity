@@ -23,7 +23,7 @@
             var page = decodeURIComponent(getArgsFromHref(window.location.href, 'page'));
             initBoardNav(board);
             initNotesArea(board, page);
-
+            initMenu(getMaxPage(board, page), 'notesMenu', 1);
         });
     </script>
 
@@ -226,14 +226,14 @@
             <div class="postArea">
                 <div style="display: inline">
                     <h4 style="margin-left: 5%; position: absolute;">标题</h4>
-                    <input type="text" class="postTitle">
+                    <input type="text" class="postTitle" id="postTitle">
                 </div>
                 <div style="display: inline">
                     <h4 style="margin-left: 5%; position: absolute; margin-top:5%;">正文</h4>
-                    <textarea class="postContent"></textarea>
+                    <textarea class="postContent" id="postContent"></textarea>
                 </div>
-                <button class="mybt"
-                        style="position: absolute; margin-left: 68%; margin-top: 28%; font-size: 1vmax; width: 8%; border-width: medium; white-space: nowrap; overflow: visible; font-size: 1.5vmax">
+                <button class="mybt" onclick="postTopic()"
+                        style="position: absolute; margin-left: 68%; margin-top: 28%; font-size: 1vmax; width: 8%; white-space: nowrap; overflow: visible; font-size: 1.5vmax">
                     发表帖子
                 </button>
 

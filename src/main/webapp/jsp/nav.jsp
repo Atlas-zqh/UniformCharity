@@ -57,8 +57,8 @@
     </div>
 
 </div>
-
-<script type="text/javascript" src="/static/js/login.js"></script>
+<script type="text/javascript" src="../static/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="../static/js/login.js"></script>
 
 </body>
 </html>

@@ -24,11 +24,11 @@
 
 /* Now the list items */
 .menu li {
-    margin-left: 0.1vmax;
+    margin-left: 0.5vmax;
     display: inline-block;
     position: relative;
     padding-top: 1%;
-    /*padding-bottom: 0.25%;*/
+    padding-bottom: 0.25%;
     white-space: nowrap;
 }
 

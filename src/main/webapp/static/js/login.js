@@ -68,7 +68,7 @@ function quitLog() {
 
 }
 
-$("#maleBut").click(function () {
+$('#maleBut').click(function () {
     gender = "男";
     $("#maleBut").css("color", "#142535");
     $("#maleBut").css("text-shadow", "-0.1vmax 0.1vmax 0 lightgrey");
@@ -78,7 +78,7 @@ $("#maleBut").click(function () {
         $("#icon").attr('src', "../images/maleIcon.png")
 });
 
-$("#femaleBut").click(function () {
+$('#femaleBut').click(function () {
     gender = "女";
     $("#maleBut").css("color", "white");
     $("#maleBut").css("text-shadow", "-0.1vmax 0.1vmax 0 grey");
