@@ -103,5 +103,70 @@ public class ForumController {
         return map;
     }
 
+    @RequestMapping(value = "/getPostByID", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Object> getPostByID(HttpServletRequest request) {
+        Map<String, Object> map = new HashMap();
+        int id = Integer.parseInt(request.getParameter("id"));
+        int page = Integer.parseInt(request.getParameter("page"));
 
+        System.out.println("post_id: " + id);
+
+        Post post = bbsService.findPostByPostID(id);
+        System.out.println(post.getPost_topic());
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        String time = simpleDateFormat.format(post.getPost_createtime());
+
+        PageInfo repliesByPost = bbsService.getRepliesByPost(id, page, 20);
+
+        List<Reply> replies = repliesByPost.getList();
+        List<User> userList = new ArrayList<>();
+        List<String> times = new ArrayList<>();
+
+        try {
+            for (int i = 0; i < replies.size(); i++) {
+                userList.add(userService.findUserByID(replies.get(i).getReply_uid()));
+                times.add(simpleDateFormat.format(new Date(replies.get(i).getReply_time())));
+            }
+            User user = userService.findUserByID(post.getPost_uid());
+
+            map.put("success", "true");
+            map.put("post", post);
+            map.put("post_user", user);
+            map.put("post_time", time);
+            map.put("replies", replies);
+            map.put("users", userList);
+            map.put("times", times);
+            map.put("maxPage", repliesByPost.getPages());
+        }catch (Exception e){
+            e.printStackTrace();
+            map.put("success", "false");
+        }
+
+        return map;
+    }
+
+    @RequestMapping(value = "/insertReply", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Object> insertReply(HttpServletRequest request) {
+        Map<String, Object> map = new HashMap();
+        String title = request.getParameter("title");
+        String content = request.getParameter("content");
+        int id = Integer.parseInt(request.getParameter("id"));
+        String uid = request.getParameter("uid");
+
+        Date date = new Date();
+        Long create_time = date.getTime();
+        System.out.println(create_time);
+        System.out.println(title);
+        System.out.println(content);
+        System.out.println(id);
+
+
+        Reply reply = new Reply(uid, content, id, create_time, 1, 0);
+        bbsService.insertReply(reply);
+        map.put("success", "true");
+
+        return map;
+    }
 }

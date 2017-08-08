@@ -19,6 +19,10 @@
     <script>
         $(document).ready(function () {
             checkCookie();
+            var id = decodeURIComponent(getArgsFromHref(window.location.href, 'id'));
+            var page = decodeURIComponent(getArgsFromHref(window.location.href, 'page'));
+            initNoteInfo(id, page)
+            initMenu(getMaxPage(id, page), 'noteMenu', 1);
         });
     </script>
 
@@ -39,6 +43,7 @@
                 <div class="contentBlock">
                     <p class="contentP">ABCDEFGHIGKLMNOP</p>
                     <p class="timeP">2017-07-07 12:12:12</p>
+                    <p class="floorP">楼主</p>
                 </div>
             </div>
             <div class="singleNote">
@@ -64,7 +69,7 @@
         </div>
         <div style="background-color: #d5e0ea; width: 80%; margin-left: 10%;">
         <div style="text-align: center; width: 100%; padding: 2%;">
-            <ul class="menu" style="left: 25%; padding: 1%; margin-top: 0%" id="orderMenu">
+            <ul class="menu" style="left: 25%; padding: 1%; margin-top: 0%" id="noteMenu">
                 <li><a href="#">Previous</a></li>
                 <li><a href="#">1</a></li>
                 <li><a href="#">2</a></li>
@@ -85,7 +90,7 @@
                 <h4 style="margin-left: 10%; position: absolute; margin-top: 5%;">正文</h4>
                 <textarea class="postContent"></textarea>
             </div>
-            <button class="mybt"
+            <button class="mybt" onclick="postReply()"
                     style="margin-left: 52%; font-size: 1vmax; width: 8%; border-width: medium; position: absolute; margin-top: 27%; white-space: nowrap">发表帖子
             </button>
 
@@ -103,5 +108,6 @@
 <script type="text/javascript" src="../static/js/alert.js" charset="utf-8"></script>
 <script type="text/javascript" src="../static/js/util.js" charset="utf-8"></script>
 <script type="text/javascript" src="../static/js/menu.js" charset="utf-8"></script>
+<script type="text/javascript" src="../static/js/note.js" charset="utf-8"></script>
 </body>
 </html>

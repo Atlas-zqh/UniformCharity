@@ -2,6 +2,8 @@
  * Created by island on 2017/8/6.
  */
 function initBoardNav(board) {
+    if (board == "")
+        board = 1;
     jQuery.ajax({
         type: 'GET',
         contentType: 'application/json',
@@ -103,7 +105,7 @@ function addSinglePost(pid, topic, comment, time, uid, username) {
     var topic_a = document.createElement('a');
     topic_a.target = '_blank';
     topic_a.className = 'titleP';
-    topic_a.href = "../jsp/noteDetails.jsp?id=" + pid;
+    topic_a.href = "../jsp/noteDetails.jsp?id=" + pid + "&page=1";
     topic_a.appendChild(document.createTextNode(topic));
     note.appendChild(topic_a);
 
@@ -179,6 +181,12 @@ function postTopic() {
 
 function getMaxPage(board, page) {
     var max = 0;
+    if (board == '') {
+        board = 1;
+    }
+    if (page == '') {
+        page = 1;
+    }
     jQuery.ajax({
         type: 'POST',
         url: '/forumAction/getPostsByBoard',

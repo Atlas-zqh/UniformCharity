@@ -132,12 +132,23 @@ html {
     padding: 0px;
     margin: 0px;
     /* float: right; */
-    right: 2%;
+    right: 5%;
     font-size: 1vmax;
     color: grey;
     letter-spacing: 0.1vmax;
 }
 
+#noteArea #notePart .singleNote .contentBlock .floorP{
+    position: absolute;
+    bottom: 0px;
+    padding: 0px;
+    margin: 0px;
+    /* float: right; */
+    right: 0%;
+    font-size: 1vmax;
+    color: grey;
+    letter-spacing: 0.1vmax;
+}
 
 #noteArea #notePart .postArea {
     border: medium solid #d5e0ea;
