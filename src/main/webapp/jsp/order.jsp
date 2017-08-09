@@ -31,7 +31,7 @@
 </head>
 <body>
 <div id="orderArea">
-    <div id="mainPart">
+    <div id="mainPart" style="overflow: hidden">
         <h1 style="margin-top: 2%; margin-left: 2%">我的订单</h1>
         <div class="am-tabs" id="doc-my-tabs" style="width: 80%; margin-left: 10%">
             <ul class="am-tabs-nav am-nav am-nav-tabs am-nav-justify">
@@ -213,7 +213,7 @@
                 </div>
             </div>
 
-            <div style="text-align: center; width: 76%; position: absolute;">
+            <div style="text-align: center; width: 100%;">
                 <ul class="menu" style="left: 25%; margin-top: 1%" id="orderMenu">
                     <li><a href="#">Previous</a></li>
                     <li><a href="#">1</a></li>

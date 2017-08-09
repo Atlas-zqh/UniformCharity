@@ -61,7 +61,7 @@ function pay() {
             if (data.result == "success") {
 
                 var orderID = data.orderID;
-                window.location.href = "../jsp/pay.jsp?orderID=" + orderID;
+                window.location.href = "../jsp/pay.jsp?id=" + orderID;
                 return;
             }
             if (data.result == "fail") {

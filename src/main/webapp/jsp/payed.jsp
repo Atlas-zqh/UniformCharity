@@ -19,9 +19,8 @@
     <script>
         $(document).ready(function () {
             checkCookie();
-            var orderID = getArgsFromHref(window.location.href, "orderID");
-            alert(orderID);
-            $('#detail').attr("href", "../jsp/orderDetails.jsp?orderID=" + orderID);
+            var orderID = getArgsFromHref(window.location.href, "id");
+            $('#detail').attr("href", "../jsp/orderDetails.jsp?id=" + orderID);
             $.ajax({
                 url: "/orderAction/getOrderByOrderID",
                 type: "POST",
