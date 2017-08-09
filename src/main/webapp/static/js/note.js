@@ -13,10 +13,10 @@ function initNoteInfo(id, page){
         success: function (data) {
             // alert("success");
             if (data && data.success == "true") {
-                $('#noteTitle').val(data.post.post_topic);
-                addSingleNote(data.post_user.picurl, data.post_user.username, data.post_user.personID, '', data.post_time, '楼主');
+                $('#noteTitle').html(data.post.post_topic);
+                addSingleNote(data.post_user.picurl, data.post_user.username, data.post_user.personID, data.post.post_content, data.post_time, '楼主');
                 $.each(data.replies, function (i, item) {
-                    addSinglePost(data.users[i].picurl, data.users[i].username, data.users[i].personID, item.reply_content, data.times[i], page*20 + i + 1);
+                    addSingleNote(data.users[i].picurl, data.users[i].username, data.users[i].personID, item.reply_content, data.times[i], page*20 + i + 1 + '楼');
                 });
             }
         },
@@ -141,24 +141,23 @@ function last() {
 }
 
 function postReply() {
-    var title = $('#postTitle').val();
-    var content = $('#postContent').val();
+    var content = $('.postContent').val();
+    alert(content);
     var id = getCookie("id");
     var pid = decodeURIComponent(getArgsFromHref(window.location.href, 'id'));
     jQuery.ajax({
         type: 'POST',
         url: '/forumAction/insertReply',
         data: {
-            "pid": pid,
+            "id": pid,
             "uid": id,
-            "content": content,
-            "title": title
+            "content": content
         },
         dataType: 'json',
         success: function (data) {
             if (data && data.success == "true") {
                 var maxPage = getMaxPage(pid, 1);
-                window.location.href = "../jsp/forum.jsp?page=" + maxPage +"&id=" + pid;
+                window.location.href = "../jsp/noteDetails.jsp?page=" + maxPage +"&id=" + pid;
             }
         },
         error: function () {

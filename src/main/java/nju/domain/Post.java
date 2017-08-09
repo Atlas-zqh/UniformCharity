@@ -28,7 +28,7 @@ public class Post {
      */
     private Integer post_bid;
 
-    public Post(Integer post_id, String post_uid, String post_topic, Integer post_commentcount, Long post_updatetime, Long post_createtime, Boolean post_islocked, String post_content, Integer post_bid) {
+    public Post(Integer post_id, String post_uid, String post_topic, Integer post_commentcount, Long post_updatetime, Long post_createtime, Boolean post_islocked, Integer post_bid, String post_content) {
         this.post_id = post_id;
         this.post_uid = post_uid;
         this.post_topic = post_topic;

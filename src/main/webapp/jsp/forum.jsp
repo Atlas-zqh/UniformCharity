@@ -48,168 +48,168 @@
             </div>
 
             <div class="notesArea" id="notesArea">
-                <div class="singleNote" data-am-scrollspy="{animation:'fade'}">
-                    <a href="../jsp/noteDetails.jsp" class="titleP" target="_blank">ABCDEFGHIGKLMNOPQ</a>
-                    <a href="" class="userP" target="_blank">ABCDEFG</a>
-                    <p class="timeP">2017-07-18 12:12:12</p>
-                    <img src="../static/images/browse.png" class="browseIcon">
-                    <p class="browseP">123</p>
-                    <img src="../static/images/comments.png" class="commentIcon">
-                    <p class="commentP">12</p>
-                </div>
-                <div class="singleNote" data-am-scrollspy="{animation:'fade'}">
-                    <a href="" class="titleP" target="_blank">ABCDEFGHIGKLMNOPQRSTUVWXYZABCDEFG</a>
-                    <a href="" class="userP" target="_blank">HIJKLMN</a>
-                    <p class="timeP">2017-07-18 12:12:12</p>
-                    <img src="../static/images/browse.png" class="browseIcon">
-                    <p class="browseP">123</p>
-                    <img src="../static/images/comments.png" class="commentIcon">
-                    <p class="commentP">12</p>
-                </div>
-                <div class="singleNote" data-am-scrollspy="{animation:'fade'}">
-                    <a href="" class="titleP" target="_blank">ABCDEFGHIGKLMNOPQRSTUVWXYZABCDEFGHIGKLMNOPQRSTUVWXYZABCDEFGHIGKLMNOPQRSTUVWXYZ</a>
-                    <a href="" class="userP" target="_blank">OPQRST</a>
-                    <p class="timeP">2017-07-18 12:12:12</p>
-                    <img src="../static/images/browse.png" class="browseIcon">
-                    <p class="browseP">123</p>
-                    <img src="../static/images/comments.png" class="commentIcon">
-                    <p class="commentP">12</p>
-                </div>
-                <div class="singleNote" data-am-scrollspy="{animation:'fade'}">
-                    <a href="../jsp/noteDetails.jsp" class="titleP" target="_blank">ABCDEFGHIGKLMNOPQ</a>
-                    <a href="" class="userP" target="_blank">ABCDEFG</a>
-                    <p class="timeP">2017-07-18 12:12:12</p>
-                    <img src="../static/images/browse.png" class="browseIcon">
-                    <p class="browseP">123</p>
-                    <img src="../static/images/comments.png" class="commentIcon">
-                    <p class="commentP">12</p>
-                </div>
-                <div class="singleNote" data-am-scrollspy="{animation:'fade'}">
-                    <a href="" class="titleP" target="_blank">ABCDEFGHIGKLMNOPQRSTUVWXYZABCDEFG</a>
-                    <a href="" class="userP" target="_blank">HIJKLMN</a>
-                    <p class="timeP">2017-07-18 12:12:12</p>
-                    <img src="../static/images/browse.png" class="browseIcon">
-                    <p class="browseP">123</p>
-                    <img src="../static/images/comments.png" class="commentIcon">
-                    <p class="commentP">12</p>
-                </div>
-                <div class="singleNote" data-am-scrollspy="{animation:'fade'}">
-                    <a href="" class="titleP" target="_blank">ABCDEFGHIGKLMNOPQRSTUVWXYZABCDEFGHIGKLMNOPQRSTUVWXYZABCDEFGHIGKLMNOPQRSTUVWXYZ</a>
-                    <a href="" class="userP" target="_blank">OPQRST</a>
-                    <p class="timeP">2017-07-18 12:12:12</p>
-                    <img src="../static/images/browse.png" class="browseIcon">
-                    <p class="browseP">123</p>
-                    <img src="../static/images/comments.png" class="commentIcon">
-                    <p class="commentP">12</p>
-                </div>
-                <div class="singleNote" data-am-scrollspy="{animation:'fade'}">
-                    <a href="../jsp/noteDetails.jsp" class="titleP" target="_blank">ABCDEFGHIGKLMNOPQ</a>
-                    <a href="" class="userP" target="_blank">ABCDEFG</a>
-                    <p class="timeP">2017-07-18 12:12:12</p>
-                    <img src="../static/images/browse.png" class="browseIcon">
-                    <p class="browseP">123</p>
-                    <img src="../static/images/comments.png" class="commentIcon">
-                    <p class="commentP">12</p>
-                </div>
-                <div class="singleNote" data-am-scrollspy="{animation:'fade'}">
-                    <a href="" class="titleP" target="_blank">ABCDEFGHIGKLMNOPQRSTUVWXYZABCDEFG</a>
-                    <a href="" class="userP" target="_blank">HIJKLMN</a>
-                    <p class="timeP">2017-07-18 12:12:12</p>
-                    <img src="../static/images/browse.png" class="browseIcon">
-                    <p class="browseP">123</p>
-                    <img src="../static/images/comments.png" class="commentIcon">
-                    <p class="commentP">12</p>
-                </div>
-                <div class="singleNote" data-am-scrollspy="{animation:'fade'}">
-                    <a href="" class="titleP" target="_blank">ABCDEFGHIGKLMNOPQRSTUVWXYZABCDEFGHIGKLMNOPQRSTUVWXYZABCDEFGHIGKLMNOPQRSTUVWXYZ</a>
-                    <a href="" class="userP" target="_blank">OPQRST</a>
-                    <p class="timeP">2017-07-18 12:12:12</p>
-                    <img src="../static/images/browse.png" class="browseIcon">
-                    <p class="browseP">123</p>
-                    <img src="../static/images/comments.png" class="commentIcon">
-                    <p class="commentP">12</p>
-                </div>
-                <div class="singleNote" data-am-scrollspy="{animation:'fade'}">
-                    <a href="../jsp/noteDetails.jsp" class="titleP" target="_blank">ABCDEFGHIGKLMNOPQ</a>
-                    <a href="" class="userP" target="_blank">ABCDEFG</a>
-                    <p class="timeP">2017-07-18 12:12:12</p>
-                    <img src="../static/images/browse.png" class="browseIcon">
-                    <p class="browseP">123</p>
-                    <img src="../static/images/comments.png" class="commentIcon">
-                    <p class="commentP">12</p>
-                </div>
-                <div class="singleNote" data-am-scrollspy="{animation:'fade'}">
-                    <a href="" class="titleP" target="_blank">ABCDEFGHIGKLMNOPQRSTUVWXYZABCDEFG</a>
-                    <a href="" class="userP" target="_blank">HIJKLMN</a>
-                    <p class="timeP">2017-07-18 12:12:12</p>
-                    <img src="../static/images/browse.png" class="browseIcon">
-                    <p class="browseP">123</p>
-                    <img src="../static/images/comments.png" class="commentIcon">
-                    <p class="commentP">12</p>
-                </div>
-                <div class="singleNote" data-am-scrollspy="{animation:'fade'}">
-                    <a href="" class="titleP" target="_blank">ABCDEFGHIGKLMNOPQRSTUVWXYZABCDEFGHIGKLMNOPQRSTUVWXYZABCDEFGHIGKLMNOPQRSTUVWXYZ</a>
-                    <a href="" class="userP" target="_blank">OPQRST</a>
-                    <p class="timeP">2017-07-18 12:12:12</p>
-                    <img src="../static/images/browse.png" class="browseIcon">
-                    <p class="browseP">123</p>
-                    <img src="../static/images/comments.png" class="commentIcon">
-                    <p class="commentP">12</p>
-                </div>
-                <div class="singleNote" data-am-scrollspy="{animation:'fade'}">
-                    <a href="../jsp/noteDetails.jsp" class="titleP" target="_blank">ABCDEFGHIGKLMNOPQ</a>
-                    <a href="" class="userP" target="_blank">ABCDEFG</a>
-                    <p class="timeP">2017-07-18 12:12:12</p>
-                    <img src="../static/images/browse.png" class="browseIcon">
-                    <p class="browseP">123</p>
-                    <img src="../static/images/comments.png" class="commentIcon">
-                    <p class="commentP">12</p>
-                </div>
-                <div class="singleNote" data-am-scrollspy="{animation:'fade'}">
-                    <a href="" class="titleP" target="_blank">ABCDEFGHIGKLMNOPQRSTUVWXYZABCDEFG</a>
-                    <a href="" class="userP" target="_blank">HIJKLMN</a>
-                    <p class="timeP">2017-07-18 12:12:12</p>
-                    <img src="../static/images/browse.png" class="browseIcon">
-                    <p class="browseP">123</p>
-                    <img src="../static/images/comments.png" class="commentIcon">
-                    <p class="commentP">12</p>
-                </div>
-                <div class="singleNote" data-am-scrollspy="{animation:'fade'}">
-                    <a href="" class="titleP" target="_blank">ABCDEFGHIGKLMNOPQRSTUVWXYZABCDEFGHIGKLMNOPQRSTUVWXYZABCDEFGHIGKLMNOPQRSTUVWXYZ</a>
-                    <a href="" class="userP" target="_blank">OPQRST</a>
-                    <p class="timeP">2017-07-18 12:12:12</p>
-                    <img src="../static/images/browse.png" class="browseIcon">
-                    <p class="browseP">123</p>
-                    <img src="../static/images/comments.png" class="commentIcon">
-                    <p class="commentP">12</p>
-                </div>
-                <div class="singleNote" data-am-scrollspy="{animation:'fade'}">
-                    <a href="../jsp/noteDetails.jsp" class="titleP" target="_blank">ABCDEFGHIGKLMNOPQ</a>
-                    <a href="" class="userP" target="_blank">ABCDEFG</a>
-                    <p class="timeP">2017-07-18 12:12:12</p>
-                    <img src="../static/images/browse.png" class="browseIcon">
-                    <p class="browseP">123</p>
-                    <img src="../static/images/comments.png" class="commentIcon">
-                    <p class="commentP">12</p>
-                </div>
-                <div class="singleNote" data-am-scrollspy="{animation:'fade'}">
-                    <a href="" class="titleP" target="_blank">ABCDEFGHIGKLMNOPQRSTUVWXYZABCDEFG</a>
-                    <a href="" class="userP" target="_blank">HIJKLMN</a>
-                    <p class="timeP">2017-07-18 12:12:12</p>
-                    <img src="../static/images/browse.png" class="browseIcon">
-                    <p class="browseP">123</p>
-                    <img src="../static/images/comments.png" class="commentIcon">
-                    <p class="commentP">12</p>
-                </div>
-                <div class="singleNote" data-am-scrollspy="{animation:'fade'}">
-                    <a href="" class="titleP" target="_blank">ABCDEFGHIGKLMNOPQRSTUVWXYZABCDEFGHIGKLMNOPQRSTUVWXYZABCDEFGHIGKLMNOPQRSTUVWXYZ</a>
-                    <a href="" class="userP" target="_blank">OPQRST</a>
-                    <p class="timeP">2017-07-18 12:12:12</p>
-                    <img src="../static/images/browse.png" class="browseIcon">
-                    <p class="browseP">123</p>
-                    <img src="../static/images/comments.png" class="commentIcon">
-                    <p class="commentP">12</p>
-                </div>
+                <%--<div class="singleNote" data-am-scrollspy="{animation:'fade'}">--%>
+                    <%--<a href="../jsp/noteDetails.jsp" class="titleP" target="_blank">ABCDEFGHIGKLMNOPQ</a>--%>
+                    <%--<a href="" class="userP" target="_blank">ABCDEFG</a>--%>
+                    <%--<p class="timeP">2017-07-18 12:12:12</p>--%>
+                    <%--<img src="../static/images/browse.png" class="browseIcon">--%>
+                    <%--<p class="browseP">123</p>--%>
+                    <%--<img src="../static/images/comments.png" class="commentIcon">--%>
+                    <%--<p class="commentP">12</p>--%>
+                <%--</div>--%>
+                <%--<div class="singleNote" data-am-scrollspy="{animation:'fade'}">--%>
+                    <%--<a href="" class="titleP" target="_blank">ABCDEFGHIGKLMNOPQRSTUVWXYZABCDEFG</a>--%>
+                    <%--<a href="" class="userP" target="_blank">HIJKLMN</a>--%>
+                    <%--<p class="timeP">2017-07-18 12:12:12</p>--%>
+                    <%--<img src="../static/images/browse.png" class="browseIcon">--%>
+                    <%--<p class="browseP">123</p>--%>
+                    <%--<img src="../static/images/comments.png" class="commentIcon">--%>
+                    <%--<p class="commentP">12</p>--%>
+                <%--</div>--%>
+                <%--<div class="singleNote" data-am-scrollspy="{animation:'fade'}">--%>
+                    <%--<a href="" class="titleP" target="_blank">ABCDEFGHIGKLMNOPQRSTUVWXYZABCDEFGHIGKLMNOPQRSTUVWXYZABCDEFGHIGKLMNOPQRSTUVWXYZ</a>--%>
+                    <%--<a href="" class="userP" target="_blank">OPQRST</a>--%>
+                    <%--<p class="timeP">2017-07-18 12:12:12</p>--%>
+                    <%--<img src="../static/images/browse.png" class="browseIcon">--%>
+                    <%--<p class="browseP">123</p>--%>
+                    <%--<img src="../static/images/comments.png" class="commentIcon">--%>
+                    <%--<p class="commentP">12</p>--%>
+                <%--</div>--%>
+                <%--<div class="singleNote" data-am-scrollspy="{animation:'fade'}">--%>
+                    <%--<a href="../jsp/noteDetails.jsp" class="titleP" target="_blank">ABCDEFGHIGKLMNOPQ</a>--%>
+                    <%--<a href="" class="userP" target="_blank">ABCDEFG</a>--%>
+                    <%--<p class="timeP">2017-07-18 12:12:12</p>--%>
+                    <%--<img src="../static/images/browse.png" class="browseIcon">--%>
+                    <%--<p class="browseP">123</p>--%>
+                    <%--<img src="../static/images/comments.png" class="commentIcon">--%>
+                    <%--<p class="commentP">12</p>--%>
+                <%--</div>--%>
+                <%--<div class="singleNote" data-am-scrollspy="{animation:'fade'}">--%>
+                    <%--<a href="" class="titleP" target="_blank">ABCDEFGHIGKLMNOPQRSTUVWXYZABCDEFG</a>--%>
+                    <%--<a href="" class="userP" target="_blank">HIJKLMN</a>--%>
+                    <%--<p class="timeP">2017-07-18 12:12:12</p>--%>
+                    <%--<img src="../static/images/browse.png" class="browseIcon">--%>
+                    <%--<p class="browseP">123</p>--%>
+                    <%--<img src="../static/images/comments.png" class="commentIcon">--%>
+                    <%--<p class="commentP">12</p>--%>
+                <%--</div>--%>
+                <%--<div class="singleNote" data-am-scrollspy="{animation:'fade'}">--%>
+                    <%--<a href="" class="titleP" target="_blank">ABCDEFGHIGKLMNOPQRSTUVWXYZABCDEFGHIGKLMNOPQRSTUVWXYZABCDEFGHIGKLMNOPQRSTUVWXYZ</a>--%>
+                    <%--<a href="" class="userP" target="_blank">OPQRST</a>--%>
+                    <%--<p class="timeP">2017-07-18 12:12:12</p>--%>
+                    <%--<img src="../static/images/browse.png" class="browseIcon">--%>
+                    <%--<p class="browseP">123</p>--%>
+                    <%--<img src="../static/images/comments.png" class="commentIcon">--%>
+                    <%--<p class="commentP">12</p>--%>
+                <%--</div>--%>
+                <%--<div class="singleNote" data-am-scrollspy="{animation:'fade'}">--%>
+                    <%--<a href="../jsp/noteDetails.jsp" class="titleP" target="_blank">ABCDEFGHIGKLMNOPQ</a>--%>
+                    <%--<a href="" class="userP" target="_blank">ABCDEFG</a>--%>
+                    <%--<p class="timeP">2017-07-18 12:12:12</p>--%>
+                    <%--<img src="../static/images/browse.png" class="browseIcon">--%>
+                    <%--<p class="browseP">123</p>--%>
+                    <%--<img src="../static/images/comments.png" class="commentIcon">--%>
+                    <%--<p class="commentP">12</p>--%>
+                <%--</div>--%>
+                <%--<div class="singleNote" data-am-scrollspy="{animation:'fade'}">--%>
+                    <%--<a href="" class="titleP" target="_blank">ABCDEFGHIGKLMNOPQRSTUVWXYZABCDEFG</a>--%>
+                    <%--<a href="" class="userP" target="_blank">HIJKLMN</a>--%>
+                    <%--<p class="timeP">2017-07-18 12:12:12</p>--%>
+                    <%--<img src="../static/images/browse.png" class="browseIcon">--%>
+                    <%--<p class="browseP">123</p>--%>
+                    <%--<img src="../static/images/comments.png" class="commentIcon">--%>
+                    <%--<p class="commentP">12</p>--%>
+                <%--</div>--%>
+                <%--<div class="singleNote" data-am-scrollspy="{animation:'fade'}">--%>
+                    <%--<a href="" class="titleP" target="_blank">ABCDEFGHIGKLMNOPQRSTUVWXYZABCDEFGHIGKLMNOPQRSTUVWXYZABCDEFGHIGKLMNOPQRSTUVWXYZ</a>--%>
+                    <%--<a href="" class="userP" target="_blank">OPQRST</a>--%>
+                    <%--<p class="timeP">2017-07-18 12:12:12</p>--%>
+                    <%--<img src="../static/images/browse.png" class="browseIcon">--%>
+                    <%--<p class="browseP">123</p>--%>
+                    <%--<img src="../static/images/comments.png" class="commentIcon">--%>
+                    <%--<p class="commentP">12</p>--%>
+                <%--</div>--%>
+                <%--<div class="singleNote" data-am-scrollspy="{animation:'fade'}">--%>
+                    <%--<a href="../jsp/noteDetails.jsp" class="titleP" target="_blank">ABCDEFGHIGKLMNOPQ</a>--%>
+                    <%--<a href="" class="userP" target="_blank">ABCDEFG</a>--%>
+                    <%--<p class="timeP">2017-07-18 12:12:12</p>--%>
+                    <%--<img src="../static/images/browse.png" class="browseIcon">--%>
+                    <%--<p class="browseP">123</p>--%>
+                    <%--<img src="../static/images/comments.png" class="commentIcon">--%>
+                    <%--<p class="commentP">12</p>--%>
+                <%--</div>--%>
+                <%--<div class="singleNote" data-am-scrollspy="{animation:'fade'}">--%>
+                    <%--<a href="" class="titleP" target="_blank">ABCDEFGHIGKLMNOPQRSTUVWXYZABCDEFG</a>--%>
+                    <%--<a href="" class="userP" target="_blank">HIJKLMN</a>--%>
+                    <%--<p class="timeP">2017-07-18 12:12:12</p>--%>
+                    <%--<img src="../static/images/browse.png" class="browseIcon">--%>
+                    <%--<p class="browseP">123</p>--%>
+                    <%--<img src="../static/images/comments.png" class="commentIcon">--%>
+                    <%--<p class="commentP">12</p>--%>
+                <%--</div>--%>
+                <%--<div class="singleNote" data-am-scrollspy="{animation:'fade'}">--%>
+                    <%--<a href="" class="titleP" target="_blank">ABCDEFGHIGKLMNOPQRSTUVWXYZABCDEFGHIGKLMNOPQRSTUVWXYZABCDEFGHIGKLMNOPQRSTUVWXYZ</a>--%>
+                    <%--<a href="" class="userP" target="_blank">OPQRST</a>--%>
+                    <%--<p class="timeP">2017-07-18 12:12:12</p>--%>
+                    <%--<img src="../static/images/browse.png" class="browseIcon">--%>
+                    <%--<p class="browseP">123</p>--%>
+                    <%--<img src="../static/images/comments.png" class="commentIcon">--%>
+                    <%--<p class="commentP">12</p>--%>
+                <%--</div>--%>
+                <%--<div class="singleNote" data-am-scrollspy="{animation:'fade'}">--%>
+                    <%--<a href="../jsp/noteDetails.jsp" class="titleP" target="_blank">ABCDEFGHIGKLMNOPQ</a>--%>
+                    <%--<a href="" class="userP" target="_blank">ABCDEFG</a>--%>
+                    <%--<p class="timeP">2017-07-18 12:12:12</p>--%>
+                    <%--<img src="../static/images/browse.png" class="browseIcon">--%>
+                    <%--<p class="browseP">123</p>--%>
+                    <%--<img src="../static/images/comments.png" class="commentIcon">--%>
+                    <%--<p class="commentP">12</p>--%>
+                <%--</div>--%>
+                <%--<div class="singleNote" data-am-scrollspy="{animation:'fade'}">--%>
+                    <%--<a href="" class="titleP" target="_blank">ABCDEFGHIGKLMNOPQRSTUVWXYZABCDEFG</a>--%>
+                    <%--<a href="" class="userP" target="_blank">HIJKLMN</a>--%>
+                    <%--<p class="timeP">2017-07-18 12:12:12</p>--%>
+                    <%--<img src="../static/images/browse.png" class="browseIcon">--%>
+                    <%--<p class="browseP">123</p>--%>
+                    <%--<img src="../static/images/comments.png" class="commentIcon">--%>
+                    <%--<p class="commentP">12</p>--%>
+                <%--</div>--%>
+                <%--<div class="singleNote" data-am-scrollspy="{animation:'fade'}">--%>
+                    <%--<a href="" class="titleP" target="_blank">ABCDEFGHIGKLMNOPQRSTUVWXYZABCDEFGHIGKLMNOPQRSTUVWXYZABCDEFGHIGKLMNOPQRSTUVWXYZ</a>--%>
+                    <%--<a href="" class="userP" target="_blank">OPQRST</a>--%>
+                    <%--<p class="timeP">2017-07-18 12:12:12</p>--%>
+                    <%--<img src="../static/images/browse.png" class="browseIcon">--%>
+                    <%--<p class="browseP">123</p>--%>
+                    <%--<img src="../static/images/comments.png" class="commentIcon">--%>
+                    <%--<p class="commentP">12</p>--%>
+                <%--</div>--%>
+                <%--<div class="singleNote" data-am-scrollspy="{animation:'fade'}">--%>
+                    <%--<a href="../jsp/noteDetails.jsp" class="titleP" target="_blank">ABCDEFGHIGKLMNOPQ</a>--%>
+                    <%--<a href="" class="userP" target="_blank">ABCDEFG</a>--%>
+                    <%--<p class="timeP">2017-07-18 12:12:12</p>--%>
+                    <%--<img src="../static/images/browse.png" class="browseIcon">--%>
+                    <%--<p class="browseP">123</p>--%>
+                    <%--<img src="../static/images/comments.png" class="commentIcon">--%>
+                    <%--<p class="commentP">12</p>--%>
+                <%--</div>--%>
+                <%--<div class="singleNote" data-am-scrollspy="{animation:'fade'}">--%>
+                    <%--<a href="" class="titleP" target="_blank">ABCDEFGHIGKLMNOPQRSTUVWXYZABCDEFG</a>--%>
+                    <%--<a href="" class="userP" target="_blank">HIJKLMN</a>--%>
+                    <%--<p class="timeP">2017-07-18 12:12:12</p>--%>
+                    <%--<img src="../static/images/browse.png" class="browseIcon">--%>
+                    <%--<p class="browseP">123</p>--%>
+                    <%--<img src="../static/images/comments.png" class="commentIcon">--%>
+                    <%--<p class="commentP">12</p>--%>
+                <%--</div>--%>
+                <%--<div class="singleNote" data-am-scrollspy="{animation:'fade'}">--%>
+                    <%--<a href="" class="titleP" target="_blank">ABCDEFGHIGKLMNOPQRSTUVWXYZABCDEFGHIGKLMNOPQRSTUVWXYZABCDEFGHIGKLMNOPQRSTUVWXYZ</a>--%>
+                    <%--<a href="" class="userP" target="_blank">OPQRST</a>--%>
+                    <%--<p class="timeP">2017-07-18 12:12:12</p>--%>
+                    <%--<img src="../static/images/browse.png" class="browseIcon">--%>
+                    <%--<p class="browseP">123</p>--%>
+                    <%--<img src="../static/images/comments.png" class="commentIcon">--%>
+                    <%--<p class="commentP">12</p>--%>
+                <%--</div>--%>
             </div>
             <div style="text-align: center; width: 100%;">
                 <ul class="menu" style="left: 25%; margin-top: 1%" id="notesMenu">

@@ -3,6 +3,7 @@ package nju.controller;
 import com.github.pagehelper.PageInfo;
 import javafx.geometry.Pos;
 import nju.domain.*;
+import nju.exception.InvalidInfoException;
 import nju.service.BBSService;
 import nju.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -97,6 +98,7 @@ public class ForumController {
 
 
         Post post = new Post(uid, title, create_time, board);
+        post.setPost_content(content);
         bbsService.insertPost(post);
         map.put("success", "true");
 
@@ -114,7 +116,7 @@ public class ForumController {
 
         Post post = bbsService.findPostByPostID(id);
         System.out.println(post.getPost_topic());
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String time = simpleDateFormat.format(post.getPost_createtime());
 
         PageInfo repliesByPost = bbsService.getRepliesByPost(id, page, 20);
@@ -150,7 +152,6 @@ public class ForumController {
     @ResponseBody
     public Map<String, Object> insertReply(HttpServletRequest request) {
         Map<String, Object> map = new HashMap();
-        String title = request.getParameter("title");
         String content = request.getParameter("content");
         int id = Integer.parseInt(request.getParameter("id"));
         String uid = request.getParameter("uid");
@@ -158,14 +159,17 @@ public class ForumController {
         Date date = new Date();
         Long create_time = date.getTime();
         System.out.println(create_time);
-        System.out.println(title);
         System.out.println(content);
         System.out.println(id);
 
 
         Reply reply = new Reply(uid, content, id, create_time, 1, 0);
-        bbsService.insertReply(reply);
-        map.put("success", "true");
+        try {
+            bbsService.insertReply(reply);
+            map.put("success", "true");
+        }catch (InvalidInfoException e){
+            map.put("success", "false");
+        }
 
         return map;
     }

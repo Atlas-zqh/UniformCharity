@@ -32,40 +32,40 @@
     <div id="notePart">
         <h1>帖子详情</h1>
         <div id="noteTitle">
-            <p>ABCDEFGHIGKLMNOPQRSTUVWXYZABCDEFG</p>
+            <p></p>
         </div>
         <div id="noteContent">
-            <div class="singleNote">
-                <div class="userBlock">
-                    <img src="../static/images/mainBG1.png">
-                    <a href="" class="userP">ABCDEF</a>
-                </div>
-                <div class="contentBlock">
-                    <p class="contentP">ABCDEFGHIGKLMNOP</p>
-                    <p class="timeP">2017-07-07 12:12:12</p>
-                    <p class="floorP">楼主</p>
-                </div>
-            </div>
-            <div class="singleNote">
-                <div class="userBlock">
-                    <img src="../static/images/mainBG1.png">
-                    <a href="" class="userP">ABCDEF</a>
-                </div>
-                <div class="contentBlock">
-                    <p class="contentP">QRSTUVWXYZABCDEFGQRSTUVWXYZABCDEFGQRSTUVWXYZABCDEFGQRSTUVWXYZABCDEFGQRSTUVWXYZABCDEFG</p>
-                    <p class="timeP">2017-07-07 12:12:12</p>
-                </div>
-            </div>
-            <div class="singleNote">
-                <div class="userBlock">
-                    <img src="../static/images/mainBG1.png">
-                    <a href="" class="userP">ABCDEF</a>
-                </div>
-                <div class="contentBlock">
-                    <p class="contentP">QRSTUVWXYZABCDEFGQRSTUVWXYZABCDEFGQRSTUVWXYZABCDEFGQRSTUVWXYZABCDEFGQRSTUVWXYZABCDEFG</p>
-                    <p class="timeP">2017-07-07 12:12:12</p>
-                </div>
-            </div>
+            <%--<div class="singleNote">--%>
+                <%--<div class="userBlock">--%>
+                    <%--<img src="../static/images/mainBG1.png">--%>
+                    <%--<a href="" class="userP">ABCDEF</a>--%>
+                <%--</div>--%>
+                <%--<div class="contentBlock">--%>
+                    <%--<p class="contentP">ABCDEFGHIGKLMNOP</p>--%>
+                    <%--<p class="timeP">2017-07-07 12:12:12</p>--%>
+                    <%--<p class="floorP">楼主</p>--%>
+                <%--</div>--%>
+            <%--</div>--%>
+            <%--<div class="singleNote">--%>
+                <%--<div class="userBlock">--%>
+                    <%--<img src="../static/images/mainBG1.png">--%>
+                    <%--<a href="" class="userP">ABCDEF</a>--%>
+                <%--</div>--%>
+                <%--<div class="contentBlock">--%>
+                    <%--<p class="contentP">QRSTUVWXYZABCDEFGQRSTUVWXYZABCDEFGQRSTUVWXYZABCDEFGQRSTUVWXYZABCDEFGQRSTUVWXYZABCDEFG</p>--%>
+                    <%--<p class="timeP">2017-07-07 12:12:12</p>--%>
+                <%--</div>--%>
+            <%--</div>--%>
+            <%--<div class="singleNote">--%>
+                <%--<div class="userBlock">--%>
+                    <%--<img src="../static/images/mainBG1.png">--%>
+                    <%--<a href="" class="userP">ABCDEF</a>--%>
+                <%--</div>--%>
+                <%--<div class="contentBlock">--%>
+                    <%--<p class="contentP">QRSTUVWXYZABCDEFGQRSTUVWXYZABCDEFGQRSTUVWXYZABCDEFGQRSTUVWXYZABCDEFGQRSTUVWXYZABCDEFG</p>--%>
+                    <%--<p class="timeP">2017-07-07 12:12:12</p>--%>
+                <%--</div>--%>
+            <%--</div>--%>
         </div>
         <div style="background-color: #d5e0ea; width: 80%; margin-left: 10%;">
         <div style="text-align: center; width: 100%; padding: 2%;">
@@ -83,15 +83,11 @@
         </div>
         <div class="postArea">
             <div style="display: inline">
-                <h4 style="margin-left: 10%; position: absolute;">标题</h4>
-                <input type="text" class="postTitle">
-            </div>
-            <div style="display: inline">
-                <h4 style="margin-left: 10%; position: absolute; margin-top: 5%;">正文</h4>
+                <h4 style="margin-left: 10%; position: absolute; margin-top: 3%;">跟帖</h4>
                 <textarea class="postContent"></textarea>
             </div>
             <button class="mybt" onclick="postReply()"
-                    style="margin-left: 52%; font-size: 1vmax; width: 8%; border-width: medium; position: absolute; margin-top: 27%; white-space: nowrap">发表帖子
+                    style="margin-left: 52%; font-size: 1vmax; width: 8%; border-width: medium; position: absolute; margin-top: 25%; white-space: nowrap">发表帖子
             </button>
 
 
