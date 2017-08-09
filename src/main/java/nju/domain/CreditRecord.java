@@ -29,6 +29,16 @@ public class CreditRecord {
         this.createTime = createTime;
     }
 
+    public CreditRecord(String userid, Integer recordID, Integer recordtype, String clothesID, Double variance, Double afterCredits, Long createTime) {
+        this.userid = userid;
+        this.recordID = recordID;
+        this.recordtype = recordtype;
+        this.clothesID = clothesID;
+        this.variance = variance;
+        this.afterCredits = afterCredits;
+        this.createTime = createTime;
+    }
+
     public String getUserid() {
         return userid;
     }

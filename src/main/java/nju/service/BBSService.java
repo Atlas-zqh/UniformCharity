@@ -4,6 +4,7 @@ import com.github.pagehelper.PageInfo;
 import nju.domain.Board;
 import nju.domain.Post;
 import nju.domain.Reply;
+import nju.exception.InvalidInfoException;
 
 import java.util.List;
 
@@ -53,14 +54,14 @@ public interface BBSService {
      *
      * @param reply 回复
      */
-    void insertReply(Reply reply);
-
-    /**
-     * 更新帖子
-     *
-     * @param post 帖子
-     */
-    void updatePost(Post post);
+    void insertReply(Reply reply) throws InvalidInfoException;
+//
+//    /**
+//     * 更新帖子
+//     *
+//     * @param post 帖子
+//     */
+//    void updatePost(Post post);
 
     /**
      * 根据板块ID搜索板块

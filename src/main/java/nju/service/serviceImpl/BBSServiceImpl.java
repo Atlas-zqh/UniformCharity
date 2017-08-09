@@ -5,6 +5,7 @@ import com.github.pagehelper.PageInfo;
 import nju.domain.Board;
 import nju.domain.Post;
 import nju.domain.Reply;
+import nju.exception.InvalidInfoException;
 import nju.mapper.BBSMapper;
 import nju.service.BBSService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -83,19 +84,27 @@ public class BBSServiceImpl implements BBSService {
      * @param reply 回复
      */
     @Override
-    public void insertReply(Reply reply) {
-        bbsMapper.insertReply(reply);
+    public void insertReply(Reply reply) throws InvalidInfoException {
+        Post post = bbsMapper.findPostByPostID(reply.getReply_pid());
+        if (post == null) {
+            throw new InvalidInfoException("帖子不存在");
+        } else {
+            post.setPost_updatetime(System.currentTimeMillis());
+            post.setPost_commentcount(post.getPost_commentcount() + 1);
+            bbsMapper.updatePost(post);
+            bbsMapper.insertReply(reply);
+        }
     }
 
-    /**
-     * 更新帖子
-     *
-     * @param post 帖子
-     */
-    @Override
-    public void updatePost(Post post) {
-        bbsMapper.updatePost(post);
-    }
+//    /**
+//     * 更新帖子
+//     *
+//     * @param post 帖子
+//     */
+//    @Override
+//    public void updatePost(Post post) {
+//        bbsMapper.updatePost(post);
+//    }
 
     /**
      * 根据板块ID搜索板块
@@ -116,7 +125,7 @@ public class BBSServiceImpl implements BBSService {
      */
     @Override
     public Post findPostByPostID(Integer post_id) {
-        return findPostByPostID(post_id);
+        return bbsMapper.findPostByPostID(post_id);
     }
 
     /**

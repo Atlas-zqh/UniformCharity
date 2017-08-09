@@ -21,12 +21,14 @@ public class Post {
 
     private Boolean post_islocked;
 
+    private String post_content;
+
     /**
      * board id
      */
     private Integer post_bid;
 
-    public Post(Integer post_id, String post_uid, String post_topic, Integer post_commentcount, Long post_updatetime, Long post_createtime, Boolean post_islocked, Integer post_bid) {
+    public Post(Integer post_id, String post_uid, String post_topic, Integer post_commentcount, Long post_updatetime, Long post_createtime, Boolean post_islocked, String post_content, Integer post_bid) {
         this.post_id = post_id;
         this.post_uid = post_uid;
         this.post_topic = post_topic;
@@ -35,6 +37,7 @@ public class Post {
         this.post_createtime = post_createtime;
         this.post_islocked = post_islocked;
         this.post_bid = post_bid;
+        this.post_content = post_content;
     }
 
     public Post(String post_uid, String post_topic, Long post_createtime, Integer post_bid) {
@@ -107,5 +110,13 @@ public class Post {
 
     public void setPost_bid(Integer post_bid) {
         this.post_bid = post_bid;
+    }
+
+    public String getPost_content() {
+        return post_content;
+    }
+
+    public void setPost_content(String post_content) {
+        this.post_content = post_content;
     }
 }
