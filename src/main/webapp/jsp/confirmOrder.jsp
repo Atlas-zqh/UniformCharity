@@ -57,29 +57,28 @@
                 <tr>
                     <th style="width: 10%">
                         <div class="imageBox">
-                            <img src="../images/mainBG2.png" class="largeImage" id="pic"/>
+                            <img src="" class="largeImage" id="pic"/>
                         </div>
                     </th>
                     <th style="width: 20%">
-                        <a href="" id="title">南京外国语学校仙林分校夏季男款短袖</a>
+                        <a href="" id="title"></a>
                     </th>
                     <th style="width: 20%" id="school">
-                        南京外国语学校仙林分校
+
                     </th>
                     <th style="width: 10%" id="type">
-                        夏季短袖
+
                     </th>
                     <th style="width: 10%" id="size">
-                        M
+
                     </th>
                     <th style="width: 10%" id="gender">
-                        男
+
                     </th>
-                    <th style="width: 10%" id="user">
-                        <a href=""> ADMIN</a>
+                    <th style="width: 10%">
+                        <a href="" id="user"></a>
                     </th>
                     <th style="width: 10%" id="price">
-                        ¥188.00
                     </th>
                 </tr>
                 </tbody>
@@ -88,7 +87,7 @@
 
         <div id="pricePart">
             <h5 style="float: left; margin-top: 3%;">需付款:</h5>
-            <h3 id="priceLabel" style="float: right">¥188.00</h3>
+            <h3 id="priceLabel" style="float: right"></h3>
             <button class="mybt" style="float: right; width: 60%; font-size: 1.5vmax;" onclick="pay()">立即付款</button>
         </div>
     </div>

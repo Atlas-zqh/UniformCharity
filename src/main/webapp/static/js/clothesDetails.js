@@ -39,6 +39,7 @@ function findClothesByID(clothesID) {
                     $('#status').html("已售出");
                 }
                 $('#pic').attr("src", data.pics[0]);
+                $('#price').html("¥ " + data.price);
 
                 for(var i = 0; i < data.pics.length; i++){
                     $('#box' + (i + 1)).css("display", "table-cell");
@@ -60,6 +61,6 @@ function findClothesByID(clothesID) {
 }
 
 function buyClothes() {
-    var clothesID = $('#clothesID').val();
+    var clothesID = $('#clothesID').html();
     window.location.href = "../jsp/confirmOrder.jsp?id=" + clothesID;
 }

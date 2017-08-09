@@ -207,6 +207,8 @@ public class ClothesController {
         Clothes clothes = clothesService.findClothesByClothesID(id);
         System.out.println(clothes.getClothesID());
 
+        double price = typeService.findType(clothes.getSchoolName(), clothes.getClothesType()).getClothesPrice();
+
         try {
             User user = userService.findUserByID(clothes.getDonorID());
 
@@ -215,6 +217,7 @@ public class ClothesController {
                 map.put("clothes", clothes);
                 map.put("pics", pics);
                 map.put("user", user);
+                map.put("price", price);
             } else {
                 map.put("success", "false");
             }

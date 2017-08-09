@@ -68,7 +68,9 @@
             <p id="size" class="contentP" style="position: absolute; margin-left: 10%; margin-top: 25.3%"></p>
             <h5 style="position: absolute; margin-left: 1%; margin-top: 30%">状态:</h5>
             <p id="status" class="contentP" style="position: absolute; margin-left: 10%; margin-top: 30.3%"></p>
-            <button class="mybt" style="position:absolute; margin-top: 35%; margin-left: 20%; font-size: 1.5vmax; width: 20%" onclick="buyClothes()">立 即 购 买</button>
+            <h5 style="position: absolute; margin-left: 1%; margin-top: 35%">价格:</h5>
+            <h3 id="price" class="" style="position: absolute; margin-left: 10%; margin-top: 34.5%"></h3>
+            <button class="mybt" style="position:absolute; margin-top: 38%; margin-left: 23%; font-size: 1.5vmax; width: 20%" onclick="buyClothes()">立 即 购 买</button>
         </div>
     </div>
 

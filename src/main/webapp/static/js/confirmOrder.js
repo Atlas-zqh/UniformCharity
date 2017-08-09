@@ -19,22 +19,24 @@ function findClothesByID(clothesID) {
         success: function (data) {
             // alert("success");
             if (data && data.success == "true") {
-                $('#title').val(data.clothes.schoolName + '-' + data.clothes.type);
-                $('#title').onclick = function () {
+                $('#title').html(data.clothes.schoolName + '-' + data.clothes.clothesType);
+                $('#title').click(function () {
+                    window.open("../jsp/clothesDetails.jsp?id=" + clothesID);
+                });
+                $('#user').html(data.user.username);
+                $('#user').click(function () {
                     //todo
                     window.open("");
-                };
-                $('#user').val(data.clothes.donor);
-                $('#user').onclick = function () {
-                    //todo
-                    window.open("");
-                };
-                $('#school').val(data.clothes.schoolName);
-                $('#type').val(data.clothes.type);
-                $('#gender').val(data.clothes.gender);
-                $('#size').val(data.clothes.size);
-                $('#pic').attr("src", data.clothes.picurl);
+                });
+                $('#school').html(data.clothes.schoolName);
+                $('#type').html(data.clothes.clothesType);
+                $('#gender').html(data.clothes.gender);
+                $('#size').html(data.clothes.clothessize);
+                $('#pic').attr("src", data.pics[0]);
+                $('#price').html("¥ " + data.price);
                 // $('#largePic1').attr("src", data.clothes.picurl);
+                $('#priceLabel').html("¥ " + data.price);
+
             } else {
                 fail_alert("无结果");
             }
@@ -59,7 +61,7 @@ function pay() {
             if (data.result == "success") {
 
                 var orderID = data.orderID;
-                window.location.href = "../jsp/payed.jsp?orderID=" + orderID;
+                window.location.href = "../jsp/pay.jsp?orderID=" + orderID;
                 return;
             }
             if (data.result == "fail") {
