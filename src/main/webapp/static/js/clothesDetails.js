@@ -8,7 +8,6 @@ function changePic(id) {
 
 $(document).ready(function () {
     var clothesID = (decodeURIComponent(getArgsFromHref(window.location.href, 'id')).split('#')[0]);
-    alert(clothesID);
     findClothesByID(clothesID);
 });
 
@@ -23,20 +22,32 @@ function findClothesByID(clothesID) {
         success: function (data) {
             // alert("success");
             if (data && data.success == "true") {
-                $('#title').val(data.clothes.schoolName + '-' + data.clothes.type);
-                $('#clothesID').val(data.clothes.clothesID);
-                $('#user').val(data.clothes.donor);
+                $('#title').html(data.clothes.schoolName + '-' + data.clothes.clothesType);
+                $('#clothesID').html(data.clothes.clothesID);
+                $('#user').html(data.user.username);
                 $('#user').onclick = function () {
                     //todo
                     window.open("");
                 };
-                $('#school').val(data.clothes.schoolName);
-                $('#type').val(data.clothes.type);
-                $('#gender').val(data.clothes.gender);
-                $('#size').val(data.clothes.size);
-                $('#status').val(data.clothes.status);
-                $('#pic').attr("src", data.clothes.picurl);
-                $('#pic1').attr("src", data.clothes.picurl);
+                $('#school').html(data.clothes.schoolName);
+                $('#type').html(data.clothes.clothesType);
+                $('#gender').html(data.clothes.gender);
+                $('#size').html(data.clothes.clothessize);
+                if(data.clothes.status == 'Available'){
+                    $('#status').html("未售出");
+                }else{
+                    $('#status').html("已售出");
+                }
+                $('#pic').attr("src", data.pics[0]);
+
+                for(var i = 0; i < data.pics.length; i++){
+                    $('#box' + (i + 1)).css("display", "table-cell");
+                    $('#pic' + (i + 1)).attr("src", data.pics[i]);
+                    var img = document.createElement('img');
+                    img.src = data.pics[i];
+                    var detail = document.getElementById('detailPart');
+                    detail.appendChild(img);
+                }
                 // $('#largePic1').attr("src", data.clothes.picurl);
             } else {
                 fail_alert("无结果");

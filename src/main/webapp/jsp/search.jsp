@@ -34,6 +34,7 @@
             var gender = decodeURIComponent(getArgsFromHref(window.location.href, 'gender'));
             var size = decodeURIComponent(getArgsFromHref(window.location.href, 'size'));
             var page = decodeURIComponent(getArgsFromHref(window.location.href, 'page'));
+            clearSelectList('type');
             getAllTypesOfSchool('type', school);
             initPage(page);
 //            showResult(school, type, gender, size, page);
@@ -104,7 +105,7 @@
         <%--</div>--%>
 
     </div>
-    <div style="text-align: center;">
+    <div style="text-align: center; padding-bottom: 3%;">
         <ul class="menu" id="menu">
             <li><a href="#" onclick="previous()">Previous</a></li>
             <li><a href="#">1</a></li>
@@ -112,7 +113,7 @@
         </ul>
     </div>
 
-    <div class="foot" style="height: 2.8%;bottom: -2.8%; position: absolute; width: 100%;">
+    <div class="foot" style="bottom: 0%; position: absolute; width: 100%;">
         <p class="navLabel" align="center" style="position: absolute; text-align: center">与子同袍项目组 copyright@2017</p>
         <%--<p style="position:absolute; display: inline-block; z-index: 2; color: grey; margin-top: 0%; text-align: center; line-height: 100%; width: 100%; font-size: 90%;">与子同袍项目组 copyright@2017</p>--%>
     </div>

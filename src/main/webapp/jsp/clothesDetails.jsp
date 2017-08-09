@@ -33,41 +33,41 @@
         <div id="imageArea">
             <div style="">
                 <div class="imageBox" style="width: 36vmax; height: 36vmax; margin-left: 5%; margin-top: 5%">
-                    <img src="../static/images/mainBG2.png" class="largeImage" id="pic"/>
+                    <img src="" class="largeImage" id="pic"/>
                 </div>
                 <br>
-                <div class="imageBox" style="width: 9vmax; height: 9vmax;" >
-                    <img src="../static/images/mainBG2.png" class="largeImage" id="pic1" onmousemove="changePic('pic1')"/>
+                <div class="imageBox" style="width: 9vmax; height: 9vmax; display: table-cell" id="box1">
+                    <img src="" class="largeImage" id="pic1" onmousemove="changePic('pic1')"/>
                 </div>
-                <div class="imageBox" style="width: 9vmax; height: 9vmax; display: table-cell">
-                    <img src="../static/images/mainBG1.png" class="largeImage" id="pic2" onmousemove="changePic('pic2')"/>
+                <div class="imageBox" style="width: 9vmax; height: 9vmax; display: none" id="box2">
+                    <img src="" class="largeImage" id="pic2" onmousemove="changePic('pic2')"/>
                 </div>
-                <div class="imageBox" style="width: 12vmax; height: 12vmax; display: none">
-                    <img src="../static/images/mainBG2.png" class="largeImage" id="pic3" onmousemove="changePic('pic3')"/>
+                <div class="imageBox" style="width: 9vmax; height: 9vmax; display: none" id="box3">
+                    <img src="" class="largeImage" id="pic3" onmousemove="changePic('pic3')"/>
                 </div>
-                <div class="imageBox" style="width: 9vmax; height: 9vmax; display: none">
-                    <img src="../static/images/mainBG2.png" class="largeImage" id="pic4" onmousemove="changePic('pic4')"/>
+                <div class="imageBox" style="width: 9vmax; height: 9vmax; display: none" id="box4">
+                    <img src="" class="largeImage" id="pic4" onmousemove="changePic('pic4')"/>
                 </div>
             </div>
         </div>
         <div id="infoArea">
-            <h2 id="title">南京外国语学校仙林分校夏季男款短袖</h2>
+            <h2 id="title"></h2>
             <br>
             <h5 style="position: absolute; margin-left: 1%; margin-top: 0%">衣物ID:</h5>
-            <p id="clothesID" class="contentP" style="position: absolute; margin-left: 10%; margin-top: 0.3%">111111</p>
+            <p id="clothesID" class="contentP" style="position: absolute; margin-left: 10%; margin-top: 0.3%"></p>
             <h5 style="position: absolute; margin-left: 1%; margin-top: 5%;">捐赠者:</h5>
-            <a href="" id="user" style="position: absolute; margin-left: 10%; margin-top: 5.3%;">123456(XXX)</a>
+            <a href="" id="user" style="position: absolute; margin-left: 10%; margin-top: 5.3%;"></a>
             <h5 style="position: absolute; margin-left: 1%; margin-top: 10%">学校:</h5>
             <p id="school" class="contentP" style="position: absolute; margin-left: 10%; margin-top: 10.3%">
-                南京外国语学校仙林分校</p>
+                </p>
             <h5 style="position: absolute; margin-left: 1%; margin-top: 15%">款式:</h5>
-            <p id="type" class="contentP" style="position: absolute; margin-left: 10%; margin-top: 15.3%">夏季短袖T恤</p>
+            <p id="type" class="contentP" style="position: absolute; margin-left: 10%; margin-top: 15.3%"></p>
             <h5 style="position: absolute; margin-left: 1%; margin-top: 20%">性别:</h5>
-            <p id="gender" class="contentP" style="position: absolute; margin-left: 10%; margin-top: 20.3%">男</p>
+            <p id="gender" class="contentP" style="position: absolute; margin-left: 10%; margin-top: 20.3%"></p>
             <h5 style="position: absolute; margin-left: 1%; margin-top: 25%">尺寸:</h5>
-            <p id="size" class="contentP" style="position: absolute; margin-left: 10%; margin-top: 25.3%">M</p>
+            <p id="size" class="contentP" style="position: absolute; margin-left: 10%; margin-top: 25.3%"></p>
             <h5 style="position: absolute; margin-left: 1%; margin-top: 30%">状态:</h5>
-            <p id="status" class="contentP" style="position: absolute; margin-left: 10%; margin-top: 30.3%">未卖出</p>
+            <p id="status" class="contentP" style="position: absolute; margin-left: 10%; margin-top: 30.3%"></p>
             <button class="mybt" style="position:absolute; margin-top: 35%; margin-left: 20%; font-size: 1.5vmax; width: 20%" onclick="buyClothes()">立 即 购 买</button>
         </div>
     </div>
@@ -91,9 +91,9 @@
     <!--<img src="../images/mainBG2.png"/></li>-->
     <!--</ul>-->
     <!--</div>-->
-    <div class="foot" style="height: 2.8%; position: absolute; width: 100%;">
-        <p class="navLabel" align="center" style="position: absolute; top:97.2%; text-align: center">与子同袍项目组
-            copyright@2017</p>
+    <div class="foot" style="bottom: 0%; position: absolute; width: 100%;">
+        <p class="navLabel" align="center" style="position: absolute; text-align: center">与子同袍项目组 copyright@2017</p>
+        <%--<p style="position:absolute; display: inline-block; z-index: 2; color: grey; margin-top: 0%; text-align: center; line-height: 100%; width: 100%; font-size: 90%;">与子同袍项目组 copyright@2017</p>--%>
     </div>
 </div>
 

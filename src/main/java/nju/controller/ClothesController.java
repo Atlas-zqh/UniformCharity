@@ -203,17 +203,24 @@ public class ClothesController {
         System.out.println(id);
         List<String> pics = clothesService.findPicsByClothesID(id);
         System.out.println("有几张图片： " + pics.size());
-        for(int i = 0; i < pics.size(); i++){
-            System.out.println(pics.get(i));
-        }
+
         Clothes clothes = clothesService.findClothesByClothesID(id);
         System.out.println(clothes.getClothesID());
 
-        if (clothes != null) {
-            map.put("success", "true");
-            map.put("clothes", clothes);
-        } else {
+        try {
+            User user = userService.findUserByID(clothes.getDonorID());
+
+            if (clothes != null) {
+                map.put("success", "true");
+                map.put("clothes", clothes);
+                map.put("pics", pics);
+                map.put("user", user);
+            } else {
+                map.put("success", "false");
+            }
+        }catch (Exception e){
             map.put("success", "false");
+
         }
 
         return map;

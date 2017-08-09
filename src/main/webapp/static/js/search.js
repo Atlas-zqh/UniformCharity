@@ -97,6 +97,7 @@ function initPage(page){
         success : function(data) {
             // alert("success");
             if (data && data.success == "true") {
+                clearSelectList('type');
                 addOption('type', "null", "");
                 $.each(data.type, function(i, item) {
                     addOption('type', item, item);
