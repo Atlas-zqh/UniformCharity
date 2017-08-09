@@ -148,4 +148,71 @@ public class OrderController {
         }
         return map;
     }
+
+    @RequestMapping(value = "/cancelOrder", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Object> cancelOrder(HttpServletRequest request) {
+        Map<String, Object> map = new HashedMap();
+
+        String orderID = request.getParameter("orderID");
+        System.out.println("orderID");
+
+        //获得订单
+        Order order = orderService.findOrderByOrderID(orderID);
+        order.setOrderStatus(Order.Invalid);
+
+        double price = getOrderPrice(order);
+
+        orderService.updateOrder(order, price);
+        map.put("success", "true");
+
+        return map;
+    }
+
+    @RequestMapping(value = "/payOrder", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Object> payOrder(HttpServletRequest request) {
+        Map<String, Object> map = new HashedMap();
+
+        String orderID = request.getParameter("orderID");
+        System.out.println("orderID");
+        //获得订单
+        Order order = orderService.findOrderByOrderID(orderID);
+        order.setOrderStatus(Order.ToBeTraded);
+
+        double price = getOrderPrice(order);
+
+        orderService.updateOrder(order, price);
+        map.put("success", "true");
+
+        return map;
+    }
+
+    @RequestMapping(value = "/finishOrder", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Object> finishOrder(HttpServletRequest request) {
+        Map<String, Object> map = new HashedMap();
+
+        String orderID = request.getParameter("orderID");
+        System.out.println("orderID");
+        //获得订单
+        Order order = orderService.findOrderByOrderID(orderID);
+        order.setOrderStatus(Order.Confirmed_Paied);
+
+        double price = getOrderPrice(order);
+
+        orderService.updateOrder(order, price);
+        map.put("success", "true");
+
+        return map;
+    }
+
+    private double getOrderPrice(Order order){
+
+        Clothes clothes = clothesService.findClothesByClothesID(order.getClothesID());
+
+        double price = typeService.findType(clothes.getSchoolName(), clothes.getClothesType()).getClothesPrice();
+
+        return price;
+    }
 }

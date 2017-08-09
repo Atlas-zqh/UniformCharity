@@ -232,8 +232,8 @@ function addSingleOrder(date, orderID, picurl, clothesID, userID, price, status)
     status = parseInt(data.order.orderStatus);
     if (status == -1) {
         th5.appendChild(document.createTextNode("已撤销订单"));
-        button.appendChild(document.createTextNode("删除订单"));
-        button.onclick = processOrder("删除订单");
+        button.appendChild(document.createTextNode("查看订单"));
+        button.onclick = processOrder("查看订单");
     }
     if (status == 1) {
         th5.appendChild(document.createTextNode("待交易订单"));
@@ -247,25 +247,45 @@ function addSingleOrder(date, orderID, picurl, clothesID, userID, price, status)
     }
     if (status == 3) {
         th5.appendChild(document.createTextNode("已完成订单"));
-        button.appendChild(document.createTextNode("删除订单"));
-        button.onclick = processOrder("删除订单");
+        button.appendChild(document.createTextNode("查看订单"));
+        button.onclick = processOrder("查看订单");
     }
     th6.appendChild(button);
     tr2.appendChild(th6);
 }
 
-function processOrder(type) {
+function processOrder(type, orderID) {
     //todo 订单操作
-    if (type == "删除订单") {
-
+    if (type == "查看订单") {
+        window.location.href("../jsp/orderDetail.jsp?id=" + orderID);
     }
     if (type == "确认交易") {
-
+        jQuery.ajax({
+            type: 'POST',
+            url: '/orderAction/finishOrder',
+            data: {
+                "orderID": orderID
+            },
+            dataType: 'json',
+            success: function (data) {
+                if (data && data.success == "true") {
+                    window.location.href("../jsp/order.jsp");
+                    success_alert("确认成功");
+                } else {
+                    fail_alert("确认失败，网络似乎不太好...");
+                }
+            },
+            error: function () {
+                fail_alert("哎呀呀，网络似乎不太好...")
+            }
+        });
     }
     if (type == "立即付款") {
-
+        window.location.href("../jsp/pay.jsp?id=" + orderID);
     }
 }
+
+
 
 function initPageLabel(current, max) {
     if (max == 0)

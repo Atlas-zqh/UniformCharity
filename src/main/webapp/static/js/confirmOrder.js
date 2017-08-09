@@ -91,7 +91,7 @@ function findOrderByID(id) {
                 var status = parseInt(data.order.orderStatus);
                 if (status == -1) {
                     $('#status').html("已撤销订单");
-                    $('#doButton').val("删除订单");
+                    $('#doButton').css("display", "none");
                     $('#image').css("display", "none");
                 }
                 if (status == 1) {
@@ -107,7 +107,7 @@ function findOrderByID(id) {
                 }
                 if (status == 3) {
                     $('#status').html("已完成订单");
-                    $('#doButton').val("删除订单");
+                    $('#doButton').css("display", "none");
                     $('#image').attr("src", "../static/images/procedure4.png");
                 }
                 $('#pic').attr("src", data.pic);
@@ -133,20 +133,52 @@ function findOrderByID(id) {
 }
 
 function processOrder() {
-    var buttonType = $('#doButton').val();
-    //todo 订单操作
-    if (buttonType == "删除订单") {
-
+    var type = $('#doButton').val();
+    if (type == "确认交易") {
+        jQuery.ajax({
+            type: 'POST',
+            url: '/orderAction/finishOrder',
+            data: {
+                "orderID": orderID
+            },
+            dataType: 'json',
+            success: function (data) {
+                if (data && data.success == "true") {
+                    window.location.href("../jsp/order.jsp");
+                    success_alert("确认成功");
+                } else {
+                    fail_alert("确认失败，网络似乎不太好...");
+                }
+            },
+            error: function () {
+                fail_alert("哎呀呀，网络似乎不太好...")
+            }
+        });
     }
-    if (buttonType == "确认交易") {
-
-    }
-    if (buttonType == "立即付款") {
-
+    if (type == "立即付款") {
+        window.location.href("../jsp/pay.jsp?id=" + orderID);
     }
 }
 
 function cancelOrder() {
     var orderID = $('#orderID').val();
-    //todo 取消订单
+    jQuery.ajax({
+        type: 'POST',
+        url: '/orderAction/cancelOrder',
+        data: {
+            "orderID": orderID
+        },
+        dataType: 'json',
+        success: function (data) {
+            if (data && data.success == "true") {
+                window.location.href("../jsp/confirmOrder.jsp?id=" + orderID);
+                success_alert("取消订单成功");
+            } else {
+                fail_alert("确认失败，网络似乎不太好...");
+            }
+        },
+        error: function () {
+            fail_alert("哎呀呀，网络似乎不太好...")
+        }
+    });
 }
