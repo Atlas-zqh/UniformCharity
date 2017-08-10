@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="../static/css/upload.css"/>
     <link rel="stylesheet" href="../static/css/main.css"/>
     <link rel="stylesheet" href="../static/css/theme.css"/>
+    <title>与子同袍</title>
 
     <script type="text/javascript" src="../static/js/jquery-3.2.1.min.js"></script>
     <%--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>--%>
@@ -242,7 +243,7 @@
             <option value="XXXL">XXXL</option>
         </select>
     </div>
-    <button class="mybt" style="margin-top: 125%; margin-left: 25%; width: 50%; font-size: 1.5vmax" onclick="search()">搜 索</button>
+    <button class="mybt" style="margin-top: 125%; margin-left: 25%; width: 50%; font-size: 1.5vw" onclick="search()">搜 索</button>
 </div>
 <div id="bulletinPage">
 </div>

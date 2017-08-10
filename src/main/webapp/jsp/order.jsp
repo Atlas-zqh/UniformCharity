@@ -10,7 +10,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>与子同袍-我的订单</title>
     <link rel="stylesheet" type="text/css" href="../static/css/order.css">
     <link rel="stylesheet" type="text/css" href="../static/css/alert.css">
     <link rel="stylesheet" type="text/css" href="../static/css/amazeui.css">

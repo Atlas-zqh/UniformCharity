@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="../static/css/menu.css"/>
 
     <script type="text/javascript" src="../static/js/jquery-3.2.1.min.js"></script>
-    <title>我的主页</title>
+    <title>与子同袍-我的主页</title>
     <script>
         $(document).ready(function () {
             getInfo();
