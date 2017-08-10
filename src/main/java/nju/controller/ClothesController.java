@@ -2,9 +2,11 @@ package nju.controller;
 
 import com.github.pagehelper.PageInfo;
 import nju.domain.Clothes;
+import nju.domain.Order;
 import nju.domain.Type;
 import nju.domain.User;
 import nju.service.ClothesService;
+import nju.service.OrderService;
 import nju.service.TypeService;
 import nju.service.UserService;
 import nju.utils.ClothesAttributes;
@@ -43,6 +45,9 @@ public class ClothesController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private OrderService orderService;
 
     @RequestMapping(value = "/uploadClothes", method = RequestMethod.POST)
     @ResponseBody
@@ -221,9 +226,43 @@ public class ClothesController {
             } else {
                 map.put("success", "false");
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             map.put("success", "false");
 
+        }
+
+        return map;
+    }
+
+    @RequestMapping(value = "/findClothesByUser", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Object> findClothesByUser(HttpServletRequest request) {
+        Map<String, Object> map = new HashedMap();
+        String type = request.getParameter("type");
+        String id = request.getParameter("id");
+
+        List<Clothes> clothes = new ArrayList<>();
+        List<String> pics = new ArrayList<>();
+        List<Double> prices = new ArrayList<>();
+        if (type.equals("1")) {
+//            clothesService.f
+
+        } else {
+            PageInfo<Order> orderPageInfo = orderService.findOrderByBuyerID(id, 1, 10000);
+            List<Order> orders = orderPageInfo.getList();
+
+            String clotheID = "";
+            for (int i = 0; i < orders.size(); i++) {
+                clotheID = clothes.get(i).getClothesID();
+                List<String> clothesPics = clothesService.findPicsByClothesID(clotheID);
+                pics.add(clothesPics.get(0));
+                clothes.add(clothesService.findClothesByClothesID(orders.get(i).getClothesID()));
+                prices.add(typeService.findType(clothes.get(i).getSchoolName(), clothes.get(i).getClothesType()).getClothesPrice());
+            }
+            map.put("success", "true");
+            map.put("clothes", clothes);
+            map.put("pics", pics);
+            map.put("prices", prices);
         }
 
         return map;

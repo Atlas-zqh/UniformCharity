@@ -74,3 +74,72 @@ function changeSchool(id, school_id){
     // alert(school);
     getAllTypesOfSchool(id, school);
 }
+
+function addSingleClothesPanel(clothes, pic, price) {
+
+    var clothe_list = document.getElementById('contentPage');
+    var clothe_item = document.createElement("div");
+    clothe_item.className = "singleClothe";
+    clothe_list.appendChild(clothe_item);
+
+    var img = document.createElement("img");
+    img.src = pic;
+    img.onclick = function () {
+        window.open("../jsp/clothesDetails.jsp?id=" + clothes.clothesID);
+    };
+    img.style.cursor = "pointer";
+    clothe_item.appendChild(img);
+
+    var priceLabel = document.createElement("p");
+    priceLabel.className = "priceP";
+    priceLabel.appendChild(document.createTextNode('¥' + price));
+    clothe_item.appendChild(priceLabel);
+
+    var nameLabel = document.createElement("a");
+    nameLabel.className = "nameP";
+    nameLabel.appendChild(document.createTextNode(clothes.schoolName + '-' + clothes.clothesType));
+    nameLabel.href = "../jsp/clothesDetails.jsp?id=" + clothes.clothesID;
+    nameLabel.target = "_blank";
+    clothe_item.appendChild(nameLabel);
+
+    var userLabel = document.createElement("a");
+    userLabel.className = "userP";
+    userLabel.appendChild(document.createTextNode(clothes.clothesID));
+    userLabel.href = "../jsp/clothesDetails.jsp?id=" + clothes.clothesID;
+    userLabel.target = "_blank";
+    clothe_item.appendChild(userLabel);
+
+    var genderLabel = document.createElement("p");
+    genderLabel.className = "infoP";
+    genderLabel.appendChild(document.createTextNode(clothes.gender + '  ' + clothes.clothessize));
+    clothe_item.appendChild(genderLabel);
+}
+
+function getAllClothes(s){
+    var id = getCookie('id');
+    jQuery.ajax({
+        type: 'POST',
+        url: '/clothesAction/findClothesByUser',
+        data: {
+            "id": id,
+            "type": s
+        },
+        dataType: 'json',
+        success: function (data) {
+            // alert("success");
+            if (data && data.success == "true") {
+                if(data.clothes.length == 0) {
+                    $('#noClothesLabel').css("display", "none");
+                    $.each(data.clothes, function (i, item) {
+                        addSingleClothesPanel(item, data.pics[i], data.prices[i]);
+                    });
+                }
+            } else {
+                fail_alert("无结果");
+            }
+        },
+        error: function () {
+            fail_alert("哎呀呀，网络似乎不太好...")
+        }
+    });
+}

@@ -156,15 +156,8 @@ function addSingleClothesPanel(clothes, pic, username, price) {
 
     var genderLabel = document.createElement("p");
     genderLabel.className = "infoP";
-    genderLabel.appendChild(document.createTextNode(clothes.gender));
+    genderLabel.appendChild(document.createTextNode(clothes.gender + '  ' + clothes.clothessize));
     clothe_item.appendChild(genderLabel);
-
-    var sizeLabel = document.createElement("p");
-    sizeLabel.className = "infoP";
-    sizeLabel.appendChild(document.createTextNode(clothes.clothessize));
-    sizeLabel.style.marginLeft = "20%";
-    clothe_item.appendChild(sizeLabel);
-
 }
 
 function setOpenUrl(clothesID){
