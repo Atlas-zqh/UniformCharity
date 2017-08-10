@@ -2982,7 +2982,7 @@ fieldset[disabled] .am-checkbox-inline {
   border-radius: 0;
   font-family: Yuppy SC;
   color: #2a4c70;
-  font-size: 1.5vmax;
+  font-size: 1.5vw;
   text-shadow: -0.1vmax 0.1vmax 0 lightgrey;
 }
 .am-nav > li > a:hover,

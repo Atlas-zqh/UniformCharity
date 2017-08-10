@@ -85,9 +85,9 @@
                 style="background-image: url(/static/images/male.png); top: 24%; margin-left: 10%; background-color: #ffffff"
                 id="briefGender"></button>
         <p class="labelP" style="margin-left: 2%; top: 50%">姓 名:</p>
-        <p class="contentP" style="left: 30%; top: 53%" id="briefName">XXX</p>
+        <p class="contentP" style="left: 30%; top: 51%" id="briefName">XXX</p>
         <p class="labelP" style="margin-left: 2%; top: 75%">学 校:</p>
-        <p class="contentP" style="left: 30%; top: 78%" id="briefSchool">XXX</p>
+        <p class="contentP" style="left: 30%; top: 76%" id="briefSchool">XXX</p>
         <a href="#" style="top: 90%; left: 65%" onclick="showInfoContent()">查 看 详 情 ></a>
 
         <!--<a href="404.html" class="iconButton" style="background-image: url(/images/infoBG.png)">aaa</a>-->
@@ -124,7 +124,7 @@
     <div id="" class="briefInfoBlock" style="top: 67%;">
         <p class="titleP">公 益 信 息</p>
         <p class="labelP" style="top: 25%; margin-left: 2%;">积 分:</p>
-        <p class="contentP" style="left: 30%; top: 28%" id="briefScore">X X X</p>
+        <p class="contentP" style="left: 30%; top: 26%" id="briefScore">X X X</p>
         <p class="labelP" style="top: 45%; margin-left: 2%;">最 新 记 录:</p>
         <p class="contentP" style="margin-left: 2%; top: 60%">暂无公益记录</p>
         <a href="#" style="top: 90%; left: 65%" onclick="showPublicContent()">查 看 更 多 ></a>
@@ -141,7 +141,7 @@
         </div>
         <p class="labelP" style="left: 5%; top: 12%">用 户 名:</p>
         <input class="contentP" id="usernameLabel" style="left: 23%; top: 12%" value="" disabled>
-        <img style="top: 24.5%; left: 4%;">
+        <img style="top: 24%; left: 4%;" id="genderImage">
         <p class="labelP" style="left: 8.5%; top: 24%">姓 名:</p>
         <input class="contentP" id="nameLabel" style="left: 23%; top: 24%" value="" disabled>
 

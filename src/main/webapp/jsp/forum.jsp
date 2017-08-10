@@ -233,7 +233,7 @@
                     <textarea class="postContent" id="postContent"></textarea>
                 </div>
                 <button class="mybt" onclick="postTopic()"
-                        style="position: absolute; margin-left: 68%; margin-top: 28%; font-size: 1vmax; width: 8%; white-space: nowrap; overflow: visible; font-size: 1.5vmax">
+                        style="position: absolute; margin-left: 66%; margin-top: 28%; font-size: 1vmax; width: 10%; white-space: nowrap; overflow: visible; font-size: 1.5vw">
                     发表帖子
                 </button>
 

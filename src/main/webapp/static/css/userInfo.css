@@ -71,10 +71,10 @@ li {
     display: inline-block;
     position: absolute;
     font-family: "Yuppy SC";
-    font-size: 2.5vmax;
+    font-size: 2.5vw;
     white-space: nowrap;
     color: #DABD61;
-    text-shadow: -0.2vmax 0.2vmax 0 #7A6420;
+    text-shadow: -0.2vw 0.2vw 0 #7A6420;
     margin-top: 0%;
     margin-left: 4%;
 }
@@ -83,10 +83,10 @@ li {
     display: inline-block;
     position: absolute;
     font-family: "Yuppy SC";
-    font-size: 1.5vmax;
+    font-size: 1.5vw;
     white-space: nowrap;
     color: #DABD61;
-    text-shadow: -0.1vmax 0.1vmax 0 #7A6420;
+    text-shadow: -0.1vw 0.1vw 0 #7A6420;
     margin-top: 0%;
 }
 
@@ -94,10 +94,10 @@ li {
     display: inline-block;
     position: absolute;
     font-family: "Yuppy SC";
-    font-size: 1.5vmax;
+    font-size: 1.5vw;
     white-space: nowrap;
     color: #87b4bf;
-    text-shadow: -0.1vmax 0.1vmax 0 #315770;
+    text-shadow: -0.1vw 0.1vw 0 #315770;
     margin-top: 0%;
     text-decoration: none
 }
@@ -106,12 +106,12 @@ li {
     display: inline-block;
     position: absolute;
     font-family: "Helvetica";
-    font-size: 1vmax;
+    font-size: 1vw;
     /*white-space: nowrap;*/
     color: #ffffff;
     /*text-shadow: -0.1vmax 0.1vmax 0 #7A6420;*/
     margin-top: 0%;
-    letter-spacing: 0.15vmax;
+    letter-spacing: 0.15vw;
     width: 90%;
     overflow: scroll;
     word-wrap: break-word;
@@ -125,7 +125,7 @@ li {
     color: #142535;
     /*text-shadow: -0.1vmax 0.1vmax 0 grey;*/
     width: 50%;
-    font-size: 1vmax;
+    font-size: 1vw;
 }
 
 #userPage .briefInfoBlock a:hover {
@@ -154,10 +154,10 @@ li {
     display: inline-block;
     position: absolute;
     font-family: "Yuppy SC";
-    font-size: 3.5vmax;
+    font-size: 3.5vw;
     white-space: nowrap;
     color: #DABD61;
-    text-shadow: -0.2vmax 0.2vmax 0 #7A6420;
+    text-shadow: -0.2vw 0.2vw 0 #7A6420;
     margin-top: 0%;
     margin-left: 4%;
 }
@@ -166,10 +166,10 @@ li {
     display: inline-block;
     position: absolute;
     font-family: "Yuppy SC";
-    font-size: 1.5vmax;
+    font-size: 1.5vw;
     white-space: nowrap;
     color: #87b4bf;
-    text-shadow: -0.1vmax 0.1vmax 0 #315770;
+    text-shadow: -0.1vw 0.1vw 0 #315770;
     margin-top: 0%;
     text-decoration: none
 }
@@ -178,17 +178,17 @@ li {
     display: inline-block;
     position: absolute;
     font-family: "Helvetica";
-    font-size: 1vmax;
+    font-size: 1vw;
     /*white-space: nowrap;*/
     color: #142535;
     /*text-shadow: -0.1vmax 0.1vmax 0 #7A6420;*/
-    letter-spacing: 0.2vmax;
+    letter-spacing: 0.2vw;
     width: 40%;
 }
 
 #userPage .contentBlock img {
     border: 0;
-    background: url(../images/male.png) no-repeat;
+    /*background: url(../images/male.png) no-repeat;*/
     width: 2vw;
     height: 2vw;
     display: block;
@@ -202,7 +202,7 @@ li {
     /*width: 100%;*/
     text-align: center;
     vertical-align: middle;
-    font-size: 1.1vmax;
+    font-size: 1.1vw;
 }
 
 #userPage .contentBlock a:hover {
@@ -225,10 +225,10 @@ li {
     display: inline-block;
     position: absolute;
     font-family: "Yuppy SC";
-    font-size: 2vmax;
+    font-size: 2vw;
     white-space: nowrap;
     color: #DABD61;
-    text-shadow: -0.1vmax 0.1vmax 0 #7A6420;
+    text-shadow: -0.1vw 0.1vw 0 #7A6420;
     margin-top: 0%;
     margin-left: 4%;
 }
@@ -261,7 +261,7 @@ li {
     display: inline-block;
     position: absolute;
     font-family: "Yuppy SC";
-    font-size: 1.5vmax;
+    font-size: 1.5vw;
     white-space: nowrap;
     color: #87b4bf;
     text-shadow: -0.1vmax 0.1vmax 0 #315770;
@@ -306,7 +306,7 @@ li {
     padding-bottom: 0%;
     text-align: center;
     color: white;
-    font-size: 1vmax;
+    font-size: 1vw;
     width: 15%;
     margin-left: 83%;
     margin-top: 3.7%
@@ -336,11 +336,11 @@ li {
     display: inline-block;
     position: absolute;
     font-family: "Yuppy SC";
-    font-size: 2vmax;
+    font-size: 2vw;
     white-space: nowrap;
     color: #DABD61;
-    text-shadow: -0.1vmax 0.1vmax 0 #7A6420;
-    letter-spacing: 0.2vmax;
+    text-shadow: -0.1vw 0.1vw 0 #7A6420;
+    letter-spacing: 0.2vw;
     text-decoration: none;
     left: 60%;
     /*top: -0.5%;*/
@@ -350,11 +350,11 @@ li {
     display: inline-block;
     position: absolute;
     font-family: "Yuppy SC";
-    font-size: 3vmax;
+    font-size: 3vw;
     white-space: nowrap;
     color: #87b4bf;
-    text-shadow: -0.2vmax 0.2vmax 0 #315770;
-    letter-spacing: 0.2vmax;
+    text-shadow: -0.2vw 0.2vw 0 #315770;
+    letter-spacing: 0.2vw;
     text-decoration: none;
 }
 

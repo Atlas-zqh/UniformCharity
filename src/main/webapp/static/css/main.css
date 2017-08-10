@@ -470,7 +470,7 @@ ul li p {
     display: inline-block;
     position: absolute;
     font-family: "Yuppy SC";
-    font-size: 3vmax;
+    font-size: 3vw;
     color: white;
     text-shadow: -0.05em 0.05em 0px lightgrey;
     margin-top: 27%;

@@ -194,11 +194,11 @@
 
     <p class="label"
        style="background: url(/static/images/GenderLabel.png); background-size: cover; margin-left: 18.5%; margin-top: 95%; width: 15%"></p>
-    <button id="maleBut" class="mybt" style="margin-left: 5%; margin-top: 101%; width: 15.7%; font-size: 1.5vmax;">男</button>
+    <button id="maleBut" class="mybt" style="margin-left: 5%; margin-top: 101%; width: 15.7%; font-size: 1.5vw;">男</button>
 
     <p style="position:absolute; color: white; margin-top: 101%; margin-left: 24%; text-align: center; font-size: 200%; width: 3%;">
         |</p>
-    <button id="femaleBut" class="mybt" style="margin-left: 29%; margin-top: 101%; width: 15.7%; font-size: 1.5vmax;">女</button>
+    <button id="femaleBut" class="mybt" style="margin-left: 29%; margin-top: 101%; width: 15.7%; font-size: 1.5vw;">女</button>
 
     <p class="label"
        style="background: url(/static/images/PhoneLabel.png); background-size: cover; margin-left: 68.5%; margin-top: 95%; width: 15%"></p>
@@ -209,9 +209,9 @@
 
 <div id="searchPanel" style="display: none">
     <h3 style="position:absolute; display: inline-block; margin-top: 20%; margin-left: 41%">性&nbsp别</h3>
-    <button class="mybt" style="margin-top: 30%; margin-left: 25%; width: 20%;  font-size: 1.5vmax" id="male" onclick="male()">男</button>
+    <button class="mybt" style="margin-top: 30%; margin-left: 25%; width: 20%;  font-size: 1.5vw" id="male" onclick="male()">男</button>
     <p class="genderLine" style="margin-top: 28.8%">|</p>
-    <button class="mybt" style="margin-top: 30%; margin-left: 54.7%; width: 20%;  font-size: 1.5vmax" id="female" onclick="female()">女</button>
+    <button class="mybt" style="margin-top: 30%; margin-left: 54.7%; width: 20%;  font-size: 1.5vw" id="female" onclick="female()">女</button>
     <h3 style="position:absolute; display: inline-block; margin-top: 45%; margin-left: 41%">学&nbsp校</h3>
     <div class="dropdown"
          style="margin-top: 55%; font-family: 'Yuppy SC'; text-shadow: -0.1vmax 0.1vmax 0 grey; font-size: 1.5vmax">

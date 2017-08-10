@@ -26,7 +26,11 @@ function showInfoContent(){
                 $('#phoneLabel').val(data.user.phone);
                 $('#schoolLabel').val(data.user.school);
                 $('#iconLabel').css("background-image", "url(" + data.user.picurl + ")");
-
+                if (data.user.gender == '男'){
+                    $('#genderImage').css("background-image", "url(../images/male.png)");
+                } else {
+                    $('#genderImage').css("background-image", "url(../images/female.png)");
+                }
                 return;
             }else{
                 fail_alert("哎呀，获取信息失败...");
