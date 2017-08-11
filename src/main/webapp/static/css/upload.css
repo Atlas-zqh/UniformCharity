@@ -1,15 +1,64 @@
-#uploadView {
-    z-index: 100;
-    position: absolute;
-    display: none;
-    width: 60%;
-    padding-bottom: 1%;
-    margin-top: 10%;
-    margin-left: 20%;
-    background: white;
+body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+
 }
 
-#uploadView .closeButton {
+html {
+    background: #BCD5D8;
+}
+
+#uploadArea {
+    /* left: 0%; */
+    position: fixed;
+    display: inline-block;
+    /* top: 0%; */
+    z-index: 1000;
+    /*margin-left: 1.6%;*/
+    /*margin-top: 1.6%;*/
+    /*margin-right: 1.6%;*/
+    /*margin-right: 1.6%;*/
+    /*margin: 1.6%;*/
+    /* background-size: cover; */
+    /* min-height: 0%; */
+    top: 2.8%;
+    left: 1.6%;
+    width: 96.8%;
+    height: 94.4%;
+    /*margin-top: 10%;*/
+    /* height: 0; */
+    background: white;
+    /*padding-bottom: 5%;*/
+}
+
+#uploadArea #mainPart {
+    position: absolute;
+    display: inline-block;
+    width: 95%;
+    margin-left: 2.5%;
+    margin-top: 2.5%;
+    height: 91%;
+    /*padding-bottom: 2%;*/
+    background-color: white;
+    border: 2px solid #f5d76b;
+    box-shadow: 0 0 5px 2px #DABD61;
+}
+
+#uploadArea #mainPart #uploadView {
+    z-index: 100;
+    position: absolute;
+    /*display: none;*/
+    width: 60%;
+    padding-bottom: 1%;
+    /*margin-top: 10%;*/
+    /*margin-left: 20%;*/
+    height: 90%;
+    background-color: #ffffff00;
+}
+
+#uploadArea #mainPart #uploadView .closeButton {
     background-image: url(../images/close.png);
     background-color: #ffffff00;
     width: 2.3%;
@@ -23,7 +72,7 @@
     background-size: cover;
 }
 
-#uploadView h1 {
+#uploadArea #mainPart #uploadView h1 {
     font-family: "Yuppy SC";
     display: inline-block;
     position: absolute;
@@ -34,7 +83,7 @@
     font-size: 200%;
 }
 
-#uploadView p {
+#uploadArea #mainPart #uploadView p {
     font-family: "Yuppy SC";
     display: inline-block;
     color: #87b4bf;
@@ -44,7 +93,7 @@
     overflow: scroll;
 }
 
-#uploadView .select {
+#uploadArea #mainPart #uploadView .select {
     margin-left: 2%;
     width: 80%;
     padding-bottom: 11%;
@@ -52,34 +101,34 @@
     display: inline-block;
     /* min-width: 259px; */
     /* min-height: 34px; */
-    overflow: scroll;
+    /*overflow: scroll;*/
     font-size: 1.5vmax;
 }
 
-#uploadView ul{
+#uploadArea #mainPart #uploadView ul{
     display: block;
     position: absolute;
     /* margin-top: 10%; */
-    margin-left: 45%;
+    margin-left: 30%;
     /*overflow: scroll;*/
     width: 40%;
-    height: 80%;
+    height: 100%;
     font-family: Helvetica;
     text-shadow: none;
 }
 
-#uploadView li {
+#uploadArea #mainPart #uploadView li {
     width: 100%;
     list-style:none;
     display: inline-block;
-    overflow: auto;
+    overflow: visible;
 }
 
-#uploadView .removeButton {
+#uploadArea #mainPart #uploadView .removeButton {
     background-image: url(../images/close.png);
     background-color: #ffffff00;
-    width: 2.3%;
-    padding-top: 8%;
+    width: 10%;
+    padding-bottom: 10;
     display: block;
     position: absolute;
     cursor: pointer;
@@ -88,4 +137,22 @@
     margin-top: -7%;
     background-size: cover;
     z-index: 100;
+}
+
+#uploadArea #mainPart #uploadedView {
+    z-index: 100;
+    position: absolute;
+    /*display: none;*/
+    width: 40%;
+    padding-bottom: 1%;
+    /*margin-top: 10%;*/
+    /*margin-left: 20%;*/
+    height: 90%;
+    /* background-color: #111111; */
+    margin-left: 55%;
+    margin-top: -4%;
+    border: thin solid #a3dbe6;
+    border-top: none;
+    border-right: none;
+    border-bottom: none;
 }

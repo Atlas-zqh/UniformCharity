@@ -218,30 +218,27 @@
 
 .dropzone {
     /*min-height: 150px;*/
-    border: 2px solid #d6bd6f;
-    box-shadow: 0 0 5px 2px #d6bd6f;
+    border: 2px solid #a3dbe6;
+    box-shadow: 0 0 5px 2px #87b4bf;
     background: white;
     /*padding: 20px 20px;*/
     /*width: 91%;*/
     /*padding-bottom: 20%;*/
-    max-height: 20%;
+    /* max-height: 20%; */
     /*margin-top: -6.5%;*/
     /*margin-left: 8%;*/
     font-family: Yuppy SC;
     color: #87b4bf;
     text-shadow: -0.1vmax 0.1vmax 0 #315770;
-    margin-top: 10%;
-    margin-left: 10%;
-    width: 40%;
+    margin-top: -2%;
+    margin-left: 15%;
+    width: 12vw;
     z-index: 10000;
     min-height: 40vh;
+    height: 95%;
     /*padding-top: 40%;*/
     /*position: absolute;*/
 }
-
-
-
-
 
 .dropzone.dz-clickable {
     cursor: pointer;
@@ -282,7 +279,7 @@
     position: relative;
     display: inline-block;
     vertical-align: top;
-    margin: 16px;
+    margin: 1vw;
     min-height: 100px;
 }
 
@@ -338,7 +335,7 @@
     top: 0;
     left: 0;
     opacity: 0;
-    font-size: 13px;
+    font-size: 1vmax;
     min-width: 100%;
     max-width: 100%;
     padding: 2em 1em;
@@ -349,7 +346,7 @@
 
 .dropzone .dz-preview .dz-details .dz-size {
     margin-bottom: 1em;
-    font-size: 16px;
+    font-size: 1vw;
 }
 
 .dropzone .dz-preview .dz-details .dz-filename {
@@ -394,6 +391,9 @@
     position: relative;
     display: block;
     z-index: 10;
+    width: 8vw;
+    height: 8vw;
+    margin-left: 0.7vw;
 }
 
 .dropzone .dz-preview .dz-image img {
@@ -466,12 +466,12 @@
     z-index: 1000;
     pointer-events: none;
     position: absolute;
-    height: 16px;
-    left: 50%;
-    top: 50%;
-    margin-top: -8px;
-    width: 80px;
-    margin-left: -40px;
+    height: 1vmax;
+    /* left: 50%; */
+    /* top: 45%; */
+    margin-top: -4.5vw;
+    width: 80%;
+    margin-left: 10%;
     background: rgba(255, 255, 255, 0.9);
     -webkit-transform: scale(1);
     border-radius: 8px;

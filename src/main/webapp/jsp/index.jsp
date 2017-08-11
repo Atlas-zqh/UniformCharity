@@ -95,8 +95,8 @@
 
 <div id="mainPage"></div>
 <p class="titleP">现在就加入我们！</p>
-<button class="uploadBut" onclick="showUploadView()">立即捐衣! ></button>
-<%@ include file="uploadClothes.jsp" %>
+<button class="uploadBut" onclick="window.location.href='../jsp/uploadClothes.jsp'">立即捐衣! ></button>
+<%--<%@ include file="uploadClothes.jsp" %>--%>
 
 
 <div id="loginPanel">
