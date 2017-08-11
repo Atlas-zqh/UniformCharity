@@ -388,8 +388,8 @@ h5{
     display: table-cell;
     vertical-align: middle;
     text-align: center;
-    width: 6vmax;
-    height: 6vmax;
+    width: 6vw;
+    height: 6vw;
     margin-left: 5%;
     /*float: left;*/
 }

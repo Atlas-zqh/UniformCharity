@@ -32,7 +32,7 @@
     <div id="mainPart">
         <h1>上传衣物</h1>
         <div id="uploadView">
-            <p style="position: absolute; margin-left: 3%; margin-top: -2%;">图 片</p>
+            <p style="position: absolute; margin-left: 4%; margin-top: -2%;">图 片</p>
             <form action="/clothesAction/uploadClothesPics" class="dropzone" id="my-dropzone" method="post" target="hiddenIFrame" enctype="multipart/form-data">
                 <ul style="margin-top: 0%">
                     <li>
@@ -111,7 +111,7 @@
             <script type="application/javascript" src="../static/js/upload.js"></script>
         </div>
         <div id="uploadedView">
-            <iframe src="uploadedClothes.jsp" style="height: 100%;"></iframe>
+            <iframe src="uploadedClothes.jsp" style="height: 100%; width: 90%; margin-left: 10%"></iframe>
         </div>
     </div>
 </div>
