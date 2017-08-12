@@ -27,6 +27,7 @@ import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -52,7 +53,7 @@ public class ClothesController {
     @RequestMapping(value = "/uploadClothes", method = RequestMethod.POST)
     @ResponseBody
     public Map<String, Object> uploadClothes(HttpServletRequest request) {
-        Map<String, Object> map = new HashedMap();
+        Map<String, Object> map = new HashMap<>();
 
 
         String school = request.getParameter("school");
@@ -90,7 +91,7 @@ public class ClothesController {
     @RequestMapping(value = "/uploadClothesPics", method = RequestMethod.POST)
     @ResponseBody
     public Map<String, Object> uploadClothesPics(HttpServletRequest request, HttpSession session) {
-        Map<String, Object> map = new HashedMap();
+        Map<String, Object> map = new HashMap<>();
 
         MultipartResolver resolver = new CommonsMultipartResolver(request.getSession().getServletContext());
         MultipartHttpServletRequest multipartRequest = resolver.resolveMultipart(request);
@@ -128,7 +129,7 @@ public class ClothesController {
     @RequestMapping(value = "/allTypesOfSchool", method = RequestMethod.POST)
     @ResponseBody
     public Map<String, Object> getAllTypes(HttpServletRequest request, HttpServletResponse response) {
-        Map<String, Object> map = new HashedMap();
+        Map<String, Object> map = new HashMap<>();
         String school = request.getParameter("school");
         List<Type> types = typeService.findAllTypesOfSchool(school);
         List<String> s = new ArrayList<>();
@@ -144,7 +145,7 @@ public class ClothesController {
     @RequestMapping(value = "/searchClothes", method = RequestMethod.POST)
     @ResponseBody
     public Map<String, Object> searchClothes(HttpServletRequest request) {
-        Map<String, Object> map = new HashedMap();
+        Map<String, Object> map = new HashMap<>();
         String school = request.getParameter("school");
         String type = request.getParameter("type");
         String gender = request.getParameter("gender");
@@ -202,7 +203,7 @@ public class ClothesController {
     @RequestMapping(value = "/findClothesByID", method = RequestMethod.POST)
     @ResponseBody
     public Map<String, Object> findClothesByID(HttpServletRequest request) {
-        Map<String, Object> map = new HashedMap();
+        Map<String, Object> map = new HashMap<>();
         String id = request.getParameter("clothesID");
 
         System.out.println(id);
@@ -244,14 +245,27 @@ public class ClothesController {
         List<Clothes> clothes = new ArrayList<>();
         List<String> pics = new ArrayList<>();
         List<Double> prices = new ArrayList<>();
+        Map<ClothesAttributes, String> clothesAttributesStringMap = new HashMap<>();
+        clothesAttributesStringMap.put(ClothesAttributes.donorID, id);
+        String clotheID = "";
         if (type.equals("1")) {
 //            clothesService.f
-
+            PageInfo<Clothes> clothesPageInfo = clothesService.findClothesByAttributes(clothesAttributesStringMap ,1 , 10000);
+            clothes = clothesPageInfo.getList();
+            for (int i = 0; i < clothes.size(); i++) {
+                clotheID = clothes.get(i).getClothesID();
+                List<String> clothesPics = clothesService.findPicsByClothesID(clotheID);
+                pics.add(clothesPics.get(0));
+                prices.add(typeService.findType(clothes.get(i).getSchoolName(), clothes.get(i).getClothesType()).getClothesPrice());
+            }
+            map.put("success", "true");
+            map.put("clothes", clothes);
+            map.put("pics", pics);
+            map.put("prices", prices);
         } else {
             PageInfo<Order> orderPageInfo = orderService.findOrderByBuyerID(id, 1, 10000);
             List<Order> orders = orderPageInfo.getList();
 
-            String clotheID = "";
             for (int i = 0; i < orders.size(); i++) {
                 clotheID = clothes.get(i).getClothesID();
                 List<String> clothesPics = clothesService.findPicsByClothesID(clotheID);
