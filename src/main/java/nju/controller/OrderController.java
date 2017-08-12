@@ -201,7 +201,7 @@ public class OrderController {
 
         double price = getOrderPrice(order);
 
-        orderService.updateOrder(order, price);
+        orderService.finishOrder(order, price);
         map.put("success", "true");
 
         return map;

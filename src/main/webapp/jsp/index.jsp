@@ -426,9 +426,9 @@
 <script type="text/javascript" src="../static/js/custom_up_img.js" charset="utf-8"></script>
 <script type="text/javascript" src="../static/js/move-top.js"></script>
 <script type="text/javascript" src="../static/js/easing.js"></script>
-<script type="text/javascript" src="../static/js/upload.js"></script>
 <script type="text/javascript" src="../static/js/clothes.js"></script>
 <script type="text/javascript" src="../static/js/search.js"></script>
+<%--<script type="text/javascript" src="../static/js/upload.js"></script>--%>
 
 <script>
     $('select.drop-select').each(function () {

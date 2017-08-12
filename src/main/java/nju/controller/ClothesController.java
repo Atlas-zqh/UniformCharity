@@ -10,6 +10,7 @@ import nju.service.OrderService;
 import nju.service.TypeService;
 import nju.service.UserService;
 import nju.utils.ClothesAttributes;
+import nju.utils.EncryptionUtil;
 import org.apache.commons.collections.map.HashedMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -246,7 +247,7 @@ public class ClothesController {
         List<String> pics = new ArrayList<>();
         List<Double> prices = new ArrayList<>();
         Map<ClothesAttributes, String> clothesAttributesStringMap = new HashMap<>();
-        clothesAttributesStringMap.put(ClothesAttributes.donorID, id);
+        clothesAttributesStringMap.put(ClothesAttributes.donorID, EncryptionUtil.encrypt("20170522", (String) id));
         String clotheID = "";
         if (type.equals("1")) {
 //            clothesService.f

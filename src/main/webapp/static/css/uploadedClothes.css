@@ -39,6 +39,23 @@
     padding: 0.2vmax;
     font-weight: bold;
     color: #142635;
+    text-align: center;
+}
+
+.table-content tr td a {
+    font-size: 2.4vw;
+    padding: 0.2vmax;
+    font-weight: bold;
+    color: #142635;
+    text-align: center;
+    text-decoration: underline;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.table-content tr td a:hover {
+    color: #DABD61;
+    text-decoration: underline;
 }
 
 .table-content tr th {
@@ -46,12 +63,12 @@
     padding: 0.2vmax;
     font-weight: normal;
     color: #142635;
+    text-align: center;
 }
 
 .table-content .table-content-title {
     width: 100%;
     background-color: #D3E0EB;
-
 }
 
 .table-content .table-content-body {

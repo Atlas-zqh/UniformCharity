@@ -14,8 +14,9 @@ function getAllClothes() {
         success: function (data) {
             // alert("success");
             if (data && data.success == "true") {
-                if (data.clothes.length == 0) {
+                if (data.clothes.length > 0) {
                     $('#noClothesLabel').css("display", "none");
+                    $('#clothesNum').html(data.clothes.length);
                     $.each(data.clothes, function (i, item) {
                         addSingleClothes(item.clothesID, data.pics[i], item.clothesType, item.clothessize, item.status);
                     });
@@ -50,7 +51,7 @@ function addSingleClothes(clothesID, picurl, type, size, status) {
     var a1 = document.createElement("a");
     // a.href = "../jsp/clothesDetail?id=" + clothesID;
     a1.onclick = function () {
-        window.open("../jsp/clothesDetails?id=" + clothesID);
+        window.open("../jsp/clothesDetails.jsp?id=" + clothesID);
     };
     a1.appendChild(document.createTextNode(clothesID));
     td1.appendChild(a1);
@@ -95,18 +96,18 @@ function addSingleClothes(clothesID, picurl, type, size, status) {
     tr2.appendChild(th4);
 
     var th5 = document.createElement("th");
-    th4.style.width = "20%";
-    th4.appendChild(document.createTextNode(size));
-    tr2.appendChild(th4);
+    th5.style.width = "20%";
+    th5.appendChild(document.createTextNode(size));
+    tr2.appendChild(th5);
 
 
     var th6 = document.createElement("th");
-    th4.style.width = "20%";
+    th6.style.width = "20%";
     if (status == 'Available')
-        th4.appendChild(document.createTextNode("未卖出"));
+        th6.appendChild(document.createTextNode("未卖出"));
     else
-        th4.appendChild(document.createTextNode("已卖出"));
-    tr2.appendChild(th4);
+        th6.appendChild(document.createTextNode("已卖出"));
+    tr2.appendChild(th6);
 
 
 }

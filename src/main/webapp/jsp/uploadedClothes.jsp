@@ -23,7 +23,7 @@
     </script>
 </head>
 <body style="border: thick solid #C9D7DA; border-bottom: none; border-left: none; background-color: #DFEDF0;" id="body">
-<h1 style="font-size: 5vw; text-shadow: -0.4vw 0.4vw 0 #7A6420;">已捐衣物</h1>
+<h1 style="font-size: 5vw; text-shadow: -0.4vw 0.4vw 0 #7A6420;">已捐<span id="clothesNum">0</span>件衣物</h1>
 
 <h4 style="font-size: 4vw; text-shadow: -0.3vw 0.3vw 0 #315770; position: absolute; top: 40%; width: 100%; text-align: center" id="noClothesLabel">暂无已捐衣物</h4>
 <%--<table class="table-content">--%>
@@ -60,6 +60,7 @@
     <%--</tr>--%>
     <%--</tbody>--%>
 <%--</table>--%>
+<script type="text/javascript" src="../static/js/cookie.js"></script>
 <script type="text/javascript" src="../static/js/uploadedClothes.js"></script>
 
 </body>

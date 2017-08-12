@@ -128,7 +128,7 @@ function getAllClothes(s){
         success: function (data) {
             // alert("success");
             if (data && data.success == "true") {
-                if(data.clothes.length == 0) {
+                if(data.clothes.length > 0) {
                     $('#noClothesLabel').css("display", "none");
                     $.each(data.clothes, function (i, item) {
                         addSingleClothesPanel(item, data.pics[i], data.prices[i]);
