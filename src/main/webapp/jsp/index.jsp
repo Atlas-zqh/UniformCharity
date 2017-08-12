@@ -74,43 +74,6 @@
 </head>
 
 <body>
-<%--<div id="nav">--%>
-<%--<div class="topNavBar">--%>
-<%--<p class="navLabel" align="center">与 子 同 袍</p>--%>
-<%--</div>--%>
-<%--<div class="leftNavBar" align="left">--%>
-<%--<div class="bt"><a href="index.jsp">首<br>页</a></div>--%>
-<%--<div class="navLabel"><p><br>—<br></p></div>--%>
-<%--<div class="bt"><a href="userInfo.jsp">我<br>的<br>主<br>页</a></div>--%>
-<%--<div class="navLabel"><p><br>—<br></p></div>--%>
-<%--<div class="bt"><a href="../static/html/404.html">我<br>的<br>交<br>易</a></div>--%>
-<%--</div>--%>
-<%--<div class="rightNavBar" align="right">--%>
-<%--<div class="bt" id="loginButton"><a href="#toLoginPanel" onclick="showLoginPanel()">登<br>录</a></div>--%>
-<%--<div class="navLabel"><p><br>—<br></p></div>--%>
-<%--<div class="bt"><a href="#toSignupPanel" onclick="showSignupPanel()">注<br>册</a></div>--%>
-<%--</div>--%>
-<%--</div>--%>
-<div id="fullbg"></div>
-
-<div id="mainPage"></div>
-<p class="titleP">现在就加入我们！</p>
-<button class="uploadBut" onclick="window.location.href='../jsp/uploadClothes.jsp'">立即捐衣! ></button>
-<%--<%@ include file="uploadClothes.jsp" %>--%>
-
-
-<div id="loginPanel">
-    <p class="label"
-       style="background: url(/static/images/UserNameLabel.png); background-size: cover; margin-left: 40.5%; margin-top: 36%; width: 20%"></p>
-    <input id="username" class="textInput" style="width: 50%; margin-left: 25%; margin-top: 43%;">
-    <p class="label"
-       style="background: url(/static/images/PasswordLabel.png); background-size: cover; margin-left: 15%; margin-top: 66%; margin-left: 43%; width: 15%"></p>
-    <input id="password" class="textInput" type="password"
-           style="width: 50%; margin-left: 25%; margin-top: 73%;">
-    <button id="loginBut" class="mybt" onclick="login()" style="width: 40%; font-size: 1.5vmax;">登 录</button>
-</div>
-
-
 <!--图片上传框-->
 <div class="am-modal am-modal-no-btn up-frame-bj " tabindex="-1" id="doc-modal-1"
      style="display: none; margin-left: 20%;">
@@ -159,257 +122,290 @@
     </div>
 </div>
 
-<div id="signupPanel" style="display: none">
-    <div class="up-img-cover" id="up-img-touch">
-        <img src="../images/maleIcon.png" class="iconImage" id="icon" alt="点击图片上传"
-             data-am-popover="{content: '点击上传', trigger: 'hover focus'}">
+<div id="mainPart">
+    <div id="fullbg"></div>
+
+    <div id="mainPage">
+        <p class="titleP">现在就加入我们！</p>
+        <button class="uploadBut" onclick="window.location.href='../jsp/uploadClothes.jsp'">立即捐衣! ></button>
+        <div id="searchPanel" style="display: none">
+            <h3 style="display: inline-block; margin-top: 20%; margin-left: 41%; position: absolute">性&nbsp别</h3>
+            <button class="mybt" style="position: absolute; margin-top: 30%; margin-left: 25%; width: 20%;  font-size: 1.5vw" id="male"
+                    onclick="male()">男
+            </button>
+            <p class="genderLine" style="margin-top: 28.8%">|</p>
+            <button class="mybt" style="position: absolute; margin-top: 30%; margin-left: 54.7%; width: 20%;  font-size: 1.5vw" id="female"
+                    onclick="female()">女
+            </button>
+            <h3 style="position:absolute; display: inline-block; margin-top: 45%; margin-left: 41%">学&nbsp校</h3>
+            <div class="dropdown"
+                 style="margin-top: 55%; font-family: 'Yuppy SC'; text-shadow: -0.1vmax 0.1vmax 0 grey; font-size: 1.5vmax">
+                <select data-select-like-alignement="auto" class="drop-select" style="font-size: 150%" id="school"
+                        onchange="changeSchool('type', 'school')">
+                    <%--<option value="null" selected="selected"></option>--%>
+                </select>
+            </div>
+            <h3 style="position:absolute; display: inline-block; margin-top: 70%; margin-left: 41%">款&nbsp式</h3>
+            <div class="dropdown"
+                 style="margin-top: 80%; font-family: 'Yuppy SC'; text-shadow: -0.1vmax 0.1vmax 0 grey; font-size: 1.5vmax;">
+                <select data-select-like-alignement="auto" class="drop-select" style="font-size: 150%" id="type">
+                    <option value="null" selected="selected"></option>
+                </select>
+            </div>
+            <h3 style="position:absolute; display: inline-block; margin-top: 95%; margin-left: 41%">尺&nbsp码</h3>
+            <div class="dropdown"
+                 style="margin-top: 105%; font-family: 'Yuppy SC'; text-shadow: -0.1vmax 0.1vmax 0 grey; font-size: 1.5vmax">
+                <select data-select-like-alignement="auto" class="drop-select" style="font-size: 150%" id="size">
+                    <option value="null" selected="selected"></option>
+                    <option value="XXXS">XXXS</option>
+                    <option value="XXS">XXS</option>
+                    <option value="XS">XS</option>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                    <option value="XXL">XXL</option>
+                    <option value="XXXL">XXXL</option>
+                </select>
+            </div>
+            <button class="mybt" style="margin-top: 125%; margin-left: 25%; width: 50%; font-size: 1.5vw"
+                    onclick="search()">搜 索
+            </button>
+        </div>
+        <div id="loginPanel">
+            <p class="label"
+               style="background: url(/static/images/UserNameLabel.png); background-size: cover; margin-left: 40.5%; margin-top: 36%; width: 20%"></p>
+            <input id="username" class="textInput" style="width: 50%; margin-left: 25%; margin-top: 43%;">
+            <p class="label"
+               style="background: url(/static/images/PasswordLabel.png); background-size: cover; margin-left: 15%; margin-top: 66%; margin-left: 43%; width: 15%"></p>
+            <input id="password" class="textInput" type="password"
+                   style="width: 50%; margin-left: 25%; margin-top: 73%;">
+            <button id="loginBut" class="mybt" onclick="login()" style="width: 40%; font-size: 1.5vmax;">登 录</button>
+        </div>
+        <div id="signupPanel" style="display: none">
+            <div class="up-img-cover" id="up-img-touch">
+                <img src="../images/maleIcon.png" class="iconImage" id="icon" alt="点击图片上传"
+                     data-am-popover="{content: '点击上传', trigger: 'hover focus'}">
+            </div>
+            <div><a style="text-align: center; display: block;" id="pic"></a></div>
+
+            <p class="label"
+               style="background: url(/static/images/UserNameLabel.png); background-size: cover; margin-left: 15%; margin-top: 29%; width: 20%"></p>
+            <input id="usernameTextField" class="textInput" style="margin-left: 5%; margin-top: 35%">
+
+            <p class="label"
+               style="background: url(/static/images/PasswordLabel.png); background-size: cover; margin-left: 18.5%; margin-top: 51%; width: 15%"></p>
+            <input id="passwordTextField" class="textInput" type="password" style="margin-left: 5%; margin-top: 57%">
+
+            <p class="label"
+               style="background: url(/static/images/IDLabel.png); background-size: cover; margin-left: 65%; margin-top: 51%; width: 20%"></p>
+            <input id="idTextField" class="textInput" style="margin-left: 55%; margin-top: 57%">
+
+            <p class="label"
+               style="background: url(/static/images/StudentNameLabel.png); background-size: cover; margin-left: 11.5%; margin-top: 73%; width: 27%"></p>
+            <input id="studentnameTextField" class="textInput" style="margin-left: 5%; margin-top: 79%">
+
+            <p class="label"
+               style="background: url(/static/images/SchoolLabel.png); background-size: cover; margin-left: 61.5%; margin-top: 73%; width: 27%"></p>
+            <div id="schoolDropDown" style="height: 7%; line-height: 200%">
+                <select data-select-like-alignement="auto" class="drop-select" id="schoolDrop">
+                    <option value="a" selected="selected"></option>
+                    <%--<option value="b">南京外国语学校仙林分校</option>--%>
+                    <%--<option value="g">南京</option>--%>
+                </select>
+            </div>
+            <%--<input id="schoolTextField" class="textInput" style="margin-left: 55%; margin-top: 79%">--%>
+
+            <p class="label"
+               style="background: url(/static/images/GenderLabel.png); background-size: cover; margin-left: 18.5%; margin-top: 95%; width: 15%"></p>
+            <button id="maleBut" class="mybt" style="margin-left: 5%; margin-top: 101%; width: 15.7%; font-size: 1.5vw;">男
+            </button>
+
+            <p style="position:absolute; color: white; margin-top: 101%; margin-left: 24%; text-align: center; font-size: 200%; width: 3%;">
+                |</p>
+            <button id="femaleBut" class="mybt" style="margin-left: 29%; margin-top: 101%; width: 15.7%; font-size: 1.5vw;">
+                女
+            </button>
+
+            <p class="label"
+               style="background: url(/static/images/PhoneLabel.png); background-size: cover; margin-left: 68.5%; margin-top: 95%; width: 15%"></p>
+            <input id="phoneTextField" class="textInput" style="margin-left: 55%; margin-top: 101%">
+
+            <button class="mybt" style="margin-left: 30%; margin-top: 120%; width: 40%; font-size: 1.5vmax;"
+                    onclick="signup()">注 册
+            </button>
+        </div>
+
     </div>
-    <div><a style="text-align: center; display: block;" id="pic"></a></div>
 
-    <p class="label"
-       style="background: url(/static/images/UserNameLabel.png); background-size: cover; margin-left: 15%; margin-top: 29%; width: 20%"></p>
-    <input id="usernameTextField" class="textInput" style="margin-left: 5%; margin-top: 35%">
-
-    <p class="label"
-       style="background: url(/static/images/PasswordLabel.png); background-size: cover; margin-left: 18.5%; margin-top: 51%; width: 15%"></p>
-    <input id="passwordTextField" class="textInput" type="password" style="margin-left: 5%; margin-top: 57%">
-
-    <p class="label"
-       style="background: url(/static/images/IDLabel.png); background-size: cover; margin-left: 65%; margin-top: 51%; width: 20%"></p>
-    <input id="idTextField" class="textInput" style="margin-left: 55%; margin-top: 57%">
-
-    <p class="label"
-       style="background: url(/static/images/StudentNameLabel.png); background-size: cover; margin-left: 11.5%; margin-top: 73%; width: 27%"></p>
-    <input id="studentnameTextField" class="textInput" style="margin-left: 5%; margin-top: 79%">
-
-    <p class="label"
-       style="background: url(/static/images/SchoolLabel.png); background-size: cover; margin-left: 61.5%; margin-top: 73%; width: 27%"></p>
-    <div id="schoolDropDown" style="height: 7%; line-height: 200%">
-        <select data-select-like-alignement="auto" class="drop-select" id="schoolDrop">
-            <option value="a" selected="selected"></option>
-            <%--<option value="b">南京外国语学校仙林分校</option>--%>
-            <%--<option value="g">南京</option>--%>
-        </select>
-    </div>
-    <%--<input id="schoolTextField" class="textInput" style="margin-left: 55%; margin-top: 79%">--%>
-
-    <p class="label"
-       style="background: url(/static/images/GenderLabel.png); background-size: cover; margin-left: 18.5%; margin-top: 95%; width: 15%"></p>
-    <button id="maleBut" class="mybt" style="margin-left: 5%; margin-top: 101%; width: 15.7%; font-size: 1.5vw;">男</button>
-
-    <p style="position:absolute; color: white; margin-top: 101%; margin-left: 24%; text-align: center; font-size: 200%; width: 3%;">
-        |</p>
-    <button id="femaleBut" class="mybt" style="margin-left: 29%; margin-top: 101%; width: 15.7%; font-size: 1.5vw;">女</button>
-
-    <p class="label"
-       style="background: url(/static/images/PhoneLabel.png); background-size: cover; margin-left: 68.5%; margin-top: 95%; width: 15%"></p>
-    <input id="phoneTextField" class="textInput" style="margin-left: 55%; margin-top: 101%">
-
-    <button class="mybt" style="margin-left: 30%; margin-top: 120%; width: 40%; font-size: 1.5vmax;" onclick="signup()">注 册</button>
-</div>
-
-<div id="searchPanel" style="display: none">
-    <h3 style="position:absolute; display: inline-block; margin-top: 20%; margin-left: 41%">性&nbsp别</h3>
-    <button class="mybt" style="margin-top: 30%; margin-left: 25%; width: 20%;  font-size: 1.5vw" id="male" onclick="male()">男</button>
-    <p class="genderLine" style="margin-top: 28.8%">|</p>
-    <button class="mybt" style="margin-top: 30%; margin-left: 54.7%; width: 20%;  font-size: 1.5vw" id="female" onclick="female()">女</button>
-    <h3 style="position:absolute; display: inline-block; margin-top: 45%; margin-left: 41%">学&nbsp校</h3>
-    <div class="dropdown"
-         style="margin-top: 55%; font-family: 'Yuppy SC'; text-shadow: -0.1vmax 0.1vmax 0 grey; font-size: 1.5vmax">
-        <select data-select-like-alignement="auto" class="drop-select" style="font-size: 150%" id="school" onchange="changeSchool('type', 'school')">
-            <%--<option value="null" selected="selected"></option>--%>
-        </select>
-    </div>
-    <h3 style="position:absolute; display: inline-block; margin-top: 70%; margin-left: 41%">款&nbsp式</h3>
-    <div class="dropdown"
-         style="margin-top: 80%; font-family: 'Yuppy SC'; text-shadow: -0.1vmax 0.1vmax 0 grey; font-size: 1.5vmax;">
-        <select data-select-like-alignement="auto" class="drop-select" style="font-size: 150%" id="type">
-            <option value="null" selected="selected"></option>
-        </select>
-    </div>
-    <h3 style="position:absolute; display: inline-block; margin-top: 95%; margin-left: 41%">尺&nbsp码</h3>
-    <div class="dropdown"
-         style="margin-top: 105%; font-family: 'Yuppy SC'; text-shadow: -0.1vmax 0.1vmax 0 grey; font-size: 1.5vmax">
-        <select data-select-like-alignement="auto" class="drop-select" style="font-size: 150%" id="size">
-            <option value="null" selected="selected"></option>
-            <option value="XXXS">XXXS</option>
-            <option value="XXS">XXS</option>
-            <option value="XS">XS</option>
-            <option value="S">S</option>
-            <option value="M">M</option>
-            <option value="L">L</option>
-            <option value="XL">XL</option>
-            <option value="XXL">XXL</option>
-            <option value="XXXL">XXXL</option>
-        </select>
-    </div>
-    <button class="mybt" style="margin-top: 125%; margin-left: 25%; width: 50%; font-size: 1.5vw" onclick="search()">搜 索</button>
-</div>
-<div id="bulletinPage">
-</div>
-<div id="fundBulletin" align="left">
-    <div id="scroll">
-        <ul id="scroll1">
-            <li><p>向 X X X 学校捐出 X X X</p></li>
-            <br>
-            <li><p>向 X X X 学校捐出 X X X</p></li>
-            <br>
-            <li><p>向 X X X 学校捐出 X X X</p></li>
-            <br>
-            <li><p>向 X X X 学校捐出 X X X</p></li>
-            <br>
-            <li><p>向 X X X 学校捐出 X X X</p></li>
-            <br>
-            <li><p>向 X X X 学校捐出 X X X</p></li>
-            <br>
-            <li><p>向 X X X 学校捐出 X X X</p></li>
-            <br>
-            <li><p>向 X X X 学校捐出 X X X</p></li>
-            <br>
-            <li><p>向 X X X 学校捐出 X X X</p></li>
-            <br>
-            <li><p>向 X X X 学校捐出 X X X</p></li>
-            <br>
-        </ul>
-        <ul id="scroll2">
-        </ul>
-    </div>
-</div>
-<div id="transactionBulletin" align="right">
-    <div id="scroll3">
-        <ul id="scroll4">
-            <li><p>X X X 购买了 X X X</p></li>
-            <br>
-            <li><p>X X X 购买了 X X X</p></li>
-            <br>
-            <li><p>X X X 购买了 X X X</p></li>
-            <br>
-            <li><p>X X X 购买了 X X X</p></li>
-            <br>
-            <li><p>X X X 购买了 X X X</p></li>
-            <br>
-            <li><p>X X X 购买了 X X X</p></li>
-            <br>
-            <li><p>X X X 购买了 X X X</p></li>
-            <br>
-            <li><p>X X X 购买了 X X X</p></li>
-            <br>
-            <li><p>X X X 购买了 X X X</p></li>
-            <br>
-            <li><p>X X X 购买了 X X X</p></li>
-            <br>
-        </ul>
-        <ul id="scroll5">
-        </ul>
-    </div>
-</div>
-<div id="forumPage">
-    <div class="forumTitle"></div>
-</div>
-<div class="forumArea">
-    <div id="table1" style="height: 50%">
-        <button style="margin-top: 0%; margin-left: 0%; background: none repeat scroll 0 0 #39576e; text-shadow: 0 2px 0 grey;"
-                id="tab1">t<br>a<br>b<br>l<br>e<br>1
-        </button>
-        <div id="tableA" class="forumTable" style="display: inline-block">
-            <table style="margin-left: 1%;    border-collapse: separate; border-spacing: 1em;" width="100%">
-                <tr class="titleTr">
-                    <td width="70%">标题</td>
-                    <td width="15%">作者</td>
-                    <td width="15%">回帖数</td>
-                </tr>
-
-                <tr class="bodyTr">
-                    <td width="70%"><a href="../static/html/404.html">帖子1</a></td>
-                    <td width="15%">我</td>
-                    <td width="15%">13</td>
-                </tr>
-                <tr class="bodyTr">
-                    <td><a href="../static/html/404.html">test帖子1</a></td>
-                    <td>a</td>
-                    <td>13</td>
-                </tr>
-                <tr class="bodyTr">
-                    <td><a href="../static/html/404.html">test帖子2</a></td>
-                    <td>b</td>
-                    <td>13</td>
-                </tr>
-                <tr class="bodyTr">
-                    <td><a href="../static/html/404.html">test帖子3</a></td>
-                    <td>c</td>
-                    <td>13</td>
-                </tr>
-                <tr class="bodyTr">
-                    <td><a href="../static/html/404.html">test帖子4</a></td>
-                    <td>d</td>
-                    <td>13</td>
-                </tr>
-                <tr class="bodyTr">
-                    <td><a href="../static/html/404.html">test帖子5</a></td>
-                    <td>e</td>
-                    <td>13</td>
-                </tr>
-                <tr class="bodyTr">
-                    <td><a href="../static/html/404.html">test帖子6</a></td>
-                    <td>f</td>
-                    <td>13</td>
-                </tr>
-                <tr class="bodyTr">
-                    <td><a href="../static/html/404.html">test帖子7</a></td>
-                    <td>g</td>
-                    <td>13</td>
-                </tr>
-                <tr class="bodyTr">
-                    <td><a href="../static/html/404.html">test帖子8</a></td>
-                    <td>h</td>
-                    <td>13</td>
-                </tr>
-                <tr class="bodyTr">
-                    <td><a href="../static/html/404.html">test帖子9</a></td>
-                    <td>i</td>
-                    <td>13</td>
-                </tr>
-            </table>
+    <div id="bulletinPage">
+        <div id="fundBulletin" align="left">
+            <div id="scroll">
+                <ul id="scroll1">
+                    <li><p>向 X X X 学校捐出 X X X</p></li>
+                    <br>
+                    <li><p>向 X X X 学校捐出 X X X</p></li>
+                    <br>
+                    <li><p>向 X X X 学校捐出 X X X</p></li>
+                    <br>
+                    <li><p>向 X X X 学校捐出 X X X</p></li>
+                    <br>
+                    <li><p>向 X X X 学校捐出 X X X</p></li>
+                    <br>
+                    <li><p>向 X X X 学校捐出 X X X</p></li>
+                    <br>
+                    <li><p>向 X X X 学校捐出 X X X</p></li>
+                    <br>
+                    <li><p>向 X X X 学校捐出 X X X</p></li>
+                    <br>
+                    <li><p>向 X X X 学校捐出 X X X</p></li>
+                    <br>
+                    <li><p>向 X X X 学校捐出 X X X</p></li>
+                    <br>
+                </ul>
+                <ul id="scroll2">
+                </ul>
+            </div>
+        </div>
+        <div id="transactionBulletin" align="right">
+            <div id="scroll3">
+                <ul id="scroll4">
+                    <li><p>X X X 购买了 X X X</p></li>
+                    <br>
+                    <li><p>X X X 购买了 X X X</p></li>
+                    <br>
+                    <li><p>X X X 购买了 X X X</p></li>
+                    <br>
+                    <li><p>X X X 购买了 X X X</p></li>
+                    <br>
+                    <li><p>X X X 购买了 X X X</p></li>
+                    <br>
+                    <li><p>X X X 购买了 X X X</p></li>
+                    <br>
+                    <li><p>X X X 购买了 X X X</p></li>
+                    <br>
+                    <li><p>X X X 购买了 X X X</p></li>
+                    <br>
+                    <li><p>X X X 购买了 X X X</p></li>
+                    <br>
+                    <li><p>X X X 购买了 X X X</p></li>
+                    <br>
+                </ul>
+                <ul id="scroll5">
+                </ul>
+            </div>
         </div>
     </div>
-    <div id="table2">
-        <button style="margin-top: 22%; margin-left: 0%;" id="tab2">t<br>a<br>b<br>l<br>e<br>2</button>
-        <div id="tableB" class="forumTable" style="display: none">
-            <table style="margin-left: 1%;    border-collapse: separate; border-spacing: 1em;" width="100%">
-                <tr class="titleTr">
-                    <td width="70%">标题</td>
-                    <td width="15%">作者</td>
-                    <td width="15%">回帖数</td>
-                </tr>
+    <div id="forumPage">
+        <div class="forumTitle"></div>
+        <div class="forumArea">
+            <div id="table1" style="height: 50%">
+                <button style="margin-top: 0%; margin-left: 0%; background: none repeat scroll 0 0 #39576e; text-shadow: 0 2px 0 grey;"
+                        id="tab1">t<br>a<br>b<br>l<br>e<br>1
+                </button>
+                <div id="tableA" class="forumTable" style="display: inline-block">
+                    <table style="margin-left: 1%; border-collapse: separate; border-spacing: 1.7vw;" width="100%">
+                        <tr class="titleTr">
+                            <td width="70%">标题</td>
+                            <td width="15%">作者</td>
+                            <td width="15%">回帖数</td>
+                        </tr>
 
-                <tr class="bodyTr">
-                    <td width="70%"><a href="../static/html/404.html">帖子1</a></td>
-                    <td width="15%">我</td>
-                    <td width="15%">13</td>
-                </tr>
-                <tr class="bodyTr">
-                    <td><a href="../static/html/404.html">test帖子1</a></td>
-                    <td>a</td>
-                    <td>13</td>
-                </tr>
-                <tr class="bodyTr">
-                    <td><a href="../static/html/404.html">test帖子2</a></td>
-                    <td>b</td>
-                    <td>13</td>
-                </tr>
-            </table>
+                        <tr class="bodyTr">
+                            <td width="70%"><a href="../static/html/404.html">帖子1</a></td>
+                            <td width="15%">我</td>
+                            <td width="15%">13</td>
+                        </tr>
+                        <tr class="bodyTr">
+                            <td><a href="../static/html/404.html">test帖子1</a></td>
+                            <td>a</td>
+                            <td>13</td>
+                        </tr>
+                        <tr class="bodyTr">
+                            <td><a href="../static/html/404.html">test帖子2</a></td>
+                            <td>b</td>
+                            <td>13</td>
+                        </tr>
+                        <tr class="bodyTr">
+                            <td><a href="../static/html/404.html">test帖子3</a></td>
+                            <td>c</td>
+                            <td>13</td>
+                        </tr>
+                        <tr class="bodyTr">
+                            <td><a href="../static/html/404.html">test帖子4</a></td>
+                            <td>d</td>
+                            <td>13</td>
+                        </tr>
+                        <tr class="bodyTr">
+                            <td><a href="../static/html/404.html">test帖子5</a></td>
+                            <td>e</td>
+                            <td>13</td>
+                        </tr>
+                        <tr class="bodyTr">
+                            <td><a href="../static/html/404.html">test帖子6</a></td>
+                            <td>f</td>
+                            <td>13</td>
+                        </tr>
+                        <tr class="bodyTr">
+                            <td><a href="../static/html/404.html">test帖子7</a></td>
+                            <td>g</td>
+                            <td>13</td>
+                        </tr>
+                        <tr class="bodyTr">
+                            <td><a href="../static/html/404.html">test帖子8</a></td>
+                            <td>h</td>
+                            <td>13</td>
+                        </tr>
+                        <tr class="bodyTr">
+                            <td><a href="../static/html/404.html">test帖子9</a></td>
+                            <td>i</td>
+                            <td>13</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div id="table2">
+                <button style="margin-top: 22%; margin-left: 0%;" id="tab2">t<br>a<br>b<br>l<br>e<br>2</button>
+                <div id="tableB" class="forumTable" style="display: none">
+                    <table style="margin-left: 1%; border-collapse: separate; border-spacing: 1.7vw;" width="100%">
+                        <tr class="titleTr">
+                            <td width="70%">标题</td>
+                            <td width="15%">作者</td>
+                            <td width="15%">回帖数</td>
+                        </tr>
+
+                        <tr class="bodyTr">
+                            <td width="70%"><a href="../static/html/404.html">帖子1</a></td>
+                            <td width="15%">我</td>
+                            <td width="15%">13</td>
+                        </tr>
+                        <tr class="bodyTr">
+                            <td><a href="../static/html/404.html">test帖子1</a></td>
+                            <td>a</td>
+                            <td>13</td>
+                        </tr>
+                        <tr class="bodyTr">
+                            <td><a href="../static/html/404.html">test帖子2</a></td>
+                            <td>b</td>
+                            <td>13</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <!--<a href="#ab" class="mytab1" title="First" id="a" style="margin-left: 0%; margin-top: 0%; width: 5%">First</a>-->
+            <!--<button id="a" class="mytab" style="margin-top: 0%; margin-left: 0%; width: 5%;">h<br>o<br>t</button>-->
+            <!--<button class="mytab" style="margin-top: 7.9%; margin-left: 0%; width: 5%;">n<br>e<br>w</button>-->
         </div>
-    </div>
-    <!--<a href="#ab" class="mytab1" title="First" id="a" style="margin-left: 0%; margin-top: 0%; width: 5%">First</a>-->
-    <!--<button id="a" class="mytab" style="margin-top: 0%; margin-left: 0%; width: 5%;">h<br>o<br>t</button>-->
-    <!--<button class="mytab" style="margin-top: 7.9%; margin-left: 0%; width: 5%;">n<br>e<br>w</button>-->
-</div>
-<div id="infoPage"></div>
 
-<div class="foot" style="margin-top: 166.5%;">
-    <p class="navLabel" align="center" style="position: absolute; top:97.2%; text-align: center">与子同袍项目组 copyright@2017</p>
-<%--<p style="position:absolute; display: inline-block; z-index: 2; color: grey; margin-top: 0%; text-align: center; line-height: 100%; width: 100%; font-size: 90%;">与子同袍项目组 copyright@2017</p>--%>
+    </div>
+    <div id="infoPage"></div>
+    <div class="foot">
+        <p class="navLabel" align="center" style="position: absolute; top:97.2%; text-align: center">与子同袍项目组
+            copyright@2017</p>
+    </div>
 </div>
+
+
 <script type="text/javascript" src="../static/js/alert.js"></script>
 <script type="text/javascript" src="../static/js/util.js"></script>
 <script type="text/javascript" src="../static/js/SmoothScroll.min.js"></script>
@@ -454,16 +450,18 @@
 
         $().UItoTop({easingType: 'easeOutQuart'});
 
-        $('#toTop').css({"display": "none",
-        "position": "fixed",
-        "bottom": "0%",
-        "float": "right",
-        "margin-left": "96.5%",
-        "z-index": "5000",
-        "background" : "url(../images/up.png)no-repeat",
-        "width": "1.5%",
-        "padding-top": "1.5%",
-        "background-size": "cover"});
+        $('#toTop').css({
+            "display": "none",
+            "position": "fixed",
+            "bottom": "0%",
+            "float": "right",
+            "margin-left": "96.5%",
+            "z-index": "5000",
+            "background": "url(../images/up.png)no-repeat",
+            "width": "1.5%",
+            "padding-top": "1.5%",
+            "background-size": "cover"
+        });
 
     });
 </script>

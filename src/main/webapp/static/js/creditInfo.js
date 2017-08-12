@@ -2,6 +2,10 @@
  * Created by island on 2017/7/29.
  */
 function getCreditRecord(page) {
+    // addSingleCreditRecord(0, 1, 0, 1, 1, 1);
+    // addSingleCreditRecord(1, 1, 1, 1, 1, 1);
+    // addSingleCreditRecord(2, 1, 2, 1, 1, 1);
+
     jQuery.ajax({
         type: 'POST',
         url: '/userAction/getCreditRecord',
@@ -133,9 +137,28 @@ function addSingleCreditRecord(i, date, recordtype, clothesID, variance, afterCr
     var tr2 = document.createElement("tr");
     tbody2.appendChild(tr2);
 
+    var color = "";
+    var text = "";
+
+    if (recordtype == '0'){
+        text = "购买衣物";
+        color = "#DABD61";
+    }
+
+    if (recordtype == '1'){
+        text = "捐赠衣物";
+        color = "#10a6b7";
+
+    }
+
+    if (recordtype == '2'){
+        text = "取消订单";
+        color = "#142635";
+    }
+
     var th1 = document.createElement("th");
     th1.style.width = "25%";
-    th1.appendChild(document.createTextNode(recordtype));
+    th1.appendChild(document.createTextNode(text));
     tr2.appendChild(th1);
 
     var th2 = document.createElement("th");
@@ -143,7 +166,7 @@ function addSingleCreditRecord(i, date, recordtype, clothesID, variance, afterCr
     var a = document.createElement("a");
     // a.href = "../jsp/clothesDetail?id=" + clothesID;
     a.onclick = function () {
-        window.open("../jsp/clothesDetail?id=" + clothesID);
+        window.open("../jsp/clothesDetail.jsp?id=" + clothesID);
     };
     a.className = "clothesID";
     a.appendChild(document.createTextNode(clothesID));
@@ -153,6 +176,7 @@ function addSingleCreditRecord(i, date, recordtype, clothesID, variance, afterCr
     var th3 = document.createElement("th");
     th3.style.width = "25%";
     th3.appendChild(document.createTextNode(variance));
+    th3.style.color = color;
     tr2.appendChild(th3);
 
     var th4 = document.createElement("th");
