@@ -39,8 +39,10 @@ function search() {
         gender = gender1;
         gender1 = "";
     }
-    if (gender == "" || school == "" || size == "" || type == "") {
-        fail_alert("请选择完整的搜索条件！");
+    if (school == "") {
+
+        // if (gender == "" || school == "" || size == "" || type == "") {
+        fail_alert("搜索条件必须包含衣物所属学校！");
     } else {
         setCookie("gender", gender);
         setCookie("school", school);

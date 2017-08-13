@@ -158,10 +158,14 @@ public class ClothesController {
         System.out.println(size);
         System.out.println(page);
         Map<ClothesAttributes, String> clothesMap = new HashedMap();
-        clothesMap.put(ClothesAttributes.schoolName, school);
-        clothesMap.put(ClothesAttributes.gender, gender);
-        clothesMap.put(ClothesAttributes.clothessize, size);
-        clothesMap.put(ClothesAttributes.clothesType, type);
+        if (!school.equals(""))
+            clothesMap.put(ClothesAttributes.schoolName, school);
+        if (!gender.equals(""))
+            clothesMap.put(ClothesAttributes.gender, gender);
+        if (!size.equals(""))
+            clothesMap.put(ClothesAttributes.clothessize, size);
+        if (!type.equals(""))
+            clothesMap.put(ClothesAttributes.clothesType, type);
         //获得衣物信息
         PageInfo<Clothes> clothesPageInfo = clothesService.findClothesByAttributes(clothesMap, page, 20);
         long maxPage = clothesPageInfo.getTotal();
@@ -251,7 +255,7 @@ public class ClothesController {
         String clotheID = "";
         if (type.equals("1")) {
 //            clothesService.f
-            PageInfo<Clothes> clothesPageInfo = clothesService.findClothesByAttributes(clothesAttributesStringMap ,1 , 10000);
+            PageInfo<Clothes> clothesPageInfo = clothesService.findClothesByAttributes(clothesAttributesStringMap, 1, 10000);
             clothes = clothesPageInfo.getList();
             for (int i = 0; i < clothes.size(); i++) {
                 clotheID = clothes.get(i).getClothesID();

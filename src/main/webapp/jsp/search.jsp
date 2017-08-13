@@ -57,6 +57,7 @@
         <div style="display: inline-block; position:absolute; width: 10%; margin-top: 2.4%; padding-bottom: 3.2%; margin-left: 20%">
             <select data-select-like-alignement="auto" class="drop-select" style="display:inline; width: 20%;"
                     id="gender">
+                <option value=""></option>
                 <option value="男" selected="selected">男</option>
                 <option value="女">女</option>
             </select>
@@ -64,6 +65,7 @@
         <p class="labelP" style="margin-left: 15%; margin-top: 7.8%">尺寸</p>
         <div style="display: inline-block; position:absolute; width: 10%; margin-top: 7.4%; padding-bottom: 3.2%; margin-left: 20%">
             <select data-select-like-alignement="auto" class="drop-select" id="size">
+                <option value=""></option>
                 <option value="XXXS">XXXS</option>
                 <option value="XXS">XXS</option>
                 <option value="XS">XS</option>
