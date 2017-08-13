@@ -114,9 +114,9 @@ function signup() {
         return;
     }
 
-    var reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+    var reg = /(^\d{16}$)|(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
     if (reg.test(id) == false) {
-        fail_alert("身份证输入不合法");
+        fail_alert("身份信息输入不合法! 请输入身份证或学籍号！");
         return;
     }
 

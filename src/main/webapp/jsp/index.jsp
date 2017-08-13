@@ -63,6 +63,7 @@
         $(document).ready(function () {
             checkCookie();
             getAllSchool('school');
+            getAllSchool('schoolDrop');
 
         });
 
@@ -195,14 +196,16 @@
             <h3 style="margin-left: 0%; margin-top: 46%; position: absolute; width: 50%; text-align: center; font-size: 1.5vw">密码</h3>
             <input id="passwordTextField" class="textInput" type="password" style="margin-left: 5%; margin-top: 54%">
 
-            <h3 style="margin-left: 50%; margin-top: 46%; position: absolute; width: 50%; text-align: center; font-size: 1.5vw">身份证</h3>
+            <h3 style="margin-left: 50%; margin-top: 46%; position: absolute; width: 50%; text-align: center; font-size: 1.5vw">身份信息</h3>
+            <img src="../static/images/question.png" style="margin-left: 87%; margin-top: 48%; position: absolute; width: 4%"
+                 data-am-popover="{content: '身份信息可为身份证或是学籍号！', trigger: 'hover focus'}">
             <input id="idTextField" class="textInput" style="margin-left: 55%; margin-top: 54%">
 
             <h3 style="margin-left: 0%; margin-top: 68%; position: absolute; width: 50%; text-align: center; font-size: 1.5vw">学生姓名</h3>
             <input id="studentnameTextField" class="textInput" style="margin-left: 5%; margin-top: 76%">
 
             <h3 style="margin-left: 50%; margin-top: 68%; position: absolute; width: 50%; text-align: center; font-size: 1.5vw">所属学校</h3>
-            <div id="schoolDropDown" style="padding-bottom: 3vw; margin-top: 76%">
+            <div id="schoolDropDown" style="margin-top: 76%">
                 <select data-select-like-alignement="auto" class="drop-select" id="schoolDrop">
                     <%--<option value="a" selected="selected"></option>--%>
                     <%--<option value="b">南京外国语学校仙林分校</option>--%>
@@ -449,10 +452,7 @@
         确 定
     </button>
 </div>
-<div class="foot">
-    <p class="navLabel" align="center" style="position: absolute; top:97.2%; text-align: center">与子同袍项目组
-        copyright@2017</p>
-</div>
+
 <script type="text/javascript" src="../static/js/alert.js"></script>
 <script type="text/javascript" src="../static/js/util.js"></script>
 <script type="text/javascript" src="../static/js/SmoothScroll.min.js"></script>
