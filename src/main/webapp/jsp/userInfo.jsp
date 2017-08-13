@@ -148,14 +148,14 @@
         <p class="labelP" style="left: 5%; top: 36%">身 份 证:</p>
         <input class="contentP" id="idLabel" style="left: 23%; top: 36%" value="" disabled>
 
-        <p class="labelP" style="left: 5%; top: 48%">微 信 号:</p>
-        <input class="contentP" id="wechatLabel" style="left: 23%; top: 48%" value="" disabled>
+        <p class="labelP" style="left: 5%; top: 48%">班 级:</p>
+        <input class="contentP" id="schoolLabel" style="left: 23%; top: 72%" value="" disabled>
         <%--<a href="" style="position:absolute; text-decoration: underline; top: 48%; left: 56%">修改</a>--%>
         <p class="labelP" style="left: 5%; top: 60%">手 机 号:</p>
-        <input class="contentP" id="phoneLabel" style="left: 23%; top: 60%" value="" disabled>
+        <input class="contentP" id="phoneLabel" style="left: 23%; top: 48%" value="" disabled>
         <%--<a href="" style="position:absolute; text-decoration: underline; top: 60%; left: 56%">修改</a>--%>
         <p class="labelP" style="left: 5%; top: 72%">学 校:</p>
-        <input class="contentP" id="schoolLabel" style="left: 23%; top: 72%" value="" disabled>
+        <input class="contentP" id="schoolLabel" style="left: 23%; top: 60%" value="" disabled>
         <%--<a href="" style="position:absolute; text-decoration: underline; top: 72%; left: 56%">修改</a>--%>
         <p class="labelP" style="left: 5%; top: 84%">密 码:</p>
         <input class="contentP" id="passwordLabel" style="left: 23%; top: 84%" value="******" disabled>

@@ -218,7 +218,7 @@ ul {
     font-size: 1.2vw;
     text-shadow: none;
     /*line-height: 210%;*/
-    min-height: 20px;
+    /*min-height: 20px;*/
 }
 .select-target.select-theme-dark:hover {
     color: #142535;
@@ -252,11 +252,11 @@ ul {
     border: .263em solid transparent;
 }
 .select-target.select-theme-dark b:before {
-    top: -50%;
+    top: -0.5vw;
     border-bottom-color: inherit;
 }
 .select-target.select-theme-dark b:after {
-    bottom: -50%;
+    bottom: -0.5vw;
     border-top-color: inherit;
 }
 

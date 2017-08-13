@@ -32,23 +32,23 @@
     margin-left: 40%;
 }
 
-.textInput{
-    position: absolute;
-    z-index: 2;
-    background-color: #97d5dd;
-    border-top-color: #258bb2;
-    border-right-color: #79b1f0;
-    border-top-width: thick;
-    border-right-width: thick;
-    border-left: none;
-    border-bottom: none;
-    width: 40%;
-    font-size: 120%;
-    padding-top: 1%;
-    padding-bottom: 1%;
-    line-height: 120%;
-    color: #142535;
-}
+/*.textInput{*/
+    /*position: absolute;*/
+    /*z-index: 2;*/
+    /*background-color: #97d5dd;*/
+    /*border-top-color: #258bb2;*/
+    /*border-right-color: #79b1f0;*/
+    /*border-top-width: thick;*/
+    /*border-right-width: thick;*/
+    /*border-left: none;*/
+    /*border-bottom: none;*/
+    /*width: 40%;*/
+    /*font-size: 120%;*/
+    /*padding-top: 1%;*/
+    /*padding-bottom: 1%;*/
+    /*line-height: 120%;*/
+    /*color: #142535;*/
+/*}*/
 
 .mybt{
     letter-spacing: normal;
@@ -82,7 +82,7 @@
     border-radius: 50%;
     background-size: cover;
     margin-left: 55%;
-    margin-top: 9%;
+    margin-top: 4%;
     width: 40%;
     padding-bottom: 0%;
 }

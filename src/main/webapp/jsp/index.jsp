@@ -189,49 +189,47 @@
             </div>
             <div><a style="text-align: center; display: block;" id="pic"></a></div>
 
-            <p class="label"
-               style="background: url(/static/images/UserNameLabel.png); background-size: cover; margin-left: 15%; margin-top: 29%; width: 20%"></p>
-            <input id="usernameTextField" class="textInput" style="margin-left: 5%; margin-top: 35%">
+            <h3 style="margin-left: 0%; margin-top: 24%; position: absolute; width: 50%; text-align: center; font-size: 1.5vw">用户名</h3>
+            <input id="usernameTextField" class="textInput" style="margin-left: 5%; margin-top: 32%">
 
-            <p class="label"
-               style="background: url(/static/images/PasswordLabel.png); background-size: cover; margin-left: 18.5%; margin-top: 51%; width: 15%"></p>
-            <input id="passwordTextField" class="textInput" type="password" style="margin-left: 5%; margin-top: 57%">
+            <h3 style="margin-left: 0%; margin-top: 46%; position: absolute; width: 50%; text-align: center; font-size: 1.5vw">密码</h3>
+            <input id="passwordTextField" class="textInput" type="password" style="margin-left: 5%; margin-top: 54%">
 
-            <p class="label"
-               style="background: url(/static/images/IDLabel.png); background-size: cover; margin-left: 65%; margin-top: 51%; width: 20%"></p>
-            <input id="idTextField" class="textInput" style="margin-left: 55%; margin-top: 57%">
+            <h3 style="margin-left: 50%; margin-top: 46%; position: absolute; width: 50%; text-align: center; font-size: 1.5vw">身份证</h3>
+            <input id="idTextField" class="textInput" style="margin-left: 55%; margin-top: 54%">
 
-            <p class="label"
-               style="background: url(/static/images/StudentNameLabel.png); background-size: cover; margin-left: 11.5%; margin-top: 73%; width: 27%"></p>
-            <input id="studentnameTextField" class="textInput" style="margin-left: 5%; margin-top: 79%">
+            <h3 style="margin-left: 0%; margin-top: 68%; position: absolute; width: 50%; text-align: center; font-size: 1.5vw">学生姓名</h3>
+            <input id="studentnameTextField" class="textInput" style="margin-left: 5%; margin-top: 76%">
 
-            <p class="label"
-               style="background: url(/static/images/SchoolLabel.png); background-size: cover; margin-left: 61.5%; margin-top: 73%; width: 27%"></p>
-            <div id="schoolDropDown" style="height: 7%; line-height: 200%">
+            <h3 style="margin-left: 50%; margin-top: 68%; position: absolute; width: 50%; text-align: center; font-size: 1.5vw">所属学校</h3>
+            <div id="schoolDropDown" style="padding-bottom: 3vw; margin-top: 76%">
                 <select data-select-like-alignement="auto" class="drop-select" id="schoolDrop">
-                    <option value="a" selected="selected"></option>
+                    <%--<option value="a" selected="selected"></option>--%>
                     <%--<option value="b">南京外国语学校仙林分校</option>--%>
                     <%--<option value="g">南京</option>--%>
                 </select>
             </div>
             <%--<input id="schoolTextField" class="textInput" style="margin-left: 55%; margin-top: 79%">--%>
 
-            <p class="label"
-               style="background: url(/static/images/GenderLabel.png); background-size: cover; margin-left: 18.5%; margin-top: 95%; width: 15%"></p>
-            <button id="maleBut" class="mybt" style="margin-left: 5%; margin-top: 101%; width: 15.7%; font-size: 1.5vw;">男
+            <h3 style="margin-left: 0%; margin-top: 90%; position: absolute; width: 50%; text-align: center; font-size: 1.5vw">性别</h3>
+            <button id="maleBut" class="mybt" style="margin-left: 5%; margin-top: 98%; width: 15.7%; font-size: 1.5vw;">男
             </button>
 
-            <p style="position:absolute; color: white; margin-top: 101%; margin-left: 24%; text-align: center; font-size: 200%; width: 3%;">
+            <p style="position:absolute; color: white; margin-top: 98%; margin-left: 23.5%; text-align: center; font-size: 1.8vw; width: 3%;">
                 |</p>
-            <button id="femaleBut" class="mybt" style="margin-left: 29%; margin-top: 101%; width: 15.7%; font-size: 1.5vw;">
+            <button id="femaleBut" class="mybt" style="margin-left: 29%; margin-top: 98%; width: 15.7%; font-size: 1.5vw;">
                 女
             </button>
 
-            <p class="label"
-               style="background: url(/static/images/PhoneLabel.png); background-size: cover; margin-left: 68.5%; margin-top: 95%; width: 15%"></p>
-            <input id="phoneTextField" class="textInput" style="margin-left: 55%; margin-top: 101%">
+            <h3 style="margin-left: 50%; margin-top: 90%; position: absolute; width: 50%; text-align: center; font-size: 1.5vw">手机</h3>
+            <input id="phoneTextField" class="textInput" style="margin-left: 55%; margin-top: 98%">
 
-            <button class="mybt" style="margin-left: 30%; margin-top: 120%; width: 40%; font-size: 1.5vmax;"
+            <h3 style="margin-left: 18.5%; margin-top: 112%; position: absolute; font-size: 1.5vw">班级</h3>
+            <button class="mybt" style="margin-left: 5%; margin-top: 120%; width: 40%; font-size: 1.5vw; color: #142535; text-shadow: -0.1vmax 0.1vmax 0 lightgrey;"
+                    onclick="" data-am-modal="{target: '#my-popup'}" id="GradeAndClass">&nbsp;
+            </button>
+
+            <button class="mybt" style="position: absolute; margin-left: 55%; margin-top: 120%; width: 40%; font-size: 1.5vw;"
                     onclick="signup()">注 册
             </button>
         </div>
@@ -405,7 +403,56 @@
     </div>
 </div>
 
-
+<div class="am-popup" id="my-popup" style="height: 60%">
+    <h1 style="width: 50%; float: left;">班&nbsp;级&nbsp;选&nbsp;择</h1>
+    <span data-am-modal-close
+          class="am-close" style="top: 30%; float: right;">&times;</span>
+    <br>
+    <h2 style="margin-left: 0%; width: 100%; text-align: center; margin-top: 15%">年级</h2>
+    <div style="padding-bottom: 3vw; margin-top: 0%; position: absolute; z-index: 100; width: 40%; margin-left: 30%;">
+        <select data-select-like-alignement="auto" class="drop-select" id="gradeDrop">
+            <option value="" selected="selected"></option>
+            <option value="1">一年级</option>
+            <option value="2">二年级</option>
+            <option value="3">三年级</option>
+            <option value="4">四年级</option>
+            <option value="5">五年级</option>
+            <option value="6">六年级</option>
+        </select>
+    </div>
+    <h2 style="margin-left: 0%; width: 100%; text-align: center; margin-top: 10%">班级</h2>
+    <div style="padding-bottom: 3vw; margin-top: 0%; position: absolute; z-index: 100; width: 40%; margin-left: 30%;">
+        <select data-select-like-alignement="auto" class="drop-select" id="classDrop">
+            <option value="" selected="selected"></option>
+            <option value="1">1班</option>
+            <option value="2">2班</option>
+            <option value="3">3班</option>
+            <option value="4">4班</option>
+            <option value="5">5班</option>
+            <option value="6">6班</option>
+            <option value="7">7班</option>
+            <option value="8">8班</option>
+            <option value="9">9班</option>
+            <option value="10">10班</option>
+            <option value="11">11班</option>
+            <option value="12">12班</option>
+            <option value="13">13班</option>
+            <option value="14">14班</option>
+            <option value="15">15班</option>
+            <option value="16">16班</option>
+            <option value="17">17班</option>
+            <option value="18">18班</option>
+        </select>
+    </div>
+    <button class="mybt" style="width: 20%; font-size: 1.5vmax; margin-left: 40%; margin-top: 20%;"
+            onclick="getGradeAndClass()">
+        确 定
+    </button>
+</div>
+<div class="foot">
+    <p class="navLabel" align="center" style="position: absolute; top:97.2%; text-align: center">与子同袍项目组
+        copyright@2017</p>
+</div>
 <script type="text/javascript" src="../static/js/alert.js"></script>
 <script type="text/javascript" src="../static/js/util.js"></script>
 <script type="text/javascript" src="../static/js/SmoothScroll.min.js"></script>
