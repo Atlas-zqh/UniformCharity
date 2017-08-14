@@ -96,7 +96,8 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public PageInfo<Order> findOrderByBuyerID(String buyerID, int pageNo, int pageSize) {
         PageHelper.startPage(pageNo, pageSize);
-        List<Order> orders = orderMapper.findOrderByBuyerID(buyerID);
+        String bid = EncryptionUtil.encrypt("20170522", buyerID);
+        List<Order> orders = orderMapper.findOrderByBuyerID(bid);
         PageInfo<Order> pageInfo = new PageInfo<>(orders);
         return pageInfo;
     }
@@ -111,7 +112,8 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public PageInfo<Order> findOrderBySellerID(String sellerID, int pageNo, int pageSize) {
         PageHelper.startPage(pageNo, pageSize);
-        List<Order> orders = orderMapper.findOrderBySellerID(sellerID);
+        String sid = EncryptionUtil.encrypt("20170522", sellerID);
+        List<Order> orders = orderMapper.findOrderBySellerID(sid);
         PageInfo<Order> pageInfo = new PageInfo<>(orders);
         return pageInfo;
     }
@@ -228,5 +230,20 @@ public class OrderServiceImpl implements OrderService {
         financialRecordMapper.addRecord(donorR);
     }
 
-
+    /**
+     * 根据买家ID和订单状态查找订单
+     *
+     * @param buyerID  买家ID
+     * @param status   订单状态
+     * @param pageNo
+     * @param pageSize
+     * @return 对应订单
+     */
+    @Override
+    public PageInfo<Order> findOrderByBuyerIDAndStatus(String buyerID, Integer status, int pageNo, int pageSize) {
+        PageHelper.startPage(pageNo, pageSize);
+        String bid = EncryptionUtil.encrypt("20170522", buyerID);
+        List<Order> orders = orderMapper.findOrderByBuyerIDAndStatus(bid, status);
+        return new PageInfo<>(orders);
+    }
 }

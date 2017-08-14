@@ -81,4 +81,13 @@ public interface OrderService {
      * @return 对应订单
      */
     PageInfo<Order> findOrderByClothesID(String clothesID, int pageNo, int pageSize);
+
+    /**
+     * 根据买家ID和订单状态查找订单
+     *
+     * @param buyerID 买家ID
+     * @param status  订单状态
+     * @return 对应订单
+     */
+    PageInfo<Order> findOrderByBuyerIDAndStatus(String buyerID, Integer status, int pageNo, int pageSize);
 }

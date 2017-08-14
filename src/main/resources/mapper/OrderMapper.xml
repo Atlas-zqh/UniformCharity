@@ -61,4 +61,9 @@
         SELECT * FROM clothes_order
         WHERE clothesID=#{clothesID}
     </select>
+
+    <select id="findOrderByBuyerIDAndStatus" resultType="Order">
+        SELECT * FROM clothes_order
+        WHERE buyerID=#{0} AND orderStatus=#{1}
+    </select>
 </mapper>

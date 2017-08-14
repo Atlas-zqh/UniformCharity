@@ -73,4 +73,13 @@ public interface OrderMapper {
      * @return 对应订单
      */
     List<Order> findOrderByClothesID(String clothesID);
+
+    /**
+     * 根据买家ID和订单状态查找订单
+     *
+     * @param buyerID 买家ID
+     * @param status  订单状态
+     * @return
+     */
+    List<Order> findOrderByBuyerIDAndStatus(String buyerID, Integer status);
 }
