@@ -148,18 +148,21 @@
         <p class="labelP" style="left: 5%; top: 36%">身 份 证:</p>
         <input class="contentP" id="idLabel" style="left: 23%; top: 36%" value="" disabled>
 
-        <p class="labelP" style="left: 5%; top: 48%">班 级:</p>
-        <input class="contentP" id="schoolLabel" style="left: 23%; top: 72%" value="" disabled>
-        <%--<a href="" style="position:absolute; text-decoration: underline; top: 48%; left: 56%">修改</a>--%>
-        <p class="labelP" style="left: 5%; top: 60%">手 机 号:</p>
+        <p class="labelP" style="left: 5%; top: 48%">手 机 号:</p>
         <input class="contentP" id="phoneLabel" style="left: 23%; top: 48%" value="" disabled>
+        <%--<a href="" style="position:absolute; text-decoration: underline; top: 48%; left: 56%">修改</a>--%>
+        <p class="labelP" style="left: 5%; top: 72%">班 级:</p>
+        <input class="contentP" id="classLabel" style="left: 23%; top: 72%" value="" disabled>
         <%--<a href="" style="position:absolute; text-decoration: underline; top: 60%; left: 56%">修改</a>--%>
-        <p class="labelP" style="left: 5%; top: 72%">学 校:</p>
+        <p class="labelP" style="left: 5%; top: 60%">学 校:</p>
         <input class="contentP" id="schoolLabel" style="left: 23%; top: 60%" value="" disabled>
+        <a href="#" style="position:absolute; text-decoration: underline; top: 72%; left: 58%">查看</a>
+        <img src="../static/images/question.png" style="left: 63%; top: 72%; position: absolute; width: 1.5vw; height: 1.5vw;"
+             data-am-popover="{content: '班级详情中包含班级信息及年级详情！立即点击左侧查看吧！', trigger: 'hover focus'}">
         <%--<a href="" style="position:absolute; text-decoration: underline; top: 72%; left: 56%">修改</a>--%>
         <p class="labelP" style="left: 5%; top: 84%">密 码:</p>
         <input class="contentP" id="passwordLabel" style="left: 23%; top: 84%" value="******" disabled>
-        <a href="#" style="position:absolute; text-decoration: underline; top: 84%; left: 56%"
+        <a href="#" style="position:absolute; text-decoration: underline; top: 84%; left: 58%"
            data-am-modal="{target: '#my-popup'}">修改</a>
 
         <%--<div id="modifyPasswordArea" style="display: none">--%>

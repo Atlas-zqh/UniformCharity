@@ -49,31 +49,38 @@ function findClothesByID(clothesID) {
 
 function pay() {
     $.ajax({
-        url: "/orderAction/createOrder",
-        type: "POST",
-        dataType: "json",
-        data: {
-            "buyer": getCookie("id"),
-            "clothesID": $('#clothesID').val()
-        },
-        async: false,
-        success: function (data) {
-            if (data.result == "success") {
+            url: "/orderAction/createOrder",
+            type: "POST",
+            dataType: "json",
+            data: {
+                "buyer": getCookie("id"),
+                "clothesID": $('#clothesID').val()
+            },
+            async: false,
+            success: function (data) {
+                if (data.result == "true") {
 
-                var orderID = data.orderID;
-                window.location.href = "../jsp/pay.jsp?id=" + orderID;
+                    var orderID = data.orderID;
+                    window.location.href = "../jsp/pay.jsp?id=" + orderID;
+                    return;
+                }
+                if (data.result == "fail") {
+                    if (data.error == "same") {
+                        fail_alert("不能购买自己捐赠的衣物！");
+                    }
+                    else {
+                        fail_alert("哎呀，衣服已被卖出...");
+                    }
+                }
                 return;
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                fail_alert("哎呀，网络似乎不太好...");
             }
-            if (data.result == "fail") {
-                fail_alert("哎呀，创建订单失败...");
-                return;
-            }
-        },
-        error: function (XMLHttpRequest, textStatus, errorThrown) {
-            fail_alert("哎呀，网络似乎不太好...");
+
         }
-
-    });
+    )
+    ;
 }
 
 function findOrderByID(id) {

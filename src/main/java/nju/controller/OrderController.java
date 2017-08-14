@@ -49,7 +49,14 @@ public class OrderController {
 
 
         Clothes clothes = clothesService.findClothesByClothesID(clothesID);
-        if(clothes != null) {
+        if(buyer.equals(clothes.getDonorID())){
+            map.put("success", "fail");
+            map.put("error", "same");
+            return map;
+        }
+        if(clothes != null && clothes.getStatus().equals(Clothes.AVAILABLE)) {
+            clothes.setStatus(Clothes.OCCUPIED);
+            clothesService.updateClothes(clothes);
             Order order = new Order();
             order.setClothesID(clothesID);
             order.setDonorID(clothes.getDonorID());
@@ -62,6 +69,7 @@ public class OrderController {
             map.put("orderID", id);
         }else{
             map.put("success", "fail");
+            map.put("error", "different");
         }
 
         return map;
@@ -160,6 +168,9 @@ public class OrderController {
         //获得订单
         Order order = orderService.findOrderByOrderID(orderID);
         order.setOrderStatus(Order.Invalid);
+        Clothes clothes = clothesService.findClothesByClothesID(order.getClothesID());
+        clothes.setStatus(Clothes.AVAILABLE);
+        clothesService.updateClothes(clothes);
 
         double price = getOrderPrice(order);
 
