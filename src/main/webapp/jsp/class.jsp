@@ -34,34 +34,35 @@
     <div id="classBlock" class="briefInfoBlock" style="top: 3%;">
         <h3>我 的 班 级:</h3>
         <h4 style="position: absolute; top: 2%; left: 65%">1班</h4>
-        <h5 style="top: 20%; position:absolute;">我的班级总积分:</h5>
+        <h5 style="top: 20%; position:absolute;" class="titleP">班级总积分:</h5>
         <h4 style="width: 100%; text-align: center; top: 35%; position:absolute;">188分</h4>
-        <h5 style="top: 50%; position:absolute;">我的班级在年级中的排名:</h5>
+        <h5 style="top: 50%; position:absolute;" class="titleP">班级在年级中的排名:</h5>
         <h4 style="width: 100%; text-align: center; top: 65%; position:absolute;">第1名</h4>
 
-        <a href="#" style="top: 92%; left: 63%; position:absolute;" onclick="showClassContent()">查 看 详 情 ></a>
+        <a href="#" style="top: 92%; position:absolute; width: 98%; text-align: right" onclick="showClassContent()">查 看 详 情 ></a>
 
         <!--<a href="404.html" class="iconButton" style="background-image: url(/images/infoBG.png)">aaa</a>-->
     </div>
     <div id="gradeBlock" class="briefInfoBlock" style="top: 54%;">
         <h3>我 的 年 级:</h3>
         <h4 style="position: absolute; top: 2%; left: 65%">1年级</h4>
-        <h5 style="top: 20%; position:absolute;">我的年级总积分:</h5>
+        <h5 style="top: 20%; position:absolute;" class="titleP">年级总积分:</h5>
         <h4 style="width: 100%; text-align: center; top: 35%; position:absolute;">188分</h4>
-        <h5 style="top: 50%; position:absolute;">我的年级在全校中的排名:</h5>
+        <h5 style="top: 50%; position:absolute;" class="titleP">年级在全校中的排名:</h5>
         <h4 style="width: 100%; text-align: center; top: 65%; position:absolute;">第1名</h4>
-        <a href="#" style="top: 92%; left: 63%; position:absolute;" onclick="showGradeContent()">查 看 更 多 ></a>
+        <a href="#" style="top: 92%; position:absolute; width: 98%; text-align: right" onclick="showGradeContent()">查 看 详 情 ></a>
     </div>
 
     <div id="classContent" class="contentBlock">
         <h1>班 级 信 息</h1>
         <h3 style="position: absolute; top: 3%; white-space: nowrap; width: 98%; text-align: right">本班总积分：<span id="classScore">18888分</span></h3>
-        <h4 style="position: absolute; left: 3%;">班级成员</h4>
-        <h4 style="position: absolute; width: 97%; text-align: right">共<span id="classMem">0</span>人</h4>
+        <h4 style="position: absolute; left: 3%; top: 12%;">班级成员</h4>
+        <h4 style="position: absolute; width: 95%; top: 12%; text-align: right">共<span id="classMem">0</span>人</h4>
+        <iframe src="../jsp/studentList.jsp" style="position: absolute; width: 94%; left: 3%; top: 20%; height: 77%"></iframe>
     </div>
     <div id="gradeContent" class="contentBlock" style="display: none">
         <h1>年 级 信 息</h1>
-        <h3 style="position: absolute; top: 3%; white-space: nowrap; width: 98%; text-align: right">本年级总积分：<span id="classScore">18888分</span></h3>
+        <h3 style="position: absolute; top: 3%; white-space: nowrap; width: 98%; text-align: right">本年级总积分：<span id="gradeScore">18888分</span></h3>
         <h4 style="position: absolute; left: 3%;">所有年级</h4>
     </div>
 </div>
