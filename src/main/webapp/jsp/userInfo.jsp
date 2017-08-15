@@ -80,14 +80,14 @@
         <p class="titleP">个 人 信 息</p>
         <button class="iconButton"
                 style="background-image: url(/static/images/maleIcon.png); top: 25%; margin-left: 2%;"></button>
-        <p class="nameP" style="top: 26%; margin-left: 25%;" id="briefUser">X X X</p>
+        <p class="nameP" style="top: 26%; margin-left: 25%;" id="briefUser"></p>
         <button class="genderButton"
                 style="background-image: url(/static/images/male.png); top: 24%; margin-left: 10%; background-color: #ffffff"
                 id="briefGender"></button>
         <p class="labelP" style="margin-left: 2%; top: 50%">姓 名:</p>
-        <p class="contentP" style="left: 30%; top: 51%" id="briefName">XXX</p>
+        <p class="contentP" style="left: 30%; top: 51%" id="briefName"></p>
         <p class="labelP" style="margin-left: 2%; top: 75%">学 校:</p>
-        <p class="contentP" style="left: 30%; top: 76%" id="briefSchool">XXX</p>
+        <p class="contentP" style="left: 30%; top: 76%" id="briefSchool"></p>
         <a href="#" style="top: 90%; left: 65%" onclick="showInfoContent()">查 看 详 情 ></a>
 
         <!--<a href="404.html" class="iconButton" style="background-image: url(/images/infoBG.png)">aaa</a>-->
@@ -97,21 +97,21 @@
         <div id="friend1" style="display: none">
             <button class="iconButton"
                     style="background-image: url(/static/images/maleIcon.png); top: 25%; margin-left: 2%;"></button>
-            <a href="" class="labelP" id="username1" style="top: 25%; margin-left: 25%;">X X X</a>
+            <a href="" class="labelP" id="username1" style="top: 25%; margin-left: 25%;"></a>
             <button class="genderButton"
                     style="background-image: url(/static/images/male.png); top: 24%; margin-left: 10%; background-color: #ffffff"></button>
         </div>
         <div id="friend2" style="display: none">
             <button class="iconButton"
                     style="background-image: url(/static/images/maleIcon.png); top: 50%; margin-left: 2%;"></button>
-            <a href="" class="labelP" id="username2" style="top: 50%; margin-left: 25%;">X X X</a>
+            <a href="" class="labelP" id="username2" style="top: 50%; margin-left: 25%;"></a>
             <button class="genderButton"
                     style="background-image: url(/static/images/male.png); top: 49%; margin-left: 10%; background-color: #ffffff"></button>
         </div>
         <div id="friend3" style="display: none">
             <button class="iconButton"
                     style="background-image: url(/static/images/maleIcon.png); top: 75%; margin-left: 2%;"></button>
-            <a href="" class="labelP" id="username3" style="top: 75%; left: 25%;">X X X</a>
+            <a href="" class="labelP" id="username3" style="top: 75%; left: 25%;"></a>
             <button class="genderButton"
                     style="background-image: url(/static/images/male.png); top: 74%; margin-left: 10%; background-color: #ffffff"></button>
         </div>
@@ -124,7 +124,7 @@
     <div id="" class="briefInfoBlock" style="top: 67%;">
         <p class="titleP">公 益 信 息</p>
         <p class="labelP" style="top: 25%; margin-left: 2%;">积 分:</p>
-        <p class="contentP" style="left: 30%; top: 26%" id="briefScore">X X X</p>
+        <p class="contentP" style="left: 30%; top: 26%" id="briefScore"></p>
         <p class="labelP" style="top: 45%; margin-left: 2%;">最 新 记 录:</p>
         <p class="contentP" style="margin-left: 2%; top: 60%">暂无公益记录</p>
         <a href="#" style="top: 90%; left: 65%" onclick="showPublicContent()">查 看 更 多 ></a>
@@ -156,7 +156,7 @@
         <%--<a href="" style="position:absolute; text-decoration: underline; top: 60%; left: 56%">修改</a>--%>
         <p class="labelP" style="left: 5%; top: 60%">学 校:</p>
         <input class="contentP" id="schoolLabel" style="left: 23%; top: 60%" value="" disabled>
-        <a href="#" style="position:absolute; text-decoration: underline; top: 72%; left: 58%">查看</a>
+        <a href="../jsp/class.jsp" style="position:absolute; text-decoration: underline; top: 72%; left: 58%">查看</a>
         <img src="../static/images/question.png" style="left: 63%; top: 72%; position: absolute; width: 1.5vw; height: 1.5vw;"
              data-am-popover="{content: '班级详情中包含班级信息及年级详情！立即点击左侧查看吧！', trigger: 'hover focus'}">
         <%--<a href="" style="position:absolute; text-decoration: underline; top: 72%; left: 56%">修改</a>--%>

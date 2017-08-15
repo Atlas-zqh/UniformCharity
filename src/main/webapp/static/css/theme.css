@@ -311,6 +311,15 @@ h5{
     margin-left: 1%;
 }
 
+h6{
+    font-family: "Yuppy SC";
+    font-size: 1.5vw;
+    /*white-space: nowrap;*/
+    color: #DABD61;
+    text-shadow: -0.1vw 0.1vw 0 #7A6420;
+    margin-top: 1%;
+    margin-left: 1%;
+}
 
 .table-head {
     margin: 10px;
