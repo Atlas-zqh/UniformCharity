@@ -26,9 +26,9 @@ function setSelected(id, value) {
     var all_options = document.getElementById(id).options;
     var i = 0;
     for (i = 0; i < all_options.length; i++) {
-        if(all_options[i].selected == true){
-            all_options[i].selected = false;
-        }
+        // if(all_options[i].selected == true){
+        //     all_options[i].selected = false;
+        // }
         if (all_options[i].text == value)  // 根据option标签的ID来进行判断  测试的代码这里是两个等号
         {
             all_options[i].selected = true;

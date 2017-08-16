@@ -32,7 +32,7 @@ function findClothesByID(clothesID) {
                 $('#school').html(data.clothes.schoolName);
                 $('#type').html(data.clothes.clothesType);
                 $('#gender').html(data.clothes.gender);
-                $('#size').html(data.clothes.clothessize);
+                $('#size').html(data.clothes.clothesHeight);
                 if(data.clothes.status == 'Available'){
                     $('#status').html("未售出");
                 }else{

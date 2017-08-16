@@ -25,6 +25,7 @@ function showInfoContent(){
                 $('#wechatLabel').val(data.user.wechatID);
                 $('#phoneLabel').val(data.user.phone);
                 $('#schoolLabel').val(data.user.school);
+                $('#classLabel').val(data.user.sgrade + " " + data.user.sclass);
                 $('#iconLabel').css("background-image", "url(" + data.user.picurl + ")");
                 if (data.user.gender == '男'){
                     $('#genderImage').css("background-image", "url(../images/male.png)");
@@ -100,6 +101,7 @@ function changePassword() {
     var oldPassword = $('#originalPassword').val();
     var newPassword1 = $('#newPassword1').val();
     var newPassword2 = $('#newPassword2').val();
+    var id = $('#idLabel').val();
 
     if(newPassword1 != newPassword2){
         fail_alert("哎呀，两次输入的密码不一致！");
@@ -109,7 +111,7 @@ function changePassword() {
             type: "POST",
             dataType: "json",
             data: {
-                "username": getCookie("username"),
+                "id": id,
                 "oldPassword": oldPassword,
                 "newPassword": newPassword1
             },
@@ -125,6 +127,124 @@ function changePassword() {
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
                 fail_alert("哎呀，网络似乎不太好...");
+            }
+        });
+    }
+}
+
+function openSchoolModify() {
+    $('#school-popup').modal('open');
+    clearSelectList('schoolDrop');
+    // getAllSchool('schoolDrop');
+    var school = $('#schoolLabel').val();
+
+    jQuery.ajax( {
+        type : 'GET',
+        contentType : 'application/json',
+        url : '/schoolAction/allSchool',
+        dataType : 'json',
+        success : function(data) {
+            // alert("success");
+            if (data && data.success == "true") {
+                addOption('schoolDrop', "null", "");
+                $.each(data.schools, function(i, item) {
+                    addOption('schoolDrop', item, item);
+                });
+                setSelected('schoolDrop', school);
+            }
+        },
+        error : function() {
+            fail_alert("哎呀呀，初始化信息失败...")
+        }
+    });
+
+
+    var sgrade = $('#classLabel').val().split(' ')[0];
+    var sclass = $('#classLabel').val().split(' ')[1];
+
+    clearSelectList('gradeDrop');
+    jQuery.ajax({
+        type: 'POST',
+        url: '/schoolAction/allGradesOfSchool',
+        data: {
+            "school": school
+        },
+        dataType: 'json',
+        success: function (data) {
+            // alert("success");
+            if (data && data.success == "true") {
+                addOption('gradeDrop', "null", "");
+                $.each(data.grades, function (i, item) {
+                    addOption('gradeDrop', item, item);
+                    // fail_alert(i);
+                });
+                setSelected('gradeDrop', sgrade);
+            }
+        },
+        error: function () {
+            fail_alert("哎呀呀，初始化信息失败...")
+        }
+    });
+    // getAllGrades('gradeDrop');
+
+    clearSelectList('classDrop');
+    jQuery.ajax({
+        type: 'POST',
+        url: '/schoolAction/allClassesOfGrade',
+        data: {
+            "school": school,
+            "grade": sgrade
+        },
+        dataType: 'json',
+        success: function (data) {
+            // alert("success");
+            if (data && data.success == "true") {
+                addOption('classDrop', "null", "");
+                $.each(data.classes, function (i, item) {
+                    addOption('classDrop', item, item);
+                    // fail_alert(i);
+                });
+                setSelected('classDrop', sclass);
+            }
+        },
+        error: function () {
+            fail_alert("哎呀呀，初始化信息失败...")
+        }
+    });
+}
+
+function modifySchool() {
+    var school = $('#schoolDrop option:selected').text();
+    var sgrade = $('#gradeDrop option:selected').text();
+    var sclass = $('#classDrop option:selected').text();
+    var id = $('#idLabel').val();
+    if(school == 'null' || sgrade == 'null' || sclass == 'null'){
+        fail_alert("请选择完整信息！")
+    }else {
+        jQuery.ajax({
+            type: 'POST',
+            url: '/userAction/modifyClass',
+            data: {
+                "school": school,
+                "grade": sgrade,
+                "class": sclass,
+                "id": id
+            },
+            dataType: 'json',
+            success: function (data) {
+                // alert("success");
+                if (data && data.success == "true") {
+                    // var href = window.location.href;
+                    // window.location.href = href;
+                    $('#school-popup').modal('close');
+                    window.location.href = "../jsp/userInfo.jsp";
+                    success_alert("修改成功！");
+                }else{
+                    success_alert("哎呀呀，修改失败...请稍后再试");
+                }
+            },
+            error: function () {
+                fail_alert("哎呀呀，修改失败...请稍后再试")
             }
         });
     }

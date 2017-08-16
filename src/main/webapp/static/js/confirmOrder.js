@@ -31,7 +31,7 @@ function findClothesByID(clothesID) {
                 $('#school').html(data.clothes.schoolName);
                 $('#type').html(data.clothes.clothesType);
                 $('#gender').html(data.clothes.gender);
-                $('#size').html(data.clothes.clothessize);
+                $('#size').html(data.clothes.clothesHeight);
                 $('#pic').attr("src", data.pics[0]);
                 $('#price').html("¥ " + data.price);
                 // $('#largePic1').attr("src", data.clothes.picurl);
@@ -58,13 +58,13 @@ function pay() {
             },
             async: false,
             success: function (data) {
-                if (data.result == "true") {
+                if (data.success == "true") {
 
                     var orderID = data.orderID;
                     window.location.href = "../jsp/pay.jsp?id=" + orderID;
                     return;
                 }
-                if (data.result == "fail") {
+                if (data.success == "fail") {
                     if (data.error == "same") {
                         fail_alert("不能购买自己捐赠的衣物！");
                     }

@@ -28,6 +28,9 @@ function getGradeAndClass() {
 
 function getAllGrades(id) {
     var school = $('#schoolDrop option:selected').text();
+    if (school == ""){
+        school = $('#schoolLabel').val();
+    }
     clearSelectList(id);
     jQuery.ajax({
         type: 'POST',
@@ -55,6 +58,9 @@ function getAllGrades(id) {
 function getAllClass(id) {
     var school = $('#schoolDrop option:selected').text();
     var grade = $('#gradeDrop option:selected').text();
+    if (school == ""){
+        school = $('#schoolLabel').val();
+    }
     clearSelectList(id);
     jQuery.ajax({
         type: 'POST',

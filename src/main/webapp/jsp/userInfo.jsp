@@ -17,17 +17,22 @@
 
     <link rel="stylesheet" type="text/css" href="../static/css/amazeui.cropper.css">
     <link rel="stylesheet" type="text/css" href="../static/css/amazeui.css">
-    <link rel="stylesheet" href="../static/css/theme.css"/>
     <link rel="stylesheet" href="../static/css/custom_up_img.css">
     <link rel="stylesheet" href="../static/css/userInfo.css"/>
-    <link rel="stylesheet" href="../static/css/alert.css"/>
     <link rel="stylesheet" href="../static/css/font-awesome.css">
     <link rel="stylesheet" href="../static/css/menu.css"/>
+    <%--<link rel="stylesheet" href="../static/css/main.css"/>--%>
+    <link rel="stylesheet" href="../static/css/theme.css"/>
+    <link rel="stylesheet" href="../static/css/alert.css"/>
 
     <script type="text/javascript" src="../static/js/jquery-3.2.1.min.js"></script>
     <title>与子同袍-我的主页</title>
     <script>
         $(document).ready(function () {
+            var m = window.location.href.split('?');
+            if (m.length == 2){
+                success_alert("修改成功！");
+            }
             getInfo();
             checkCookie();
         });
@@ -156,9 +161,12 @@
         <%--<a href="" style="position:absolute; text-decoration: underline; top: 60%; left: 56%">修改</a>--%>
         <p class="labelP" style="left: 5%; top: 60%">学 校:</p>
         <input class="contentP" id="schoolLabel" style="left: 23%; top: 60%" value="" disabled>
-        <a href="../jsp/class.jsp" style="position:absolute; text-decoration: underline; top: 72%; left: 58%">查看</a>
+        <%--<a href="../jsp/class.jsp" style="position:absolute; text-decoration: underline; top: 72%; left: 58%">查看</a>--%>
+        <a href="#" onclick="openSchoolModify()" style="position:absolute; text-decoration: underline; top: 72%; left: 58%">修改</a>
         <img src="../static/images/question.png" style="left: 63%; top: 72%; position: absolute; width: 1.5vw; height: 1.5vw;"
-             data-am-popover="{content: '班级详情中包含班级信息及年级详情！立即点击左侧查看吧！', trigger: 'hover focus'}">
+             data-am-popover="{content: '点击可进行学校／年级／班级修改！', trigger: 'hover focus'}">
+        <%--<img src="../static/images/question.png" style="left: 63%; top: 72%; position: absolute; width: 1.5vw; height: 1.5vw;"--%>
+             <%--data-am-popover="{content: '班级详情中包含班级信息及年级详情！立即点击左侧查看吧！', trigger: 'hover focus'}">--%>
         <%--<a href="" style="position:absolute; text-decoration: underline; top: 72%; left: 56%">修改</a>--%>
         <p class="labelP" style="left: 5%; top: 84%">密 码:</p>
         <input class="contentP" id="passwordLabel" style="left: 23%; top: 84%" value="******" disabled>
@@ -224,6 +232,10 @@
         </div>
     </div>
 </div>
+<div class="foot">
+    <p class="navLabel" align="center" style="position: absolute; top:97.2%; text-align: center">与子同袍项目组
+        copyright@2017</p>
+</div>
 
 <div class="am-popup" id="my-popup">
     <h1 style="width: 50%; float: left;">修&nbsp;改&nbsp;密&nbsp;码</h1>
@@ -242,21 +254,58 @@
         修 改
     </button>
 </div>
-<div class="foot">
-    <p class="navLabel" align="center" style="position: absolute; top:97.2%; text-align: center">与子同袍项目组
-        copyright@2017</p>
+
+<div class="am-popup" id="school-popup">
+    <h1 style="width: 50%; float: left;">班&nbsp;级&nbsp;选&nbsp;择</h1>
+    <span data-am-modal-close
+          class="am-close" style="top: 30%; float: right;">&times;</span>
+    <br>
+    <h2 style="margin-left: 0%; width: 100%; text-align: center; margin-top: 13%">学校</h2>
+    <div style="padding-bottom: 3vw; margin-top: -3%; position: absolute; z-index: 100; width: 40%; margin-left: 30%;">
+        <select data-select-like-alignement="auto" class="drop-select" id="schoolDrop" onchange="getAllGrades('gradeDrop')">
+            <option value="" selected="selected"></option>
+        </select>
+    </div>
+    <h2 style="margin-left: 0%; width: 100%; text-align: center; margin-top: 15%">年级</h2>
+    <div style="padding-bottom: 3vw; margin-top: -3%; position: absolute; z-index: 100; width: 40%; margin-left: 30%;">
+        <select data-select-like-alignement="auto" class="drop-select" id="gradeDrop" onchange="getAllClass('classDrop')">
+            <option value="" selected="selected"></option>
+        </select>
+    </div>
+    <h2 style="margin-left: 0%; width: 100%; text-align: center; margin-top: 15%">班级</h2>
+    <div style="padding-bottom: 3vw; margin-top: -3%; position: absolute; z-index: 100; width: 40%; margin-left: 30%;">
+        <select data-select-like-alignement="auto" class="drop-select" id="classDrop">
+            <option value="" selected="selected"></option>
+        </select>
+    </div>
+    <button class="mybt" style="width: 20%; font-size: 1.5vmax; margin-left: 40%; margin-top: 15%;"
+            onclick="modifySchool()">
+        确 定
+    </button>
 </div>
 <%--<script type="text/javascript" src="http://cdn.amazeui.org/amazeui/2.7.2/js/amazeui.js" charset="utf-8"></script>--%>
 <script type="text/javascript" src="../static/js/amazeui.js" charset="utf-8"></script>
+<script type="text/javascript" src="../static/js/alert.js" charset="utf-8"></script>
 <script type="text/javascript" src="../static/js/util.js" charset="utf-8"></script>
+<script type="text/javascript" src="../static/js/clothes.js" charset="utf-8"></script>
+<script type="text/javascript" src="../static/js/tether.js" charset="utf-8"></script>
+<script type="text/javascript" src="../static/js/select.js" charset="utf-8"></script>
+<script type="text/javascript" src="../static/js/main.js" charset="utf-8"></script>
 <script type="text/javascript" src="../static/js/menu.js" charset="utf-8"></script>
 <script type="text/javascript" src="../static/js/login.js" charset="utf-8"></script>
 <script type="text/javascript" src="../static/js/cookie.js" charset="utf-8"></script>
 <script type="text/javascript" src="../static/js/userInfo.js" charset="utf-8"></script>
-<script type="text/javascript" src="../static/js/alert.js" charset="utf-8"></script>
 <script type="text/javascript" src="../static/js/cropper.min.js" charset="utf-8"></script>
 <script type="text/javascript" src="../static/js/custom_up_img.js" charset="utf-8"></script>
-
+<script>
+    $('select.drop-select').each(function () {
+        new Select({
+            el: this,
+            selectLikeAlignment: $(this).attr('data-select-like-alignement') || 'auto',
+            className: 'select-theme-dark'
+        });
+    });
+</script>
 </body>
 
 </html>

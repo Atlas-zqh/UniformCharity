@@ -87,13 +87,13 @@ public class UserController {
     public Map<String, Object> modifyPassword(HttpServletRequest request, HttpServletResponse response) {
         Map<String, Object> map = new HashMap<>();
 
-        String username = request.getParameter("username");
+        String id = request.getParameter("id");
         String newPassword = request.getParameter("newPassword");
         String oldPassword = request.getParameter("oldPassword");
         User user;
 
         try {
-            user = userService.findUserByUsername(username);
+            user = userService.findUserByID(id);
             if (user == null) {
                 map.put("success", "fail");
             } else {
@@ -112,6 +112,45 @@ public class UserController {
             map.put("success", "fail");
         }
 
+        return map;
+    }
+
+    /**
+     * 修改密码
+     * @param request
+     * @param response
+     * @return
+     */
+    @RequestMapping(value = "modifyClass", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Object> modifyClass(HttpServletRequest request, HttpServletResponse response) {
+        Map<String, Object> map = new HashMap<>();
+
+        String id = request.getParameter("id");
+        String school = request.getParameter("school");
+        String sclass = request.getParameter("class");
+        String sgrade = request.getParameter("grade");
+        System.out.println("id" + id);
+        System.out.println("school" + school);
+        System.out.println("sclass" + sclass);
+        System.out.println("sgrade" + sgrade);
+        User user;
+
+        try {
+            user = userService.findUserByID(id);
+            if (user == null) {
+                map.put("success", "fail");
+            } else {
+                user.setSchool(school);
+                user.setSclass(sclass);
+                user.setSgrade(sgrade);
+                userService.updateUser(user);
+                map.put("success", "true");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            map.put("success", "fail");
+        }
 
         return map;
     }
@@ -181,6 +220,8 @@ public class UserController {
         String phone = request.getParameter("phone");
         String gender = request.getParameter("gender");
         String image = request.getParameter("image");
+        String grade = request.getParameter("grade");
+        String sclass = request.getParameter("class");
 
         System.out.println(username);
         System.out.println(password);
@@ -190,6 +231,8 @@ public class UserController {
         System.out.println(phone);
         System.out.println(gender);
         System.out.println(image);
+        System.out.println(grade);
+        System.out.println(sclass);
 
         String url = "";
         if (image.startsWith("../")) {
@@ -221,6 +264,8 @@ public class UserController {
                 user.setSchool(school);
                 user.setPicurl(url);
                 user.setCredits(100.0);
+                user.setSclass(sclass);
+                user.setSgrade(grade);
                 userService.addUser(user);
                 result = "success";
                 map.put("result", result);

@@ -18,7 +18,7 @@ function getAllClothes() {
                     $('#noClothesLabel').css("display", "none");
                     $('#clothesNum').html(data.clothes.length);
                     $.each(data.clothes, function (i, item) {
-                        addSingleClothes(item.clothesID, data.pics[i], item.clothesType, item.clothessize, item.status);
+                        addSingleClothes(item.clothesID, data.pics[i], item.clothesType, item.clothesHeight, item.status);
                     });
                 }
             } else {
