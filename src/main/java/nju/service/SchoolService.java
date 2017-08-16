@@ -3,6 +3,7 @@ package nju.service;
 import nju.domain.School;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by keenan on 16/07/2017.
@@ -46,4 +47,12 @@ public interface SchoolService {
      * @return 学校
      */
     List<School> findSchoolByCityAndDistrict(String schoolCity, String schoolDistrict);
+
+    /**
+     * 根据学校名得到所有班级
+     *
+     * @param schoolName 学校名
+     * @return key:年级 value:所有班级
+     */
+    Map<String, List<String>> findClassBySchool(String schoolName);
 }

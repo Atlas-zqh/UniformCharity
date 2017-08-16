@@ -3,6 +3,7 @@ package nju.service.serviceImpl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import nju.domain.CreditRecord;
+import nju.domain.CreditStatistic;
 import nju.domain.FinancialRecord;
 import nju.domain.User;
 import nju.exception.InvalidInfoException;
@@ -158,5 +159,100 @@ public class UserServiceImpl implements UserService {
         String id = EncryptionUtil.encrypt("20170522", user_id);
         List<FinancialRecord> financialRecords = financialRecordMapper.findRecordByUserID(id);
         return new PageInfo<>(financialRecords);
+    }
+
+    /**
+     * 得到一个班级的所有学生
+     *
+     * @param school 学校名
+     * @param sgrade 年级
+     * @param sclass 班级
+     * @return
+     */
+    @Override
+    public List<User> findUserByClass(String school, String sgrade, String sclass) {
+        return userMapper.findUserByClass(school, sgrade, sclass);
+    }
+
+    /**
+     * 得到一个年级的所有学生
+     *
+     * @param school 学校名
+     * @param sgrade 年级
+     * @return
+     */
+    @Override
+    public List<User> findUserByGrade(String school, String sgrade) {
+        return userMapper.findUserByGrade(school, sgrade);
+    }
+
+    /**
+     * 得到一个学校的所有学校
+     *
+     * @param school 学校名
+     * @return
+     */
+    @Override
+    public List<User> findUserBySchool(String school) {
+        return userMapper.findUserBySchool(school);
+    }
+
+    /**
+     * 根据学校和给定年级得到该年级的公益积分统计数据
+     *
+     * @param school 学校名
+     * @param sgrade 年级
+     * @return
+     */
+    @Override
+    public CreditStatistic getAllCreditsByGrade(String school, String sgrade) {
+        return userMapper.getAllCreditsByGrade(school, sgrade);
+    }
+
+    /**
+     * 根据学校名得到该学校所有年级的公益积分统计数据
+     *
+     * @param school 学校名
+     * @return
+     */
+    @Override
+    public List<CreditStatistic> getAllGradeCreditsSum(String school) {
+        return userMapper.getAllGradeCreditsSum(school);
+    }
+
+    /**
+     * 根据学校名、年级和班级给出该班级的公益积分统计数据
+     *
+     * @param school 学校名
+     * @param sgrade 年级
+     * @param sclass 班级
+     * @return
+     */
+    @Override
+    public CreditStatistic getAllCreditsByGradeAndClass(String school, String sgrade, String sclass) {
+        return userMapper.getAllCreditsByGradeAndClass(school, sgrade, sclass);
+    }
+
+    /**
+     * 根据学校名和年级得到该年级所有班级的公益积分统计数据
+     *
+     * @param school 学校名
+     * @param sgrade 年级
+     * @return
+     */
+    @Override
+    public List<CreditStatistic> getAllClassCreditsSumByGrade(String school, String sgrade) {
+        return userMapper.getAllClassCreditsSumByGrade(school, sgrade);
+    }
+
+    /**
+     * 给定学校名得到该学校所有班级的公益积分统计数据
+     *
+     * @param school 学校名
+     * @return
+     */
+    @Override
+    public List<CreditStatistic> getAllClassCreditsSumBySchool(String school) {
+        return userMapper.getAllClassCreditsSumBySchool(school);
     }
 }

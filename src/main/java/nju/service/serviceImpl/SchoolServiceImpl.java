@@ -1,5 +1,6 @@
 package nju.service.serviceImpl;
 
+import nju.domain.SClass;
 import nju.domain.School;
 import nju.mapper.SchoolMapper;
 import nju.service.SchoolService;
@@ -8,6 +9,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * Created by keenan on 16/07/2017.
@@ -85,5 +88,17 @@ public class SchoolServiceImpl implements SchoolService {
             return Collections.EMPTY_LIST;
         }
         return schools;
+    }
+
+    /**
+     * 根据学校名得到所有班级
+     *
+     * @param schoolName 学校名
+     * @return key:年级 value:所有班级
+     */
+    @Override
+    public Map<String, List<String>> findClassBySchool(String schoolName) {
+        return schoolMapper.findClassBySchool(schoolName).stream()
+                .collect(Collectors.groupingBy(SClass::getSgrade, Collectors.mapping(SClass::getSclass, Collectors.toList())));
     }
 }

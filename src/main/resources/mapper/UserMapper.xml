@@ -16,9 +16,11 @@
     <insert id="add" parameterType="User">
         INSERT
         INTO student
-        (username, password, wechatID, phone, realName, gender, personID, credits, email, picurl, used,school)
+        (username, password, wechatID, phone, realName, gender, personID, credits, email, picurl,
+        used,school,sgrade,sclass)
         VALUES
-        (#{username},#{password},#{wechatID},#{phone},#{realName},#{gender},#{personID},#{credits},#{email},#{picurl},#{used},#{school})
+        (#{username},#{password},#{wechatID},#{phone},#{realName},#{gender},#{personID},#{credits},#{email},#{picurl},#{used},#{school},#{sgrade},
+        #{sclass})
     </insert>
 
     <!--删除-->
@@ -36,7 +38,7 @@
         student
         SET
         username=#{username}, password=#{password}, wechatID=#{wechatID},phone=#{phone},
-        realName=#{realName},gender=#{gender},personID=#{personID},credits=#{credits},email=#{email},picurl=#{picurl},used=#{used},school=#{school}
+        realName=#{realName},gender=#{gender},personID=#{personID},credits=#{credits},email=#{email},picurl=#{picurl},used=#{used},school=#{school},sgrade=#{sgrade},sclass=#{sclass}
         WHERE
         personID=#{personID}
     </update>
@@ -45,6 +47,56 @@
     <select id="findAll" resultType="User">
         SELECT *
         FROM student
+    </select>
+
+    <select id="getAllCreditsByGrade" parameterType="String" resultType="CreditStatistic">
+        SELECT school, sgrade, SUM(credits) AS credits
+        FROM student
+        WHERE school=#{0} AND sgrade=#{1}
+        GROUP BY school, sgrade
+    </select>
+
+    <select id="getAllGradeCreditsSum" parameterType="String" resultType="CreditStatistic">
+        SELECT school, sgrade, SUM(credits) AS credits
+        FROM student
+        WHERE school=#{school}
+        GROUP BY school, sgrade
+    </select>
+
+    <select id="getAllCreditsByGradeAndClass" parameterType="String" resultType="CreditStatistic">
+        SELECT school, sgrade, sclass, SUM(credits) AS credits
+        FROM student
+        WHERE school=#{0} AND sgrade=#{1} AND sclass=#{2}
+        GROUP BY school, sgrade, sclass
+    </select>
+
+    <select id="getAllClassCreditsSumByGrade" parameterType="String" resultType="CreditStatistic">
+        SELECT school, sgrade, sclass, SUM(credits) AS credits
+        FROM student
+        WHERE school=#{0} AND sgrade=#{1}
+        GROUP BY school, sgrade, sclass
+    </select>
+
+    <select id="getAllClassCreditsSumBySchool" parameterType="String" resultType="CreditStatistic">
+        SELECT school, sgrade, sclass, SUM(credits) AS credits
+        FROM student
+        WHERE school=#{school}
+        GROUP BY school, sgrade, sclass
+    </select>
+
+    <select id="findUserByClass" parameterType="String" resultType="User">
+        SELECT * FROM student
+        WHERE school=#{0} AND sgrade=#{1} AND sclass=#{1}
+    </select>
+
+    <select id="findUserByGrade" parameterType="String" resultType="User">
+        SELECT * FROM student
+        WHERE school=#{0} AND sgrade=#{1}
+    </select>
+
+    <select id="findUserBySchool" parameterType="String" resultType="User">
+        SELECT * FROM student
+        WHERE school=#{school}
     </select>
 
 </mapper>

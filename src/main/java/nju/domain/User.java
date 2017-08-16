@@ -28,12 +28,18 @@ public class User implements Serializable {
 
     private String school;
 
+    // 年级
+    private String sgrade;
+
+    // 班级
+    private String sclass;
+
     private Boolean used = true;
 
     public User() {
     }
 
-    public User(String username, String password, String wechatID, String phone, String realName, String gender, String personID, Double credits, String email, String picurl, Boolean used, String school) {
+    public User(String username, String password, String wechatID, String phone, String realName, String gender, String personID, Double credits, String email, String picurl, Boolean used, String school, String sgrade, String sclass) {
         this.username = username;
         this.password = password;
         this.wechatID = wechatID;
@@ -46,6 +52,8 @@ public class User implements Serializable {
         this.picurl = picurl;
         this.used = used;
         this.school = school;
+        this.sgrade = sgrade;
+        this.sclass = sclass;
     }
 
     public String getUsername() {
@@ -136,6 +144,22 @@ public class User implements Serializable {
         this.used = used;
     }
 
+    public String getSgrade() {
+        return sgrade;
+    }
+
+    public void setSgrade(String sgrade) {
+        this.sgrade = sgrade;
+    }
+
+    public String getSclass() {
+        return sclass;
+    }
+
+    public void setSclass(String sclass) {
+        this.sclass = sclass;
+    }
+
     public String getSchool() {
         return school;
     }
@@ -178,6 +202,8 @@ public class User implements Serializable {
                 ", email='" + email + '\'' +
                 ", picurl='" + picurl + '\'' +
                 ", school='" + school + '\'' +
+                ", sgrade='" + sgrade + '\'' +
+                ", sclass='" + sclass + '\'' +
                 ", used=" + used +
                 '}';
     }
