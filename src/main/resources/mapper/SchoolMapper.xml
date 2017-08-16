@@ -40,4 +40,9 @@
         SELECT * FROM school WHERE schoolCity=#{0} AND schoolDistrict=#{1}
     </select>
 
+    <select id="findClassBySchool" parameterType="String" resultType="SClass">
+        SELECT * FROM school_class
+        WHERE schoolName=#{schoolName}
+    </select>
+
 </mapper>

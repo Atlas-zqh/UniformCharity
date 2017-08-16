@@ -1,9 +1,8 @@
 package nju.mapper;
 
+import nju.domain.SClass;
 import nju.domain.School;
-import org.springframework.stereotype.Repository;
 
-import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -69,4 +68,12 @@ public interface SchoolMapper extends Mapper<School> {
      * @return 学校
      */
     List<School> findSchoolByCityAndDistrict(String schoolCity, String schoolDistrict);
+
+    /**
+     * 根据学校名得到该学校所有班级
+     *
+     * @param schoolName 学校名
+     * @return
+     */
+    List<SClass> findClassBySchool(String schoolName);
 }

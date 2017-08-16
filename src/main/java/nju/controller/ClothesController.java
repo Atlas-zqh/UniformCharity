@@ -72,7 +72,8 @@ public class ClothesController {
         clothes.setSchoolName(school);
         clothes.setGender(gender);
         clothes.setClothesType(type);
-        clothes.setClothessize(size);
+        //TODO qky待修改       原: clothes.setClothessize(size);
+//        clothes.setClothessize(size);
         clothes.setDonorID(id);
 //        clothes.setClothesPrice(0.0);
         clothes.setStatus("Available");
@@ -163,7 +164,8 @@ public class ClothesController {
         if (!gender.equals(""))
             clothesMap.put(ClothesAttributes.gender, gender);
         if (!size.equals(""))
-            clothesMap.put(ClothesAttributes.clothessize, size);
+            //TODO qky待修改       原: clothesMap.put(ClothesAttributes.clothessize, size);
+//            clothesMap.put(ClothesAttributes.clothessize, size);
         if (!type.equals(""))
             clothesMap.put(ClothesAttributes.clothesType, type);
         //获得衣物信息

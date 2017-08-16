@@ -2,7 +2,8 @@ package nju.utils;
 
 public class ClothesQueryHelper {
     private String schoolName;
-    private String clothessize;
+    private Double clothesWeight;
+    private Double clothesHeight;
     private String clothesType;
     private String gender;
     private String donorID;
@@ -16,12 +17,20 @@ public class ClothesQueryHelper {
         this.schoolName = schoolName;
     }
 
-    public String getClothessize() {
-        return clothessize;
+    public Double getClothesWeight() {
+        return clothesWeight;
     }
 
-    public void setClothessize(String clothessize) {
-        this.clothessize = clothessize;
+    public void setClothesWeight(Double clothesWeight) {
+        this.clothesWeight = clothesWeight;
+    }
+
+    public Double getClothesHeight() {
+        return clothesHeight;
+    }
+
+    public void setClothesHeight(Double clothesHeight) {
+        this.clothesHeight = clothesHeight;
     }
 
     public String getClothesType() {
