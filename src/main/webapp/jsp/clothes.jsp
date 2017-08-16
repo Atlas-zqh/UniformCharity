@@ -25,7 +25,7 @@
 <div id="clothesArea">
     <div id="mainPart" style="overflow: hidden">
         <h1 style="margin-top: 2%; margin-left: 2%">我的衣物</h1>
-        <div class="am-tabs" id="doc-my-tabs" style="width: 80%; margin-left: 10%">
+        <div class="am-tabs" id="doc-my-tabs" style="width: 80%; margin-left: 10%; background-color: white;">
             <ul class="am-tabs-nav am-nav am-nav-tabs am-nav-justify">
                 <li class="am-active"><a href="" class="tab" onclick="change('#buy')" id="buy">我购买的衣物</a></li>
                 <li><a href="" class="tab" id="donate" onclick="change('#donate')">我捐赠的衣物</a></li>

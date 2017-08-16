@@ -42,7 +42,8 @@
                 </ul>
             </div>
         </div>
-        <div style="width: 85%; margin-left: 14%; border: thin solid lightblue;">
+        <div style="width: 85%; margin-left: 14%; border: thin solid lightblue; background-color: white;
+">
             <div class="boardIntroduction">
                 <h4 style="padding: 10%; text-align: center;">板块介绍</h4>
             </div>

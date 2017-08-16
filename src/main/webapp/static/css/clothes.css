@@ -29,6 +29,8 @@ html {
     top: 4.5%;
     /*padding-bottom: 2%;*/
     height: 91%;
+    background-image: url('../images/bg.png');
+    background-size: cover;
     background-color: white;
     border: 2px solid #f5d76b;
     box-shadow: 0 0 5px 2px #DABD61;

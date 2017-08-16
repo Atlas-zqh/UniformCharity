@@ -35,11 +35,11 @@
 <body>
 <div id="classPage" >
     <div id="classBlock" class="briefInfoBlock" style="top: 3%;">
-        <h3>我 的 班 级:</h3>
-        <h4 style="position: absolute; top: 2%; left: 65%" id="classLabel">1班</h4>
-        <h5 style="top: 20%; position:absolute;" class="titleP">班级总积分:</h5>
+        <h3 style="position: absolute; left: 2%">我 的 班 级:</h3>
+        <h4 style="position: absolute; top: 2%; left: 67%;" id="classLabel">1班</h4>
+        <h5 style="top: 20%; position:absolute; left: 2%" class="titleP">班级总积分:</h5>
         <h4 style="width: 100%; text-align: center; top: 35%; position:absolute;"><span id="briefClassScore"></span>分</h4>
-        <h5 style="top: 50%; position:absolute;" class="titleP">班级在年级中的排名:</h5>
+        <h5 style="top: 50%; position:absolute; left: 2%" class="titleP">班级在年级中的排名:</h5>
         <h4 style="width: 100%; text-align: center; top: 65%; position:absolute;">第<span id="briefClassRank">0</span>名</h4>
 
         <a href="#" style="top: 92%; position:absolute; width: 98%; text-align: right" onclick="showClassContent()">查 看 详 情 ></a>
@@ -47,11 +47,11 @@
         <!--<a href="404.html" class="iconButton" style="background-image: url(/images/infoBG.png)">aaa</a>-->
     </div>
     <div id="gradeBlock" class="briefInfoBlock" style="top: 54%;">
-        <h3>我 的 年 级:</h3>
+        <h3 style="position: absolute; left: 2%">我 的 年 级:</h3>
         <h4 style="position: absolute; top: 2%; left: 65%" id="gradeLabel">1年级</h4>
-        <h5 style="top: 20%; position:absolute;" class="titleP">年级总积分:</h5>
+        <h5 style="top: 20%; position:absolute; left: 2%" class="titleP">年级总积分:</h5>
         <h4 style="width: 100%; text-align: center; top: 35%; position:absolute;"><span id="briefGradeScore"></span>分</h4>
-        <h5 style="top: 50%; position:absolute;" class="titleP">年级在全校中的排名:</h5>
+        <h5 style="top: 50%; position:absolute; left: 2%" class="titleP">年级在全校中的排名:</h5>
         <h4 style="width: 100%; text-align: center; top: 65%; position:absolute;">第<span id="briefGradeRank">0</span>名</h4>
         <a href="#" style="top: 92%; position:absolute; width: 98%; text-align: right" onclick="showGradeContent()">查 看 详 情 ></a>
     </div>
