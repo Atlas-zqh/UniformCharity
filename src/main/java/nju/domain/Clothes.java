@@ -4,15 +4,17 @@ package nju.domain;
  * Created by keenan on 23/05/2017.
  */
 public class Clothes {
-    public static final String XXXS = "XXXS", XXS = "XXS", XS = "XS", S = "S", M = "M", L = "L", XL = "XL", XXL = "XXL";
-
     public static String AVAILABLE = "Available", OCCUPIED = "Occupied";
 
     private String clothesID;
 
     private String schoolName;
 
-    private String clothessize;
+    // 身高
+    private Double clothesHeight;
+
+    // 体重
+    private Double clothesWeight;
 
     private String clothesType;
 
@@ -26,10 +28,11 @@ public class Clothes {
 
     }
 
-    public Clothes(String clothesID, String schoolName, String clothessize, String clothesType, String donorID, String gender, String status) {
+    public Clothes(String clothesID, String schoolName, Double clothesHeight, Double clothesWeight, String clothesType, String donorID, String gender, String status) {
         this.clothesID = clothesID;
         this.schoolName = schoolName;
-        this.clothessize = clothessize;
+        this.clothesHeight = clothesHeight;
+        this.clothesWeight = clothesWeight;
         this.clothesType = clothesType;
         this.donorID = donorID;
         this.gender = gender;
@@ -52,12 +55,20 @@ public class Clothes {
         this.schoolName = schoolName;
     }
 
-    public String getClothessize() {
-        return clothessize;
+    public Double getClothesHeight() {
+        return clothesHeight;
     }
 
-    public void setClothessize(String clothessize) {
-        this.clothessize = clothessize;
+    public void setClothesHeight(Double clothesHeight) {
+        this.clothesHeight = clothesHeight;
+    }
+
+    public Double getClothesWeight() {
+        return clothesWeight;
+    }
+
+    public void setClothesWeight(Double clothesWeight) {
+        this.clothesWeight = clothesWeight;
     }
 
     public String getClothesType() {

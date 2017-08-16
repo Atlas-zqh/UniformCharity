@@ -74,4 +74,6 @@ public interface ClothesService {
      * @return 是否成功
      */
     boolean removePic(String clothes_id, String pic_url);
+
+    //TODO 衣物增加默认图片
 }
