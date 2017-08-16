@@ -122,8 +122,15 @@ public class OrderController {
         System.out.println(page);
         System.out.println(status);
 
+        PageInfo<Order> orderPageInfo;
+
+        if (status == -2){
+            orderPageInfo = orderService.findOrderByBuyerID(userID, page, 10);
+        } else{
+            orderPageInfo = orderService.findOrderByBuyerIDAndStatus(userID, status, page, 10);
+        }
+
         //获得订单
-        PageInfo<Order> orderPageInfo = orderService.findOrderByBuyerID(userID, page, 10);
         if(orderPageInfo != null){
             List<Order> order = orderPageInfo.getList();
             long maxPage = orderPageInfo.getTotal();
