@@ -97,6 +97,11 @@ function signup() {
     var school = $('#schoolDrop option:selected').text();
     var phone = $('#phoneTextField').val();
     var image = $('#icon').attr("src");
+    var GradeAndClass = $('#GradeAndClass').text();
+
+    var sgrade = GradeAndClass.split(' ')[0];
+    var sclass = GradeAndClass.split(' ')[1];
+
     // var gender = "";
     // alert($("#femaleBut").attr("color"));
     // if ($("#femaleBut").attr("color") == "#142535")
@@ -153,7 +158,9 @@ function signup() {
             "school": school,
             "phone": phone,
             "gender": gender,
-            "image": image
+            "image": image,
+            "grade": sgrade,
+            "class": sclass
         },
         async: false,
         success: function (data) {

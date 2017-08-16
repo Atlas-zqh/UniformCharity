@@ -64,7 +64,6 @@
             checkCookie();
             getAllSchool('school');
             getAllSchool('schoolDrop');
-
         });
 
     </script>
@@ -229,7 +228,7 @@
 
             <h3 style="margin-left: 18.5%; margin-top: 112%; position: absolute; font-size: 1.5vw">班级</h3>
             <button class="mybt" style="margin-left: 5%; margin-top: 120%; width: 40%; font-size: 1.5vw; color: #142535; text-shadow: -0.1vmax 0.1vmax 0 lightgrey;"
-                    onclick="" data-am-modal="{target: '#my-popup'}" id="GradeAndClass">&nbsp;
+                    onclick="showGradeAndClassPane()" id="GradeAndClass">&nbsp;
             </button>
 
             <button class="mybt" style="position: absolute; margin-left: 55%; margin-top: 120%; width: 40%; font-size: 1.5vw;"
@@ -413,7 +412,7 @@
     <br>
     <h2 style="margin-left: 0%; width: 100%; text-align: center; margin-top: 15%">年级</h2>
     <div style="padding-bottom: 3vw; margin-top: 0%; position: absolute; z-index: 100; width: 40%; margin-left: 30%;">
-        <select data-select-like-alignement="auto" class="drop-select" id="gradeDrop">
+        <select data-select-like-alignement="auto" class="drop-select" id="gradeDrop" onchange="getAllClass('classDrop')">
             <option value="" selected="selected"></option>
             <option value="1">一年级</option>
             <option value="2">二年级</option>
