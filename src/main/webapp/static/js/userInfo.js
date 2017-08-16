@@ -240,7 +240,7 @@ function modifySchool() {
                     window.location.href = "../jsp/userInfo.jsp";
                     success_alert("修改成功！");
                 }else{
-                    success_alert("哎呀呀，修改失败...请稍后再试");
+                    fail_alert("哎呀呀，修改失败...请稍后再试");
                 }
             },
             error: function () {

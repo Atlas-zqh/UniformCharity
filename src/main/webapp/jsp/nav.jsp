@@ -39,6 +39,8 @@
         <div class="navLabel"><p><br>—<br></p></div>
         <div class="bt"><a href="../jsp/clothes.jsp">我<br>的<br>衣<br>物</a></div>
         <div class="navLabel"><p><br>—<br></p></div>
+        <div class="bt"><a href="../jsp/class.jsp">班<br>级<br>天<br>地</a></div>
+        <div class="navLabel"><p><br>—<br></p></div>
         <div class="bt"><a href="../jsp/forum.jsp">讨<br>论<br>区</a></div>
 
     </div>

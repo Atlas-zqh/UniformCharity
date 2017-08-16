@@ -135,7 +135,4 @@ public interface UserService {
      * @return
      */
     List<CreditStatistic> getAllClassCreditsSumBySchool(String school);
-
-
-
 }

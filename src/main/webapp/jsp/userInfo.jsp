@@ -161,7 +161,7 @@
         <%--<a href="" style="position:absolute; text-decoration: underline; top: 60%; left: 56%">修改</a>--%>
         <p class="labelP" style="left: 5%; top: 60%">学 校:</p>
         <input class="contentP" id="schoolLabel" style="left: 23%; top: 60%" value="" disabled>
-        <%--<a href="../jsp/class.jsp" style="position:absolute; text-decoration: underline; top: 72%; left: 58%">查看</a>--%>
+        <%--<a href="../jsp/class.jsp" style="position:absolute; text-decoration: underline; top: 72%; left: 80%">查看</a>--%>
         <a href="#" onclick="openSchoolModify()" style="position:absolute; text-decoration: underline; top: 72%; left: 58%">修改</a>
         <img src="../static/images/question.png" style="left: 63%; top: 72%; position: absolute; width: 1.5vw; height: 1.5vw;"
              data-am-popover="{content: '点击可进行学校／年级／班级修改！', trigger: 'hover focus'}">
