@@ -13,6 +13,7 @@ function showClassContent() {
 
 
 var gradeChart = echarts.init(document.getElementById('gradeChart'));
+var classChart = echarts.init(document.getElementById('classChart'));
 
 var xAxisData = ['1年级', '2年级', '3年级', '4年级', '5年级', '6年级'];
 var data1 = [199, 223, 213, 123, 324, 213];
@@ -57,7 +58,7 @@ option = {
     yAxis: {
     },
     series: [{
-        name: 'bar',
+        // name: 'bar',
         type: 'bar',
         barWidth: '20vmax',
         data: data1,
@@ -94,10 +95,13 @@ option = {
 };
 
 gradeChart.setOption(option);
+classChart.setOption(option);
 
 window.onresize = function(){
 
     var gradeChart = echarts.init(document.getElementById('gradeChart'));
     gradeChart.resize();
 
+    var classChart = echarts.init(document.getElementById('classChart'));
+    classChart.resize();
 };

@@ -14,16 +14,13 @@
 <body style="background-color: #DFEDF0">
 <table class="table-head orderTable" >
     <tr>
-        <th style="width: 10%">
+        <th style="width: 20%">
             排名
         </th>
-        <th style="width: 30%">
-            用户名
+        <th style="width: 40%">
+            年级
         </th>
-        <th style="width: 30%">
-            姓名
-        </th>
-        <th style="width: 30%">
+        <th style="width: 40%">
             公益积分
         </th>
     </tr>
@@ -34,15 +31,11 @@
             1
         </td>
         <td style="width: 20%">
-            <a href="" id="title">11</a>
+            1年级
         </td>
-        <td style="width: 20%" id="school">
+        <td style="width: 10%">
             11
         </td>
-        <td style="width: 10%" id="type">
-            11
-        </td>
-
     </tr>
     </tbody>
     <tbody class="table-content-body">
@@ -51,15 +44,11 @@
             1
         </td>
         <td style="width: 20%">
-            <a href="" id="title">11</a>
+            2年级
         </td>
-        <td style="width: 20%" id="school">
+        <td style="width: 10%">
             11
         </td>
-        <td style="width: 10%" id="type">
-            11
-        </td>
-
     </tr>
     </tbody>
     <tbody class="table-content-body">
@@ -68,15 +57,11 @@
             1
         </td>
         <td style="width: 20%">
-            <a href="" id="title">11</a>
+            3年级
         </td>
-        <td style="width: 20%" id="school">
+        <td style="width: 10%">
             11
         </td>
-        <td style="width: 10%" id="type">
-            11
-        </td>
-
     </tr>
     </tbody>
     <tbody class="table-content-body">
@@ -85,15 +70,11 @@
             1
         </td>
         <td style="width: 20%">
-            <a href="" id="title">11</a>
+            4年级
         </td>
-        <td style="width: 20%" id="school">
+        <td style="width: 10%">
             11
         </td>
-        <td style="width: 10%" id="type">
-            11
-        </td>
-
     </tr>
     </tbody>
     <tbody class="table-content-body">
@@ -102,15 +83,11 @@
             1
         </td>
         <td style="width: 20%">
-            <a href="" id="title">11</a>
+            5年级
         </td>
-        <td style="width: 20%" id="school">
+        <td style="width: 10%">
             11
         </td>
-        <td style="width: 10%" id="type">
-            11
-        </td>
-
     </tr>
     </tbody>
     <tbody class="table-content-body">
@@ -119,17 +96,14 @@
             1
         </td>
         <td style="width: 20%">
-            <a href="" id="title">11</a>
+            6年级
         </td>
-        <td style="width: 20%" id="school">
+        <td style="width: 10%">
             11
         </td>
-        <td style="width: 10%" id="type">
-            11
-        </td>
-
     </tr>
     </tbody>
+
 
 </table>
 

@@ -59,14 +59,16 @@
         <h3 style="position: absolute; top: 3%; white-space: nowrap; width: 98%; text-align: right">本班总积分：<span id="classScore">18888分</span></h3>
         <h4 style="position: absolute; left: 3%; top: 12%;">班级成员</h4>
         <h4 style="position: absolute; width: 95%; top: 12%; text-align: right">共<span id="classMem">0</span>人</h4>
-        <iframe src="../jsp/studentList.jsp" style="position: absolute; width: 94%; left: 3%; top: 20%; height: 77%"></iframe>
+        <iframe src="../jsp/studentList.jsp" style="position: absolute; width: 94%; left: 3%; top: 20%; height: 32%"></iframe>
+        <div style="position: absolute; width: 52vw; left: 3%; top: 47%; height: 50vh;" id="classChart"></div>
+
     </div>
     <div id="gradeContent" class="contentBlock" style="display: none">
         <h1>年 级 信 息</h1>
         <h3 style="position: absolute; top: 3%; white-space: nowrap; width: 98%; text-align: right">本年级总积分：<span id="gradeScore">18888分</span></h3>
         <h4 style="position: absolute; left: 3%; top: 12%;">所有年级</h4>
-        <iframe src="../jsp/gradeList.jsp" style="position: absolute; width: 94%; left: 3%; top: 20%; height: 60%"></iframe>
-        <div style="position: absolute; width: 52vw; left: 3%; top: 45%; height: 50vh;" id="gradeChart"></div>
+        <iframe src="../jsp/gradeList.jsp" style="position: absolute; width: 94%; left: 3%; top: 20%; height: 32%"></iframe>
+        <div style="position: absolute; width: 52vw; left: 3%; top: 47%; height: 50vh;" id="gradeChart"></div>
     </div>
 </div>
 
