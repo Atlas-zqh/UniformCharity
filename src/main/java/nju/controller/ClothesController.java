@@ -60,7 +60,7 @@ public class ClothesController {
         String school = request.getParameter("school");
         String type = request.getParameter("type");
         String gender = request.getParameter("gender");
-        String size = request.getParameter("size");
+        double size = Double.parseDouble(request.getParameter("size"));
         String id = request.getParameter("id");
         System.out.println(school);
         System.out.println(type);
@@ -72,8 +72,7 @@ public class ClothesController {
         clothes.setSchoolName(school);
         clothes.setGender(gender);
         clothes.setClothesType(type);
-        //TODO qky待修改       原: clothes.setClothessize(size);
-//        clothes.setClothessize(size);
+        clothes.setClothesHeight(size);
         clothes.setDonorID(id);
 //        clothes.setClothesPrice(0.0);
         clothes.setStatus("Available");
@@ -164,8 +163,7 @@ public class ClothesController {
         if (!gender.equals(""))
             clothesMap.put(ClothesAttributes.gender, gender);
         if (!size.equals(""))
-            //TODO qky待修改       原: clothesMap.put(ClothesAttributes.clothessize, size);
-//            clothesMap.put(ClothesAttributes.clothessize, size);
+            clothesMap.put(ClothesAttributes.clothesHeight, size);
         if (!type.equals(""))
             clothesMap.put(ClothesAttributes.clothesType, type);
         //获得衣物信息

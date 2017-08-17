@@ -39,6 +39,8 @@ html {
     border: 2px solid #f5d76b;
     box-shadow: 0 0 5px 2px #DABD61;
     /*min-height: 91%;*/
+    background-image: url('../images/bg.png');
+    background-size: cover;
 }
 
 #noteArea #notePart #notetitle {
@@ -157,6 +159,7 @@ html {
     margin-left: 10%;
     padding: 2%;
     padding-bottom: 32%;
+    background-color: white;
 }
 
 #noteArea #notePart .postArea .postTitle {

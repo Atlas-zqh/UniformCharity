@@ -216,12 +216,12 @@ function addClassMember(i, item) {
     tbody.appendChild(tr);
 
     var td1 = document.createElement('td');
-    tbody.appendChild(td1);
+    tr.appendChild(td1);
     td1.style.width = '10%';
     td1.appendChild(document.createTextNode(i + 1));
 
     var td2 = document.createElement('td');
-    tbody.appendChild(td2);
+    tr.appendChild(td2);
     td2.style.width = '20%';
     var a = document.createElement('a');
     //todo
@@ -229,12 +229,12 @@ function addClassMember(i, item) {
     td2.appendChild(a);
 
     var td3 = document.createElement('td');
-    tbody.appendChild(td3);
+    tr.appendChild(td3);
     td3.style.width = '20%';
     td3.appendChild(document.createTextNode(item.realName));
 
     var td4 = document.createElement('td');
-    tbody.appendChild(td4);
+    tr.appendChild(td4);
     td4.style.width = '10%';
     td4.appendChild(document.createTextNode(item.credits));
 }

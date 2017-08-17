@@ -30,6 +30,8 @@ html {
     /*margin-top: 10%;*/
     /* height: 0; */
     background: white;
+    background-image: url('../images/bg.png');
+    background-size: cover;
     /*padding-bottom: 5%;*/
 }
 

@@ -51,6 +51,8 @@ li {
     /*height: 0;*/
     background-color: white;
     min-height: 94.4%;
+    background-image: url('../images/bg.png');
+    background-size: cover;
 }
 
 #resultPage #searchPane{
@@ -63,6 +65,8 @@ li {
     margin-top: 5%;
     border: 2px solid #a3dbe6;
     box-shadow: 0 0 5px 2px #87b4bf;
+    background: white;
+
 }
 
 #resultPage #searchPane .labelP {
@@ -99,6 +103,8 @@ li {
     border: 2px solid #f5d76b;
     box-shadow: 0 0 5px 2px #DABD61;
     padding-bottom: 3%;
+    background: white;
+
 }
 
 #resultPage #contentPage .singleClothe{
