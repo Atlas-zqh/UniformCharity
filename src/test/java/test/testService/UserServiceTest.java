@@ -97,4 +97,16 @@ public class UserServiceTest extends BaseTest {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void testFindUserByClass() {
+        String school = "南京外国语学校仙林分校";
+        String sgrade = "2015级";
+        String sclass = "1班";
+        List<User> users = userService.findUserByClass(school, sgrade, sclass);
+
+        for (User user : users) {
+            System.out.println(user.toString());
+        }
+    }
 }

@@ -86,7 +86,7 @@
 
     <select id="findUserByClass" parameterType="String" resultType="User">
         SELECT * FROM student
-        WHERE school=#{0} AND sgrade=#{1} AND sclass=#{1}
+        WHERE school=#{0} AND sgrade=#{1} AND sclass=#{2}
     </select>
 
     <select id="findUserByGrade" parameterType="String" resultType="User">

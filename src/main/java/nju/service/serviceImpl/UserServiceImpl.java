@@ -48,7 +48,7 @@ public class UserServiceImpl implements UserService {
     public void addUser(User user) throws InvalidInfoException, UserExistedException, OtherException {
         if (!isValidUserInfo(user)) {
             throw new InvalidInfoException();
-        } else if (null != userMapper.findOneByUsername(user.getUsername())) {
+        } else if (null != userMapper.findOneByUsername(EncryptionUtil.encrypt("20170522", user.getUsername()))) {
             throw new UserExistedException();
         } else {
             try {
@@ -69,7 +69,7 @@ public class UserServiceImpl implements UserService {
     public void updateUser(User user) throws InvalidInfoException, UserNotExistException, OtherException {
         if (!isValidUserInfo(user)) {
             throw new InvalidInfoException();
-        } else if (null == userMapper.findOneByUsername(user.getUsername())) {
+        } else if (null == userMapper.findOneByUsername(EncryptionUtil.encrypt("20170522", user.getUsername()))) {
             throw new UserNotExistException();
         } else {
             try {
