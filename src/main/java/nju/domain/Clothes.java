@@ -10,10 +10,14 @@ public class Clothes {
 
     private String schoolName;
 
-    // 身高
+    /**
+     * 身高
+     */
     private Double clothesHeight;
 
-    // 体重
+    /**
+     * 体重
+     */
     private Double clothesWeight;
 
     private String clothesType;
@@ -23,6 +27,11 @@ public class Clothes {
     private String donorID;
 
     private String status;
+
+    /**
+     * 默认图片
+     */
+    private String default_pic_url;
 
     public Clothes(){
 
@@ -37,6 +46,18 @@ public class Clothes {
         this.donorID = donorID;
         this.gender = gender;
         this.status = status;
+    }
+
+    public Clothes(String clothesID, String schoolName, Double clothesHeight, Double clothesWeight, String clothesType, String gender, String donorID, String status, String default_pic_url) {
+        this.clothesID = clothesID;
+        this.schoolName = schoolName;
+        this.clothesHeight = clothesHeight;
+        this.clothesWeight = clothesWeight;
+        this.clothesType = clothesType;
+        this.gender = gender;
+        this.donorID = donorID;
+        this.status = status;
+        this.default_pic_url = default_pic_url;
     }
 
     public String getClothesID() {
@@ -103,6 +124,14 @@ public class Clothes {
         this.status = status;
     }
 
+    public String getDefault_pic_url() {
+        return default_pic_url;
+    }
+
+    public void setDefault_pic_url(String default_pic_url) {
+        this.default_pic_url = default_pic_url;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -116,5 +145,20 @@ public class Clothes {
     @Override
     public int hashCode() {
         return clothesID.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return "Clothes{" +
+                "clothesID='" + clothesID + '\'' +
+                ", schoolName='" + schoolName + '\'' +
+                ", clothesHeight=" + clothesHeight +
+                ", clothesWeight=" + clothesWeight +
+                ", clothesType='" + clothesType + '\'' +
+                ", gender='" + gender + '\'' +
+                ", donorID='" + donorID + '\'' +
+                ", status='" + status + '\'' +
+                ", default_pic_url='" + default_pic_url + '\'' +
+                '}';
     }
 }
