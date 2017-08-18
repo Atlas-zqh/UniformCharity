@@ -57,32 +57,39 @@ public class ClothesController {
         Map<String, Object> map = new HashMap<>();
 
 
-        String school = request.getParameter("school");
+//        String school = request.getParameter("school");
         String type = request.getParameter("type");
         String gender = request.getParameter("gender");
         double size = Double.parseDouble(request.getParameter("size"));
         String id = request.getParameter("id");
-        System.out.println(school);
-        System.out.println(type);
-        System.out.println(gender);
-        System.out.println(size);
-        System.out.println(id);
-        int i = 0;
-        Clothes clothes = new Clothes();
-        clothes.setSchoolName(school);
-        clothes.setGender(gender);
-        clothes.setClothesType(type);
-        clothes.setClothesHeight(size);
-        clothes.setDonorID(id);
+        try {
+            User user = userService.findUserByID(id);
+            String school = user.getSchool();
+//        System.out.println(school);
+            System.out.println(type);
+            System.out.println(gender);
+            System.out.println(size);
+            System.out.println(id);
+            int i = 0;
+            Clothes clothes = new Clothes();
+            clothes.setSchoolName(school);
+            clothes.setGender(gender);
+            clothes.setClothesType(type);
+            clothes.setClothesWeight(0.0);
+            clothes.setClothesHeight(size);
+            clothes.setDonorID(id);
 //        clothes.setClothesPrice(0.0);
-        clothes.setStatus("Available");
+            clothes.setStatus("Available");
 
-        String clothesID = clothesService.addClothes(clothes);
-        System.out.println("上传衣物：" + clothesID);
-        if (clothesID != null) {
-            map.put("success", "true");
-            map.put("clothesID", clothesID);
-        } else {
+            String clothesID = clothesService.addClothes(clothes);
+            System.out.println("上传衣物：" + clothesID);
+            if (clothesID != null) {
+                map.put("success", "true");
+                map.put("clothesID", clothesID);
+            } else {
+                map.put("success", "false");
+            }
+        } catch (Exception e) {
             map.put("success", "false");
         }
 
@@ -140,6 +147,28 @@ public class ClothesController {
         }
         map.put("success", "true");
         map.put("type", s);
+        return map;
+    }
+
+    @RequestMapping(value = "/allTypesOfUser", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Object> getAllTypesOfUser(HttpServletRequest request, HttpServletResponse response) {
+        Map<String, Object> map = new HashMap<>();
+        String id = request.getParameter("id");
+        try {
+            User user = userService.findUserByID(id);
+            String school = user.getSchool();
+            List<Type> types = typeService.findAllTypesOfSchool(school);
+            List<String> s = new ArrayList<>();
+            for (int i = 0; i < types.size(); i++) {
+                s.add(types.get(i).getClothestype());
+                System.out.println(types.get(i).getClothestype());
+            }
+            map.put("success", "true");
+            map.put("type", s);
+        } catch (Exception e) {
+            map.put("success", "false");
+        }
         return map;
     }
 
@@ -257,7 +286,7 @@ public class ClothesController {
 //            clothesService.f
             PageInfo<Clothes> clothesPageInfo = clothesService.findClothesByAttributes(clothesAttributesStringMap, 1, 10000);
             clothes = clothesPageInfo.getList();
-            for (int i = 0; i < clothes.size(); i++) {
+            for (int i = clothes.size() - 1; i >= 0; i--) {
                 clotheID = clothes.get(i).getClothesID();
                 List<String> clothesPics = clothesService.findPicsByClothesID(clotheID);
                 pics.add(clothesPics.get(0));
@@ -271,7 +300,7 @@ public class ClothesController {
             PageInfo<Order> orderPageInfo = orderService.findOrderByBuyerID(id, 1, 10000);
             List<Order> orders = orderPageInfo.getList();
 
-            for (int i = 0; i < orders.size(); i++) {
+            for (int i = orders.size() - 1; i >= 0; i--) {
                 clotheID = clothes.get(i).getClothesID();
                 List<String> clothesPics = clothesService.findPicsByClothesID(clotheID);
                 pics.add(clothesPics.get(0));

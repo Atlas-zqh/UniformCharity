@@ -17,11 +17,12 @@
     <link rel="stylesheet" type="text/css" href="../static/css/upload.css">
     <link rel="stylesheet" type="text/css" href="../static/css/amazeui.css">
     <link rel="stylesheet" type="text/css" href="../static/css/theme.css">
+    <link rel="stylesheet" href="../static/css/dropzone.css">
     <script type="text/javascript" src="../static/js/jquery-3.2.1.min.js"></script>
     <script>
         $(document).ready(function () {
             checkCookie();
-            getAllSchool('uploadSchoolDrop');
+            getAllTypes('uploadTypeDrop');
             $('#id').val(getCookie("id"));
         });
 
@@ -107,11 +108,6 @@
             <iframe style="display:none" name="hiddenIFrame" id="hiddenIFrame"></iframe>
             <%--<div style="position: absolute; margin-left: 55%; padding-top: 40%; margin-top: 10%; width: 40%; border: 2px solid #d6bd6f; box-shadow: 0 0 5px 2px #d6bd6f; background: white; z-index: 0; display: inline-block">--%>
             <%--</div>--%>
-
-
-            <link rel="stylesheet" href="../static/css/dropzone.css">
-            <script type="application/javascript" src="../static/js/dropzone.js"></script>
-            <script type="application/javascript" src="../static/js/upload.js"></script>
         </div>
         <div id="uploadOldView" style="display: none">
             <p style="top: 2%">衣物ID</p>
@@ -140,6 +136,8 @@
 <script type="text/javascript" src="../static/js/select.js" charset="utf-8"></script>
 <script type="text/javascript" src="../static/js/clothes.js" charset="utf-8"></script>
 <script type="text/javascript" src="../static/js/amazeui.min.js" charset="utf-8"></script>
+<script type="application/javascript" src="../static/js/dropzone.js"></script>
+<script type="application/javascript" src="../static/js/upload.js"></script>
 <script>
     $('select.drop-select').each(function () {
         new Select({

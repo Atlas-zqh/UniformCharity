@@ -78,13 +78,13 @@ Dropzone.options.myDropzone = {
             if(myDropzone.files.length == 0){
                 fail_alert("请至少添加一张图片！");
             }else {
-                var school = $('#uploadSchoolDrop option:selected').text();
+                // var school = $('#uploadSchoolDrop option:selected').text();
                 var type = $('#uploadTypeDrop option:selected').text();
                 var gender = $('#uploadGenderDrop option:selected').text();
                 var size = $('#uploadSizeDrop option:selected').text();
                 var donor = $('#id').val();
                 // alert(donor);
-                if (school == "" || type == "" || gender == "" || size == "") {
+                if ( type == "" || gender == "" || size == "") {
                     fail_alert("请填写完整信息！");
                 } else {
                     $.ajax({
@@ -93,7 +93,7 @@ Dropzone.options.myDropzone = {
                         dataType: "json",
                         data: {
                             "id": donor,
-                            "school": school,
+                            // "school": school,
                             "type": type,
                             "gender": gender,
                             "size": size
@@ -103,6 +103,7 @@ Dropzone.options.myDropzone = {
                             if (data.success == "true") {
                                 $('#clothesID').val(data.clothesID);
                                 myDropzone.processQueue(); // Tell Dropzone to process all queued files.
+                                window.location.href = "../jsp/uploadClothes.jsp";
                                 return;
                             }
                             if (data.success == "false") {
@@ -132,4 +133,29 @@ function uploadType() {
         $('#uploadView').fadeIn();
         $('#uploadOldView').fadeOut();
     }
+}
+
+function getAllTypes(id) {
+    clearSelectList(id);
+    jQuery.ajax( {
+        type : 'POST',
+        url : '/clothesAction/allTypesOfUser',
+        data:{
+            "id": getCookie('id')
+        },
+        dataType : 'json',
+        success : function(data) {
+            // alert("success");
+            if (data && data.success == "true") {
+                addOption(id, "null", "");
+                $.each(data.type, function(i, item) {
+                    addOption(id, item, item);
+                    // fail_alert(i);
+                });
+            }
+        },
+        error : function() {
+            fail_alert("哎呀呀，初始化信息失败...")
+        }
+    });
 }
