@@ -234,7 +234,7 @@
     margin-left: 15%;
     width: 12vw;
     z-index: 10000;
-    min-height: 40vh;
+    /*min-height: 40vh;*/
     height: 95%;
     /*padding-top: 40%;*/
     /*position: absolute;*/
@@ -276,11 +276,11 @@
 }
 
 .dropzone .dz-preview {
-    position: relative;
+    position: absolute;
     display: inline-block;
     vertical-align: top;
     margin: 1vw;
-    min-height: 100px;
+    /*min-height: 100px;*/
 }
 
 .dropzone .dz-preview:hover {

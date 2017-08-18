@@ -35,7 +35,6 @@ function closeUploadView() {
 }
 
 function uploadClothes() {
-    var school = $('#uploadSchoolDrop option:selected').text();
     var type = $('#uploadTypeDrop option:selected').text();
     var gender = $('#uploadGenderDrop option:selected').text();
     var size = $('#uploadSizeDrop option:selected').text();
@@ -123,3 +122,14 @@ Dropzone.options.myDropzone = {
 
     }
 };
+
+function uploadType() {
+    var type = $('#typeCheck').is(":checked");
+    if (type){
+        $('#uploadView').fadeOut();
+        $('#uploadOldView').fadeIn();
+    }else{
+        $('#uploadView').fadeIn();
+        $('#uploadOldView').fadeOut();
+    }
+}

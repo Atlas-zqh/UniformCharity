@@ -366,6 +366,7 @@
                     }
                     return setTimeout(((function (_this) {
                         return function () {
+                            file.previewElement.style.top = (_this.files.length - 1) * 30 + '%';
                             return file.previewElement.classList.add("dz-image-preview");
                         };
                     })(this)), 1);

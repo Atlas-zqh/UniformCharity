@@ -37,8 +37,8 @@ html {
     position: absolute;
     display: inline-block;
     width: 95%;
-    margin-left: 2.5%;
-    margin-top: 2.5%;
+    left: 2.5%;
+    top: 4.5%;
     height: 91%;
     /*padding-bottom: 2%;*/
     background-color: white;
@@ -54,7 +54,8 @@ html {
     padding-bottom: 1%;
     /*margin-top: 10%;*/
     /*margin-left: 20%;*/
-    height: 90%;
+    top: 30%;
+    height: 70%;
     background-color: #ffffff00;
 }
 
@@ -96,13 +97,13 @@ html {
 #uploadArea #mainPart #uploadView .select {
     margin-left: 2%;
     width: 80%;
-    padding-bottom: 11%;
+    padding-bottom: 2.5vw;
     position: absolute;
     display: inline-block;
     /* min-width: 259px; */
     /* min-height: 34px; */
     /*overflow: scroll;*/
-    font-size: 1.5vmax;
+    font-size: 1.5vw;
 }
 
 #uploadArea #mainPart #uploadView ul{
@@ -150,9 +151,56 @@ html {
     height: 90%;
     /* background-color: #111111; */
     margin-left: 55%;
-    margin-top: -4%;
+    margin-top: -6%;
     border: thin solid #a3dbe6;
     border-top: none;
     border-right: none;
     border-bottom: none;
+}
+
+#uploadArea #mainPart #uploadOldView {
+    z-index: 100;
+    position: absolute;
+    /*display: none;*/
+    width: 60%;
+    padding-bottom: 1%;
+    /*margin-top: 10%;*/
+    /*margin-left: 20%;*/
+    top: 30%;
+    height: 70%;
+    background-color: #ffffff00;
+}
+
+#uploadArea #mainPart #uploadOldView p{
+    color: grey;
+    left: 10%;
+    position: absolute;
+    font-size: 1.2vw;
+}
+
+#uploadArea #mainPart #uploadOldView .clothesStory{
+    position: absolute;
+    /*color: grey;*/
+    left: 30%;
+    top: 17%;
+    font-size: 1.2vw;
+    width: 50%;
+    height: 60%;
+    z-index: 2;
+    background-color: #97d5dd;
+    border-top-color: #13485c;
+    border-right-color: #79b1f0;
+    border-top-width: thick;
+    border-right-width: thick;
+    border-left: none;
+    border-bottom: none;
+
+    padding-top: 1%;
+    padding-bottom: 1%;
+    /*line-height: 1vw;*/
+    color: #142535;
+    outline: none;
+    outline-width: 0px;
+    /*white-space: nowrap;*/
+    letter-spacing: 0.1vw;
 }

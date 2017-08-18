@@ -31,23 +31,26 @@
 <div id="uploadArea">
     <div id="mainPart">
         <h1>上传衣物</h1>
+        <label class="am-checkbox" style="color: grey; left: 2.5%; top: 2%; width: 30%;">
+            <input type="checkbox" value="" data-am-ucheck onclick="uploadType()" id="typeCheck"> 上传在该平台上购买的衣物
+        </label>
         <div id="uploadView">
             <p style="position: absolute; margin-left: 4%; margin-top: -2%;">图 片</p>
             <form action="/clothesAction/uploadClothesPics" class="dropzone" id="my-dropzone" method="post" target="hiddenIFrame" enctype="multipart/form-data">
                 <ul style="margin-top: 0%">
-                    <li>
-                        <p>学 校</p>
-                        <div class="select" style="">
-                            <select data-select-like-alignement="auto" class="drop-select" id="uploadSchoolDrop"
-                                    onchange="changeSchool('uploadTypeDrop', 'uploadSchoolDrop')" name="school" multiple>
-                                <%--<option value="null" selected="selected"></option>--%>
-                                <%--<option value="b">南京外国语学校仙林分校</option>--%>
-                                <%--<option value="g">南京</option>--%>
-                            </select>
-                        </div>
-                    </li>
-                    <br>
-                    <li style="top: 20%; position: absolute;">
+                    <%--<li>--%>
+                        <%--<p>学 校</p>--%>
+                        <%--<div class="select" style="">--%>
+                            <%--<select data-select-like-alignement="auto" class="drop-select" id="uploadSchoolDrop"--%>
+                                    <%--onchange="changeSchool('uploadTypeDrop', 'uploadSchoolDrop')" name="school" multiple>--%>
+                                <%--&lt;%&ndash;<option value="null" selected="selected"></option>&ndash;%&gt;--%>
+                                <%--&lt;%&ndash;<option value="b">南京外国语学校仙林分校</option>&ndash;%&gt;--%>
+                                <%--&lt;%&ndash;<option value="g">南京</option>&ndash;%&gt;--%>
+                            <%--</select>--%>
+                        <%--</div>--%>
+                    <%--</li>--%>
+                    <%--<br>--%>
+                    <li style="top: 0%; position: absolute;">
                         <p style="margin-left: 0px">款 式</p>
                         <div class="select">
                             <select data-select-like-alignement="auto" class="drop-select" id="uploadTypeDrop" name="type" multiple>
@@ -58,7 +61,7 @@
                         </div>
                     </li>
                     <br>
-                    <li style="top: 40%; position: absolute;">
+                    <li style="top: 25%; position: absolute;">
                         <p>性 别</p>
                         <div class="select">
                             <select data-select-like-alignement="auto" class="drop-select" id="uploadGenderDrop" name="gender" multiple>
@@ -72,7 +75,7 @@
                     </li>
                     <br>
 
-                    <li style="top: 60%; position: absolute;">
+                    <li style="top: 50%; position: absolute;">
                         <p style="margin-left: 0px">尺 寸</p>
                         <div class="select">
                             <select data-select-like-alignement="auto" class="drop-select" id="uploadSizeDrop" name="size" multiple>
@@ -88,7 +91,7 @@
                             </select>
                         </div>
                     </li>
-                    <li style="top: 80%; position: absolute;">
+                    <li style="top: 75%; position: absolute;">
                     </li>
                     <button onclick="uploadClothes()" class="mybt"
                             style="white-space: nowrap; position: absolute; margin-bottom: 0%; width: 40%; top: 80%; margin-left: 35%; margin-top: 0%; font-size: 1.5vmax"
@@ -109,6 +112,17 @@
             <link rel="stylesheet" href="../static/css/dropzone.css">
             <script type="application/javascript" src="../static/js/dropzone.js"></script>
             <script type="application/javascript" src="../static/js/upload.js"></script>
+        </div>
+        <div id="uploadOldView" style="display: none">
+            <p style="top: 2%">衣物ID</p>
+            <input id="clothesIDText" class="textInput" style="left: 30%; position: absolute; width: 50%;">
+            <p style="top: 12%">衣物故事</p>
+            <%--<input id="" class="textInput" style="left: 20%; position: absolute;">--%>
+            <textarea class="clothesStory" id="clothesStory"></textarea>
+            <button onclick="uploadClothes()" class="mybt"
+                    style="white-space: nowrap; position: absolute; margin-bottom: 0%; width: 20%; top: 85%; left: 60%; font-size: 1.5vmax"
+                    id="submit-all">上&nbsp;传
+            </button>
         </div>
         <div id="uploadedView">
             <iframe src="uploadedClothes.jsp" style="height: 100%; width: 90%; margin-left: 10%"></iframe>
