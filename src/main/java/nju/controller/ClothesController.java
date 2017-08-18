@@ -96,6 +96,57 @@ public class ClothesController {
         return map;
     }
 
+    @RequestMapping(value = "/uploadOldClothes", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Object> uploadOldClothes(HttpServletRequest request) {
+        Map<String, Object> map = new HashMap<>();
+
+
+//        String school = request.getParameter("school");
+        String clothesID = request.getParameter("clothesID");
+        String story = request.getParameter("story");
+        String id = request.getParameter("id");
+        try {
+            User user = userService.findUserByID(id);
+            String school = user.getSchool();
+//        System.out.println(school);
+            System.out.println(clothesID);
+            System.out.println(story);
+            System.out.println(id);
+
+            Clothes clothes = clothesService.findClothesByClothesID(clothesID);
+            if(clothes == null){
+                map.put("success", "false");
+                map.put("error", "该ID没有对应衣物！");
+                return map;
+            }else{
+                PageInfo<Order> orderPageInfo = orderService.findOrderByBuyerID(id, 1, 10000);
+                List<Order> orders = orderPageInfo.getList();
+                List<String> clotheIDs = new ArrayList<>();
+
+                for (int i = orders.size() - 1; i >= 0; i--) {
+                    clotheIDs.add(orders.get(i).getClothesID());
+                }
+
+                if(clotheIDs.contains(clothesID)){
+                    map.put("success", "true");
+                    //todo 等待后端上传旧衣物接口
+                    return map;
+                }else{
+                    map.put("success", "false");
+                    map.put("error", "不能上传自己没有购买过的衣物！");
+                    return map;
+                }
+
+            }
+
+        } catch (Exception e) {
+            map.put("success", "false");
+        }
+
+        return map;
+    }
+
     @RequestMapping(value = "/uploadClothesPics", method = RequestMethod.POST)
     @ResponseBody
     public Map<String, Object> uploadClothesPics(HttpServletRequest request, HttpSession session) {

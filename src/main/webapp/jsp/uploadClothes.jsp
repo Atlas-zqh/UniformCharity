@@ -115,9 +115,9 @@
             <p style="top: 12%">衣物故事</p>
             <%--<input id="" class="textInput" style="left: 20%; position: absolute;">--%>
             <textarea class="clothesStory" id="clothesStory"></textarea>
-            <button onclick="uploadClothes()" class="mybt"
+            <button onclick="uploadOld()" class="mybt"
                     style="white-space: nowrap; position: absolute; margin-bottom: 0%; width: 20%; top: 85%; left: 60%; font-size: 1.5vmax"
-                    id="submit-all">上&nbsp;传
+                    >上&nbsp;传
             </button>
         </div>
         <div id="uploadedView">

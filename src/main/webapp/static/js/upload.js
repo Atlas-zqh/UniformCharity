@@ -159,3 +159,30 @@ function getAllTypes(id) {
         }
     });
 }
+
+function uploadOld(){
+    var clothesID = $('#clothesIDText').val();
+    var story = $('#clothesStory').val();
+    jQuery.ajax( {
+        type : 'POST',
+        url : '/clothesAction/uploadOldClothes',
+        data:{
+            "id": getCookie('id'),
+            "clothesID": clothesID,
+            "story": story
+        },
+        dataType : 'json',
+        success : function(data) {
+            // alert("success");
+            if (data && data.success == "true") {
+                window.location.href = "../jsp/uploadClothes.jsp";
+                success_alert("上传成功");
+            }else{
+                fail_alert(data.error);
+            }
+        },
+        error : function() {
+            fail_alert("哎呀呀，初始化信息失败...")
+        }
+    });
+}
