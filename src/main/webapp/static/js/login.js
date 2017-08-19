@@ -28,12 +28,14 @@ function login() {
                 document.getElementById("preLogInLeft").style.display = "none";
                 document.getElementById("afterLogInLeft").style.display = "inline-block";
                 document.getElementById("afterLogInRight").style.display = "inline-block";
+                document.getElementById("preTop").style.display = "none";
+                document.getElementById("afterTop").style.display = "inline-block";
                 var tmp = data.userInfo.username;
                 var name = "";
                 for (var i = 0; i < tmp.length; i++) {
                     name = name + (tmp.charAt(i)) + "<br>";
                 }
-                $('#userName').html(name);
+                $('#userName').html(tmp);
                 $('#iconImage').attr("src", data.userInfo.picurl);
                 $('#loginPanel').css("display", "none");
                 $('#searchPanel').fadeIn();
@@ -61,6 +63,8 @@ function quitLog() {
     document.getElementById("preLogInLeft").style.display = "inline-block";
     document.getElementById("afterLogInLeft").style.display = "none";
     document.getElementById("afterLogInRight").style.display = "none";
+    document.getElementById("preTop").style.display = "inline-block";
+    document.getElementById("afterTop").style.display = "none";
     $('#searchPanel').css("display", "none");
     $('#loginPanel').fadeIn();
     $('#username').val("");

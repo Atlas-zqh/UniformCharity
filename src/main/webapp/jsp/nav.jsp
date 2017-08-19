@@ -29,8 +29,14 @@
 </head>
 <body>
 <div id="nav">
-    <div class="topNavBar">
+    <div class="topNavBar" id="preTop">
         <p class="navLabel" align="center">与 子 同 袍</p>
+    </div>
+    <div class="topNavBar" id="afterTop" style="display: none">
+        <p class="navLabel">与 子 同 袍 &nbsp;&nbsp;| &nbsp;</p>
+        <img id="iconImage" src="">
+        <p class="navLabel">&nbsp;</p>
+        <p id="userName" class="navP" style="letter-spacing: 0.1vh"></p>
     </div>
     <div class="leftNavBar" align="left" id="afterLogInLeft" style="display: none">
         <div class="bt"><a href="../jsp/index.jsp">首<br>页</a></div>
@@ -39,17 +45,17 @@
         <div class="navLabel"><p><br>—<br></p></div>
         <div class="bt"><a href="../jsp/clothes.jsp">我<br>的<br>衣<br>物</a></div>
         <div class="navLabel"><p><br>—<br></p></div>
-        <div class="bt"><a href="../jsp/class.jsp">班<br>级<br>天<br>地</a></div>
-        <div class="navLabel"><p><br>—<br></p></div>
         <div class="bt"><a href="../jsp/forum.jsp">讨<br>论<br>区</a></div>
 
     </div>
     <div class="rightNavBar" align="left" id="afterLogInRight" style="display: none">
-        <img id="iconImage" src="">
-        <br>
-        <p id="userName" class="navP"></p>
-        <div class="navLabel"><p>—<br></p></div>
+        <%--<img id="iconImage" src="">--%>
+        <%--<br>--%>
+        <%--<p id="userName" class="navP"></p>--%>
+        <%--<div class="navLabel"><p>—<br></p></div>--%>
         <div class="bt"><a href="../jsp/userInfo.jsp">我<br>的<br>主<br>页</a></div>
+        <div class="navLabel"><p><br>—<br></p></div>
+        <div class="bt"><a href="../jsp/class.jsp">班<br>级<br>天<br>地</a></div>
         <div class="navLabel"><p><br>—<br></p></div>
         <div class="bt"><a href="#" onclick="quitLog()">退<br>出<br>登<br>陆</a></div>
 

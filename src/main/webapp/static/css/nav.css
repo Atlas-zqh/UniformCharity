@@ -18,6 +18,9 @@ body {
     width: 100%;
     /*padding-bottom: 1.6%;*/
     /*background: #BCD5D8;*/
+    position: absolute;
+    text-align: center;
+    font-size: 2vh;
 }
 
 .leftNavBar {
@@ -105,6 +108,16 @@ body {
     margin-top: 9%;
 }
 
+.topNavBar img {
+    display: inline-block;
+    margin-top: -0.2%;
+    height: 2%;
+    border-radius: 50%;
+    background-size: cover;
+    /*margin-left: 0%;*/
+    /*margin-top: 9%;*/
+}
+
 .navBut:hover {
     text-decoration: none;
     color: #d6ad5c;
@@ -113,6 +126,8 @@ body {
 .topNavBar p{
     color: #142535;
     font-size: 2vh;
+    margin: 0;
+    display: inline;
 }
 
 .foot p {

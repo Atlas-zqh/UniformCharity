@@ -58,12 +58,14 @@ function checkCookie() {
         document.getElementById("preLogInLeft").style.display = "none";
         document.getElementById("afterLogInLeft").style.display = "inline-block";
         document.getElementById("afterLogInRight").style.display = "inline-block";
+        document.getElementById("preTop").style.display = "none";
+        document.getElementById("afterTop").style.display = "inline-block";
         var tmp = username;
         var name = "";
         for (var i = 0; i < tmp.length; i++) {
             name = name + (tmp.charAt(i)) + "<br>";
         }
-        $('#userName').html(name);
+        $('#userName').html(tmp);
         $('#iconImage').attr("src", picurl);
         $('#loginPanel').css("display", "none");
         $('#searchPanel').fadeIn();
