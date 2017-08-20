@@ -129,13 +129,17 @@ function addSingleClothesPanel(clothes, pic, username, price) {
     clothe_item.className = "singleClothe";
     clothe_list.appendChild(clothe_item);
 
+    var div = document.createElement('div');
+    div.className = 'imageBox';
+    clothe_item.appendChild(div);
+
     var img = document.createElement("img");
     img.src = pic;
     img.onclick = function () {
         window.open("../jsp/clothesDetails.jsp?id=" + clothes.clothesID);
     };
     img.style.cursor = "pointer";
-    clothe_item.appendChild(img);
+    div.appendChild(img);
 
     var priceLabel = document.createElement("p");
     priceLabel.className = "priceP";
@@ -152,7 +156,7 @@ function addSingleClothesPanel(clothes, pic, username, price) {
     var userLabel = document.createElement("a");
     userLabel.className = "userP";
     userLabel.appendChild(document.createTextNode(username));
-    userLabel.href = "../jsp/userDetail.jsp?id=" + clothes.donorID;
+    userLabel.href = "../jsp/friendInfo.jsp?id=" + clothes.donorID;
     userLabel.target = "_blank";
     clothe_item.appendChild(userLabel);
 

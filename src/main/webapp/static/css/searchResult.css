@@ -124,14 +124,31 @@ li {
     box-shadow: 0 0 5px 2px #DABD61;
 }
 
-#resultPage #contentPage .singleClothe img{
-    position: absolute;
-    width: 100%;
-    /*padding-bottom: 100%;*/
+#resultPage #contentPage .singleClothe .imageBox{
+    max-width: 20vw;
+    max-height: 20vw;
+    /* padding-bottom: 100%; */
     background-color: white;
-    margin-left: 0%;
-    margin-top: 0%;
+    /* margin-left: 0%; */
+    /* margin-top: 0%; */
     height: 65%;
+    width: 100%;
+    position: absolute;
+}
+
+#resultPage #contentPage .singleClothe img{
+    max-width: 19.5vw;
+    max-height: 19.5vw;
+    background-color: white;
+    /* margin-left: 0%; */
+    /* margin-top: 0%; */
+    /* display: table-cell; */
+    /* vertical-align: middle; */
+    /* text-align: center; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 #resultPage #contentPage .singleClothe .priceP{

@@ -33,20 +33,20 @@
         <div id="imageArea">
             <div style="">
                 <div class="imageBox" style="width: 36vmax; height: 36vmax; margin-left: 5%; margin-top: 5%">
-                    <img src="" class="largeImage" id="pic"/>
+                    <img src="" class="largeImage" id="pic" style="max-width: 36vmax; max-height: 36vmax;"/>
                 </div>
                 <br>
                 <div class="imageBox" style="width: 9vmax; height: 9vmax; display: table-cell" id="box1">
-                    <img src="" class="largeImage" id="pic1" onmousemove="changePic('pic1')"/>
+                    <img src="" class="largeImage" id="pic1" onmousemove="changePic('pic1')" style="max-height: 9vw; max-width: 9vw;"/>
                 </div>
                 <div class="imageBox" style="width: 9vmax; height: 9vmax; display: none" id="box2">
-                    <img src="" class="largeImage" id="pic2" onmousemove="changePic('pic2')"/>
+                    <img src="" class="largeImage" id="pic2" onmousemove="changePic('pic2')" style="max-height: 9vw; max-width: 9vw;"/>
                 </div>
                 <div class="imageBox" style="width: 9vmax; height: 9vmax; display: none" id="box3">
-                    <img src="" class="largeImage" id="pic3" onmousemove="changePic('pic3')"/>
+                    <img src="" class="largeImage" id="pic3" onmousemove="changePic('pic3')" style="max-height: 9vw; max-width: 9vw;"/>
                 </div>
                 <div class="imageBox" style="width: 9vmax; height: 9vmax; display: none" id="box4">
-                    <img src="" class="largeImage" id="pic4" onmousemove="changePic('pic4')"/>
+                    <img src="" class="largeImage" id="pic4" onmousemove="changePic('pic4')" style="max-height: 9vw; max-width: 9vw;"/>
                 </div>
             </div>
         </div>
