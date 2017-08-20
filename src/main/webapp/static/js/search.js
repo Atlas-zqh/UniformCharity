@@ -39,8 +39,11 @@ function search() {
         gender = gender1;
         gender1 = "";
     }
-    if (school == "") {
+    gender1 = "";
+    alert(gender);
+    alert(gender1);
 
+    if (school == "") {
         // if (gender == "" || school == "" || size == "" || type == "") {
         fail_alert("搜索条件必须包含衣物所属学校！");
     } else {
@@ -48,8 +51,10 @@ function search() {
         setCookie("school", school);
         setCookie("size", size);
         setCookie("type", type);
-        window.location.href = '../jsp/search.jsp?school=' + school + "&gender=" + gender + "&size=" + size + "&type=" + type + "&page=1";
-        gender = '';
+        var tmp = gender;
+        gender = "";
+        window.location.href = '../jsp/search.jsp?school=' + school + "&gender=" + tmp + "&size=" + size + "&type=" + type + "&page=1";
+
     }
     $("#male").css("color", "white");
     $("#male").css("text-shadow", "-0.1vmax 0.1vmax 0 grey");

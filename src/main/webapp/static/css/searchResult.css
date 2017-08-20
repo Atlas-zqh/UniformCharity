@@ -104,7 +104,7 @@ li {
     box-shadow: 0 0 5px 2px #DABD61;
     padding-bottom: 3%;
     background: white;
-
+    min-height: 70vh;
 }
 
 #resultPage #contentPage .singleClothe{
