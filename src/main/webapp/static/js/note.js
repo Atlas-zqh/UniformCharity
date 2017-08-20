@@ -36,12 +36,31 @@ function addSingleNote(picUrl, username, uid, content, time, floor) {
 
     var img = document.createElement('img');
     img.src = picUrl;
-    //todo 调到userinfo
-    img.href = "";
+    if (uid == getCookie('id')) {
+        img.onclick = function () {
+            window.open("../jsp/userInfo.jsp");
+        };
+    }
+    else {
+        img.onclick = function () {
+            window.open("../jsp/friendInfo.jsp?id=" + uid);
+        };
+    }
+    // img.href = "";
+    img.style.cursor = 'pointer';
     userBlock.appendChild(img);
 
     var user_a = document.createElement('a');
-    //todo 调到userinfo
+    if (uid == getCookie('id')) {
+        user_a.onclick = function () {
+            window.open("../jsp/userInfo.jsp");
+        };
+    }
+    else {
+        user_a.onclick = function () {
+            window.open("../jsp/friendInfo.jsp?id=" + uid);
+        };
+    }
     user_a.href = "";
     user_a.className = 'userP';
     user_a.appendChild(document.createTextNode(username));

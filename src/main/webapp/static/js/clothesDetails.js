@@ -25,10 +25,17 @@ function findClothesByID(clothesID) {
                 $('#title').html(data.clothes.schoolName + '-' + data.clothes.clothesType);
                 $('#clothesID').html(data.clothes.clothesID);
                 $('#user').html(data.user.username);
-                $('#user').onclick = function () {
-                    //todo
-                    window.open("");
-                };
+                if (data.user.personID == getCookie('id')) {
+                    $('#user').click(function () {
+                        window.open("../jsp/userInfo.jsp");
+
+                    });
+                }
+                else {
+                    $('#user').click(function () {
+                        window.open("../jsp/friendInfo.jsp?id=" + data.user.personID);
+                    });
+                }
                 $('#school').html(data.clothes.schoolName);
                 $('#type').html(data.clothes.clothesType);
                 $('#gender').html(data.clothes.gender);

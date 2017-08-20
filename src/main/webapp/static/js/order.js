@@ -208,8 +208,16 @@ function addSingleOrder(date, orderID, picurl, clothesID, userID, price, status)
     th3.style.width = "20%";
     var a3 = document.createElement("a");
     // a.href = "../jsp/clothesDetail?id=" + clothesID;
-    //todo
-    // a3.onclick = function () {
+    if (userID == getCookie('id')) {
+        a3.onclick = function () {
+            window.open("../jsp/userInfo.jsp");
+        };
+    }
+    else {
+        a3.onclick = function () {
+            window.open("../jsp/friendInfo.jsp?id=" + userID);
+        };
+    }    // a3.onclick = function () {
     //     window.open("../jsp/orderDetails?id=" + orderID);
     // };
     a3.appendChild(document.createTextNode(userID));
@@ -255,7 +263,6 @@ function addSingleOrder(date, orderID, picurl, clothesID, userID, price, status)
 }
 
 function processOrder(type, orderID) {
-    //todo 订单操作
     if (type == "查看订单") {
         window.location.href("../jsp/orderDetail.jsp?id=" + orderID);
     }

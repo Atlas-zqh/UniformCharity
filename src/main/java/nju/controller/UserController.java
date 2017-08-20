@@ -77,6 +77,39 @@ public class UserController {
     }
 
     /**
+     * 根据用户ID获得用户
+     * @param request
+     * @param response
+     * @return
+     */
+    @RequestMapping(value = "getUserByID", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Object> getUserByID(HttpServletRequest request, HttpServletResponse response) {
+        Map<String, Object> map = new HashMap<>();
+
+        String id = request.getParameter("id");
+
+        User user;
+
+        try {
+            user = userService.findUserByID(id);
+            if (user == null) {
+                map.put("success", "fail");
+            } else {
+                map.put("success", "true");
+                map.put("user", user);
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            map.put("success", "fail");
+        }
+
+
+        return map;
+    }
+
+    /**
      * 修改密码
      * @param request
      * @param response

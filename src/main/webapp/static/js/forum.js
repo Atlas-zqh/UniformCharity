@@ -112,7 +112,13 @@ function addSinglePost(pid, topic, comment, time, uid, username) {
     var user_a = document.createElement('a');
     user_a.target = '_blank';
     user_a.className = 'userP';
-    //todo
+    if (uid == getCookie('id')) {
+        user_a.href = "../jsp/userInfo.jsp";
+
+    }
+    else {
+        user_a.href = "../jsp/friendInfo.jsp?id=" + uid;
+    }
     // a.href = "../jsp/noteDetails.jsp?id=" + pid;
     user_a.appendChild(document.createTextNode(username));
     note.appendChild(user_a);

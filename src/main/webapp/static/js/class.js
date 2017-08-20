@@ -224,7 +224,16 @@ function addClassMember(i, item) {
     tr.appendChild(td2);
     td2.style.width = '20%';
     var a = document.createElement('a');
-    //todo
+    if (item.personID == getCookie('id')) {
+        a.onclick = function () {
+            window.open("../jsp/userInfo.jsp");
+        };
+    }
+    else {
+        a.onclick = function () {
+            window.open("../jsp/friendInfo.jsp?id=" + item.personID);
+        };
+    }
     a.appendChild(document.createTextNode(item.username));
     td2.appendChild(a);
 

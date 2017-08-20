@@ -30,8 +30,8 @@ html {
     /*margin-top: 10%;*/
     /* height: 0; */
     background: white;
-    background-image: url('../images/bg.png');
-    background-size: cover;
+    /*background-image: url('../images/bg.png');*/
+    /*background-size: cover;*/
     /*padding-bottom: 5%;*/
 }
 
@@ -45,12 +45,32 @@ html {
     /*padding-bottom: 2%;*/
     background-color: white;
     border: 2px solid #f5d76b;
+    background-image: url("../images/bg.png");
+    background-size: cover;
     box-shadow: 0 0 5px 2px #DABD61;
 }
 
 #contentArea #mainPart #infoPart {
     position: absolute;
-    top: 35%;
-    width: 55%;
-    left: 25%;
+    top: 13%;
+    width: 80%;
+    left: 10%;
+    height: 80%;
+    background-color: white;
+}
+
+#contentArea #mainPart #infoPart img{
+    position: absolute;
+    left: 10%;
+    top: 2%;
+    width: 20%;
+    border-radius: 50%;
+}
+
+#contentArea #mainPart #infoPart #infoArea{
+    position: absolute;
+    left: 40%;
+    width: 50%;
+    background-color: white;
+    height: 100%;
 }

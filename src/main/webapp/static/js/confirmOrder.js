@@ -24,10 +24,17 @@ function findClothesByID(clothesID) {
                     window.open("../jsp/clothesDetails.jsp?id=" + clothesID);
                 });
                 $('#user').html(data.user.username);
-                $('#user').click(function () {
-                    //todo
-                    window.open("");
-                });
+                if (data.user.personID == getCookie('id')) {
+                    $('#user').click(function () {
+                        window.open("../jsp/userInfo.jsp");
+
+                    });
+                }
+                else {
+                    $('#user').click(function () {
+                        window.open("../jsp/friendInfo.jsp?id=" + data.user.personID);
+                    });
+                }
                 $('#school').html(data.clothes.schoolName);
                 $('#type').html(data.clothes.clothesType);
                 $('#gender').html(data.clothes.gender);
