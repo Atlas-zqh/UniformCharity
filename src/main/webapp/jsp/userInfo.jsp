@@ -84,7 +84,7 @@
     <div id="infoBlock" class="briefInfoBlock" style="top: 3%;">
         <p class="titleP">个 人 信 息</p>
         <button class="iconButton"
-                style="background-image: url(/static/images/maleIcon.png); top: 25%; margin-left: 2%;"></button>
+                style="background-image: url(/static/images/maleIcon.png); top: 25%; margin-left: 2%;" id="breifIcon"></button>
         <p class="nameP" style="top: 26%; margin-left: 25%;" id="briefUser"></p>
         <button class="genderButton"
                 style="background-image: url(/static/images/male.png); top: 24%; margin-left: 10%; background-color: #ffffff"
@@ -99,10 +99,10 @@
     </div>
     <div id="friendBlock" class="briefInfoBlock" style="top: 35%;">
         <p class="titleP">好 友 信 息</p>
-        <div id="friend1" style="display: none">
+        <div id="friend1" style="display: block">
             <button class="iconButton"
                     style="background-image: url(/static/images/maleIcon.png); top: 25%; margin-left: 2%;"></button>
-            <a href="" class="labelP" id="username1" style="top: 25%; margin-left: 25%;"></a>
+            <a href="../jsp/friendInfo.jsp?id=" class="labelP" id="username1" style="top: 24%; margin-left: 25%;">qky</a>
             <button class="genderButton"
                     style="background-image: url(/static/images/male.png); top: 24%; margin-left: 10%; background-color: #ffffff"></button>
         </div>
@@ -120,7 +120,7 @@
             <button class="genderButton"
                     style="background-image: url(/static/images/male.png); top: 74%; margin-left: 10%; background-color: #ffffff"></button>
         </div>
-        <div id="noFriends" style="top: 45%; position: absolute; width: 50%; margin-left: 30%">
+        <div id="noFriends" style="display: none;top: 45%; position: absolute; width: 50%; margin-left: 30%">
             <h4>暂&nbsp;无&nbsp;好&nbsp;友</h4>
         </div>
         <a href="#" style="top: 90%; margin-left: 65%" onclick="showFriendContent()">查 看 更 多 ></a>
@@ -188,10 +188,10 @@
     <div id="freindContent" class="contentBlock" style="display: none">
         <p class="titleP">好 友 列 表</p>
         <div class="singlePerson">
-            <img src="/static/images/maleIcon.png">
-            <a>哈哈</a>
-            <p>哈哈</p>
-            <button>访 问 主 页</button>
+            <img src="../static/images/maleIcon.png">
+            <a href="../jsp/friendInfo.jsp?id=">qky</a>
+            <p>南京外国语学校仙林分校</p>
+            <button onclick="window.open('../jsp/friendInfo.jsp?id=')">访 问 主 页</button>
         </div>
     </div>
     <div id="publicContent" class="contentBlock" style="display: none">
@@ -219,7 +219,7 @@
         </iframe>
         <script type="text/javascript" src="../static/js/creditInfo.js" charset="utf-8"></script>
         <div style="text-align: center; width: 100%; position: absolute; top: 90%;">
-            <ul id="creditMenu" class="menu" style="left: 10%; margin-top: 1%; width: 80%">
+            <ul id="creditMenu" class="menu" style="margin-top: 1%; width: 80%">
                 <li><a href="#">Previous</a></li>
                 <li><a href="#">1</a></li>
                 <li><a href="#">2</a></li>

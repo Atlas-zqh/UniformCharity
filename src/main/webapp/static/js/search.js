@@ -85,23 +85,23 @@ function showResult(school, type, gender, size, page) {
     });
 }
 
-function initPage(page){
+function initPage(page) {
     clearSelectList('type');
     getInfo();
 
-    jQuery.ajax( {
-        type : 'POST',
-        url : '/clothesAction/allTypesOfSchool',
-        data:{
+    jQuery.ajax({
+        type: 'POST',
+        url: '/clothesAction/allTypesOfSchool',
+        data: {
             "school": school
         },
-        dataType : 'json',
-        success : function(data) {
+        dataType: 'json',
+        success: function (data) {
             // alert("success");
             if (data && data.success == "true") {
                 clearSelectList('type');
                 addOption('type', "null", "");
-                $.each(data.type, function(i, item) {
+                $.each(data.type, function (i, item) {
                     addOption('type', item, item);
                     // fail_alert(i);
                 });
@@ -114,7 +114,7 @@ function initPage(page){
             setSelected('type', type);
             setSelected('gender', gender);
         },
-        error : function() {
+        error: function () {
             fail_alert("哎呀呀，初始化信息失败...")
         }
     });
@@ -156,17 +156,20 @@ function addSingleClothesPanel(clothes, pic, username, price) {
     var userLabel = document.createElement("a");
     userLabel.className = "userP";
     userLabel.appendChild(document.createTextNode(username));
-    userLabel.href = "../jsp/friendInfo.jsp?id=" + clothes.donorID;
+    if (clothes.donorID == getCookie('id'))
+        userLabel.href = "../jsp/userInfo.jsp";
+    else
+        userLabel.href = "../jsp/friendInfo.jsp?id=" + clothes.donorID;
     userLabel.target = "_blank";
     clothe_item.appendChild(userLabel);
 
     var genderLabel = document.createElement("p");
     genderLabel.className = "infoP";
-    genderLabel.appendChild(document.createTextNode(clothes.gender + '  ' + clothes.clothessize));
+    genderLabel.appendChild(document.createTextNode(clothes.gender + '  ' + clothes.clothesHeight));
     clothe_item.appendChild(genderLabel);
 }
 
-function setOpenUrl(clothesID){
+function setOpenUrl(clothesID) {
     window.open("../jsp/clothesDetails.jsp?input=" + clothesID);
 }
 
@@ -247,7 +250,7 @@ function last() {
     }
 }
 
-function getInfo(){
+function getInfo() {
     school = getCookie("school");
     size = getCookie("size");
     type = getCookie("type");

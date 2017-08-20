@@ -249,7 +249,7 @@ li {
 
 #userPage .contentBlock .singlePerson img {
     border: 0;
-    background: url(../images/FundBulletin.png) no-repeat;
+    background: url(../images/maleIcon.png) no-repeat;
     width: 8%;
     padding-top: 8%;
     margin-top: 1.5%;
@@ -290,7 +290,7 @@ li {
     text-shadow: -0.1vmax 0.1vmax 0 grey;
     margin-top: 3%;
     text-decoration: none;
-    margin-left: 60%;
+    margin-left: 40%;
 }
 
 #userPage .contentBlock .singlePerson button {
