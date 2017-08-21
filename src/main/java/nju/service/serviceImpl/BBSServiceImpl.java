@@ -65,7 +65,7 @@ public class BBSServiceImpl implements BBSService {
      */
     @Override
     public void insertBoard(Board board) {
-        bbsMapper.insertBoard(board);
+        bbsMapper.insertBoard(board.clone());
     }
 
     /**
@@ -75,7 +75,7 @@ public class BBSServiceImpl implements BBSService {
      */
     @Override
     public void insertPost(Post post) {
-        bbsMapper.insertPost(post);
+        bbsMapper.insertPost(post.clone());
     }
 
     /**
@@ -91,8 +91,8 @@ public class BBSServiceImpl implements BBSService {
         } else {
             post.setPost_updatetime(System.currentTimeMillis());
             post.setPost_commentcount(post.getPost_commentcount() + 1);
-            bbsMapper.updatePost(post);
-            bbsMapper.insertReply(reply);
+            bbsMapper.updatePost(post.clone());
+            bbsMapper.insertReply(reply.clone());
         }
     }
 

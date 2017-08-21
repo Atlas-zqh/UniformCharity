@@ -74,4 +74,15 @@ public class School {
                 ", schoolDistrict='" + schoolDistrict + '\'' +
                 '}';
     }
+
+    @Override
+    public School clone() {
+        School o = null;
+        try {
+            o = (School) super.clone();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+        return o;
+    }
 }

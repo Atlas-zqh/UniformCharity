@@ -103,4 +103,15 @@ public class Reply {
     public void setReply_rid(Integer reply_rid) {
         this.reply_rid = reply_rid;
     }
+
+    @Override
+    public Reply clone() {
+        Reply o = null;
+        try {
+            o = (Reply) super.clone();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+        return o;
+    }
 }

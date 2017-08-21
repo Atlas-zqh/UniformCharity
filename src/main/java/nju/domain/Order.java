@@ -141,4 +141,15 @@ public class Order {
                 ", authority=" + authority +
                 '}';
     }
+
+    @Override
+    public Order clone() {
+        Order o = null;
+        try {
+            o = (Order) super.clone();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+        return o;
+    }
 }

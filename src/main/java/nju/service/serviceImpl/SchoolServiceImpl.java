@@ -27,7 +27,7 @@ public class SchoolServiceImpl implements SchoolService {
      */
     @Override
     public void addSchool(School school) {
-        schoolMapper.add(school);
+        schoolMapper.add(school.clone());
     }
 
     /**

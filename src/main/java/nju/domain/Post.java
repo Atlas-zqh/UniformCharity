@@ -119,4 +119,15 @@ public class Post {
     public void setPost_content(String post_content) {
         this.post_content = post_content;
     }
+
+    @Override
+    public Post clone() {
+        Post o = null;
+        try {
+            o = (Post) super.clone();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+        return o;
+    }
 }

@@ -50,7 +50,7 @@ public class ClothesServiceImpl implements ClothesService {
         String did = format.format(date);
         String auto_id = donor_id.substring(donor_id.length() - 4) + did;
         clothes.setClothesID(auto_id);
-        clothesMapper.add(clothes);
+        clothesMapper.add(clothes.clone());
 
         // 增加公益记录
         double price = typeMapper.findType(clothes.getSchoolName(), clothes.getClothesType()).getClothesPrice();
@@ -65,7 +65,7 @@ public class ClothesServiceImpl implements ClothesService {
      */
     @Override
     public void updateClothes(Clothes clothes) {
-        clothesMapper.update(clothes);
+        clothesMapper.update(clothes.clone());
     }
 
     /**
@@ -183,10 +183,10 @@ public class ClothesServiceImpl implements ClothesService {
         Double credit = user.getCredits();
         credit += variance;
         user.setCredits(credit);
-        userMapper.update(user);
+        userMapper.update(user.clone());
 
 //        String createTime = System.currentTimeMillis() + "";
         CreditRecord record = new CreditRecord(EncryptionUtil.encrypt("20170522", userID), recordtype, clothesID, variance, credit, System.currentTimeMillis());
-        creditRecordMapper.addRecord(record);
+        creditRecordMapper.addRecord(record.clone());
     }
 }

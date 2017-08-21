@@ -43,6 +43,7 @@ public class DBInterceptor implements Interceptor {
             }
         } else if (parameter instanceof Clothes) {
             Clothes clothes = (Clothes) parameter;
+
             if (methodName.equals("update")) {
                 clothes.setDonorID(EncryptionUtil.encrypt(key, clothes.getDonorID()));
             }

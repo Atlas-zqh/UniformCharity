@@ -39,4 +39,15 @@ public class Type {
     public void setClothesPrice(Double clothesPrice) {
         this.clothesPrice = clothesPrice;
     }
+
+    @Override
+    public Type clone() {
+        Type o = null;
+        try {
+            o = (Type) super.clone();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+        return o;
+    }
 }

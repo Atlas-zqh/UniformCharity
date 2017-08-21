@@ -161,4 +161,16 @@ public class Clothes {
                 ", default_pic_url='" + default_pic_url + '\'' +
                 '}';
     }
+
+    @Override
+    public Clothes clone() {
+        Clothes clothes = null;
+        try {
+            clothes = (Clothes) super.clone();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+        return clothes;
+    }
+
 }
