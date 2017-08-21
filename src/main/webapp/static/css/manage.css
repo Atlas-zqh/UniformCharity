@@ -1,0 +1,107 @@
+body {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    height: 0;
+}
+
+html{
+    background-color: lightblue;
+
+}
+
+#mainArea {
+    display: inline-block;
+    z-index: 100;
+    /*margin-top: 2.8vh;*/
+    /*margin-left: 1.6%;*/
+    /*width: 96.8%;*/
+    background-size: cover;
+    /*min-height: 0%;*/
+    /*padding-bottom: 100%;*/
+    height: auto;
+    background: white;
+    padding-bottom: 2%;
+    margin-top: 2.8vh;
+    margin-left: 1.6%;
+    width: 96.8%;
+    min-height: 94.4%;
+    /* height: 94.4%; */
+    /* height: 94.4%; */
+    /*margin-top: 10%;*/
+    /* height: 0; */
+}
+
+#mainArea #headPart {
+    display: inline-block;
+    background: white;
+    width: 95%;
+    margin-left: 2.5%;
+    margin-top: 2.5%;
+    padding-bottom: 3.5%;
+    background-image: url('../images/bg.png');
+    background-size: cover;
+    background-color: #9DD0FB;
+}
+
+#mainArea #headPart #navBar {
+    /*position: absolute;*/
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 3.5%;
+    /*padding-bottom: 2%;*/
+    border: 1px solid #ffffff;
+    border-left: none;
+    border-right: none;
+    padding: 1vw;
+}
+
+#mainArea #headPart #navBar a{
+    color: white;
+    margin: 1vw;
+    letter-spacing: 0.2vw;
+    font-size: 1.5vw;
+    font-weight: 300;
+    font-family: Helvetica;
+    cursor: pointer;
+    text-decoration: none;
+    margin-left: 18%;
+}
+
+#mainArea #headPart #navBar a:hover{
+    color: #142535;
+    text-decoration: underline;
+}
+
+#mainArea #bodyPart {
+    width: 95%;
+    margin-left: 2.5%;
+    margin-top: 2.5%;
+    background-color: #B8D7F1;
+    /*padding-bottom: 100%;*/
+    min-height: 86vh;
+    height: 86vh;
+    background-image: url('../images/bg.png');
+    background-size: cover;
+}
+
+#mainArea #bodyPart #loginView {
+    display: inline-block;
+    position: absolute;
+    width: 50%;
+    left: 25%;
+    height: 46vh;
+    margin-top: 20vh;
+    border: 1px solid #ffffff;
+
+}
+
+#mainArea #bodyPart #loginView #loginContent {
+    position: absolute;
+    width: 98%;
+    left: 1%;
+    height: 98%;
+    top: 1%;
+    /*padding: 0.1vw;*/
+    background-color: #ffffff;
+}

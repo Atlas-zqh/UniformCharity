@@ -206,5 +206,8 @@ function showSignupPanel() {
     $("#signupPanel").fadeIn(2000);
 }
 
-
-
+function managerLogin() {
+    var username = $('#username').val();
+    var password = $('#password').val();
+    selectSearchSchool();
+}

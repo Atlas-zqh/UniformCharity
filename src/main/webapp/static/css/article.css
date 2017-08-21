@@ -35,7 +35,7 @@ html {
     background: white;
     background-image: url('../images/bg.png');
     background-size: cover;
-     padding-bottom: 5%;
+    padding-bottom: 5%;
 }
 
 #contentArea #mainPart {
@@ -108,3 +108,4 @@ html {
     width: 100%;
     word-wrap: break-word;
 }
+
