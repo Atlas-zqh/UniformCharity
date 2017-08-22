@@ -7,6 +7,7 @@ function selectAddSchool(){
     }else {
         initButtons();
         $('#addSchool').css('color', '#142535');
+        $('#addSchoolView').fadeIn();
     }
 }
 
@@ -16,6 +17,8 @@ function selectSearchSchool() {
     }else {
         initButtons();
         $('#searchSchool').css('color', '#142535');
+        $('#searchView').fadeIn();
+        //todo 初始化搜索框
     }
 }
 
@@ -32,4 +35,15 @@ function initButtons() {
     $('#addSchool').css('color', 'white');
     $('#searchSchool').css('color', 'white');
     $('#postArticle').css('color', 'white');
+    $('#addSchoolView').css("display", "none");
+    $('#searchView').css("display", "none");
+}
+
+function searchSchool(){
+
+}
+
+function addSchool() {
+    document.getElementById('gradeForm').reset();
+
 }

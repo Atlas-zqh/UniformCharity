@@ -209,8 +209,9 @@ function showSignupPanel() {
 function managerLogin() {
     var username = $('#username').val();
     var password = $('#password').val();
-    selectSearchSchool();
     //todo 登陆
+    $('#loginView').css("display", "none");
+    selectSearchSchool();
 
 //     var url = "http://app.cet.edu.cn:7066/baas/app/setuser.do?method=UserVerify";
 //     var ks_data = {

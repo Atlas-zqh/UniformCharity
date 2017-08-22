@@ -28,7 +28,7 @@
         </div>
     </div>
     <div id="bodyPart">
-        <div id="loginView" style="display: none">
+        <div id="loginView">
             <div id="loginContent">
                 <h3 style="position:absolute; top: 2%; width: 100%; text-align: center;">用户名</h3>
                 <input id="username" class="textInput" style="position: absolute; top: 20%; width: 40%; left: 30%;">
@@ -38,6 +38,35 @@
                 <br>
                 <button id="loginBut" class="mybt" onclick="managerLogin()"
                         style="width: 20%; font-size: 1.5vmax; position: relative; left: 40%; top: 70%;">登 录
+                </button>
+            </div>
+        </div>
+        <div id="searchView" style="display: none">
+            <div id="searchContent">
+                <h6 style="position: absolute; left: 15%; top: 2%;">城市</h6>
+                <div id="city" class="block" style="left: 7%">
+                    <ul>
+                        <li>北京</li>
+                        <li>南京</li>
+                    </ul>
+                </div>
+                <h6 style="position: absolute; left: 46%; top: 2%;">区域</h6>
+                <div id="block" class="block" style="left: 38%;">
+                    <ul>
+                        <li>北京</li>
+                        <li>南京</li>
+                    </ul>
+                </div>
+                <h6 style="position: absolute; left: 77%; top: 2%;">学校</h6>
+                <div id="school" class="block" style="left: 69%">
+                    <ul>
+                        <li>北京</li>
+                        <li>南京</li>
+                    </ul>
+                </div>
+
+                <button id="searchBut" class="mybt" onclick="searchSchool()"
+                        style="width: 20%; font-size: 1.5vmax; position: relative; left: 40%; top: 85%;">搜 索
                 </button>
             </div>
         </div>
