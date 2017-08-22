@@ -210,4 +210,20 @@ function managerLogin() {
     var username = $('#username').val();
     var password = $('#password').val();
     selectSearchSchool();
+    //todo 登陆
+
+//     var url = "http://app.cet.edu.cn:7066/baas/app/setuser.do?method=UserVerify";
+//     var ks_data = {
+//         "ks_xm": "钱柯宇",
+//     "ks_sfz": "320522199702145011",
+//     "jb": 2
+// };
+//     var postdata = {
+//         "action": "",
+//         "params": JSON.stringify(ks_data)
+//     };
+//     $.post(url = url, data = postdata, callback = function(data) {
+//         data = $.parseJSON(data)
+//         console.log(data["ks_bh"]);
+//     });
 }

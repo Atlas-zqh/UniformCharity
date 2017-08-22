@@ -5,7 +5,7 @@ body {
     height: 0;
 }
 
-html{
+html {
     background-color: lightblue;
 
 }
@@ -56,7 +56,7 @@ html{
     padding: 1vw;
 }
 
-#mainArea #headPart #navBar a{
+#mainArea #headPart #navBar a {
     color: white;
     margin: 1vw;
     letter-spacing: 0.2vw;
@@ -68,7 +68,7 @@ html{
     margin-left: 18%;
 }
 
-#mainArea #headPart #navBar a:hover{
+#mainArea #headPart #navBar a:hover {
     color: #142535;
     text-decoration: underline;
 }
@@ -105,3 +105,71 @@ html{
     /*padding: 0.1vw;*/
     background-color: #ffffff;
 }
+
+#mainArea #bodyPart #addSchoolView {
+    display: inline-block;
+    position: absolute;
+    width: 80%;
+    left: 10%;
+    height: 76vh;
+    margin-top: 5vh;
+    border: 1px solid #ffffff;
+}
+
+#mainArea #bodyPart #addSchoolView #addSchoolContent {
+    position: absolute;
+    width: 98%;
+    left: 1%;
+    height: 98%;
+    top: 1%;
+    /*padding: 0.1vw;*/
+    background-color: #ffffff;
+}
+
+table {
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 0px;
+    border-left-width: 1px;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: none;
+    border-left-style: solid;
+    border-top-color: #c2e2e7;
+    border-right-color: #c2e2e7;
+    border-bottom-color: #c2e2e7;
+    border-left-color: #c2e2e7;
+    width: 90%;
+    margin-left: 5%;
+}
+
+td {
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #c2e2e7;
+}
+
+tr {
+    font-size: 2vh;
+    color: #142535;
+    font-weight: 300;
+}
+
+.EditCell_TextBox {
+    width: 90%;
+    border: 1px solid #0099CC;
+}
+
+.EditCell_DropDownList {
+    width: 90%;
+}
+
+.text {
+    padding-top: 0.5vh;
+    padding-bottom: 0.5vh;
+    font-size: 2vh;
+    /*height: 3vh;*/
+    /*border-color: #c2e2e7;*/
+    outline: 2px solid #c2e2e7;
+}
+

@@ -10,6 +10,7 @@
 <head>
     <title>与子同袍-管理员主页</title>
     <link rel="stylesheet" href="../static/css/nav.css"/>
+    <%--<link rel="stylesheet" href="../static/css/boot.css"/>--%>
     <link rel="stylesheet" href="../static/css/alert.css"/>
     <link rel="stylesheet" href="../static/css/theme.css"/>
     <link rel="stylesheet" href="../static/css/manage.css"/>
@@ -27,7 +28,7 @@
         </div>
     </div>
     <div id="bodyPart">
-        <div id="loginView">
+        <div id="loginView" style="display: none">
             <div id="loginContent">
                 <h3 style="position:absolute; top: 2%; width: 100%; text-align: center;">用户名</h3>
                 <input id="username" class="textInput" style="position: absolute; top: 20%; width: 40%; left: 30%;">
@@ -40,6 +41,7 @@
                 </button>
             </div>
         </div>
+        <%@ include file="addSchool.jsp" %>
     </div>
 </div>
 <div class="foot">
@@ -48,6 +50,7 @@
 </div>
 </body>
 <script type="text/javascript" src="../static/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="../static/js/bootstrap.js"></script>
 <script type="text/javascript" src="../static/js/alert.js"></script>
 <script type="text/javascript" src="../static/js/login.js"></script>
 <script type="text/javascript" src="../static/js/manager.js"></script>
