@@ -43,7 +43,12 @@ public class OrderServiceImpl implements OrderService {
         SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmssSSS");
         String oid = format.format(date);
         order.setOrderID(oid);
-        orderMapper.createOrder(order);
+
+        System.out.println("+++++++++++++++++++++++++++++" + order.getDonorID());
+        System.out.println("+++++++++++++++++++++++++++++" + order.getBuyerID());
+
+        orderMapper.createOrder(order.clone());
+
         return oid;
     }
 
@@ -58,7 +63,7 @@ public class OrderServiceImpl implements OrderService {
         if (order.getOrderStatus() == Order.Invalid) {
             addCreditRecord(order.getBuyerID(), CreditRecord.REVOKE_CANCEL_ORDER, order.getClothesID(), 0.0 - price);
         }
-        orderMapper.updateOrder(order);
+        orderMapper.updateOrder(order.clone());
     }
 
     /**
@@ -83,7 +88,7 @@ public class OrderServiceImpl implements OrderService {
          * 更新订单状态
          */
         order.setOrderStatus(Order.Confirmed_Paied);
-        orderMapper.updateOrder(order);
+        orderMapper.updateOrder(order.clone());
     }
 
     /**
@@ -203,11 +208,11 @@ public class OrderServiceImpl implements OrderService {
         Double credit = user.getCredits();
         credit += variance;
         user.setCredits(credit);
-        userMapper.update(user);
+        userMapper.update(user.clone());
 
 //        String createTime = System.currentTimeMillis() + "";
         CreditRecord record = new CreditRecord(EncryptionUtil.encrypt("20170522", userID), recordtype, clothesID, variance, credit, System.currentTimeMillis());
-        creditRecordMapper.addRecord(record);
+        creditRecordMapper.addRecord(record.clone());
     }
 
     /**
@@ -226,8 +231,8 @@ public class OrderServiceImpl implements OrderService {
         FinancialRecord buyerR = new FinancialRecord(bid, FinancialRecord.OUT, amount, createTime);
         FinancialRecord donorR = new FinancialRecord(did, FinancialRecord.IN, amount, createTime);
 
-        financialRecordMapper.addRecord(buyerR);
-        financialRecordMapper.addRecord(donorR);
+        financialRecordMapper.addRecord(buyerR.clone());
+        financialRecordMapper.addRecord(donorR.clone());
     }
 
     /**

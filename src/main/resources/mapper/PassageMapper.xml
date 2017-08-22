@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace指定我们的到具体的bean -->
+<mapper namespace="nju.mapper.PassageMapper">
+    <insert id="add" parameterType="Passage">
+        INSERT INTO passage
+        (ptitle, pcontent, ptime)
+        VALUES
+        (#{ptitle},#{pcontent},#{ptime})
+    </insert>
+
+    <update id="update" parameterType="Passage">
+        UPDATE passage
+        SET ptitle=#{ptitle}, pcontent=#{pcontent}
+        WHERE passage_id=#{passage_id}
+    </update>
+
+    <delete id="delete" parameterType="Passage">
+        DELETE FROM passage
+        WHERE passage_id=#{passage_id}
+    </delete>
+
+    <select id="findAll" resultType="Passage">
+        SELECT * FROM passage
+    </select>
+
+    <select id="findOneByID" parameterType="Integer" resultType="Passage">
+        select * from passage WHERE passage_id=#{passage_id};
+    </select>
+</mapper>

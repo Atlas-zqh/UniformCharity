@@ -79,4 +79,15 @@ public class FinancialRecord {
                 ", createTime=" + createTime +
                 '}';
     }
+
+    @Override
+    public FinancialRecord clone() {
+        FinancialRecord o = null;
+        try {
+            o = (FinancialRecord) super.clone();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+        return o;
+    }
 }

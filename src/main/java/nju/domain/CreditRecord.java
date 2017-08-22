@@ -94,4 +94,15 @@ public class CreditRecord {
     public void setCreateTime(Long createTime) {
         this.createTime = createTime;
     }
+
+    @Override
+    public CreditRecord clone() {
+        CreditRecord o = null;
+        try {
+            o = (CreditRecord) super.clone();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+        return o;
+    }
 }

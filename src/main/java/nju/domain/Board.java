@@ -32,4 +32,15 @@ public class Board {
     public void setBoard_name(String board_name) {
         this.board_name = board_name;
     }
+
+    @Override
+    public Board clone() {
+        Board o = null;
+        try {
+            o = (Board) super.clone();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+        return o;
+    }
 }

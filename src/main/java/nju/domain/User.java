@@ -207,4 +207,15 @@ public class User implements Serializable {
                 ", used=" + used +
                 '}';
     }
+
+    @Override
+    public User clone() {
+        User o = null;
+        try {
+            o = (User) super.clone();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+        return o;
+    }
 }

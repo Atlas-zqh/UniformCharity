@@ -1,7 +1,5 @@
 package nju.service.serviceImpl;
 
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
 import nju.domain.Type;
 import nju.mapper.TypeMapper;
 import nju.service.TypeService;
@@ -20,12 +18,12 @@ public class TypeServiceImpl implements TypeService {
 
     @Override
     public void addType(Type type) {
-        typeMapper.addType(type);
+        typeMapper.addType(type.clone());
     }
 
     @Override
     public void modifyType(Type type) {
-        typeMapper.modifyType(type);
+        typeMapper.modifyType(type.clone());
     }
 
     @Override

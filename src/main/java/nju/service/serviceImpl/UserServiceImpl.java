@@ -52,7 +52,7 @@ public class UserServiceImpl implements UserService {
             throw new UserExistedException();
         } else {
             try {
-                userMapper.add(user);
+                userMapper.add(user.clone());
             } catch (Exception e) {
                 throw new OtherException();
             }
@@ -73,7 +73,7 @@ public class UserServiceImpl implements UserService {
             throw new UserNotExistException();
         } else {
             try {
-                userMapper.update(user);
+                userMapper.update(user.clone());
             } catch (Exception e) {
                 throw new OtherException();
             }
