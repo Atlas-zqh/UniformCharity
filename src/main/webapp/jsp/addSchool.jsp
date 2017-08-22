@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <div id="addSchoolView" style="display: none">
     <div id="addSchoolContent">
+        <h1>添<br>加<br>学<br>校</h1>
         <h6 style="width: 50%; text-align: center; position: absolute; top: 15%; left: 0%; margin: 0%;">学校名称</h6>
         <input class="text" style="position: absolute; width: 20%; left: 15%; top: 20%;" placeholder="学校名">
         <h6 style="width: 50%; text-align: center; position: absolute; top: 35%; left: 0%; margin: 0%;">所属城市</h6>

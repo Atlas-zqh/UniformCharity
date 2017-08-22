@@ -220,3 +220,59 @@ li {
 li:hover {
     color: #142535;
 }
+
+#mainArea #bodyPart #postArticleView {
+    display: inline-block;
+    position: absolute;
+    width: 80%;
+    left: 10%;
+    height: 76vh;
+    margin-top: 5vh;
+    border: 1px solid #ffffff;
+}
+
+#mainArea #bodyPart #postArticleView #postArticleContent {
+    position: absolute;
+    width: 98%;
+    left: 1%;
+    height: 98%;
+    top: 1%;
+    /*padding: 0.1vw;*/
+    background-color: #ffffff;
+}
+
+#mainArea #bodyPart #postArticleView #postArticleContent .postTitle {
+    position: absolute;
+    left: 15%;
+    top: 15%;
+    display: block;
+    width: 70%;
+    height: 2.2vmax;
+    font-size: 1.5vmax;
+    letter-spacing: 0.2vmax;
+    border: thin solid #c2e2e7;
+    color: grey;
+}
+
+#mainArea #bodyPart #postArticleView #postArticleContent .postTitle:focus {
+    outline: none;
+    border: thin solid #f5d76b;
+}
+
+#mainArea #bodyPart #postArticleView #postArticleContent .postContent {
+    position: absolute;
+    left: 15%;
+    top: 35%;
+    display: block;
+    width: 70%;
+    height: 50%;
+    font-size: 1.5vmax;
+    letter-spacing: 0.2vmax;
+    border: thin solid #c2e2e7;
+    color: grey;
+}
+
+#mainArea #bodyPart #postArticleView #postArticleContent .postContent:focus {
+    outline: none;
+    border: thin solid #f5d76b;
+}

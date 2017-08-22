@@ -71,6 +71,7 @@
             </div>
         </div>
         <%@ include file="addSchool.jsp" %>
+        <%@ include file="postArticle.jsp" %>
     </div>
 </div>
 <div class="foot">

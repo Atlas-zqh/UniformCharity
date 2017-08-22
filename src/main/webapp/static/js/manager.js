@@ -28,6 +28,7 @@ function selectPostArticle() {
     }else {
         initButtons();
         $('#postArticle').css('color', '#142535');
+        $('#postArticleView').fadeIn();
     }
 }
 
@@ -37,6 +38,7 @@ function initButtons() {
     $('#postArticle').css('color', 'white');
     $('#addSchoolView').css("display", "none");
     $('#searchView').css("display", "none");
+    $('#postArticleView').css("display", "none");
 }
 
 function searchSchool(){
@@ -45,5 +47,8 @@ function searchSchool(){
 
 function addSchool() {
     document.getElementById('gradeForm').reset();
+}
 
+function postArticle() {
+    
 }
