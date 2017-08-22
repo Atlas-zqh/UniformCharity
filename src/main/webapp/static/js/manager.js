@@ -8,6 +8,7 @@ function selectAddSchool(){
         initButtons();
         $('#addSchool').css('color', '#142535');
         $('#addSchoolView').fadeIn();
+        scrollToMain();
     }
 }
 
@@ -18,6 +19,7 @@ function selectSearchSchool() {
         initButtons();
         $('#searchSchool').css('color', '#142535');
         $('#searchView').fadeIn();
+        scrollToMain();
         //todo 初始化搜索框
     }
 }
@@ -29,7 +31,14 @@ function selectPostArticle() {
         initButtons();
         $('#postArticle').css('color', '#142535');
         $('#postArticleView').fadeIn();
+        scrollToMain();
     }
+}
+
+function scrollToMain() {
+    $('html, body').animate({
+        scrollTop: $("#bodyPart").offset().top
+    }, 500);
 }
 
 function initButtons() {
@@ -42,7 +51,10 @@ function initButtons() {
 }
 
 function searchSchool(){
-
+    $('#schoolInfoView').fadeIn();
+    $('html, body').animate({
+        scrollTop: $("#schoolInfoView").offset().top
+    }, 500);
 }
 
 function addSchool() {

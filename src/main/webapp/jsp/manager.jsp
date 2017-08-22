@@ -9,7 +9,9 @@
 <html>
 <head>
     <title>与子同袍-管理员主页</title>
-    <link rel="stylesheet" href="../static/css/nav.css"/>
+    <link rel="stylesheet" href="../static/css/amazeui.css"/>
+
+    <link rel="stylesheet" href="../static/css/alert.css"/>
     <%--<link rel="stylesheet" href="../static/css/boot.css"/>--%>
     <link rel="stylesheet" href="../static/css/alert.css"/>
     <link rel="stylesheet" href="../static/css/theme.css"/>
@@ -17,7 +19,7 @@
 </head>
 <body>
 <div class="topNavBar" id="preTop">
-    <p class="navLabel" align="center">与 子 同 袍</p>
+    <p class="navLabel" align="center" style="margin: 0;">与 子 同 袍</p>
 </div>
 <div id="mainArea">
     <div id="headPart">
@@ -73,14 +75,24 @@
         <%@ include file="addSchool.jsp" %>
         <%@ include file="postArticle.jsp" %>
     </div>
+    <%@ include file="schoolInfo.jsp" %>
+
 </div>
+
 <div class="foot">
     <p class="navLabel" align="center" style="width: 100%; text-align: center; margin: 0;">与子同袍项目组
         copyright@2017</p>
 </div>
+<div data-am-widget="gotop" class="am-gotop am-gotop-fixed" style="width: 2.5%; right: 1.6%; bottom: 0.8vh;">
+    <a href="#top" title="回到顶部">
+        <span class="am-gotop-title">回到顶部</span>
+        <i class="am-gotop-icon am-icon-chevron-up"></i>
+    </a>
+</div>
 </body>
 <script type="text/javascript" src="../static/js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="../static/js/bootstrap.js"></script>
+<script type="text/javascript" src="../static/js/amazeui.js"></script>
 <script type="text/javascript" src="../static/js/alert.js"></script>
 <script type="text/javascript" src="../static/js/login.js"></script>
 <script type="text/javascript" src="../static/js/manager.js"></script>
