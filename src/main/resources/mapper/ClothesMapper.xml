@@ -67,7 +67,7 @@
         WHERE clothes_id=#{clothes_id}
     </select>
 
-    <delete id="removePic">
+    <delete id="removePic" parameterType="String">
         DELETE FROM clothes_pics
         WHERE clothes_id=#{0} AND pic_url=#{1}
     </delete>
