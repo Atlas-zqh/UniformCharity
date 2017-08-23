@@ -55,4 +55,19 @@ public interface SchoolService {
      * @return key:年级 value:所有班级
      */
     Map<String, List<String>> findClassBySchool(String schoolName);
+
+    /**
+     * 获得所有城市
+     *
+     * @return
+     */
+    List<String> getAllCities();
+
+    /**
+     * 根据城市获得该城市的所有区域
+     *
+     * @param schoolCity
+     * @return
+     */
+    List<String> getAllDistrictsByCity(String schoolCity);
 }
