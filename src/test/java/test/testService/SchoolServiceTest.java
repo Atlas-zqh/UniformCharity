@@ -22,4 +22,19 @@ public class SchoolServiceTest extends BaseTest {
             }
         }
     }
+
+    @Test
+    public void testGetAllCities() {
+        for (String s : schoolService.getAllCities()) {
+            System.out.println("= = = =" + s + "\t");
+        }
+    }
+
+    @Test
+    public void testGetDistrictByCity() {
+        List<String> d = schoolService.getAllDistrictsByCity("南京");
+        for (String s : d) {
+            System.out.println(s);
+        }
+    }
 }

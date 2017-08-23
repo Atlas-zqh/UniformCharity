@@ -45,4 +45,12 @@
         WHERE schoolName=#{schoolName}
     </select>
 
+    <select id="getAllCities" resultType="String">
+        SELECT DISTINCT schoolCity FROM school
+    </select>
+
+    <select id="getAllDistrictsByCity" resultType="String" parameterType="String">
+        SELECT DISTINCT schoolDistrict FROM school WHERE schoolCity=#{schoolCity}
+    </select>
+
 </mapper>

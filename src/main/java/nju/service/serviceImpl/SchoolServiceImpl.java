@@ -101,4 +101,25 @@ public class SchoolServiceImpl implements SchoolService {
         return schoolMapper.findClassBySchool(schoolName).stream()
                 .collect(Collectors.groupingBy(SClass::getSgrade, Collectors.mapping(SClass::getSclass, Collectors.toList())));
     }
+
+    /**
+     * 获得所有城市
+     *
+     * @return
+     */
+    @Override
+    public List<String> getAllCities() {
+        return schoolMapper.getAllCities();
+    }
+
+    /**
+     * 根据城市获得该城市的所有区域
+     *
+     * @param schoolCity
+     * @return
+     */
+    @Override
+    public List<String> getAllDistrictsByCity(String schoolCity) {
+        return schoolMapper.getAllDistrictsByCity(schoolCity);
+    }
 }

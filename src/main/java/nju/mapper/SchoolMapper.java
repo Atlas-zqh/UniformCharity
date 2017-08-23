@@ -76,4 +76,19 @@ public interface SchoolMapper extends Mapper<School> {
      * @return
      */
     List<SClass> findClassBySchool(String schoolName);
+
+    /**
+     * 获得所有城市
+     *
+     * @return
+     */
+    List<String> getAllCities();
+
+    /**
+     * 根据城市获得该城市的所有区域
+     *
+     * @param schoolCity
+     * @return
+     */
+    List<String> getAllDistrictsByCity(String schoolCity);
 }
