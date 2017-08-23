@@ -98,7 +98,7 @@
         <div id="typeArea" class="block" style="left: 14%; position: relative; height: 65vh; top: 0%; float: left">
             <h6 style="width: 100%; text-align: center;">衣物种类</h6>
             <input type="button" class="mybt" style="top: 0%; border-width: medium; margin-left: 89%; width: 2vw; height: 2vw; position: absolute; margin-top: 1%; white-space: nowrap; font-size: 1vw; border: none; display: inline-block; border-radius: 50%; padding: 0;" name="Submit2" value="+"
-                   onclick=""/>
+                   onclick="showAddTypeView()"/>
             <table class="table-head orderTable" style="margin: 1%;">
                 <tr>
                     <th style="width: 10%">
@@ -132,7 +132,7 @@
         <div id="student" class="block" style="left: 21%; position: relative; height: 65vh; top: 0%;">
             <h6 style="width: 100%; text-align: center; position: relative;">学生列表</h6>
             <input type="button" class="mybt" style="top: 0%; border-width: medium; margin-left: 89%; width: 2vw; height: 2vw; position: absolute; margin-top: 1%; white-space: nowrap; font-size: 1vw; border: none; display: inline-block; border-radius: 50%; padding: 0;" name="Submit2" value="+"
-                   onclick=""/>
+                   onclick="showAddStudentView()"/>
             <table class="table-head orderTable" style="margin: 1%;">
                 <tr>
                     <th style="width: 20%">
