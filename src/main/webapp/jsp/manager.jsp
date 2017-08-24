@@ -76,6 +76,7 @@
         <%@ include file="postArticle.jsp" %>
     </div>
     <%@ include file="schoolInfo.jsp" %>
+    <%@ include file="modifySchoolInfo.jsp" %>
 
 </div>
 
