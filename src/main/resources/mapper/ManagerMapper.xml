@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace指定我们的到具体的bean -->
+<mapper namespace="nju.mapper.ManagerMapper">
+    <insert id="add" parameterType="Manager">
+        INSERT INTO school_manager
+        (username, password, schoolName) VALUES (#{username}, #{password}, #{schoolName})
+    </insert>
+
+    <select id="findAll" resultType="Manager">
+        SELECT * FROM school_manager WHERE manager_ID != 1
+    </select>
+
+    <update id="update" parameterType="Manager">
+        UPDATE school_manager
+        SET
+        username=#{username}, password=#{password}, schoolName=#{schoolName}
+        WHERE manager_ID=#{managerID}
+    </update>
+
+    <select id="findOneByID" parameterType="Integer" resultType="Manager">
+        SELECT * FROM school_manager
+        WHERE manager_ID=#{0}
+    </select>
+
+    <select id="findOneByUsername" parameterType="String" resultType="Manager">
+        SELECT *
+        FROM school_manager WHERE username=#{0}
+    </select>
+
+</mapper>

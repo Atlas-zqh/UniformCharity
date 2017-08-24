@@ -1,5 +1,6 @@
 package test.testService;
 
+import nju.domain.Manager;
 import nju.domain.User;
 import nju.exception.InvalidInfoException;
 import nju.exception.OtherException;
@@ -108,5 +109,30 @@ public class UserServiceTest extends BaseTest {
         for (User user : users) {
             System.out.println(user.toString());
         }
+    }
+
+    @Test
+    public void testAddManager() {
+        Manager manager = new Manager("nwxl", "123456", "南京外国语学校仙林分校");
+        try {
+            userService.addManager(manager);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void testFindAllSchoolManager() {
+        List<Manager> managers = userService.findAllManagers();
+        for (Manager manager : managers) {
+            System.out.println(manager.toString());
+        }
+    }
+
+    @Test
+    public void testFindSystemManager() {
+        Manager manager = userService.findSystemManger();
+        System.out.println(manager.toString());
     }
 }

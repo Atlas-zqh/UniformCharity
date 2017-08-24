@@ -6,12 +6,14 @@ import nju.domain.Passage;
 import nju.mapper.PassageMapper;
 import nju.service.PassageService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
  * @author keenan on 22/08/2017
  */
+@Service("passageService")
 public class PassageServiceImpl implements PassageService {
     @Autowired
     private PassageMapper passageMapper;

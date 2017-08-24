@@ -57,6 +57,12 @@ public class DBInterceptor implements Interceptor {
             if (methodName.equals("update")) {
                 reply.setReply_uid(EncryptionUtil.encrypt(key, reply.getReply_uid()));
             }
+        } else if (parameter instanceof Manager) {
+            Manager manager = (Manager) parameter;
+            if (methodName.equals("update")) {
+                manager.setUsername(EncryptionUtil.encrypt(key, manager.getUsername()));
+                manager.setPassword(EncryptionUtil.encrypt(key, manager.getPassword()));
+            }
         }
 
         Object returnValue = invocation.proceed();
@@ -91,6 +97,10 @@ public class DBInterceptor implements Interceptor {
                 } else if (val instanceof FinancialRecord) {
                     FinancialRecord financialRecord = (FinancialRecord) val;
                     financialRecord.setUser_id(EncryptionUtil.decrypt(key, financialRecord.getUser_id()));
+                } else if (val instanceof Manager) {
+                    Manager manager = (Manager) val;
+                    manager.setUsername(EncryptionUtil.decrypt(key, manager.getUsername()));
+                    manager.setPassword(EncryptionUtil.decrypt(key, manager.getPassword()));
                 }
 
             }
@@ -105,7 +115,6 @@ public class DBInterceptor implements Interceptor {
             user.setPersonID(EncryptionUtil.decrypt(key, user.getPersonID()));
         }
 
-        System.out.println(returnValue.toString());
         return returnValue;
     }
 

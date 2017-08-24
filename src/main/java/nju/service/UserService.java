@@ -1,10 +1,7 @@
 package nju.service;
 
 import com.github.pagehelper.PageInfo;
-import nju.domain.CreditRecord;
-import nju.domain.CreditStatistic;
-import nju.domain.FinancialRecord;
-import nju.domain.User;
+import nju.domain.*;
 
 import java.io.Serializable;
 import java.util.List;
@@ -135,4 +132,48 @@ public interface UserService {
      * @return
      */
     List<CreditStatistic> getAllClassCreditsSumBySchool(String school);
+
+    /**
+     * 新增学校管理员
+     *
+     * @param manager 管理员ID自动生成
+     */
+    void addManager(Manager manager) throws Exception;
+
+    /**
+     * 更新学校管理员信息
+     *
+     * @param manager
+     */
+    void updateManager(Manager manager) throws Exception;
+
+    /**
+     * 根据ID查找学校管理员
+     *
+     * @param managerID
+     * @return
+     */
+    Manager findManagerByID(Integer managerID);
+
+    /**
+     * 根据用户名查找管理员
+     *
+     * @param username
+     * @return
+     */
+    Manager findManagerByUsername(String username);
+
+    /**
+     * 得到所有管理员
+     *
+     * @return
+     */
+    List<Manager> findAllManagers();
+
+    /**
+     * 获得系统管理员账户
+     *
+     * @return
+     */
+    Manager findSystemManger();
 }

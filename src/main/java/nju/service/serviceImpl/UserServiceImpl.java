@@ -2,16 +2,14 @@ package nju.service.serviceImpl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import nju.domain.CreditRecord;
-import nju.domain.CreditStatistic;
-import nju.domain.FinancialRecord;
-import nju.domain.User;
+import nju.domain.*;
 import nju.exception.InvalidInfoException;
 import nju.exception.OtherException;
 import nju.exception.UserExistedException;
 import nju.exception.UserNotExistException;
 import nju.mapper.CreditRecordMapper;
 import nju.mapper.FinancialRecordMapper;
+import nju.mapper.ManagerMapper;
 import nju.mapper.UserMapper;
 import nju.service.UserService;
 import nju.utils.EncryptionUtil;
@@ -37,6 +35,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private FinancialRecordMapper financialRecordMapper;
+
+    @Autowired
+    private ManagerMapper managerMapper;
 
     /**
      * 新增用户
@@ -113,23 +114,6 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> findAllUsers() throws Exception {
         return userMapper.findAll();
-    }
-
-    /**
-     * 用户信息是否有效
-     *
-     * @param user 封装的用户信息
-     * @return 是否有效
-     */
-    private boolean isValidUserInfo(User user) {
-        return !(null == user
-                || StringUtils.isEmpty(user.getUsername())
-                || StringUtils.isEmpty(user.getRealName())
-                || StringUtils.isEmpty(user.getPassword())
-                || StringUtils.isEmpty(user.getPersonID())
-                || StringUtils.isEmpty(user.getPhone())
-                || StringUtils.isEmpty(user.getGender())
-                || StringUtils.isEmpty(user.getCredits()));
     }
 
     /**
@@ -254,5 +238,119 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<CreditStatistic> getAllClassCreditsSumBySchool(String school) {
         return userMapper.getAllClassCreditsSumBySchool(school);
+    }
+
+    /**
+     * 新增学校管理员
+     *
+     * @param manager 管理员ID自动生成
+     */
+    @Override
+    public void addManager(Manager manager) throws InvalidInfoException, UserExistedException, OtherException {
+        if (!isValidManagerInfo(manager)) {
+            throw new InvalidInfoException();
+        } else if (null != managerMapper.findOneByUsername(EncryptionUtil.encrypt("20170522", manager.getUsername()))) {
+            throw new UserExistedException("管理员已存在");
+        } else {
+            try {
+                managerMapper.add(manager.clone());
+            } catch (Exception e) {
+                throw new OtherException();
+            }
+        }
+    }
+
+    /**
+     * 更新学校管理员信息
+     *
+     * @param manager
+     */
+    @Override
+    public void updateManager(Manager manager) throws InvalidInfoException, UserExistedException, OtherException {
+        if (!isValidManagerInfo(manager)) {
+            throw new InvalidInfoException();
+        } else if (null != managerMapper.findOneByUsername(EncryptionUtil.encrypt("20170522", manager.getUsername()))) {
+            throw new UserExistedException("管理员已存在");
+        } else {
+            try {
+                managerMapper.update(manager.clone());
+            } catch (Exception e) {
+                throw new OtherException();
+            }
+        }
+    }
+
+    /**
+     * 根据ID查找学校管理员
+     *
+     * @param managerID
+     * @return
+     */
+    @Override
+    public Manager findManagerByID(Integer managerID) {
+        return managerMapper.findOneByID(managerID);
+    }
+
+    /**
+     * 根据用户名查找管理员
+     *
+     * @param username
+     * @return
+     */
+    @Override
+    public Manager findManagerByUsername(String username) {
+        return managerMapper.findOneByUsername(EncryptionUtil.encrypt("20170522", username));
+    }
+
+    /**
+     * 得到所有管理员
+     *
+     * @return
+     */
+    @Override
+    public List<Manager> findAllManagers() {
+        return managerMapper.findAll();
+    }
+
+    /**
+     * 获得系统管理员账户
+     *
+     * @return
+     */
+    @Override
+    public Manager findSystemManger() {
+        return managerMapper.findOneByUsername(EncryptionUtil.encrypt("20170522", "admin"));
+    }
+
+    /**
+     * 用户信息是否有效
+     *
+     * @param user 封装的用户信息
+     * @return 是否有效
+     */
+    private boolean isValidUserInfo(User user) {
+        return !(null == user
+                || StringUtils.isEmpty(user.getUsername())
+                || StringUtils.isEmpty(user.getRealName())
+                || StringUtils.isEmpty(user.getPassword())
+                || StringUtils.isEmpty(user.getPersonID())
+                || StringUtils.isEmpty(user.getPhone())
+                || StringUtils.isEmpty(user.getGender())
+                || StringUtils.isEmpty(user.getCredits()));
+    }
+
+    /**
+     * 管理员信息是否有效
+     *
+     * @param manager
+     * @return
+     */
+    private boolean isValidManagerInfo(Manager manager) {
+        return !(null == manager
+                || StringUtils.isEmpty(manager.getUsername())
+                || manager.getUsername().equals("admin")
+                || StringUtils.isEmpty(manager.getPassword())
+                || StringUtils.isEmpty(manager.getSchoolName())
+        );
     }
 }
