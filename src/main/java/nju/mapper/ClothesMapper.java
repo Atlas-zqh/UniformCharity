@@ -1,6 +1,7 @@
 package nju.mapper;
 
 import nju.domain.Clothes;
+import nju.domain.ClothesHistory;
 import nju.utils.ClothesQueryHelper;
 
 import java.util.List;
@@ -58,4 +59,26 @@ public interface ClothesMapper extends Mapper<Clothes> {
     void addPic(String clothes_id, String pic_url);
 
     void removePic(String clothes_id, String pic_url);
+
+    /**
+     * 新增衣物故事
+     *
+     * @param clothesHistory
+     */
+    void addClothesHistory(ClothesHistory clothesHistory);
+
+    /**
+     * 更新衣物故事
+     *
+     * @param clothesHistory
+     */
+    void updateClothesHistory(ClothesHistory clothesHistory);
+
+    /**
+     * 搜索某一件衣物的衣物故事
+     *
+     * @param clothesID
+     * @return
+     */
+    List<ClothesHistory> findClothesHistoryByClothesID(String clothesID);
 }

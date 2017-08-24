@@ -71,4 +71,16 @@
         DELETE FROM clothes_pics
         WHERE clothes_id=#{0} AND pic_url=#{1}
     </delete>
+
+    <insert id="addClothesHistory" parameterType="ClothesHistory">
+        INSERT INTO clothes_history
+        (createTime, donorID, buyerID, story, clothesID) VALUES
+        (#{createTime}, #{donorID}, #{buyerID}, #{story}, #{clothesID})
+    </insert>
+
+    <update id="updateClothesHistory" parameterType="ClothesHistory">
+        UPDATE clothes_history
+        SET donorID=#{donorID}, buyerID=#{buyerID}, story=#{story}, clothesID=#{clothesID}
+        WHERE historyID=#{historyID}
+    </update>
 </mapper>

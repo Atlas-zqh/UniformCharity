@@ -63,6 +63,12 @@ public class DBInterceptor implements Interceptor {
                 manager.setUsername(EncryptionUtil.encrypt(key, manager.getUsername()));
                 manager.setPassword(EncryptionUtil.encrypt(key, manager.getPassword()));
             }
+        } else if (parameter instanceof ClothesHistory) {
+            ClothesHistory clothesHistory = (ClothesHistory) parameter;
+            if (methodName.equals("update")) {
+                clothesHistory.setBuyerID(EncryptionUtil.encrypt(key, clothesHistory.getBuyerID()));
+                clothesHistory.setDonorID(EncryptionUtil.encrypt(key, clothesHistory.getDonorID()));
+            }
         }
 
         Object returnValue = invocation.proceed();
@@ -101,6 +107,10 @@ public class DBInterceptor implements Interceptor {
                     Manager manager = (Manager) val;
                     manager.setUsername(EncryptionUtil.decrypt(key, manager.getUsername()));
                     manager.setPassword(EncryptionUtil.decrypt(key, manager.getPassword()));
+                } else if (val instanceof ClothesHistory) {
+                    ClothesHistory clothesHistory = (ClothesHistory) val;
+                    clothesHistory.setDonorID(EncryptionUtil.decrypt(key, clothesHistory.getDonorID()));
+                    clothesHistory.setBuyerID(EncryptionUtil.decrypt(key, clothesHistory.getBuyerID()));
                 }
 
             }
