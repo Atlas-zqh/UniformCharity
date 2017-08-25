@@ -83,4 +83,10 @@
         SET donorID=#{donorID}, buyerID=#{buyerID}, story=#{story}, clothesID=#{clothesID}
         WHERE historyID=#{historyID}
     </update>
+
+    <select id="findClothesHistoryByClothesID" parameterType="String" resultType="ClothesHistory">
+        SELECT * FROM clothes_history
+        WHERE clothesID=#{clothesID}
+        ORDER BY createTime ASC
+    </select>
 </mapper>

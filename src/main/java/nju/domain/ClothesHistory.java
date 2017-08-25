@@ -22,6 +22,7 @@ public class ClothesHistory {
         this.buyerID = buyerID;
         this.story = story;
         this.clothesID = clothesID;
+        this.createTime = System.currentTimeMillis();
     }
 
     public ClothesHistory(Integer historyID, Long createTime, String donorID, String buyerID, String story, String clothesID) {

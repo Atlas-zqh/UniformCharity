@@ -2,14 +2,8 @@ package nju.service.serviceImpl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import nju.domain.CreditRecord;
-import nju.domain.FinancialRecord;
-import nju.domain.Order;
-import nju.domain.User;
-import nju.mapper.CreditRecordMapper;
-import nju.mapper.FinancialRecordMapper;
-import nju.mapper.OrderMapper;
-import nju.mapper.UserMapper;
+import nju.domain.*;
+import nju.mapper.*;
 import nju.service.OrderService;
 import nju.utils.EncryptionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +23,8 @@ public class OrderServiceImpl implements OrderService {
     private CreditRecordMapper creditRecordMapper;
     @Autowired
     private FinancialRecordMapper financialRecordMapper;
+    @Autowired
+    private ClothesMapper clothesMapper;
 
     /**
      * 创建订单(自动生成订单号和订单开始时间)
@@ -44,10 +40,13 @@ public class OrderServiceImpl implements OrderService {
         String oid = format.format(date);
         order.setOrderID(oid);
 
-        System.out.println("+++++++++++++++++++++++++++++" + order.getDonorID());
-        System.out.println("+++++++++++++++++++++++++++++" + order.getBuyerID());
+//        System.out.println("+++++++++++++++++++++++++++++" + order.getDonorID());
+//        System.out.println("+++++++++++++++++++++++++++++" + order.getBuyerID());
 
         orderMapper.createOrder(order.clone());
+
+        ClothesHistory clothesHistory = new ClothesHistory(order.getDonorID(), order.getBuyerID(), "衣服不错，价格实惠。希望能遇到我的她~", order.getClothesID());
+        clothesMapper.addClothesHistory(clothesHistory);
 
         return oid;
     }

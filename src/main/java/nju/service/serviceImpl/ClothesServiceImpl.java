@@ -3,6 +3,7 @@ package nju.service.serviceImpl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import nju.domain.Clothes;
+import nju.domain.ClothesHistory;
 import nju.domain.CreditRecord;
 import nju.domain.User;
 import nju.mapper.ClothesMapper;
@@ -166,6 +167,26 @@ public class ClothesServiceImpl implements ClothesService {
         }
     }
 
+    /**
+     * 更新衣物故事
+     *
+     * @param clothesHistory
+     */
+    @Override
+    public void updateClothesHistory(ClothesHistory clothesHistory) {
+        clothesMapper.updateClothesHistory(clothesHistory);
+    }
+
+    /**
+     * 搜索某一件衣物的衣物故事
+     *
+     * @param clothesID
+     * @return 按照时间升序排列的衣物故事（次序可以看出是第n次）
+     */
+    @Override
+    public List<ClothesHistory> findClothesHistoryByClothesID(String clothesID) {
+        return clothesMapper.findClothesHistoryByClothesID(clothesID);
+    }
 
     /**
      * 增加信用记录

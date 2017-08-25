@@ -2,6 +2,7 @@ package nju.service;
 
 import com.github.pagehelper.PageInfo;
 import nju.domain.Clothes;
+import nju.domain.ClothesHistory;
 import nju.utils.ClothesAttributes;
 
 import java.util.List;
@@ -75,5 +76,19 @@ public interface ClothesService {
      */
     boolean removePic(String clothes_id, String pic_url);
 
-    //TODO 衣物增加默认图片
+    /**
+     * 更新衣物故事
+     *
+     * @param clothesHistory
+     */
+    void updateClothesHistory(ClothesHistory clothesHistory);
+
+    /**
+     * 搜索某一件衣物的衣物故事
+     *
+     * @param clothesID
+     * @return 按照时间升序排列的衣物故事（次序可以看出是第n次）
+     */
+    List<ClothesHistory> findClothesHistoryByClothesID(String clothesID);
+
 }
