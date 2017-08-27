@@ -144,9 +144,11 @@ table {
 }
 
 td {
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
-    border-bottom-color: #c2e2e7;
+    /*border-bottom-width: 1px;*/
+    /*border-bottom-style: solid;*/
+    /*border-bottom-color: #c2e2e7;*/
+    border: 1px solid #c2e2e7;
+    font-size: 1.5vw;
 }
 
 tr {
@@ -322,4 +324,15 @@ li:hover {
     top: 1%;
     /*padding: 0.1vw;*/
     background-color: #ffffff;
+}
+
+#mainArea #modifySchoolInfoContent #addStudentView {
+    position: absolute;
+    width: 98%;
+    left: 1%;
+    height: 98%;
+    top: 1%;
+    /*padding: 0.1vw;*/
+    background-color: #ffffff;
+    overflow: scroll;
 }

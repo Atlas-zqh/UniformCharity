@@ -35,7 +35,55 @@
                 </button>
             </div>
             <div id="addStudentView">
+                <h3>添<br>加<br>学<br>生</h3>
+                <form id="studentForm" name="form2" method="post" action="" style="position: absolute; width: 80%; left: 10%; top: 5%;">
+                    <h6 style="width: 100%; text-align: center;">学生信息</h6>
+                    <table width="698" border="0" cellpadding="0" cellspacing="0" id="tabProduct3">
+                        <tr style="font-size: 2.2vh; color: #142535">
+                            <td width="5%" align="center" bgcolor="#c2e2e7" Name="Num"></td>
+                            <td width="20%" bgcolor="#c2e2e7" Name="Name" EditType="TextBox">学生姓名</td>
+                            <td width="45%" bgcolor="#c2e2e7" Name="ID" EditType="TextBox">学生ID</td>
+                            <td width="10%" bgcolor="#c2e2e7" Name="Gender" EditType="DropDownList" DataItems="{text:'男',value:'男'},{text:'女',value:'女'}">性别</td>
+                            <td width="10%" bgcolor="#c2e2e7" Name="Grade" EditType="DropDownList">年级</td>
+                            <td width="10%" bgcolor="#c2e2e7" Name="Class" EditType="DropDownList">班级</td>
+                            <%--<td width="152" bgcolor="#EFEFEF" Name="ProductName" EditType="DropDownList"--%>
+                            <%--DataItems="{text:'A',value:'a'},{text:'B',value:'b'},{text:'C',value:'c'},{text:'D',value:'d'}">--%>
+                            <%--商品名称--%>
+                            <%--</td>--%>
+                            <%--<td width="103" bgcolor="#EFEFEF" Name="Price" EditType="TextBox">单价</td>--%>
+                            <%--<td width="120" bgcolor="#EFEFEF" Name="SumMoney" Expression="Amount*Price" Format="#,###.00">合计--%>
+                            <%--</td>--%>
+                        </tr>
+                        <tr>
+                            <td align="center" bgcolor="#FFFFFF"><input type="checkbox" name="checkbox2" value="checkbox"/></td>
+                            <td bgcolor="#FFFFFF"></td>
+                            <%--<td bgcolor="#FFFFFF" Value="c">C</td>--%>
+                            <%--<td bgcolor="#FFFFFF">0</td>--%>
+                            <%--<td bgcolor="#FFFFFF">0</td>--%>
+                            <td bgcolor="#FFFFFF"></td>
+                            <td bgcolor="#FFFFFF"></td>
+                            <td bgcolor="#FFFFFF"></td>
+                            <td bgcolor="#FFFFFF"></td>
+                        </tr>
+                    </table>
 
+                    <br/>
+                    <input type="button" class="mybt" style="border-width: medium; margin-left: 35%;" name="Submit" value="新增" onclick="AddRow(document.getElementById('tabProduct3'),1)"/>
+                    <input type="button" class="mybt" style="border-width: medium" name="Submit2" value="删除"
+                           onclick="DeleteRow(document.getElementById('tabProduct3'),1)"/>
+                    <%--<input type="button" name="Submit22" value="重置" onclick="window.location.reload()"/>--%>
+                    <input type="submit" class="mybt" style="border-width: medium;" name="Submit3" value="提交"
+                    <%--onclick="GetTableData(document.getElementById('tabProduct'));return false;"/>--%>
+                </form>
+                <script type="text/javascript" src="../static/js/jquery-3.2.1.min.js"></script>
+                <script language="javascript" src="../static/js/studentTable.js"></script>
+                <script language="javascript">
+                    var tabProduct2 = document.getElementById("tabProduct3");
+
+                    // 设置表格可编辑
+                    // 可一次设置多个，例如：EditTables(tb1,tb2,tb2,......)
+                    EditTables(tabProduct2);
+                </script>
             </div>
         </div>
 
