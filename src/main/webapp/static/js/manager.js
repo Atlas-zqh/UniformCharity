@@ -66,6 +66,7 @@ function initButtons() {
     $('#searchView').css("display", "none");
     $('#postArticleView').css("display", "none");
     $('#schoolInfoView').css("display", "none");
+    $('#modifySchoolInfoView').css("display", "none");
 }
 
 function searchSchool(){

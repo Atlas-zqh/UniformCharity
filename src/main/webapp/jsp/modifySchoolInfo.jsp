@@ -76,7 +76,7 @@
                     <%--onclick="GetTableData(document.getElementById('tabProduct'));return false;"/>--%>
                 </form>
                 <script type="text/javascript" src="../static/js/jquery-3.2.1.min.js"></script>
-                <script language="javascript" src="../static/js/studentTable.js"></script>
+                <script language="javascript" src="../static/js/editTable.js"></script>
                 <script language="javascript">
                     var tabProduct2 = document.getElementById("tabProduct3");
 

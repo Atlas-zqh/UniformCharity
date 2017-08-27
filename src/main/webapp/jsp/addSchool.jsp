@@ -93,10 +93,10 @@
             <%--<input type="button" name="Submit22" value="重置" onclick="window.location.reload()"/>--%>
             <%--<input type="submit" name="Submit3" value="提交"--%>
                    <%--onclick="GetTableData(document.getElementById('tabProduct'));return false;"/>--%>
+
         </form>
 
         <button class="mybt" style="position: absolute; font-size: 3vh; width: 30%; left: 35%; top: 80%; white-space: nowrap" onclick="addSchool()">添加学校</button>
-        <%--<script language="javascript" src="GridEdit.js"></script>--%>
         <script type="text/javascript" src="../static/js/jquery-3.2.1.min.js"></script>
         <script language="javascript" src="../static/js/editTable.js"></script>
         <script language="javascript" src="../static/js/manager.js"></script>
@@ -107,5 +107,6 @@
             // 可一次设置多个，例如：EditTables(tb1,tb2,tb2,......)
             EditTables(tabProduct);
         </script>
+        <%--<script language="javascript" src="GridEdit.js"></script>--%>
     </div>
 </div>

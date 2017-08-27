@@ -165,7 +165,7 @@ function ClearChild(element) {
 
 //添加行
 function AddRow(table, index) {
-    if (table.rows.length > 9) {
+    if (table.rows.length > 9 && table.rows[0].cells.length <= 3) {
         fail_alert("行数过多！！！");
     } else {
         var lastRow = table.rows[table.rows.length - 1];
@@ -179,7 +179,11 @@ function AddRow(table, index) {
         newRow.cells[1].innerHTML = "";
         newRow.cells[2].innerHTML = "";
         // chkOrder.checked
-
+        if(newRow.cells.length > 3){
+            newRow.cells[3].innerHTML = "";
+            newRow.cells[4].innerHTML = "";
+            newRow.cells[5].innerHTML = "";
+        }
         SetRowCanEdit(newRow);
         return newRow;
     }
