@@ -58,6 +58,12 @@ function scrollToMain() {
     }, 500);
 }
 
+function scrollToTop() {
+    $('html, body').animate({
+        scrollTop: 0
+    }, 500);
+}
+
 function initButtons() {
     $('#addSchool').css('color', 'white');
     $('#searchSchool').css('color', 'white');

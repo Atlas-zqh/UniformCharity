@@ -58,6 +58,7 @@ function checkCookie() {
         document.getElementById("preLogInLeft").style.display = "none";
         document.getElementById("afterLogInLeft").style.display = "inline-block";
         document.getElementById("afterLogInRight").style.display = "inline-block";
+        document.getElementById("beforeLogInRight").style.display = "none";
         document.getElementById("preTop").style.display = "none";
         document.getElementById("afterTop").style.display = "inline-block";
         var tmp = username;

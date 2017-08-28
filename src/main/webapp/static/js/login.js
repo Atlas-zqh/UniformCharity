@@ -28,6 +28,7 @@ function login() {
                 document.getElementById("preLogInLeft").style.display = "none";
                 document.getElementById("afterLogInLeft").style.display = "inline-block";
                 document.getElementById("afterLogInRight").style.display = "inline-block";
+                document.getElementById("beforeLogInRight").style.display = "none";
                 document.getElementById("preTop").style.display = "none";
                 document.getElementById("afterTop").style.display = "inline-block";
                 var tmp = data.userInfo.username;
@@ -63,6 +64,7 @@ function quitLog() {
     document.getElementById("preLogInLeft").style.display = "inline-block";
     document.getElementById("afterLogInLeft").style.display = "none";
     document.getElementById("afterLogInRight").style.display = "none";
+    document.getElementById("beforeLogInRight").style.display = "inline-block";
     document.getElementById("preTop").style.display = "inline-block";
     document.getElementById("afterTop").style.display = "none";
     $('#searchPanel').css("display", "none");

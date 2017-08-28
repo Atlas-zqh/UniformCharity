@@ -64,6 +64,7 @@
             checkCookie();
             getAllSchool('school');
             getAllSchool('schoolDrop');
+            getPassages();
         });
 
     </script>
@@ -453,6 +454,7 @@
 </div>
 
 <script type="text/javascript" src="../static/js/alert.js"></script>
+<script type="text/javascript" src="../static/js/passage.js"></script>
 <script type="text/javascript" src="../static/js/util.js"></script>
 <script type="text/javascript" src="../static/js/SmoothScroll.min.js"></script>
 <script type="text/javascript" src="../static/js/jquery.min.js" charset="utf-8"></script>
