@@ -19,8 +19,8 @@
     <script>
         $(document).ready(function () {
             checkCookie();
-            var orderID = getArgsFromHref(window.location.href, "id");
-
+            var id = getArgsFromHref(window.location.href, "id");
+            getPassagesByID(id);
         });
     </script>
 </head>
@@ -58,5 +58,6 @@
 <script type="text/javascript" src="../static/js/cookie.js" charset="utf-8"></script>
 <script type="text/javascript" src="../static/js/util.js" charset="utf-8"></script>
 <script type="text/javascript" src="../static/js/alert.js" charset="utf-8"></script>
+<script type="text/javascript" src="../static/js/passage.js" charset="utf-8"></script>
 </body>
 </html>

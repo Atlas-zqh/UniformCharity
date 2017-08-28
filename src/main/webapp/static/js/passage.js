@@ -41,6 +41,17 @@ function getPassages() {
         success: function (data) {
             if (data.success == "true") {
                 alert(data.passages.size);
+                $.each(data.passages, function(i, item) {
+                    var scroll = document.getElementById('scroll1');
+
+                    var li = document.createElement('li');
+                    scroll.appendChild(li);
+                    var a = document.createElement('a');
+                    a.href = '../jsp/article.jsp?id=' + item.passage_id;
+
+                    scroll.appendChild('<br>');
+                    // fail_alert(i);
+                });
                 return;
             }
             else {
@@ -53,4 +64,32 @@ function getPassages() {
         }
     });
 
+}
+
+function getPassagesByID(id) {
+    // alert(title);
+    $.ajax({
+        url: "/passageAction/addPassage",
+        type: "POST",
+        dataType: "json",
+        data: {
+            "id": id
+        },
+        async: false,
+        success: function (data) {
+            if (data.success == "true") {
+                $('#title').val(data.passage.title);
+                $('#time').val(data.time);
+                $('#content').val(data.passage.content);
+                return;
+            }
+            else {
+                fail_alert("获得文章失败");
+                return;
+            }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            fail_alert("哎呀，网络似乎不太好...");
+        }
+    });
 }

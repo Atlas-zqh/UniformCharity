@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -42,7 +44,7 @@ public class PassageController {
 
     @RequestMapping(value = "/findPassage", method = RequestMethod.GET)
     @ResponseBody
-    public Map<String, Object> findPassage(HttpServletRequest request, HttpServletResponse response) {
+    public Map<String, Object> findPassage() {
         Map<String, Object> map = new HashMap<>();
 
         List<Passage> passages = passageService.findAllPassages(1, 10).getList();
@@ -58,6 +60,26 @@ public class PassageController {
 
         map.put("success", "true");
         map.put("passages", passages);
+
+        return map;
+    }
+
+    @RequestMapping(value = "/findPassageByID", method = RequestMethod.GET)
+    @ResponseBody
+    public Map<String, Object> findPassageByID(HttpServletRequest request, HttpServletResponse response) {
+        Map<String, Object> map = new HashMap<>();
+
+        int id = Integer.parseInt(request.getParameter("id"));
+        Passage passage = passageService.findPassageByID(id);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        String time = simpleDateFormat.format(new Date(passage.getPtime()));
+        if (passage != null) {
+            map.put("success", "true");
+            map.put("passages", passage);
+            map.put("time", time);
+        } else {
+            map.put("success", "false");
+        }
 
         return map;
     }
