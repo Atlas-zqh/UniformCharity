@@ -165,28 +165,27 @@ function ClearChild(element) {
 
 //添加行
 function AddRow(table, index) {
-    if (table.rows.length > 9 && table.rows[0].cells.length <= 3) {
-        fail_alert("行数过多！！！");
-    } else {
-        var lastRow = table.rows[table.rows.length - 1];
-        var newRow = lastRow.cloneNode(true);
+    // if (table.rows.length > 9) {
+    //     fail_alert("行数过多！！！");
+    // } else {
+    var lastRow = table.rows[table.rows.length - 1];
+    var newRow = lastRow.cloneNode(true);
 //计算新增加行的序号，需要引入jquery 的jar包
-        var startIndex = $.inArray(lastRow, table.rows);
-        var endIndex = table.rows;
-        table.tBodies[0].appendChild(newRow);
-        // newRow.cells[1].innerHTML=endIndex-startIndex;
-        newRow.cells[0].checked = false;
-        newRow.cells[1].innerHTML = "";
-        newRow.cells[2].innerHTML = "";
-        // chkOrder.checked
-        if(newRow.cells.length > 3){
-            newRow.cells[3].innerHTML = "";
-            newRow.cells[4].innerHTML = "";
-            newRow.cells[5].innerHTML = "";
-        }
-        SetRowCanEdit(newRow);
-        return newRow;
-    }
+    var startIndex = $.inArray(lastRow, table.rows);
+    var endIndex = table.rows;
+    table.tBodies[0].appendChild(newRow);
+    // newRow.cells[1].innerHTML=endIndex-startIndex;
+    newRow.cells[0].checked = false;
+    newRow.cells[1].innerHTML = "";
+    newRow.cells[2].innerHTML = "";
+    newRow.cells[3].innerHTML = "";
+    newRow.cells[4].innerHTML = "";
+    newRow.cells[5].innerHTML = "";
+    // chkOrder.checked
+
+    SetRowCanEdit(newRow);
+    return newRow;
+    // }
 }
 
 

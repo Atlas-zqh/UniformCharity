@@ -66,6 +66,7 @@ function initButtons() {
     $('#searchView').css("display", "none");
     $('#postArticleView').css("display", "none");
     $('#schoolInfoView').css("display", "none");
+    $('#modifySchoolInfoView').css("display", "none");
 }
 
 function searchSchool(){
@@ -94,6 +95,8 @@ function closeModifySchoolInfoView() {
 }
 
 function showAddTypeView(){
+    $('#addTypeView').css('display', 'block');
+    $('#addStudentView').css('display', 'none');
     $('#modifySchoolInfoView').fadeIn();
     $('html, body').animate({
         scrollTop: $("#modifySchoolInfoView").offset().top
@@ -101,6 +104,8 @@ function showAddTypeView(){
 }
 
 function showAddStudentView() {
+    $('#addStudentView').css('display', 'block');
+    $('#addTypeView').css('display', 'none');
     $('#modifySchoolInfoView').fadeIn();
     $('html, body').animate({
         scrollTop: $("#modifySchoolInfoView").offset().top
