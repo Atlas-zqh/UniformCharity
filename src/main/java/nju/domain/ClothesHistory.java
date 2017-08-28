@@ -3,7 +3,7 @@ package nju.domain;
 /**
  * @author keenan on 24/08/2017
  */
-public class ClothesHistory {
+public class ClothesHistory implements Cloneable {
     private Integer historyID;
 
     private Long createTime;

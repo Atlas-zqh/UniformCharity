@@ -3,7 +3,7 @@ package nju.domain;
 /**
  * Created by keenan on 23/05/2017.
  */
-public class Clothes {
+public class Clothes implements Cloneable {
     public static String AVAILABLE = "Available", OCCUPIED = "Occupied";
 
     private String clothesID;

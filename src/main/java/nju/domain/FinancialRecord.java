@@ -1,6 +1,6 @@
 package nju.domain;
 
-public class FinancialRecord {
+public class FinancialRecord implements Cloneable {
     public static final Integer IN = 0, OUT = 1;
 
     private String user_id;

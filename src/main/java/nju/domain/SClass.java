@@ -4,7 +4,7 @@ package nju.domain;
  * 班级
  */
 
-public class SClass {
+public class SClass implements Cloneable {
     private String schoolName;
 
     private String sgrade;

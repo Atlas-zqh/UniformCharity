@@ -3,7 +3,7 @@ package nju.domain;
 /**
  * 公益记录
  */
-public class CreditRecord {
+public class CreditRecord implements Cloneable {
     public static final Integer BUY_CLOTHES = 0, DONATE_CLOTHES = 1, REVOKE_CANCEL_ORDER = 2;
 
     private String userid;

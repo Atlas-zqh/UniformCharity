@@ -42,11 +42,7 @@ public class OrderServiceImpl implements OrderService {
 
 //        System.out.println("+++++++++++++++++++++++++++++" + order.getDonorID());
 //        System.out.println("+++++++++++++++++++++++++++++" + order.getBuyerID());
-
         orderMapper.createOrder(order.clone());
-
-        ClothesHistory clothesHistory = new ClothesHistory(order.getDonorID(), order.getBuyerID(), "衣服不错，价格实惠。希望能遇到我的她~", order.getClothesID());
-        clothesMapper.addClothesHistory(clothesHistory);
 
         return oid;
     }
@@ -88,6 +84,9 @@ public class OrderServiceImpl implements OrderService {
          */
         order.setOrderStatus(Order.Confirmed_Paied);
         orderMapper.updateOrder(order.clone());
+
+        ClothesHistory clothesHistory = new ClothesHistory(order.getDonorID(), order.getBuyerID(), "衣服不错，价格实惠。", order.getClothesID());
+        clothesMapper.addClothesHistory(clothesHistory);
     }
 
     /**

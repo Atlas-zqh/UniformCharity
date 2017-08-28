@@ -3,7 +3,7 @@ package nju.domain;
 /**
  * Created by keenan on 24/05/2017.
  */
-public class Board {
+public class Board implements Cloneable {
     private Integer board_id;
 
     private String board_name;

@@ -4,7 +4,7 @@ package nju.domain;
  * @author keenan on 22/08/2017
  */
 
-public class Passage {
+public class Passage implements Cloneable {
     private Integer passage_id;
     /**
      * varchar(100)

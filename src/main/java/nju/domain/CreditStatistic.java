@@ -1,6 +1,6 @@
 package nju.domain;
 
-public class CreditStatistic {
+public class CreditStatistic implements Cloneable {
     private String school;
 
     private String sgrade;

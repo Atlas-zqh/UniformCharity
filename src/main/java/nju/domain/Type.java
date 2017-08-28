@@ -3,7 +3,7 @@ package nju.domain;
 /**
  * Created by keenan on 16/07/2017.
  */
-public class Type {
+public class Type implements Cloneable {
     private String schoolName;
 
     private String clothestype;

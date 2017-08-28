@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * Created by keenan on 24/05/2017.
  */
-public class Order {
+public class Order implements Cloneable {
     /**
      * 无效订单（撤销等操作导致）；待确认交易；待线下交易；确认交易待支付；确认交易支付成功
      */
@@ -149,6 +149,7 @@ public class Order {
             o = (Order) super.clone();
         } catch (CloneNotSupportedException e) {
             e.printStackTrace();
+            System.out.println("error message: " + e.getMessage());
         }
         return o;
     }
