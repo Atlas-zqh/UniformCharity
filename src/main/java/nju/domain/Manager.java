@@ -3,7 +3,7 @@ package nju.domain;
 /**
  * @author keenan on 23/08/2017
  */
-public class Manager {
+public class Manager implements Cloneable {
     private Integer managerID;
 
     private String username;
