@@ -99,9 +99,23 @@ function getAllTransaction() {
                     var li = document.createElement('li');
                     scroll.appendChild(li);
                     var p = document.createElement('p');
-                    p.createTextNode(item);
+                    p.appendChild(document.createTextNode(item));
                     li.appendChild(p);
-                    scroll.appendChild('<br>');
+
+                    var br = document.createElement("div");
+                    br.innerHTML = "<br>";
+                    scroll.appendChild(br);
+
+                    var area2 = document.getElementById('scroll3');
+                    var cont21 = document.getElementById('scroll4');
+                    var cont22 = document.getElementById('scroll5');
+
+// area.scrollTop = 0;
+                    area2.scrollTop = 0;
+// 克隆cont1给cont2
+                    cont22.innerHTML = cont21.innerHTML;
+
+                    // scroll.appendChild('<br>');
                     // fail_alert(i);
                 });
                 return;

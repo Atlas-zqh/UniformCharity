@@ -455,6 +455,7 @@
 </div>
 
 <script type="text/javascript" src="../static/js/alert.js"></script>
+<script type="text/javascript" src="../static/js/scroll.js"></script>
 <script type="text/javascript" src="../static/js/passage.js"></script>
 <script type="text/javascript" src="../static/js/util.js"></script>
 <script type="text/javascript" src="../static/js/SmoothScroll.min.js"></script>
@@ -462,7 +463,6 @@
 <script type="text/javascript" src="../static/js/tether.js"></script>
 <script type="text/javascript" src="../static/js/main.js"></script>
 <script type="text/javascript" src="../static/js/select.js"></script>
-<script type="text/javascript" src="../static/js/scroll.js"></script>
 <script type="text/javascript" src="../static/js/login.js"></script>
 <script type="text/javascript" src="../static/js/cookie.js"></script>
 <script type="text/javascript" src="../static/js/bootstrap.js"></script>
