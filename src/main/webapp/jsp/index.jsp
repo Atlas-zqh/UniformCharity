@@ -65,6 +65,7 @@
             getAllSchool('school');
             getAllSchool('schoolDrop');
             getPassages();
+            getAllTransaction();
         });
 
     </script>
@@ -271,26 +272,26 @@
         <div id="transactionBulletin" align="right">
             <div id="scroll3">
                 <ul id="scroll4">
-                    <li><p>X X X 购买了 X X X</p></li>
-                    <br>
-                    <li><p>X X X 购买了 X X X</p></li>
-                    <br>
-                    <li><p>X X X 购买了 X X X</p></li>
-                    <br>
-                    <li><p>X X X 购买了 X X X</p></li>
-                    <br>
-                    <li><p>X X X 购买了 X X X</p></li>
-                    <br>
-                    <li><p>X X X 购买了 X X X</p></li>
-                    <br>
-                    <li><p>X X X 购买了 X X X</p></li>
-                    <br>
-                    <li><p>X X X 购买了 X X X</p></li>
-                    <br>
-                    <li><p>X X X 购买了 X X X</p></li>
-                    <br>
-                    <li><p>X X X 购买了 X X X</p></li>
-                    <br>
+                    <%--<li><p>X X X 购买了 X X X</p></li>--%>
+                    <%--<br>--%>
+                    <%--<li><p>X X X 购买了 X X X</p></li>--%>
+                    <%--<br>--%>
+                    <%--<li><p>X X X 购买了 X X X</p></li>--%>
+                    <%--<br>--%>
+                    <%--<li><p>X X X 购买了 X X X</p></li>--%>
+                    <%--<br>--%>
+                    <%--<li><p>X X X 购买了 X X X</p></li>--%>
+                    <%--<br>--%>
+                    <%--<li><p>X X X 购买了 X X X</p></li>--%>
+                    <%--<br>--%>
+                    <%--<li><p>X X X 购买了 X X X</p></li>--%>
+                    <%--<br>--%>
+                    <%--<li><p>X X X 购买了 X X X</p></li>--%>
+                    <%--<br>--%>
+                    <%--<li><p>X X X 购买了 X X X</p></li>--%>
+                    <%--<br>--%>
+                    <%--<li><p>X X X 购买了 X X X</p></li>--%>
+                    <%--<br>--%>
                 </ul>
                 <ul id="scroll5">
                 </ul>

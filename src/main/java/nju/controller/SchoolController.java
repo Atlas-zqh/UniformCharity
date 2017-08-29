@@ -58,7 +58,7 @@ public class SchoolController {
 
     @RequestMapping(value = "/allClassesOfGrade", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, Object> getAllClasses(HttpServletRequest request, HttpServletResponse response) {
+    public Map<String, Object> getAllClasses(HttpServletRequest request) {
         Map<String, Object> map = new HashMap<>();
         String school = request.getParameter("school");
         String grade = request.getParameter("grade");
@@ -74,6 +74,52 @@ public class SchoolController {
 
         map.put("success", "true");
         map.put("classes", cs);
+        return map;
+    }
+
+    @RequestMapping(value = "/allCities", method = RequestMethod.GET)
+    @ResponseBody
+    public Map<String, Object> getAllCities() {
+        Map<String, Object> map = new HashMap();
+
+        List<String> cities = schoolService.getAllCities();
+
+        map.put("success", "true");
+        map.put("cities", cities);
+        return map;
+    }
+
+    @RequestMapping(value = "/getDistricts", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Object> getDistricts(HttpServletRequest request) {
+        Map<String, Object> map = new HashMap();
+
+        String city = request.getParameter("city");
+
+        List<String> districts = schoolService.getAllDistrictsByCity(city);
+
+        map.put("success", "true");
+        map.put("districts", districts);
+        return map;
+    }
+
+    @RequestMapping(value = "/getSchools", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Object> getSchools(HttpServletRequest request) {
+        Map<String, Object> map = new HashMap();
+
+        String city = request.getParameter("city");
+        String district = request.getParameter("district");
+
+        List<School> schools = schoolService.findSchoolByCityAndDistrict(city, district);
+
+        List<String> schoolNames = new ArrayList<>();
+
+        for (int i = 0; i < schools.size(); i++){
+            schoolNames.add(schools.get(i).getSchoolName());
+        }
+        map.put("success", "true");
+        map.put("schools", schoolNames);
         return map;
     }
 }
