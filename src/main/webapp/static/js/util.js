@@ -38,7 +38,7 @@ function setSelected(id, value) {
     }
 }
 
-function delAllChile(id) {
+function delAllChild(id) {
     var menu = document.getElementById(id);
     var num = menu.childNodes.length;
     for (num - 1; num >= 0; num--) {

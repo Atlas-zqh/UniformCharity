@@ -16,6 +16,12 @@
     <link rel="stylesheet" href="../static/css/alert.css"/>
     <link rel="stylesheet" href="../static/css/theme.css"/>
     <link rel="stylesheet" href="../static/css/manage.css"/>
+    <script type="text/javascript" src="../static/js/jquery-3.2.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            getCities();
+        });
+    </script>
 </head>
 <body>
 <div class="topNavBar" id="preTop">
@@ -47,23 +53,23 @@
             <div id="searchContent">
                 <h6 style="position: absolute; left: 15%; top: 2%;">城市</h6>
                 <div id="city" class="block" style="left: 7%">
-                    <ul>
-                        <li>北京</li>
-                        <li>南京</li>
+                    <ul id="cityList">
+                        <%--<li>北京</li>--%>
+                        <%--<li>南京</li>--%>
                     </ul>
                 </div>
                 <h6 style="position: absolute; left: 46%; top: 2%;">区域</h6>
                 <div id="block" class="block" style="left: 38%;">
-                    <ul>
-                        <li>北京</li>
-                        <li>南京</li>
+                    <ul id="blockList">
+                        <%--<li>北京</li>--%>
+                        <%--<li>南京</li>--%>
                     </ul>
                 </div>
                 <h6 style="position: absolute; left: 77%; top: 2%;">学校</h6>
                 <div id="school" class="block" style="left: 69%">
-                    <ul>
-                        <li>北京</li>
-                        <li>南京</li>
+                    <ul id="schoolList">
+                        <%--<li>北京</li>--%>
+                        <%--<li>南京</li>--%>
                     </ul>
                 </div>
 

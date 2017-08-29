@@ -223,6 +223,10 @@ li:hover {
     color: #142535;
 }
 
+.selectLi{
+    color: #142535;
+}
+
 #mainArea #bodyPart #postArticleView {
     display: inline-block;
     position: absolute;
