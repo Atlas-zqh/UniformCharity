@@ -127,10 +127,17 @@ public class ClothesController {
 
                 if(clotheIDs.contains(clothesID)){
                     map.put("success", "true");
-                    //todo 等待后端上传旧衣物接口
-//                    clothes.setStatus(Clothes.AVAILABLE);
-//                    clothes.setDonorID(id);
-//                    ClothesHistory
+                    String donorID = clothes.getDonorID();
+                    String buyerID = id;
+                    //新增衣物历史
+                    ClothesHistory clothesHistory = new ClothesHistory(donorID, buyerID, story, clothesID);
+                    clothesService.updateClothesHistory(clothesHistory);
+
+                    //重新上传衣物
+                    clothes.setTimes(clothes.getTimes() + 1);
+                    clothes.setDonorID(id);
+                    clothesService.addSecondHandClothes(clothes);
+
                     return map;
                 }else{
                     map.put("success", "false");

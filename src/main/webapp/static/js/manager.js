@@ -46,6 +46,8 @@ function selectPostArticle() {
             initButtons();
             $('#postArticle').css('color', '#142535');
             $('#postArticleView').fadeIn();
+            $('#postTitle').val('');
+            $('#postContent').val('');
             scrollToMain();
         } else {
             scrollToMain();

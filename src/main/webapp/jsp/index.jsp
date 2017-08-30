@@ -129,7 +129,7 @@
 
     <div id="mainPage">
         <p class="titleP">现在就加入我们！</p>
-        <button class="uploadBut" onclick="window.location.href='../jsp/uploadClothes.jsp'">立即捐衣! ></button>
+        <button class="uploadBut" onclick="if(getCookie('id') == null){fail_alert('请先登录再捐赠衣物！')}else{window.location.href='../jsp/uploadClothes.jsp'}">立即捐衣! ></button>
         <div id="searchPanel" style="display: none">
             <h3 style="display: inline-block; margin-top: 20%; margin-left: 41%; position: absolute">性&nbsp别</h3>
             <button class="mybt" style="position: absolute; margin-top: 30%; margin-left: 25%; width: 20%;  font-size: 1.5vw" id="male"
@@ -244,26 +244,26 @@
         <div id="fundBulletin" align="left">
             <div id="scroll">
                 <ul id="scroll1">
-                    <li><p>向 X X X 学校捐出 X X X</p></li>
-                    <br>
-                    <li><p>向 X X X 学校捐出 X X X</p></li>
-                    <br>
-                    <li><p>向 X X X 学校捐出 X X X</p></li>
-                    <br>
-                    <li><p>向 X X X 学校捐出 X X X</p></li>
-                    <br>
-                    <li><p>向 X X X 学校捐出 X X X</p></li>
-                    <br>
-                    <li><p>向 X X X 学校捐出 X X X</p></li>
-                    <br>
-                    <li><p>向 X X X 学校捐出 X X X</p></li>
-                    <br>
-                    <li><p>向 X X X 学校捐出 X X X</p></li>
-                    <br>
-                    <li><p>向 X X X 学校捐出 X X X</p></li>
-                    <br>
-                    <li><p>向 X X X 学校捐出 X X X</p></li>
-                    <br>
+                    <%--<li><p>向 X X X 学校捐出 X X X</p></li>--%>
+                    <%--<br>--%>
+                    <%--<li><p>向 X X X 学校捐出 X X X</p></li>--%>
+                    <%--<br>--%>
+                    <%--<li><p>向 X X X 学校捐出 X X X</p></li>--%>
+                    <%--<br>--%>
+                    <%--<li><p>向 X X X 学校捐出 X X X</p></li>--%>
+                    <%--<br>--%>
+                    <%--<li><p>向 X X X 学校捐出 X X X</p></li>--%>
+                    <%--<br>--%>
+                    <%--<li><p>向 X X X 学校捐出 X X X</p></li>--%>
+                    <%--<br>--%>
+                    <%--<li><p>向 X X X 学校捐出 X X X</p></li>--%>
+                    <%--<br>--%>
+                    <%--<li><p>向 X X X 学校捐出 X X X</p></li>--%>
+                    <%--<br>--%>
+                    <%--<li><p>向 X X X 学校捐出 X X X</p></li>--%>
+                    <%--<br>--%>
+                    <%--<li><p>向 X X X 学校捐出 X X X</p></li>--%>
+                    <%--<br>--%>
                 </ul>
                 <ul id="scroll2">
                 </ul>

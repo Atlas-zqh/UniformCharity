@@ -40,17 +40,31 @@ function getPassages() {
         async: false,
         success: function (data) {
             if (data.success == "true") {
-                alert(data.passages.size);
+                // alert(data.passages.size);
                 $.each(data.passages, function(i, item) {
                     var scroll = document.getElementById('scroll1');
 
                     var li = document.createElement('li');
                     scroll.appendChild(li);
                     var a = document.createElement('a');
-                    a.href = '../jsp/article.jsp?id=' + item.passage_id;
+                    a.onclick = function () {
+                        window.open('../jsp/article.jsp?id=' + item.passage_id);
+                    };
+                    li.appendChild(a);
+                    a.appendChild(document.createTextNode(item.ptitle));
 
-                    scroll.appendChild('<br>');
-                    // fail_alert(i);
+                    var br = document.createElement("div");
+                    br.innerHTML = "<br>";
+                    scroll.appendChild(br);
+
+                    var area1 = document.getElementById('scroll');
+                    var cont11 = document.getElementById('scroll1');
+                    var cont12 = document.getElementById('scroll2');
+
+// area.scrollTop = 0;
+                    area1.scrollTop = 0;
+// 克隆cont1给cont2
+                    cont12.innerHTML = cont11.innerHTML;
                 });
                 return;
             }
@@ -67,9 +81,8 @@ function getPassages() {
 }
 
 function getPassagesByID(id) {
-    // alert(title);
     $.ajax({
-        url: "/passageAction/addPassage",
+        url: "/passageAction/findPassageByID",
         type: "POST",
         dataType: "json",
         data: {
@@ -78,13 +91,13 @@ function getPassagesByID(id) {
         async: false,
         success: function (data) {
             if (data.success == "true") {
-                $('#title').val(data.passage.title);
-                $('#time').val(data.time);
-                $('#content').val(data.passage.content);
+                $('#title').html(data.passages.ptitle);
+                $('#time').html(data.time);
+                $('#content').html(data.passages.pcontent);
                 return;
             }
             else {
-                fail_alert("获得文章失败");
+                fail_alert("获得文章失败...");
                 return;
             }
         },
