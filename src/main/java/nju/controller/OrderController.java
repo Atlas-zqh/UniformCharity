@@ -4,16 +4,17 @@ import com.github.pagehelper.PageInfo;
 import nju.domain.Clothes;
 import nju.domain.Order;
 import nju.domain.Type;
+import nju.domain.User;
 import nju.service.ClothesService;
 import nju.service.OrderService;
 import nju.service.TypeService;
+import nju.service.UserService;
 import org.apache.commons.collections.map.HashedMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import sun.jvm.hotspot.debugger.Page;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
@@ -36,6 +37,8 @@ public class OrderController {
     @Autowired
     private TypeService typeService;
 
+    @Autowired
+    private UserService userService;
 
     @RequestMapping(value = "/createOrder", method = RequestMethod.POST)
     @ResponseBody
@@ -49,12 +52,12 @@ public class OrderController {
 
 
         Clothes clothes = clothesService.findClothesByClothesID(clothesID);
-        if(buyer.equals(clothes.getDonorID())){
+        if (buyer.equals(clothes.getDonorID())) {
             map.put("success", "fail");
             map.put("error", "same");
             return map;
         }
-        if(clothes != null && clothes.getStatus().equals(Clothes.AVAILABLE)) {
+        if (clothes != null && clothes.getStatus().equals(Clothes.AVAILABLE)) {
             clothes.setStatus(Clothes.OCCUPIED);
             clothesService.updateClothes(clothes);
             Order order = new Order();
@@ -67,7 +70,7 @@ public class OrderController {
             orderService.createOrder(order);
             map.put("success", "true");
             map.put("orderID", id);
-        }else{
+        } else {
             map.put("success", "fail");
             map.put("error", "different");
         }
@@ -85,7 +88,7 @@ public class OrderController {
 
         //获得订单
         Order order = orderService.findOrderByOrderID(orderID);
-        if(order != null){
+        if (order != null) {
             // 获得订单对应衣物
             String clothesID = order.getClothesID();
             Clothes clothes = clothesService.findClothesByClothesID(clothesID);
@@ -99,10 +102,10 @@ public class OrderController {
             map.put("order", order);
             map.put("orderPrice", price);
             map.put("clothes", clothes);
-            if(pics.size() > 0){
+            if (pics.size() > 0) {
                 map.put("pic", pics.get(0));
             }
-        }else{
+        } else {
             map.put("success", "false");
 
         }
@@ -124,21 +127,21 @@ public class OrderController {
 
         PageInfo<Order> orderPageInfo;
 
-        if (status == -2){
+        if (status == -2) {
             orderPageInfo = orderService.findOrderByBuyerID(userID, page, 10);
-        } else{
+        } else {
             orderPageInfo = orderService.findOrderByBuyerIDAndStatus(userID, status, page, 10);
         }
 
         //获得订单
-        if(orderPageInfo != null){
+        if (orderPageInfo != null) {
             List<Order> order = orderPageInfo.getList();
             long maxPage = orderPageInfo.getTotal();
             List<Clothes> clothesList = new ArrayList<>();
             List<Double> priceList = new ArrayList<>();
             List<String> picsList = new ArrayList<>();
             // 获得订单对应衣物
-            for( int i = 0; i < order.size(); i++){
+            for (int i = 0; i < order.size(); i++) {
                 String clothesID = order.get(i).getClothesID();
                 Clothes clothes = clothesService.findClothesByClothesID(clothesID);
                 clothesList.add(clothes);
@@ -157,7 +160,7 @@ public class OrderController {
             map.put("orderPrice", priceList);
             map.put("clothes", clothesList);
             map.put("pics", picsList);
-        }else{
+        } else {
             map.put("success", "false");
 
         }
@@ -225,12 +228,55 @@ public class OrderController {
         return map;
     }
 
-    private double getOrderPrice(Order order){
+    private double getOrderPrice(Order order) {
 
         Clothes clothes = clothesService.findClothesByClothesID(order.getClothesID());
 
         double price = typeService.findType(clothes.getSchoolName(), clothes.getClothesType()).getClothesPrice();
 
         return price;
+    }
+
+    @RequestMapping(value = "/getAllTransactions", method = RequestMethod.GET)
+    @ResponseBody
+    public Map<String, Object> getAllTransactions() {
+        Map<String, Object> map = new HashedMap();
+
+
+        //获得订单
+        PageInfo<Order> orderPageInfo = orderService.findAllOrders(1, 10);
+
+        List<Order> orders = orderPageInfo.getList();
+
+        while (orders.size() < 10) {
+            for (int i = 0; i < orders.size(); i++) {
+                if (orders.size() < 10)
+                    orders.add(orders.get(i));
+                else
+                    break;
+            }
+        }
+
+        List<String> transactions = new ArrayList<>();
+        for (int i = 0; i < orders.size(); i++){
+            String s = "";
+            Order order = orders.get(i);
+            String bid = order.getBuyerID();
+            String cid = order.getClothesID();
+            try {
+                User user = userService.findUserByID(bid);
+                Clothes clothes = clothesService.findClothesByClothesID(cid);
+                Type type = typeService.findType(clothes.getSchoolName(), clothes.getClothesType());
+                s = user.getUsername() + "(" + user.getRealName() + ")" + "购买了一件衣物，价值" + type.getClothesPrice() + "元。";
+                transactions.add(s);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+
+        map.put("success", "true");
+        map.put("transactions", transactions);
+
+        return map;
     }
 }

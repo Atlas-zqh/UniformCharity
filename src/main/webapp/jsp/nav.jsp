@@ -55,8 +55,6 @@
             </a>
         </div>
         <%--<div class="navLabel"><p><br>—<br></p></div>--%>
-
-
     </div>
     <div class="rightNavBar" align="left" id="afterLogInRight" style="display: none">
         <%--<img id="iconImage" src="">--%>

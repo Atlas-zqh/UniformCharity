@@ -127,11 +127,11 @@ Dropzone.options.myDropzone = {
 function uploadType() {
     var type = $('#typeCheck').is(":checked");
     if (type){
-        $('#uploadView').fadeOut();
+        $('#uploadView').css('display', 'none');
         $('#uploadOldView').fadeIn();
     }else{
+        $('#uploadOldView').css('display', 'none');
         $('#uploadView').fadeIn();
-        $('#uploadOldView').fadeOut();
     }
 }
 

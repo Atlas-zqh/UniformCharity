@@ -85,3 +85,49 @@ function getAllClass(id) {
         }
     });
 }
+
+function getAllTransaction() {
+    $.ajax({
+        url: "/orderAction/getAllTransactions",
+        type: "GET",
+        async: false,
+        success: function (data) {
+            if (data.success == "true") {
+                $.each(data.transactions, function(i, item) {
+                    var scroll = document.getElementById('scroll4');
+
+                    var li = document.createElement('li');
+                    scroll.appendChild(li);
+                    var p = document.createElement('p');
+                    p.appendChild(document.createTextNode(item));
+                    li.appendChild(p);
+
+                    var br = document.createElement("div");
+                    br.innerHTML = "<br>";
+                    scroll.appendChild(br);
+
+                    var area2 = document.getElementById('scroll3');
+                    var cont21 = document.getElementById('scroll4');
+                    var cont22 = document.getElementById('scroll5');
+
+// area.scrollTop = 0;
+                    area2.scrollTop = 0;
+// 克隆cont1给cont2
+                    cont22.innerHTML = cont21.innerHTML;
+
+                    // scroll.appendChild('<br>');
+                    // fail_alert(i);
+                });
+                return;
+            }
+            else {
+                fail_alert("获取文章失败");
+                return;
+            }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            fail_alert("哎呀，网络似乎不太好...");
+        }
+    });
+}
+

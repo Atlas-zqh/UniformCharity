@@ -40,8 +40,8 @@ function search() {
         gender1 = "";
     }
     gender1 = "";
-    alert(gender);
-    alert(gender1);
+    // alert(gender);
+    // alert(gender1);
 
     if (school == "") {
         // if (gender == "" || school == "" || size == "" || type == "") {

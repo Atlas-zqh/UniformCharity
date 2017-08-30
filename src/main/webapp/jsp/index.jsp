@@ -64,6 +64,8 @@
             checkCookie();
             getAllSchool('school');
             getAllSchool('schoolDrop');
+            getPassages();
+            getAllTransaction();
         });
 
     </script>
@@ -270,26 +272,26 @@
         <div id="transactionBulletin" align="right">
             <div id="scroll3">
                 <ul id="scroll4">
-                    <li><p>X X X 购买了 X X X</p></li>
-                    <br>
-                    <li><p>X X X 购买了 X X X</p></li>
-                    <br>
-                    <li><p>X X X 购买了 X X X</p></li>
-                    <br>
-                    <li><p>X X X 购买了 X X X</p></li>
-                    <br>
-                    <li><p>X X X 购买了 X X X</p></li>
-                    <br>
-                    <li><p>X X X 购买了 X X X</p></li>
-                    <br>
-                    <li><p>X X X 购买了 X X X</p></li>
-                    <br>
-                    <li><p>X X X 购买了 X X X</p></li>
-                    <br>
-                    <li><p>X X X 购买了 X X X</p></li>
-                    <br>
-                    <li><p>X X X 购买了 X X X</p></li>
-                    <br>
+                    <%--<li><p>X X X 购买了 X X X</p></li>--%>
+                    <%--<br>--%>
+                    <%--<li><p>X X X 购买了 X X X</p></li>--%>
+                    <%--<br>--%>
+                    <%--<li><p>X X X 购买了 X X X</p></li>--%>
+                    <%--<br>--%>
+                    <%--<li><p>X X X 购买了 X X X</p></li>--%>
+                    <%--<br>--%>
+                    <%--<li><p>X X X 购买了 X X X</p></li>--%>
+                    <%--<br>--%>
+                    <%--<li><p>X X X 购买了 X X X</p></li>--%>
+                    <%--<br>--%>
+                    <%--<li><p>X X X 购买了 X X X</p></li>--%>
+                    <%--<br>--%>
+                    <%--<li><p>X X X 购买了 X X X</p></li>--%>
+                    <%--<br>--%>
+                    <%--<li><p>X X X 购买了 X X X</p></li>--%>
+                    <%--<br>--%>
+                    <%--<li><p>X X X 购买了 X X X</p></li>--%>
+                    <%--<br>--%>
                 </ul>
                 <ul id="scroll5">
                 </ul>
@@ -453,13 +455,14 @@
 </div>
 
 <script type="text/javascript" src="../static/js/alert.js"></script>
+<script type="text/javascript" src="../static/js/scroll.js"></script>
+<script type="text/javascript" src="../static/js/passage.js"></script>
 <script type="text/javascript" src="../static/js/util.js"></script>
 <script type="text/javascript" src="../static/js/SmoothScroll.min.js"></script>
 <script type="text/javascript" src="../static/js/jquery.min.js" charset="utf-8"></script>
 <script type="text/javascript" src="../static/js/tether.js"></script>
 <script type="text/javascript" src="../static/js/main.js"></script>
 <script type="text/javascript" src="../static/js/select.js"></script>
-<script type="text/javascript" src="../static/js/scroll.js"></script>
 <script type="text/javascript" src="../static/js/login.js"></script>
 <script type="text/javascript" src="../static/js/cookie.js"></script>
 <script type="text/javascript" src="../static/js/bootstrap.js"></script>

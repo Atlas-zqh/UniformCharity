@@ -1,10 +1,7 @@
 package nju.controller;
 
 import com.github.pagehelper.PageInfo;
-import nju.domain.Clothes;
-import nju.domain.Order;
-import nju.domain.Type;
-import nju.domain.User;
+import nju.domain.*;
 import nju.service.ClothesService;
 import nju.service.OrderService;
 import nju.service.TypeService;
@@ -131,6 +128,9 @@ public class ClothesController {
                 if(clotheIDs.contains(clothesID)){
                     map.put("success", "true");
                     //todo 等待后端上传旧衣物接口
+//                    clothes.setStatus(Clothes.AVAILABLE);
+//                    clothes.setDonorID(id);
+//                    ClothesHistory
                     return map;
                 }else{
                     map.put("success", "false");
