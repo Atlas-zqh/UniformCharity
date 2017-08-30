@@ -64,22 +64,19 @@ public class PassageController {
         return map;
     }
 
-    @RequestMapping(value = "/findPassageByID", method = RequestMethod.GET)
+    @RequestMapping(value = "/findPassageByID", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, Object> findPassageByID(HttpServletRequest request, HttpServletResponse response) {
+    public Map<String, Object> findPassageByID(HttpServletRequest request) {
         Map<String, Object> map = new HashMap<>();
 
         int id = Integer.parseInt(request.getParameter("id"));
         Passage passage = passageService.findPassageByID(id);
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         String time = simpleDateFormat.format(new Date(passage.getPtime()));
-        if (passage != null) {
-            map.put("success", "true");
-            map.put("passages", passage);
-            map.put("time", time);
-        } else {
-            map.put("success", "false");
-        }
+
+        map.put("success", "true");
+        map.put("passages", passage);
+        map.put("time", time);
 
         return map;
     }
