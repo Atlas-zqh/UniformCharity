@@ -16,13 +16,24 @@
         schoolName=#{schoolName}, clothesHeight=#{clothesHeight},
         clothesWeight=#{clothesWeight},
         clothesType=#{clothesType},donorID=#{donorID},
-        gender=#{gender}, status=#{status}
+        gender=#{gender}, status=#{status}, times=#{times}
         WHERE
-        clothesID=#{clothesID}
+        clothesID=#{clothesID} AND auto_id=#{auto_id}
     </update>
 
-    <select id="findOneByID" parameterType="String" resultType="Clothes">
+    <update id="updateTimes" parameterType="String">
+        UPDATE clothes
+        SET
+        times=clothes.times+1
+        WHERE clothesID=#{0}
+    </update>
+
+    <select id="findOneByClothesID" parameterType="String" resultType="Clothes">
         SELECT * FROM clothes WHERE clothesID=#{ID}
+    </select>
+
+    <select id="findOneByAutoID" parameterType="Integer" resultType="Clothes">
+        SELECT * FROM clothes WHERE auto_id=#{0}
     </select>
 
     <select id="findAll" resultType="Clothes">

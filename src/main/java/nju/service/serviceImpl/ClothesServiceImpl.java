@@ -19,9 +19,7 @@ import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Field;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by keenan on 17/07/2017.
@@ -70,6 +68,33 @@ public class ClothesServiceImpl implements ClothesService {
     }
 
     /**
+     * 上传n手衣物（要在clothes的times属性写清第几次）
+     *
+     * @param clothes
+     * @return clothesID
+     */
+    @Override
+    public String addSecondHandClothes(Clothes clothes) {
+        clothesMapper.updateTimes(clothes.getClothesID());
+        clothesMapper.add(clothes.clone());
+
+        double price = typeMapper.findType(clothes.getSchoolName(), clothes.getClothesType()).getClothesPrice();
+        addCreditRecord(clothes.getDonorID(), CreditRecord.DONATE_CLOTHES, clothes.getClothesID(), price);
+        return clothes.getClothesID();
+    }
+
+    /**
+     * 根据数据库中的id搜索衣物
+     *
+     * @param auto_id
+     * @return
+     */
+    @Override
+    public Clothes findClothesByAutoID(Integer auto_id) {
+        return clothesMapper.findOneByAutoID(auto_id);
+    }
+
+    /**
      * 根据衣物ID搜索衣物
      *
      * @param clothesID
@@ -77,7 +102,12 @@ public class ClothesServiceImpl implements ClothesService {
      */
     @Override
     public Clothes findClothesByClothesID(String clothesID) {
-        return clothesMapper.findOneByID(clothesID);
+        List<Clothes> clothes = filterDuplicateClothes(clothesMapper.findOneByClothesID(clothesID));
+        if (!clothes.isEmpty()) {
+            return clothes.get(0);
+        } else {
+            return null;
+        }
     }
 
     /**
@@ -90,7 +120,7 @@ public class ClothesServiceImpl implements ClothesService {
     public PageInfo<Clothes> findClothesByAttributes(Map<ClothesAttributes, String> attributes, int pageNo, int pageSize) {
         ClothesQueryHelper helper = getQueryHelper(attributes);
         PageHelper.startPage(pageNo, pageSize);
-        List<Clothes> clothes = clothesMapper.findByAttribute(helper);
+        List<Clothes> clothes = filterDuplicateClothes(clothesMapper.findByAttribute(helper));
         PageInfo<Clothes> pageInfo = new PageInfo<>(clothes);
         return pageInfo;
     }
@@ -103,7 +133,7 @@ public class ClothesServiceImpl implements ClothesService {
     @Override
     public PageInfo<Clothes> getAllClothes(int pageNo, int pageSize) {
         PageHelper.startPage(pageNo, pageSize);
-        List<Clothes> clothes = clothesMapper.findAll();
+        List<Clothes> clothes = filterDuplicateClothes(clothesMapper.findAll());
         PageInfo<Clothes> clothesPageInfo = new PageInfo<>(clothes);
         return clothesPageInfo;
     }
@@ -199,7 +229,6 @@ public class ClothesServiceImpl implements ClothesService {
      */
     @SuppressWarnings("Duplicates")
     private void addCreditRecord(String userID, Integer recordtype, String clothesID, Double variance) {
-        System.out.println(" = = =  = = = = " + userID);
         User user = userMapper.findOneByID(EncryptionUtil.encrypt("20170522", userID));
         Double credit = user.getCredits();
         credit += variance;
@@ -209,5 +238,26 @@ public class ClothesServiceImpl implements ClothesService {
 //        String createTime = System.currentTimeMillis() + "";
         CreditRecord record = new CreditRecord(EncryptionUtil.encrypt("20170522", userID), recordtype, clothesID, variance, credit, System.currentTimeMillis());
         creditRecordMapper.addRecord(record.clone());
+    }
+
+    /**
+     * 去除重复的衣物(结果留下auto_id最大的)
+     *
+     * @param clothesList
+     * @return
+     */
+    private List<Clothes> filterDuplicateClothes(List<Clothes> clothesList) {
+        Map<String, Clothes> clothesMap = new HashMap<>();
+        for (Clothes clothes : clothesList) {
+            if (clothesMap.get(clothes.getClothesID()) == null) {
+                clothesMap.put(clothes.getClothesID(), clothes);
+            } else {
+                Clothes old = clothesMap.get(clothes.getClothesID());
+                if (old.getAuto_id() < clothes.getAuto_id()) {
+                    clothesMap.replace(clothes.getClothesID(), old, clothes);
+                }
+            }
+        }
+        return new ArrayList<>(clothesMap.values());
     }
 }

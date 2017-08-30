@@ -30,13 +30,27 @@ public interface ClothesMapper extends Mapper<Clothes> {
     void update(Clothes clothes);
 
     /**
+     * 衣物次数+1
+     *
+     * @param clothesID
+     */
+    void updateTimes(String clothesID);
+
+    /**
      * 根据ID查找某个对象
      *
      * @param ID
      * @return 查找结果，没找到返回null
      */
-    @Override
-    Clothes findOneByID(String ID);
+    List<Clothes> findOneByClothesID(String ID);
+
+    /**
+     * 根据自动生成的ID查找衣物
+     *
+     * @param auto_id
+     * @return
+     */
+    Clothes findOneByAutoID(Integer auto_id);
 
     /**
      * 获得所有该类对象
@@ -54,10 +68,25 @@ public interface ClothesMapper extends Mapper<Clothes> {
      */
     List<Clothes> findByAttribute(ClothesQueryHelper helper);
 
+    /**
+     * 根据衣物ID查找图片
+     * @param clothes_id
+     * @return
+     */
     List<String> findPicsByClothesID(String clothes_id);
 
+    /**
+     * 新增图片
+     * @param clothes_id
+     * @param pic_url
+     */
     void addPic(String clothes_id, String pic_url);
 
+    /**
+     * 移除图片
+     * @param clothes_id
+     * @param pic_url
+     */
     void removePic(String clothes_id, String pic_url);
 
     /**

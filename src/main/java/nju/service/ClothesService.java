@@ -28,12 +28,28 @@ public interface ClothesService {
     void updateClothes(Clothes clothes);
 
     /**
+     * 上传n手衣物（要在clothes的times属性写清第几次）
+     *
+     * @param clothes
+     */
+    String addSecondHandClothes(Clothes clothes);
+
+    /**
      * 根据衣物ID搜索衣物
+     * (拿最新的)
      *
      * @param clothesID
      * @return
      */
     Clothes findClothesByClothesID(String clothesID);
+
+    /**
+     * 根据数据库中的id搜索衣物
+     *
+     * @param auto_id
+     * @return
+     */
+    Clothes findClothesByAutoID(Integer auto_id);
 
     /**
      * 根据衣物属性搜索衣物（可多种属性同时查询）

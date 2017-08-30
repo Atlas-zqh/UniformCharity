@@ -5,6 +5,7 @@ package nju.domain;
  */
 public class Clothes implements Cloneable {
     public static String AVAILABLE = "Available", OCCUPIED = "Occupied";
+    private Integer auto_id;
 
     private String clothesID;
 
@@ -22,17 +23,22 @@ public class Clothes implements Cloneable {
 
     private String clothesType;
 
-    private String gender;
-
     private String donorID;
 
+    private String gender;
+
     private String status;
+
+    /**
+     * 第n手衣物
+     */
+    private Integer times;
 
     public Clothes(){
 
     }
 
-    public Clothes(String clothesID, String schoolName, Double clothesHeight, Double clothesWeight, String clothesType, String donorID, String gender, String status) {
+    public Clothes(String clothesID, String schoolName, Double clothesHeight, Double clothesWeight, String clothesType, String donorID, String gender, String status, Integer times) {
         this.clothesID = clothesID;
         this.schoolName = schoolName;
         this.clothesHeight = clothesHeight;
@@ -41,6 +47,20 @@ public class Clothes implements Cloneable {
         this.donorID = donorID;
         this.gender = gender;
         this.status = status;
+        this.times = times;
+    }
+
+    public Clothes(Integer auto_id, String clothesID, String schoolName, Double clothesHeight, Double clothesWeight, String clothesType, String donorID, String gender, String status, Integer times) {
+        this.auto_id = auto_id;
+        this.clothesID = clothesID;
+        this.schoolName = schoolName;
+        this.clothesHeight = clothesHeight;
+        this.clothesWeight = clothesWeight;
+        this.clothesType = clothesType;
+        this.donorID = donorID;
+        this.gender = gender;
+        this.status = status;
+        this.times = times;
     }
 
     public String getClothesID() {
@@ -107,6 +127,22 @@ public class Clothes implements Cloneable {
         this.status = status;
     }
 
+    public Integer getTimes() {
+        return times;
+    }
+
+    public void setTimes(Integer times) {
+        this.times = times;
+    }
+
+    public Integer getAuto_id() {
+        return auto_id;
+    }
+
+    public void setAuto_id(Integer auto_id) {
+        this.auto_id = auto_id;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -125,14 +161,16 @@ public class Clothes implements Cloneable {
     @Override
     public String toString() {
         return "Clothes{" +
-                "clothesID='" + clothesID + '\'' +
+                "auto_id=" + auto_id +
+                ", clothesID='" + clothesID + '\'' +
                 ", schoolName='" + schoolName + '\'' +
                 ", clothesHeight=" + clothesHeight +
                 ", clothesWeight=" + clothesWeight +
                 ", clothesType='" + clothesType + '\'' +
-                ", gender='" + gender + '\'' +
                 ", donorID='" + donorID + '\'' +
+                ", gender='" + gender + '\'' +
                 ", status='" + status + '\'' +
+                ", times=" + times +
                 '}';
     }
 
