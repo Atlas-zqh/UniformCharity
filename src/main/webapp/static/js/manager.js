@@ -188,6 +188,51 @@ function searchSchool() {
 }
 
 function addSchool() {
+    var r = /^\+?[1-9][0-9]*$/;
+
+    var table = document.getElementById('tabProduct');
+    var num = table.rows.length;
+    var tableData = new Array();
+    var rowData = {};
+    var sgrade = '';
+    var sclass = '';
+
+    var blank = false;
+    var notNum = false;
+    var notYear = false;
+
+    for(var i = 1; i < num; i++){
+        sgrade = table.rows[i].cells[1].innerHTML;
+        sclass = table.rows[i].cells[2].innerHTML;
+        if(sgrade == '' || sclass == ''){
+            blank = true;
+        }
+        if(!r.test(sgrade) || !r.test(sclass)){
+            notNum = true;
+        }
+
+        if(!/^\d{4}$/.test(sgrade)){
+            notYear = true;
+        }
+        rowData[sgrade] = sclass;
+        tableData.push(rowData);
+    }
+
+    if(blank){
+        fail_alert('请填写完整的年级信息！');
+    }else{
+        if(notNum){
+            fail_alert('年级信息需为正整数！');
+        }else{
+            if(notYear){
+                fail_alert('请输入正确的年份信息！');
+            }else{
+                //todo
+            }
+        }
+    }
+
+    // alert(tableData);
     // document.getElementById('gradeForm').reset();
 }
 
