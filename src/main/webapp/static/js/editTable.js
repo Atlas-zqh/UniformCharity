@@ -175,7 +175,7 @@ function AddRow(table, index) {
         var endIndex = table.rows;
         table.tBodies[0].appendChild(newRow);
         // newRow.cells[1].innerHTML=endIndex-startIndex;
-        newRow.cells[0].checked = false;
+        newRow.cells[0].childNodes[0].checked = false;
         newRow.cells[1].innerHTML = "";
         newRow.cells[2].innerHTML = "";
         // chkOrder.checked

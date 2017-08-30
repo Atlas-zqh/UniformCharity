@@ -14,15 +14,15 @@
             <form id="gradeForm2" name="form2" method="post" action=""
                   style="position: relative; width: 100%; left: 0%; top: 0%;">
                 <%--<h6 style="width: 100%; text-align: center;">班级信息</h6>--%>
-                <table width="698" border="0" cellpadding="0" cellspacing="0" id="tabProduct2">
-                    <tr style="font-size: 2.2vh; color: #142535; height: 5vh;">
-                        <td width="10%" align="center" bgcolor="#c2e2e7" Name="Num"></td>
-                        <td width="45%" bgcolor="#c2e2e7" Name="Num" EditType="TextBox" style="text-align: center">入学年份</td>
+                <table class="table-head orderTable" width="698" border="0" cellpadding="0" cellspacing="0" id="tabProduct2" style="margin: 1%;">
+                    <tr style="font-size: 2.2vh; color: #142535;">
+                        <td width="20%" align="center" bgcolor="#c2e2e7" Name="Num"></td>
+                        <td width="40%" bgcolor="#c2e2e7" Name="Num" EditType="TextBox" style="text-align: center">入学年份</td>
                         <%--<td width="152" bgcolor="#EFEFEF" Name="ProductName" EditType="DropDownList"--%>
                         <%--DataItems="{text:'A',value:'a'},{text:'B',value:'b'},{text:'C',value:'c'},{text:'D',value:'d'}">--%>
                         <%--商品名称--%>
                         <%--</td>--%>
-                        <td width="45%" bgcolor="#c2e2e7" Name="Amount" EditType="TextBox" style="text-align: center">班级数</td>
+                        <td width="40%" bgcolor="#c2e2e7" Name="Amount" EditType="TextBox" style="text-align: center">班级数</td>
                         <%--<td width="103" bgcolor="#EFEFEF" Name="Price" EditType="TextBox">单价</td>--%>
                         <%--<td width="120" bgcolor="#EFEFEF" Name="SumMoney" Expression="Amount*Price" Format="#,###.00">合计--%>
                         <%--</td>--%>
@@ -55,7 +55,7 @@
             <h6 style="width: 100%; text-align: center;">衣物种类</h6>
             <input type="button" class="mybt" style="top: 0%; border-width: medium; margin-left: 89%; width: 2vw; height: 2vw; position: absolute; margin-top: 1%; white-space: nowrap; font-size: 1vw; border: none; display: inline-block; border-radius: 50%; padding: 0;" name="Submit2" value="+"
                    onclick="showAddTypeView()"/>
-            <table class="table-head orderTable" style="margin: 1%;">
+            <table class="table-head orderTable" style="margin: 1%;" id="typeTable">
                 <tr>
                     <th style="width: 10%">
                         图片
@@ -68,28 +68,28 @@
                     </th>
                 </tr>
                 </tbody>
-                <tbody class="table-content-body">
-                <tr>
-                    <th style="width: 10%">
-                        <div class="imageBox">
-                            <img src="../static/images/maleIcon.png" class="largeImage" id="pic"/>
-                        </div>
-                    </th>
-                    <th style="width: 20%">
-                        <a href="" id="title">短袖衬衫</a>
-                    </th>
-                    <th style="width: 20%" id="school">
-                        50
-                    </th>
-                </tr>
-                </tbody>
+                <%--<tbody class="table-content-body">--%>
+                <%--<tr>--%>
+                    <%--<th style="width: 10%">--%>
+                        <%--<div class="imageBox">--%>
+                            <%--<img src="../static/images/maleIcon.png" class="largeImage" id="pic"/>--%>
+                        <%--</div>--%>
+                    <%--</th>--%>
+                    <%--<th style="width: 20%">--%>
+                        <%--<a href="" id="title">短袖衬衫</a>--%>
+                    <%--</th>--%>
+                    <%--<th style="width: 20%" id="school">--%>
+                        <%--50--%>
+                    <%--</th>--%>
+                <%--</tr>--%>
+                <%--</tbody>--%>
             </table>
         </div>
         <div id="student" class="block" style="left: 21%; position: relative; height: 65vh; top: 0%;">
             <h6 style="width: 100%; text-align: center; position: relative;">学生列表</h6>
             <input type="button" class="mybt" style="top: 0%; border-width: medium; margin-left: 89%; width: 2vw; height: 2vw; position: absolute; margin-top: 1%; white-space: nowrap; font-size: 1vw; border: none; display: inline-block; border-radius: 50%; padding: 0;" name="Submit2" value="+"
                    onclick="showAddStudentView()"/>
-            <table class="table-head orderTable" style="margin: 1%;">
+            <table class="table-head orderTable" style="margin: 1%;" id="userTable">
                 <tr>
                     <th style="width: 20%">
                         班级
@@ -102,19 +102,19 @@
                     </th>
                 </tr>
                 </tbody>
-                <tbody class="table-content-body">
-                <tr>
-                    <th>
-                        2016级1班
-                    </th>
-                    <th>
-                        <a href="">XXX</a>
-                    </th>
-                    <th>
-                        男
-                    </th>
-                </tr>
-                </tbody>
+                <%--<tbody class="table-content-body">--%>
+                <%--<tr>--%>
+                    <%--<th>--%>
+                        <%--2016级1班--%>
+                    <%--</th>--%>
+                    <%--<th>--%>
+                        <%--<a href="">XXX</a>--%>
+                    <%--</th>--%>
+                    <%--<th>--%>
+                        <%--男--%>
+                    <%--</th>--%>
+                <%--</tr>--%>
+                <%--</tbody>--%>
             </table>
         </div>
         <script type="text/javascript" src="../static/js/jquery-3.2.1.min.js"></script>

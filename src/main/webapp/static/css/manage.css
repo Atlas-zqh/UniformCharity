@@ -148,13 +148,14 @@ td {
     /*border-bottom-style: solid;*/
     /*border-bottom-color: #c2e2e7;*/
     border: 1px solid #c2e2e7;
-    font-size: 1.5vw;
+    font-size: 1.2vw;
+    padding: 0.5vw;
 }
 
 tr {
     font-size: 2vh;
     color: #142535;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 .EditCell_TextBox {
@@ -339,4 +340,18 @@ li:hover {
     /*padding: 0.1vw;*/
     background-color: #ffffff;
     overflow: scroll;
+}
+
+.table-head tbody tr th{
+    word-wrap: break-word;
+    font-family: Helvetica;
+    font-weight: 400;
+    text-shadow: none;
+    color: #142535;
+}
+
+.contentTr{
+    font-family: Helvetica;
+    font-weight: 400;
+    text-shadow: none;
 }

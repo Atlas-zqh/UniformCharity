@@ -101,16 +101,79 @@ function searchSchool() {
                         lastRow.cells[2].innerHTML = item.split(';')[1];
                     }else {
                         var newRow = lastRow.cloneNode(true);
-//计算新增加行的序号，需要引入jquery 的jar包
-                        var startIndex = $.inArray(lastRow, table.rows);
-                        var endIndex = table.rows;
                         table.tBodies[0].appendChild(newRow);
-                        // newRow.cells[1].innerHTML=endIndex-startIndex;
-                        newRow.cells[0].checked = false;
+                        newRow.cells[0].childNodes[0].checked = false;
                         newRow.cells[1].innerHTML = item.split(';')[0];
                         newRow.cells[2].innerHTML = item.split(';')[1];
                         SetRowCanEdit(newRow);
                     }
+                });
+
+                $.each(data.types, function (i, item) {
+                    var typeTable = document.getElementById('typeTable');
+                    var typeBody = document.createElement('tbody');
+                    typeBody.className = 'table-content-body';
+                    typeTable.appendChild(typeBody);
+
+                    var typeTr = document.createElement('tr');
+                    typeBody.appendChild(typeTr);
+
+                    var typeTh1 = document.createElement('th');
+                    typeTr.appendChild(typeTh1);
+                    typeTh1.style.width = '10%';
+
+                    var div = document.createElement('div');
+                    div.className = 'imageBox';
+                    typeTh1.appendChild(div);
+
+                    var img = document.createElement('img');
+                    img.className = 'largeImage';
+                    img.src = item.default_pic_url;
+
+                    var typeTh2 = document.createElement('th');
+                    typeTr.appendChild(typeTh2);
+                    typeTh2.style.width = '20%';
+
+                    var a = document.createElement('a');
+                    a.onclick = function () {
+                        //todo;
+                    };
+                    a.appendChild(document.createTextNode(item.clothestype));
+                    typeTh2.appendChild(a);
+
+                    var typeTh3 = document.createElement('th');
+                    typeTr.appendChild(typeTh3);
+                    typeTh3.style.width = '20%';
+                    typeTh3.appendChild(document.createTextNode(item.clothesPrice));
+                });
+
+                $.each(data.students, function (i, item) {
+                    var userTable = document.getElementById('userTable');
+                    var userBody = document.createElement('tbody');
+                    userBody.className = 'table-content-body';
+                    userTable.appendChild(userBody);
+
+                    var typeTr = document.createElement('tr');
+                    userBody.appendChild(typeTr);
+
+                    var typeTh1 = document.createElement('th');
+                    typeTr.appendChild(typeTh1);
+                    typeTh1.appendChild(document.createTextNode(item.sgrade + '级' + item.sclass + '班'));
+                    typeTh1.className = 'contentTr';
+
+                    var typeTh2 = document.createElement('th');
+                    typeTr.appendChild(typeTh2);
+
+                    var a = document.createElement('a');
+                    a.onclick = function () {
+                        //todo;
+                    };
+                    a.appendChild(document.createTextNode(item.realName));
+                    typeTh2.appendChild(a);
+
+                    var typeTh3 = document.createElement('th');
+                    typeTr.appendChild(typeTh3);
+                    typeTh3.appendChild(document.createTextNode(item.gender));
                 });
             } else {
                 fail_alert('获取信息失败...');
