@@ -81,10 +81,49 @@ function searchSchool() {
     $('html, body').animate({
         scrollTop: $("#schoolInfoView").offset().top
     }, 500);
+
+    $.ajax({
+        url: '/schoolAction/findSchoolByName',
+        type: 'POST',
+        data: {
+            'name': schoolName
+        },
+        dataType: 'json',
+        asy: false,
+        success: function (data) {
+            if (data.success == "true") {
+                $('#schoolName').html(schoolName);
+                $.each(data.grades, function (i, item) {
+                    var table = document.getElementById('tabProduct2');
+                    var lastRow = table.rows[table.rows.length - 1];
+                    if(i == 0){
+                        lastRow.cells[1].innerHTML = item.split(';')[0];
+                        lastRow.cells[2].innerHTML = item.split(';')[1];
+                    }else {
+                        var newRow = lastRow.cloneNode(true);
+//计算新增加行的序号，需要引入jquery 的jar包
+                        var startIndex = $.inArray(lastRow, table.rows);
+                        var endIndex = table.rows;
+                        table.tBodies[0].appendChild(newRow);
+                        // newRow.cells[1].innerHTML=endIndex-startIndex;
+                        newRow.cells[0].checked = false;
+                        newRow.cells[1].innerHTML = item.split(';')[0];
+                        newRow.cells[2].innerHTML = item.split(';')[1];
+                        SetRowCanEdit(newRow);
+                    }
+                });
+            } else {
+                fail_alert('获取信息失败...');
+            }
+        },
+        error: function (data) {
+            fail_alert('获取信息失败...');
+        }
+    });
 }
 
 function addSchool() {
-    document.getElementById('gradeForm').reset();
+    // document.getElementById('gradeForm').reset();
 }
 
 function postArticle() {

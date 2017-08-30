@@ -2,7 +2,9 @@ package nju.controller;
 
 import nju.domain.School;
 import nju.domain.Type;
+import nju.domain.User;
 import nju.service.SchoolService;
+import nju.service.TypeService;
 import nju.service.UserService;
 import org.apache.commons.collections.map.HashedMap;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +25,12 @@ import java.util.*;
 public class SchoolController {
     @Autowired
     private SchoolService schoolService;
+
+    @Autowired
+    private TypeService typeService;
+
+    @Autowired
+    private UserService userService;
 
     @RequestMapping(value = "/allSchool", method = RequestMethod.GET)
     @ResponseBody
@@ -120,6 +128,38 @@ public class SchoolController {
         }
         map.put("success", "true");
         map.put("schools", schoolNames);
+        return map;
+    }
+
+    @RequestMapping(value = "/findSchoolByName", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Object> findSchoolByName(HttpServletRequest request) {
+        Map<String, Object> map = new HashMap();
+
+        String schoolName = request.getParameter("name");
+
+        List<School> schools = schoolService.findSchoolByName(schoolName);
+
+        List<Type> types = typeService.findAllTypesOfSchool(schoolName);
+
+        List<User> users = userService.findUserBySchool(schoolName);
+
+        Map<String, List<String>> classes = schoolService.findClassBySchool(schoolName);
+
+        List<String> grades = new ArrayList<>();
+        for(String grade: classes.keySet()){
+            grades.add(grade + ";" + classes.get(grade).size());
+        }
+        if(schools != null && schools.size() > 0) {
+            School school = schools.get(0);
+            map.put("success", "true");
+            map.put("school", school);
+            map.put("types", types);
+            map.put("students", users);
+            map.put("grades", grades);
+        }else{
+            map.put("success", "false");
+        }
         return map;
     }
 }

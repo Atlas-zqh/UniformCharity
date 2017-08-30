@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <div id="schoolInfoView" style="display: none">
     <div id="schoolInfoContent">
-        <h1 id="schoolName">南京外国语学校仙林分校</h1>
+        <h1 id="schoolName"></h1>
         <div id="grade" class="block" style="left: 7%; position: relative; height: 65vh; top: 0%; float: left; overflow: hidden;">
             <h6 style="width: 100%; text-align: center;">班级信息</h6>
             <form id="gradeForm2" name="form2" method="post" action=""
@@ -17,69 +17,25 @@
                 <table width="698" border="0" cellpadding="0" cellspacing="0" id="tabProduct2">
                     <tr style="font-size: 2.2vh; color: #142535; height: 5vh;">
                         <td width="10%" align="center" bgcolor="#c2e2e7" Name="Num"></td>
-                        <td width="45%" bgcolor="#c2e2e7" Name="Num" EditType="TextBox">入学年份</td>
+                        <td width="45%" bgcolor="#c2e2e7" Name="Num" EditType="TextBox" style="text-align: center">入学年份</td>
                         <%--<td width="152" bgcolor="#EFEFEF" Name="ProductName" EditType="DropDownList"--%>
                         <%--DataItems="{text:'A',value:'a'},{text:'B',value:'b'},{text:'C',value:'c'},{text:'D',value:'d'}">--%>
                         <%--商品名称--%>
                         <%--</td>--%>
-                        <td width="45%" bgcolor="#c2e2e7" Name="Amount" EditType="TextBox">班级数</td>
+                        <td width="45%" bgcolor="#c2e2e7" Name="Amount" EditType="TextBox" style="text-align: center">班级数</td>
                         <%--<td width="103" bgcolor="#EFEFEF" Name="Price" EditType="TextBox">单价</td>--%>
                         <%--<td width="120" bgcolor="#EFEFEF" Name="SumMoney" Expression="Amount*Price" Format="#,###.00">合计--%>
                         <%--</td>--%>
                     </tr>
                     <tr style="height: 5vh;">
                         <td align="center" bgcolor="#FFFFFF"><input type="checkbox" name="checkbox2" value="checkbox"/></td>
-                        <td bgcolor="#FFFFFF"></td>
+                        <td bgcolor="#FFFFFF" style="text-align: center"></td>
                         <%--<td bgcolor="#FFFFFF" Value="c">C</td>--%>
                         <%--<td bgcolor="#FFFFFF">0</td>--%>
                         <%--<td bgcolor="#FFFFFF">0</td>--%>
-                        <td bgcolor="#FFFFFF"></td>
+                        <td bgcolor="#FFFFFF" style="text-align: center"></td>
                     </tr>
-                    <tr style="height: 5vh;">
-                        <td align="center" bgcolor="#FFFFFF"><input type="checkbox" name="checkbox22" value="checkbox"/>
-                        </td>
-                        <td bgcolor="#FFFFFF"></td>
-                        <%--<td bgcolor="#FFFFFF" Value="d">D</td>--%>
-                        <%--<td bgcolor="#FFFFFF">0</td>--%>
-                        <%--<td bgcolor="#FFFFFF">0</td>--%>
-                        <td bgcolor="#FFFFFF"></td>
-                    </tr>
-                    <tr style="height: 5vh;">
-                        <td align="center" bgcolor="#FFFFFF"><input type="checkbox" name="checkbox22" value="checkbox"/>
-                        </td>
-                        <td bgcolor="#FFFFFF"></td>
-                        <%--<td bgcolor="#FFFFFF" Value="d">D</td>--%>
-                        <%--<td bgcolor="#FFFFFF">0</td>--%>
-                        <%--<td bgcolor="#FFFFFF">0</td>--%>
-                        <td bgcolor="#FFFFFF"></td>
-                    </tr>
-                    <tr style="height: 5vh;">
-                        <td align="center" bgcolor="#FFFFFF"><input type="checkbox" name="checkbox22" value="checkbox"/>
-                        </td>
-                        <td bgcolor="#FFFFFF"></td>
-                        <%--<td bgcolor="#FFFFFF" Value="d">D</td>--%>
-                        <%--<td bgcolor="#FFFFFF">0</td>--%>
-                        <%--<td bgcolor="#FFFFFF">0</td>--%>
-                        <td bgcolor="#FFFFFF"></td>
-                    </tr>
-                    <tr style="height: 5vh;">
-                        <td align="center" bgcolor="#FFFFFF"><input type="checkbox" name="checkbox22" value="checkbox"/>
-                        </td>
-                        <td bgcolor="#FFFFFF"></td>
-                        <%--<td bgcolor="#FFFFFF" Value="d">D</td>--%>
-                        <%--<td bgcolor="#FFFFFF">0</td>--%>
-                        <%--<td bgcolor="#FFFFFF">0</td>--%>
-                        <td bgcolor="#FFFFFF"></td>
-                    </tr>
-                    <tr style="height: 5vh;">
-                        <td align="center" bgcolor="#FFFFFF"><input type="checkbox" name="checkbox22" value="checkbox"/>
-                        </td>
-                        <td bgcolor="#FFFFFF"></td>
-                        <%--<td bgcolor="#FFFFFF" Value="d">D</td>--%>
-                        <%--<td bgcolor="#FFFFFF">0</td>--%>
-                        <%--<td bgcolor="#FFFFFF">0</td>--%>
-                        <td bgcolor="#FFFFFF"></td>
-                    </tr>
+
                 </table>
 
                 <br/>
