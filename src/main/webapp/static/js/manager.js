@@ -188,6 +188,10 @@ function searchSchool() {
 }
 
 function addSchool() {
+    var name = $("#schoolNameTextInput").val();
+    var city = $("#cityTextInput").val();
+    var district = $("#districtTextInput").val();
+
     var r = /^\+?[1-9][0-9]*$/;
 
     var table = document.getElementById('tabProduct');
@@ -231,6 +235,30 @@ function addSchool() {
             }
         }
     }
+
+    $.ajax({
+        url: '/schoolAction/addSchool',
+        type: 'POST',
+        data: {
+            'name': name,
+            'city': city,
+            'district': district,
+            'grade': tableData
+        },
+        dataType: 'json',
+        asy: false,
+        traditional:true,
+        success: function (data) {
+            if (data.success == "true") {
+
+            } else {
+                fail_alert('获取信息失败...');
+            }
+        },
+        error: function (data) {
+            fail_alert('获取信息失败...');
+        }
+    });
 
     // alert(tableData);
     // document.getElementById('gradeForm').reset();

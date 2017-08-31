@@ -162,4 +162,23 @@ public class SchoolController {
         }
         return map;
     }
+
+    @RequestMapping(value = "/addSchool", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Object> addSchool(HttpServletRequest request) {
+        Map<String, Object> map = new HashMap();
+
+        String schoolName = request.getParameter("name");
+        String city = request.getParameter("city");
+        String district = request.getParameter("district");
+        String grade = request.getParameter("grade");
+
+        System.out.println("==================================");
+        System.out.println("schoolName:" + schoolName);
+        System.out.println("city:" + city);
+        System.out.println("district:" + district);
+        System.out.println("grade:" + grade);
+        System.out.println("==================================");
+        return map;
+    }
 }

@@ -12,9 +12,9 @@
         <h6 style="width: 50%; text-align: center; position: absolute; top: 15%; left: 0%; margin: 0%;">学校名称</h6>
         <input class="text" style="position: absolute; width: 20%; left: 15%; top: 20%;" placeholder="学校名" id="schoolNameTextInput">
         <h6 style="width: 50%; text-align: center; position: absolute; top: 35%; left: 0%; margin: 0%;">所属城市</h6>
-        <input class="text" style="position: absolute; width: 20%; left: 15%; top: 40%; font-size: 2vh" placeholder="如：南京">
+        <input class="text" style="position: absolute; width: 20%; left: 15%; top: 40%; font-size: 2vh" placeholder="如：南京" id="cityTextInput">
         <h6 style="width: 50%; text-align: center; position: absolute; top: 55%; left: 0%; margin: 0%;">所属区域</h6>
-        <input class="text" style="position: absolute; width: 20%; left: 15%; top: 60%; font-size: 2vh"  placeholder="如：栖霞">
+        <input class="text" style="position: absolute; width: 20%; left: 15%; top: 60%; font-size: 2vh"  placeholder="如：栖霞" id="districtTextInput">
 
         <form id="gradeForm" name="form1" method="post" action="" style="position: absolute; width: 50%; left: 50%; top: 15%;">
             <h6 style="width: 100%; text-align: center;">班级信息</h6>
