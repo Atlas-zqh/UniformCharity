@@ -127,7 +127,7 @@
         Dropzone.prototype.events = ["drop", "dragstart", "dragend", "dragenter", "dragover", "dragleave", "addedfile", "addedfiles", "removedfile", "thumbnail", "error", "errormultiple", "processing", "processingmultiple", "uploadprogress", "totaluploadprogress", "sending", "sendingmultiple", "success", "successmultiple", "canceled", "canceledmultiple", "complete", "completemultiple", "reset", "maxfilesexceeded", "maxfilesreached", "queuecomplete"];
 
         Dropzone.prototype.defaultOptions = {
-            url: '/clothesAction/uploadClothesPics',
+            url: '/schoolAction/uploadTypePic',
             method: "post",
             withCredentials: false,
             timeout: 30000,
@@ -419,7 +419,14 @@
             sendingmultiple: noop,
             success: function (file, data) {
                 if (file.previewElement) {
-                    return file.previewElement.classList.add("dz-success");
+                    success_alert('添加衣物种类成功！');
+                    file.previewElement.classList.add("dz-success");
+                    $('.removeButton').click();
+                    $('#typeName').val('');
+                    $('#typePrice').val('');
+                    // var ref = file.previewElement;
+                    // ref.parentNode.removeChild(file.previewElement);
+                    // return this._updateMaxFilesReachedClass();
                 }
             },
             successmultiple:  function (file, data) {

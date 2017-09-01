@@ -200,6 +200,8 @@ function addSchool() {
     var rowData = {};
     var sgrade = '';
     var sclass = '';
+    var gradeList = '';
+    var classList = '';
 
     var blank = false;
     var notNum = false;
@@ -218,8 +220,10 @@ function addSchool() {
         if(!/^\d{4}$/.test(sgrade)){
             notYear = true;
         }
-        rowData[sgrade] = sclass;
-        tableData.push(rowData);
+        gradeList = gradeList + sgrade + ';';
+        classList = classList + sclass + ';';
+        // rowData[sgrade] = sclass;
+        // tableData.push(rowData);
     }
 
     if(blank){
@@ -235,6 +239,8 @@ function addSchool() {
             }
         }
     }
+    console.log(tableData);
+
 
     $.ajax({
         url: '/schoolAction/addSchool',
@@ -243,7 +249,8 @@ function addSchool() {
             'name': name,
             'city': city,
             'district': district,
-            'grade': tableData
+            'grade': gradeList,
+            'class': classList
         },
         dataType: 'json',
         asy: false,
@@ -262,10 +269,6 @@ function addSchool() {
 
     // alert(tableData);
     // document.getElementById('gradeForm').reset();
-}
-
-function postArticle() {
-
 }
 
 function closeModifySchoolInfoView() {
