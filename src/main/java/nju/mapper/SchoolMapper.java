@@ -78,6 +78,20 @@ public interface SchoolMapper extends Mapper<School> {
     List<SClass> findClassBySchool(String schoolName);
 
     /**
+     * 新增班级
+     *
+     * @param sClass
+     */
+    void addClass(SClass sClass);
+
+    /**
+     * 修改班级
+     *
+     * @param sClass
+     */
+    void modifyClass(SClass sClass);
+
+    /**
      * 获得所有城市
      *
      * @return

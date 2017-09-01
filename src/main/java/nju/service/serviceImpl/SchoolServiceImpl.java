@@ -122,4 +122,24 @@ public class SchoolServiceImpl implements SchoolService {
     public List<String> getAllDistrictsByCity(String schoolCity) {
         return schoolMapper.getAllDistrictsByCity(schoolCity);
     }
+
+    /**
+     * 新增班级
+     *
+     * @param sClass
+     */
+    @Override
+    public void addClass(SClass sClass) {
+        schoolMapper.addClass(sClass);
+    }
+
+    /**
+     * 修改班级
+     *
+     * @param sClass
+     */
+    @Override
+    public void modifyClass(SClass sClass) {
+        schoolMapper.modifyClass(sClass);
+    }
 }

@@ -53,4 +53,16 @@
         SELECT DISTINCT schoolDistrict FROM school WHERE schoolCity=#{schoolCity}
     </select>
 
+    <insert id="addClass" parameterType="SClass">
+        INSERT INTO school_class
+        (schoolName, sgrade, sclass) VALUES
+        (#{schoolName}, #{sgrade}, #{sclass})
+    </insert>
+
+    <update id="modifyClass" parameterType="SClass">
+        UPDATE school_class
+        SET schoolName=#{schoolName}, sgrade=#{sgrade}, sclass=#{sclass}
+        WHERE auto_id=#{auto_id}
+    </update>
+
 </mapper>

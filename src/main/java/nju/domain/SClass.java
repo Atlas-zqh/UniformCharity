@@ -20,6 +20,12 @@ public class SClass implements Cloneable {
         this.auto_id = auto_id;
     }
 
+    public SClass(String schoolName, String sgrade, String sclass) {
+        this.schoolName = schoolName;
+        this.sgrade = sgrade;
+        this.sclass = sclass;
+    }
+
     public String getSchoolName() {
         return schoolName;
     }

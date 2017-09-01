@@ -1,5 +1,6 @@
 package nju.service;
 
+import nju.domain.SClass;
 import nju.domain.School;
 
 import java.util.List;
@@ -70,4 +71,18 @@ public interface SchoolService {
      * @return
      */
     List<String> getAllDistrictsByCity(String schoolCity);
+
+    /**
+     * 新增班级
+     *
+     * @param sClass
+     */
+    void addClass(SClass sClass);
+
+    /**
+     * 修改班级
+     *
+     * @param sClass
+     */
+    void modifyClass(SClass sClass);
 }
