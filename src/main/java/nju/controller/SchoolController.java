@@ -138,6 +138,56 @@ public class SchoolController {
         return map;
     }
 
+    @RequestMapping(value = "/getAllGrades", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Object> getAllGrades(HttpServletRequest request) {
+        Map<String, Object> map = new HashMap();
+
+        String school = request.getParameter("school");
+        Map<String, List<String>> grades = schoolService.findClassBySchool(school);
+
+        List<String> gradeList = new ArrayList<String>(grades.keySet());
+
+
+        int max_num = 0;
+        for(String g: grades.keySet()){
+            if(grades.get(g).size() > max_num){
+                max_num = grades.get(g).size();
+            }
+        }
+
+        System.out.println("==================================");
+        System.out.println("school：" + school);
+        System.out.println("max_num：" + max_num);
+        System.out.println("gradeList：" + gradeList.size());
+        System.out.println("==================================");
+
+
+        map.put("success", "true");
+        map.put("grades", gradeList);
+        map.put("classes", max_num);
+        return map;
+    }
+
+    @RequestMapping(value = "/getClassesOfGrade", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Object> getClassesOfGrade(HttpServletRequest request) {
+        Map<String, Object> map = new HashMap();
+
+        String school = request.getParameter("school");
+        String grade = request.getParameter("grade");
+        Map<String, List<String>> grades = schoolService.findClassBySchool(school);
+
+        for(String g: grades.keySet()){
+            if(g.equals(grade)){
+                map.put("success", "true");
+                map.put("classes", grades.get(g));
+            }
+        }
+
+        return map;
+    }
+
     @RequestMapping(value = "/findSchoolByName", method = RequestMethod.POST)
     @ResponseBody
     public Map<String, Object> findSchoolByName(HttpServletRequest request) {

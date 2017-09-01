@@ -64,3 +64,44 @@ Dropzone.options.myDropzone = {
 
     }
 };
+
+function initGradeDropDown(){
+    $.ajax({
+        url: '/schoolAction/getAllGrades',
+        type: 'POST',
+        data: {
+            'school': document.getElementById('schoolName').innerHTML
+        },
+        dataType: 'json',
+        asy: false,
+        success: function (data) {
+            if (data.success == "true") {
+                // $('#gradeDropDown').setAttribute('DataItems',"{text:'男',value:'男'},{text:'女',value:'女'}" );
+                // document.getElementById('gradeDropDown').DataItems = "{text:'1',value:'1'},{text:'2',value:'2'}";
+                // alert(document.getElementById('gradeDropDown').DataItems);
+                var gradeInfo = '';
+                $.each(data.grades, function (i, item) {
+                    if(i != 0){
+                        gradeInfo = gradeInfo + ',';
+                    }
+                    gradeInfo = gradeInfo + "{text:'" + item + "',value:'" + item + "'}";
+                });
+
+                var classInfo = '';
+                for(var i = 1; i <= data.classes; i++){
+                    if(i != 1){
+                        classInfo = classInfo + ',';
+                    }
+                    classInfo = classInfo + "{text:'" + i + "',value:'" + i + "'}";
+                }
+                document.getElementById('gradeDropDown').setAttribute('DataItems', gradeInfo);
+                document.getElementById('classDropDown').setAttribute('DataItems', classInfo);
+            } else {
+                fail_alert('获取信息失败...');
+            }
+        },
+        error: function (data) {
+            fail_alert('获取信息失败...');
+        }
+    });
+}

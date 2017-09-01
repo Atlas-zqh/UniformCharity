@@ -79,6 +79,7 @@ function initButtons() {
 }
 
 function searchSchool() {
+    $('#modifySchoolInfoView').css("display", "none");
     $('#schoolInfoView').fadeIn();
     $('html, body').animate({
         scrollTop: $("#schoolInfoView").offset().top
@@ -94,9 +95,11 @@ function searchSchool() {
         asy: false,
         success: function (data) {
             if (data.success == "true") {
-                resetSchoolInfo();
-
                 $('#schoolName').html(schoolName);
+
+                resetSchoolInfo();
+                initGradeDropDown();
+
                 $.each(data.grades, function (i, item) {
                     var table = document.getElementById('tabProduct2');
                     var lastRow = table.rows[table.rows.length - 1];

@@ -52,8 +52,8 @@
                             <td width="10%" bgcolor="#c2e2e7" Name="Gender" EditType="DropDownList"
                                 DataItems="{text:'男',value:'男'},{text:'女',value:'女'}">性别
                             </td>
-                            <td width="10%" bgcolor="#c2e2e7" Name="Grade" EditType="DropDownList">年级</td>
-                            <td width="10%" bgcolor="#c2e2e7" Name="Class" EditType="DropDownList">班级</td>
+                            <td width="10%" bgcolor="#c2e2e7" Name="Grade" EditType="DropDownList" id="gradeDropDown">年级</td>
+                            <td width="10%" bgcolor="#c2e2e7" Name="Class" EditType="DropDownList" id="classDropDown">班级</td>
                             <%--<td width="152" bgcolor="#EFEFEF" Name="ProductName" EditType="DropDownList"--%>
                             <%--DataItems="{text:'A',value:'a'},{text:'B',value:'b'},{text:'C',value:'c'},{text:'D',value:'d'}">--%>
                             <%--商品名称--%>

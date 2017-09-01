@@ -108,6 +108,7 @@ function CreateDropDownList(element, value) {
         var items = element.getAttribute("DataItems");
         if (!items) {
             items = element.parentNode.parentNode.rows[0].cells[element.cellIndex].getAttribute("DataItems");
+            // alert(items);
         }
 
         if (items) {
