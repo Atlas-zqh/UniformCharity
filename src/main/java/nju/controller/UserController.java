@@ -205,6 +205,9 @@ public class UserController {
 
         try {
             User user = userService.findUserByUsername(username);
+            if(user == null){
+                user = userService.findUserByID(username);
+            }
             if (user == null) {
                 loginInfo = "用户名不存在或密码错误";
                 System.out.println("null");

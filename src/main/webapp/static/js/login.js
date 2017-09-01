@@ -211,22 +211,30 @@ function showSignupPanel() {
 function managerLogin() {
     var username = $('#username').val();
     var password = $('#password').val();
-    //todo 登陆
-    $('#loginView').css("display", "none");
-    selectSearchSchool();
 
-//     var url = "http://app.cet.edu.cn:7066/baas/app/setuser.do?method=UserVerify";
-//     var ks_data = {
-//         "ks_xm": "钱柯宇",
-//     "ks_sfz": "320522199702145011",
-//     "jb": 2
-// };
-//     var postdata = {
-//         "action": "",
-//         "params": JSON.stringify(ks_data)
-//     };
-//     $.post(url = url, data = postdata, callback = function(data) {
-//         data = $.parseJSON(data)
-//         console.log(data["ks_bh"]);
-//     });
+    $.ajax({
+        url: "/managerAction/managerLogin",
+        type: "POST",
+        dataType: "json",
+        data: {
+            "username": username,
+            "password": password
+        },
+        async: false,
+        success: function (data) {
+            if (data.result == "success") {
+                $('#loginView').css("display", "none");
+                selectSearchSchool();
+                success_alert("登陆成功!");
+                return;
+            }
+            if (data.result == "fail") {
+                fail_alert(data.loginInfo);
+                return;
+            }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            fail_alert("哎呀，网络似乎不太好...");
+        }
+    });
 }
