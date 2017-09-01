@@ -5,14 +5,14 @@
 <mapper namespace="nju.mapper.TypeMapper">
     <insert id="addType" parameterType="Type">
         INSERT INTO clothes_type
-        (schoolName, clothestype, clothesPrice)
+        (schoolName, clothestype, clothesPrice,default_pic_url)
         VALUES
-        (#{schoolName}, #{clothestype}, #{clothesPrice})
+        (#{schoolName}, #{clothestype}, #{clothesPrice},#{default_pic_url})
     </insert>
 
     <update id="modifyType" parameterType="Type">
         UPDATE clothes_type
-        SET clothesPrice=#{clothesPrice},
+        SET clothesPrice=#{clothesPrice},default_pic_url=#{default_pic_url}
         WHERE schoolName=#{schoolName}, clothestype=#{clothestype}
     </update>
 
