@@ -42,11 +42,11 @@ Dropzone.options.myDropzone = {
                 // var school = $('#uploadSchoolDrop option:selected').text();
                 var name = $('#typeName').val();
                 var price = $('#typePrice').val();
-
+                var school = $('#schoolName').html();
 
                 $('#name').val(name);
                 $('#price').val(price);
-                $('#school').val($('#schoolName').html());
+                $('#schoolNameInput').val(school);
                 // alert(donor);
                 if ( name == "" || price == "") {
                     fail_alert("请填写完整信息！");

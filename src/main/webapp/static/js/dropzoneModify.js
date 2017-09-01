@@ -424,6 +424,8 @@
                     $('.removeButton').click();
                     $('#typeName').val('');
                     $('#typePrice').val('');
+                    // resetSchoolInfo();
+                    searchSchool();
                     // var ref = file.previewElement;
                     // ref.parentNode.removeChild(file.previewElement);
                     // return this._updateMaxFilesReachedClass();

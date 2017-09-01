@@ -94,6 +94,8 @@ function searchSchool() {
         asy: false,
         success: function (data) {
             if (data.success == "true") {
+                resetSchoolInfo();
+
                 $('#schoolName').html(schoolName);
                 $.each(data.grades, function (i, item) {
                     var table = document.getElementById('tabProduct2');
@@ -434,6 +436,34 @@ function changeColor(id, content){
         cities[i].className = '';
         if (cities[i].innerHTML == content)
             cities[i].className = 'selectLi';
-
     }
+}
+
+function resetSchoolInfo() {
+    //清空班级信息
+    var table = document.getElementById('tabProduct2');
+    for(var i = table.rows.length - 1; i >= 2; i--){
+        table.deleteRow(i);
+        // DeleteRow(table, i);
+    }
+    var lastRow = table.rows[table.rows.length - 1];
+    lastRow.cells[0].childNodes[0].checked = false;
+    lastRow.cells[1].innerHTML = "";
+    lastRow.cells[2].innerHTML = "";
+
+    //清空种类信息
+    var typeTable = document.getElementById('typeTable');
+    for(i = typeTable.rows.length - 1; i >= 1; i--){
+        typeTable.deleteRow(i);
+        // DeleteRow(table, i);
+    }
+
+    //清空学生信息
+    var userTable = document.getElementById('userTable');
+    for(i = userTable.rows.length - 1; i >= 1; i--){
+        userTable.deleteRow(i);
+        // DeleteRow(table, i);
+    }
+
+    // searchSchool();
 }

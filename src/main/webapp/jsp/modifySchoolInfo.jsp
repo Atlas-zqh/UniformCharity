@@ -22,7 +22,7 @@
 
                     <%--<input type="hidden" name="id" value="1" multiple id="id"/>--%>
                         <input type="hidden" name="name" value="1" multiple id="name"/>
-                        <input type="hidden" name="school" value="1" multiple id="school"/>
+                        <input type="hidden" name="schoolNameInput" value="1" multiple id="schoolNameInput"/>
                         <input type="hidden" name="price" value="1" multiple id="price"/>
 
                     <div class="fallback">
