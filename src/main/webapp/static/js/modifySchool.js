@@ -105,3 +105,91 @@ function initGradeDropDown(){
         }
     });
 }
+
+function addStudents() {
+    var table = document.getElementById('tabProduct3');
+
+    var studentNames = '';
+    var studuentIDs = '';
+    var genders = '';
+    var grades = '';
+    var classes = '';
+
+    var dataCorrect = true;
+
+    for(var i = 1; i < table.rows.length; i++){
+        var row = table.rows[i];
+        var chinese = /[^\u4e00-\u9fa5]/;
+        // if(re.test(temp)) return false;
+        var isChinese = true;
+        var idTest = /(^\d{16}$)|(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+
+        var name = row.cells[1].innerHTML;
+        var id = row.cells[2].innerHTML;
+        var gender = row.cells[3].innerHTML;
+        var sgrade = row.cells[4].innerHTML;
+        var sclass = row.cells[5].innerHTML;
+
+        for(var j = 0; j < name.length; j++){
+            // alert(name[j]);
+            if(chinese.test(name[j])){
+                isChinese = false;
+                break;
+            }
+        }
+        // alert(isChinese);
+
+        if(name == '' || id == '' || gender == '' || sgrade == '' || sclass == ''){
+            fail_alert('请填写完整的学生信息！');
+            dataCorrect = false;
+            return;
+        }else{
+            if(!isChinese){
+                fail_alert('学生姓名必须为中文！<br>不包含英文和符号！');
+                dataCorrect = false;
+                return;
+            }else{
+                if(!idTest.test(id)){
+                    fail_alert("身份信息输入不合法! 请输入身份证或学籍号！");
+                    dataCorrect = false;
+                    return;
+                }else{
+                    studentNames = studentNames + name + ';';
+                    studuentIDs = studuentIDs + id + ';';
+                    genders = genders + gender + ';';
+                    grades = grades + sgrade + ';';
+                    classes = classes + sclass + ';';
+                }
+            }
+        }
+    }
+
+    if(dataCorrect){
+        $.ajax({
+            url: '/userAction/addUser',
+            type: 'POST',
+            data: {
+                'school': document.getElementById('schoolName').innerHTML,
+                'studentNames': studentNames,
+                'studuentIDs': studuentIDs,
+                'genders': genders,
+                'grades': grades,
+                'classes': classes
+            },
+            dataType: 'json',
+            asy: false,
+            success: function (data) {
+                if (data.success == "true") {
+                    resetSchoolInfo();
+                    searchSchool();
+                    success_alert("添加成功！");
+                } else {
+                    fail_alert('添加失败...');
+                }
+            },
+            error: function (data) {
+                fail_alert('获取信息失败...');
+            }
+        });
+    }
+}

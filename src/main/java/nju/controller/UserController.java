@@ -388,6 +388,54 @@ public class UserController {
         return map;
     }
 
+    @RequestMapping(value = "addUser", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Object> addUser(HttpServletRequest request){
+        Map<String, Object> map = new HashMap<>();
+        String school = request.getParameter("school");
+        String studentNames = request.getParameter("studentNames");
+        String studuentIDs = request.getParameter("studuentIDs");
+        String genders = request.getParameter("genders");
+        String grades = request.getParameter("grades");
+        String classes = request.getParameter("classes");
+
+        System.out.println("==========================");
+        System.out.println("school:" + school);
+        System.out.println("studentNames:" + studentNames);
+        System.out.println("studuentIDs:" + studuentIDs);
+        System.out.println("genders:" + genders);
+        System.out.println("grades:" + grades);
+        System.out.println("classes:" + classes);
+        System.out.println("==========================");
+
+        String[] studentList = studentNames.split(";");
+        String[] idList = studuentIDs.split(";");
+        String[] genderList = genders.split(";");
+        String[] gradeList = grades.split(";");
+        String[] classList = classes.split(";");
+
+        for(int i = 0; i < studentList.length; i++){
+            User user = new User();
+            user.setPersonID(idList[i]);
+            user.setRealName(studentList[i]);
+            user.setPassword("123456");
+            user.setGender(genderList[i]);
+            user.setSgrade(gradeList[i]);
+            user.setSclass(classList[i]);
+            try{
+                userService.addUser(user);
+            }catch (Exception e){
+                e.printStackTrace();
+                map.put("success", "false");
+                return map;
+            }
+
+        }
+
+        map.put("success", "true");
+        return map;
+    }
+
     /**
      * ajax请求不需要返回页面，只需要得到response中的数据即可，所以方法签名为void即可
      *

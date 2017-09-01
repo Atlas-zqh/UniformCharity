@@ -31,7 +31,6 @@ function selectSearchSchool() {
             $('#searchSchool').css('color', '#142535');
             $('#searchView').fadeIn();
             scrollToMain();
-            //todo 初始化搜索框
         } else {
             scrollToMain();
         }
@@ -467,6 +466,23 @@ function resetSchoolInfo() {
         userTable.deleteRow(i);
         // DeleteRow(table, i);
     }
+
+    var studentTable = document.getElementById('tabProduct3');
+    for(i = table.rows.length - 1; i >= 2; i--){
+        studentTable.deleteRow(i);
+        // DeleteRow(table, i);
+    }
+    var lastStudentRow = studentTable.rows[table.rows.length - 1];
+    lastStudentRow.cells[0].childNodes[0].checked = false;
+    lastStudentRow.cells[1].innerHTML = "";
+    lastStudentRow.cells[2].innerHTML = "";
+    lastStudentRow.cells[3].innerHTML = "";
+    lastStudentRow.cells[4].innerHTML = "";
+    lastStudentRow.cells[5].innerHTML = "";
+
+    $('.removeButton').click();
+    $('#typeName').val('');
+    $('#typePrice').val('');
 
     // searchSchool();
 }

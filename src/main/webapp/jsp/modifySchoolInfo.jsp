@@ -82,7 +82,8 @@
                     <input type="button" class="mybt" style="border-width: medium" name="Submit2" value="删除"
                            onclick="DeleteRow(document.getElementById('tabProduct3'),1)"/>
                     <%--<input type="button" name="Submit22" value="重置" onclick="window.location.reload()"/>--%>
-                    <input type="submit" class="mybt" style="border-width: medium;" name="Submit3" value="提交"
+                    <input type="button" class="mybt" style="border-width: medium;" name="Submit3" value="提交"
+                           onclick="addStudents()">
                     <%--onclick="GetTableData(document.getElementById('tabProduct'));return false;"/>--%>
                 </form>
                 <script type="text/javascript" src="../static/js/jquery-3.2.1.min.js"></script>
