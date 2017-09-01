@@ -334,9 +334,7 @@ public class UserServiceImpl implements UserService {
                 || StringUtils.isEmpty(user.getRealName())
                 || StringUtils.isEmpty(user.getPassword())
                 || StringUtils.isEmpty(user.getPersonID())
-                || StringUtils.isEmpty(user.getPhone())
-                || StringUtils.isEmpty(user.getGender())
-                || StringUtils.isEmpty(user.getCredits()));
+                || StringUtils.isEmpty(user.getGender()));
     }
 
     /**
