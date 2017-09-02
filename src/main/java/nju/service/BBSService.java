@@ -110,4 +110,11 @@ public interface BBSService {
      * @return 所有子回复
      */
     PageInfo<Reply> findSubReplyByReplyID(Integer reply_rid, int pageNo, int pageSize);
+
+    /**
+     * 获得最新十条post，不区分板块
+     *
+     * @return
+     */
+    List<Post> getLatestTenPosts();
 }

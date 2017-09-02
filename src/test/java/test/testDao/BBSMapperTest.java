@@ -1,10 +1,13 @@
 package test.testDao;
 
 import nju.domain.Board;
+import nju.domain.Post;
 import nju.mapper.BBSMapper;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import test.BaseTest;
+
+import java.util.List;
 
 /**
  * Created by keenan on 25/05/2017.
@@ -29,6 +32,14 @@ public class BBSMapperTest extends BaseTest {
         } else {
             System.out.println(board.toString());
 
+        }
+    }
+
+    @Test
+    public void testGetLatestTenPosts() {
+        List<Post> posts = bbsMapper.getLatestTenPosts();
+        for (Post post : posts) {
+            System.out.println("====    " + post.toString());
         }
     }
 }

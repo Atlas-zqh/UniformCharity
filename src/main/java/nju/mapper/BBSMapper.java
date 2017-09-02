@@ -109,4 +109,11 @@ public interface BBSMapper {
      */
     List<Reply> findSubReplyByReplyID(Integer reply_rid);
 
+    /**
+     * 获得最新十条post，不区分板块
+     *
+     * @return
+     */
+    List<Post> getLatestTenPosts();
+
 }

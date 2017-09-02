@@ -130,4 +130,19 @@ public class Post implements Cloneable {
         }
         return o;
     }
+
+    @Override
+    public String toString() {
+        return "Post{" +
+                "post_id=" + post_id +
+                ", post_uid='" + post_uid + '\'' +
+                ", post_topic='" + post_topic + '\'' +
+                ", post_commentcount=" + post_commentcount +
+                ", post_updatetime=" + post_updatetime +
+                ", post_createtime=" + post_createtime +
+                ", post_islocked=" + post_islocked +
+                ", post_content='" + post_content + '\'' +
+                ", post_bid=" + post_bid +
+                '}';
+    }
 }

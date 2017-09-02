@@ -183,4 +183,14 @@ public class BBSServiceImpl implements BBSService {
         PageInfo<Reply> replyPageInfo = new PageInfo<>(replies);
         return replyPageInfo;
     }
+
+    /**
+     * 获得最新十条post，不区分板块
+     *
+     * @return
+     */
+    @Override
+    public List<Post> getLatestTenPosts() {
+        return bbsMapper.getLatestTenPosts();
+    }
 }
