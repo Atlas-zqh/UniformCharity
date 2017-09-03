@@ -261,7 +261,9 @@ function addSchool() {
         traditional:true,
         success: function (data) {
             if (data.success == "true") {
-
+                success_alert('添加学校成功！');
+                resetAddSchool();
+                scrollToTop();
             } else {
                 fail_alert('获取信息失败...');
             }
@@ -270,9 +272,7 @@ function addSchool() {
             fail_alert('获取信息失败...');
         }
     });
-
     // alert(tableData);
-    // document.getElementById('gradeForm').reset();
 }
 
 function closeModifySchoolInfoView() {
@@ -468,11 +468,11 @@ function resetSchoolInfo() {
     }
 
     var studentTable = document.getElementById('tabProduct3');
-    for(i = table.rows.length - 1; i >= 2; i--){
+    for(i = studentTable.rows.length - 1; i >= 2; i--){
         studentTable.deleteRow(i);
         // DeleteRow(table, i);
     }
-    var lastStudentRow = studentTable.rows[table.rows.length - 1];
+    var lastStudentRow = studentTable.rows[studentTable.rows.length - 1];
     lastStudentRow.cells[0].childNodes[0].checked = false;
     lastStudentRow.cells[1].innerHTML = "";
     lastStudentRow.cells[2].innerHTML = "";
@@ -485,4 +485,24 @@ function resetSchoolInfo() {
     $('#typePrice').val('');
 
     // searchSchool();
+}
+
+function resetAddSchool() {
+    $('#schoolNameTextInput').val('');
+    $('#cityTextInput').val('');
+    $('#districtTextInput').val('');
+
+    var tabProduct = document.getElementById('tabProduct');
+    for(var i = tabProduct.rows.length - 1; i > 1; i--){
+        tabProduct.deleteRow(i);
+        // DeleteRow(table, i);
+    }
+    var lastStudentRow = tabProduct.rows[tabProduct.rows.length - 1];
+    lastStudentRow.cells[0].childNodes[0].checked = false;
+    lastStudentRow.cells[1].innerHTML = "";
+    lastStudentRow.cells[2].innerHTML = "";
+
+    for(i = 0; i < 5; i++){
+        AddRow(tabProduct);
+    }
 }
