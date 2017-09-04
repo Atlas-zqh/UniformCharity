@@ -46,6 +46,27 @@ public class TypeController {
         return map;
     }
 
+    @RequestMapping(value = "/getTypeInfo", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Object> getTypeInfo(HttpServletRequest request) {
+        Map<String, Object> map = new HashMap();
+
+        String school = request.getParameter("school");
+        String originalType = request.getParameter("originalType");
+
+
+        System.out.println("==================================");
+        System.out.println("school:" + school);
+        System.out.println("originalType:" + originalType);
+        System.out.println("==================================");
+
+        Type type = typeService.findType(school, originalType);
+        map.put("success", "true");
+        map.put("type", type);
+
+        return map;
+    }
+
 
     @RequestMapping(value = "/uploadTypePic", method = RequestMethod.POST)
     @ResponseBody
@@ -76,6 +97,7 @@ public class TypeController {
             System.out.println("path：" + path);
             System.out.println("==================================");
             Type type = new Type(school, name, Double.parseDouble(price), p);
+            type.setUsed(true);
 
             if (uploadType.equals("add")) {
 

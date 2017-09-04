@@ -94,31 +94,6 @@ Dropzone.options.myDropzone = {
 
                 }
             }
-
-            // if(myDropzone.files.length == 0){
-            //     fail_alert("请添加一张默认图片！");
-            // }else {
-            //     // var school = $('#uploadSchoolDrop option:selected').text();
-            //     var name = $('#typeName').val();
-            //     var price = $('#typePrice').val();
-            //     var school = $('#schoolName').html();
-            //
-            //     $('#name').val(name);
-            //     $('#price').val(price);
-            //     $('#schoolNameInput').val(school);
-            //     // alert(donor);
-            //     if ( name == "" || price == "") {
-            //         fail_alert("请填写完整信息！");
-            //     } else {
-            //         if(price.match(/^(:?(:?\d+.\d+)|(:?\d+))$/)){
-            //             myDropzone.processQueue(); // Tell Dropzone to process all queued files.
-            //
-            //         }else{
-            //             fail_alert('价格只能输入数字！');
-            //         }
-            //
-            //     }
-            // }
         });
 
     }
@@ -255,7 +230,7 @@ function addStudents() {
 
 function showTypeInfo(){
     $.ajax({
-        url: "schoolAction/modifyType",
+        url: "/typeAction/getTypeInfo",
         type: 'POST',
         data: {
             'school': document.getElementById('schoolName').innerHTML,
@@ -264,6 +239,11 @@ function showTypeInfo(){
         dataType: 'json',
         success: function (data) {
             if (data.success == 'true'){
+                $('#typeName').val(data.type.clothestype);
+                $('#typePrice').val(data.type.clothesPrice);
+                // $('#schoolName').html();
+
+                $('#type').val('modify');
 
             }else{
                 fail_alert('获取种类信息失败...请重试');

@@ -135,6 +135,7 @@ function searchSchool() {
                     var img = document.createElement('img');
                     img.className = 'largeImage';
                     img.src = item.default_pic_url;
+                    div.appendChild(img);
 
                     var typeTh2 = document.createElement('th');
                     typeTr.appendChild(typeTh2);
@@ -245,39 +246,37 @@ function addSchool() {
             if(notYear){
                 fail_alert('请输入正确的年份信息！');
             }else{
-                //todo
+                $.ajax({
+                    url: '/schoolAction/addSchool',
+                    type: 'POST',
+                    data: {
+                        'name': name,
+                        'city': city,
+                        'district': district,
+                        'grade': gradeList,
+                        'class': classList
+                    },
+                    dataType: 'json',
+                    asy: false,
+                    traditional:true,
+                    success: function (data) {
+                        if (data.success == "true") {
+                            success_alert('添加学校成功！');
+                            resetAddSchool();
+                            scrollToTop();
+                        } else {
+                            fail_alert('获取信息失败...');
+                        }
+                    },
+                    error: function (data) {
+                        fail_alert('获取信息失败...');
+                    }
+                });
             }
         }
     }
-    console.log(tableData);
 
 
-    $.ajax({
-        url: '/schoolAction/addSchool',
-        type: 'POST',
-        data: {
-            'name': name,
-            'city': city,
-            'district': district,
-            'grade': gradeList,
-            'class': classList
-        },
-        dataType: 'json',
-        asy: false,
-        traditional:true,
-        success: function (data) {
-            if (data.success == "true") {
-                success_alert('添加学校成功！');
-                resetAddSchool();
-                scrollToTop();
-            } else {
-                fail_alert('获取信息失败...');
-            }
-        },
-        error: function (data) {
-            fail_alert('获取信息失败...');
-        }
-    });
     // alert(tableData);
 }
 
@@ -294,6 +293,10 @@ function closeModifySchoolInfoView() {
 function showAddTypeView() {
     $('#addTypeView').css('display', 'block');
     $('#addStudentView').css('display', 'none');
+    $('#addLabel').css('display', 'block');
+    $('#modifyLabel').css('display', 'none');
+    $('#submit-all').css('display', 'block');
+    $('#modifyButton').css('display', 'none');
     $('#modifySchoolInfoView').fadeIn();
     $('html, body').animate({
         scrollTop: $("#modifySchoolInfoView").offset().top

@@ -25,8 +25,8 @@
                         <input type="hidden" name="name" value="1" multiple id="name"/>
                         <input type="hidden" name="schoolNameInput" value="1" multiple id="schoolNameInput"/>
                         <input type="hidden" name="price" value="1" multiple id="price"/>
-                        <input type="hidden" name="price" value="1" multiple id="type"/>
-                        <input type="hidden" name="price" value="1" multiple id="oldType"/>
+                        <input type="hidden" name="type" value="1" multiple id="type"/>
+                        <input type="hidden" name="oldType" value="1" multiple id="oldType"/>
 
                     <div class="fallback">
                         <input name="file" type="file" multiple/>
