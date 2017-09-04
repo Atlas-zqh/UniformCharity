@@ -254,3 +254,72 @@ function showTypeInfo(){
         }
     });
 }
+
+function modifyGradeInfo() {
+    var table = document.getElementById('tabProduct2');
+    var num = table.rows.length;
+    var sgrade = '';
+    var sclass = '';
+    var gradeList = '';
+    var classList = '';
+
+    var blank = false;
+    var notNum = false;
+    var notYear = false;
+
+    for(var i = 1; i < num; i++){
+        sgrade = table.rows[i].cells[1].innerHTML;
+        sclass = table.rows[i].cells[2].innerHTML;
+        if(sgrade == '' || sclass == ''){
+            blank = true;
+        }
+        if(!r.test(sgrade) || !r.test(sclass)){
+            notNum = true;
+        }
+
+        if(!/^\d{4}$/.test(sgrade)){
+            notYear = true;
+        }
+        gradeList = gradeList + sgrade + ';';
+        classList = classList + sclass + ';';
+    }
+
+    if(blank){
+        fail_alert('请填写完整的年级信息！');
+    }else{
+        if(notNum){
+            fail_alert('年级信息需为正整数！');
+        }else{
+            if(notYear){
+                fail_alert('请输入正确的年份信息！');
+            }else{
+                $.ajax({
+                    url: '/schoolAction/modifyGrades',
+                    type: 'POST',
+                    data: {
+                        'name': document.getElementById('schoolName').innerHTML,
+                        'grade': gradeList,
+                        'class': classList
+                    },
+                    dataType: 'json',
+                    asy: false,
+                    traditional:true,
+                    success: function (data) {
+                        if (data.success == "true") {
+                            success_alert('修改班级信息成功！');
+                            searchSchool();
+                        } else {
+                            fail_alert(data.error);
+                        }
+                    },
+                    error: function (data) {
+                        fail_alert('获取信息失败...');
+                    }
+                });
+            }
+        }
+    }
+
+
+
+}

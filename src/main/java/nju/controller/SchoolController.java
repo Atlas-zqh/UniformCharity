@@ -308,6 +308,7 @@ public class SchoolController {
         for (int i = 0; i < grades.length; i++) {
             for (int j = 1; j <= Integer.parseInt(classes[i]); j++) {
                 SClass sClass = new SClass(schoolName, grades[i], j + "");
+                //todo
 //                schoolService.addClass(sClass);
             }
         }
