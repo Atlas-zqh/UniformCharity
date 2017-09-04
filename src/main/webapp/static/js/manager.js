@@ -172,7 +172,7 @@ function searchSchool() {
 
                     var a = document.createElement('a');
                     a.onclick = function () {
-                        //todo;
+                        window.open('../jsp/friendInfo.jsp?id=' + item.personID);
                     };
                     a.appendChild(document.createTextNode(item.realName));
                     typeTh2.appendChild(a);

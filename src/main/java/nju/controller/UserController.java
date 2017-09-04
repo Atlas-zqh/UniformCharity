@@ -273,13 +273,13 @@ public class UserController {
         String url = "";
         if (image.startsWith("../")) {
             if (gender.equals("男"))
-                url = "static/icons/maleIcon.png";
+                url = "../static/icons/maleIcon.png";
             else
-                url = "static/icons/femaleIcon.png";
+                url = "../static/icons/femaleIcon.png";
         } else {
             image = image.replace("%2B", "+");
             generateImage(image, session.getServletContext().getRealPath("/") + "static/icons/" + id + ".jpg");
-            url = "static/icons/" + id + ".jpg";
+            url = "../static/icons/" + id + ".jpg";
         }
 
 
@@ -425,6 +425,13 @@ public class UserController {
             user.setGender(genderList[i]);
             user.setSgrade(gradeList[i]);
             user.setSclass(classList[i]);
+            String url = "";
+            if (genderList[i].equals("男"))
+                url = "../static/icons/maleIcon.png";
+            else
+                url = "../static/icons/femaleIcon.png";
+            user.setPicurl(url);
+            user.setCredits(100.0);
             try{
                 userService.addUser(user);
             }catch (Exception e){
