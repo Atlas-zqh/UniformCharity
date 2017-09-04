@@ -13,7 +13,7 @@
     <update id="modifyType" parameterType="Type">
         UPDATE clothes_type
         SET clothesPrice=#{clothesPrice},default_pic_url=#{default_pic_url},used=#{used}
-        WHERE schoolName=#{schoolName}, clothestype=#{clothestype}
+        WHERE schoolName=#{schoolName} AND clothestype=#{clothestype}
     </update>
 
     <select id="findAllTypesOfSchool" resultType="Type" parameterType="String">
