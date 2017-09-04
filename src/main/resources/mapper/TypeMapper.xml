@@ -5,14 +5,14 @@
 <mapper namespace="nju.mapper.TypeMapper">
     <insert id="addType" parameterType="Type">
         INSERT INTO clothes_type
-        (schoolName, clothestype, clothesPrice,default_pic_url)
+        (schoolName, clothestype, clothesPrice,default_pic_url,used)
         VALUES
-        (#{schoolName}, #{clothestype}, #{clothesPrice},#{default_pic_url})
+        (#{schoolName}, #{clothestype}, #{clothesPrice},#{default_pic_url},#{used})
     </insert>
 
     <update id="modifyType" parameterType="Type">
         UPDATE clothes_type
-        SET clothesPrice=#{clothesPrice},default_pic_url=#{default_pic_url}
+        SET clothesPrice=#{clothesPrice},default_pic_url=#{default_pic_url},used=#{used}
         WHERE schoolName=#{schoolName}, clothestype=#{clothestype}
     </update>
 
@@ -22,7 +22,7 @@
    </select>
 
     <select id="findAllTypes" resultType="Type">
-        SELECT * FROM clothes_type
+        SELECT * FROM clothes_type WHERE used=TRUE
     </select>
 
     <select id="findType" resultType="Type">

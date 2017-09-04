@@ -12,6 +12,8 @@ public class Type implements Cloneable {
 
     private String default_pic_url;
 
+    private Boolean used;
+
     public Type(String schoolName, String clothestype, Double clothesPrice) {
         this.schoolName = schoolName;
         this.clothestype = clothestype;
@@ -23,6 +25,14 @@ public class Type implements Cloneable {
         this.clothestype = clothestype;
         this.clothesPrice = clothesPrice;
         this.default_pic_url = default_pic_url;
+    }
+
+    public Type(String schoolName, String clothestype, Double clothesPrice, String default_pic_url, Boolean used) {
+        this.schoolName = schoolName;
+        this.clothestype = clothestype;
+        this.clothesPrice = clothesPrice;
+        this.default_pic_url = default_pic_url;
+        this.used = used;
     }
 
     public String getSchoolName() {
@@ -57,6 +67,14 @@ public class Type implements Cloneable {
         this.default_pic_url = default_pic_url;
     }
 
+    public Boolean getUsed() {
+        return used;
+    }
+
+    public void setUsed(Boolean used) {
+        this.used = used;
+    }
+
     @Override
     public Type clone() {
         Type o = null;
@@ -75,8 +93,7 @@ public class Type implements Cloneable {
                 ", clothestype='" + clothestype + '\'' +
                 ", clothesPrice=" + clothesPrice +
                 ", default_pic_url='" + default_pic_url + '\'' +
+                ", used=" + used +
                 '}';
     }
-
-
 }
