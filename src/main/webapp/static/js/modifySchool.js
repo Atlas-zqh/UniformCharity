@@ -252,5 +252,5 @@ function showTypeInfo(){
         error: function (data) {
             fail_alert('获取信息失败...');
         }
-    })
+    });
 }

@@ -142,14 +142,44 @@ function searchSchool() {
                     typeTh2.style.width = '20%';
 
                     var a = document.createElement('a');
+                    a.setAttribute('data-am-popover', "{content: '点击删除该衣物种类！', trigger: 'hover focus'}")
+                    // a.href = "#";
                     a.onclick = function () {
                         originalType = item.clothestype;
-                        showAddTypeView();
-                        $('#addLabel').css('display', 'none');
-                        $('#modifyLabel').css('display', 'block');
-                        $('#submit-all').css('display', 'none');
-                        $('#modifyButton').css('display', 'block');
-                        showTypeInfo();
+                        // showAddTypeView();
+                        // $('#addLabel').css('display', 'none');
+                        // $('#modifyLabel').css('display', 'block');
+                        // $('#submit-all').css('display', 'none');
+                        // $('#modifyButton').css('display', 'block');
+                        // showTypeInfo();
+                        $('#my-confirm').modal({
+                            relatedTarget: this,
+                            onConfirm: function(options) {
+                                $.ajax({
+                                    url: "/typeAction/dropType",
+                                    type: 'POST',
+                                    data: {
+                                        'school': document.getElementById('schoolName').innerHTML,
+                                        'originalType': originalType
+                                    },
+                                    dataType: 'json',
+                                    success: function (data) {
+                                        if (data.success == 'true'){
+                                            success_alert('成功删除衣物种类：<br>' + data.type.clothestype);
+                                            searchSchool();
+                                        }else{
+                                            fail_alert('获取种类信息失败...请重试');
+                                        }
+                                    },
+                                    error: function (data) {
+                                        fail_alert('获取信息失败...');
+                                    }
+                                });
+                            },
+                            // closeOnConfirm: false,
+                            onCancel: function() {
+                            }
+                        });
                     };
                     a.appendChild(document.createTextNode(item.clothestype));
                     typeTh2.appendChild(a);
@@ -178,6 +208,8 @@ function searchSchool() {
                     typeTr.appendChild(typeTh2);
 
                     var a = document.createElement('a');
+                    a.setAttribute('data-am-popover', "{content: '点击查看该学生信息！', trigger: 'hover focus'}");
+                    a.href = "";
                     a.onclick = function () {
                         window.open('../jsp/friendInfo.jsp?id=' + item.personID);
                     };
