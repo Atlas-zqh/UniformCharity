@@ -25,6 +25,7 @@ public class Type implements Cloneable {
         this.clothestype = clothestype;
         this.clothesPrice = clothesPrice;
         this.default_pic_url = default_pic_url;
+        this.used = true;
     }
 
     public Type(String schoolName, String clothestype, Double clothesPrice, String default_pic_url, Boolean used) {

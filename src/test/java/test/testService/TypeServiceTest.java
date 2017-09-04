@@ -24,6 +24,6 @@ public class TypeServiceTest extends BaseTest {
     @Test
     public void testFindAll() {
         List<Type> types = typeService.findAllTypes();
-        types.stream().forEach(Type::toString);
+        types.stream().forEach(type -> System.out.println(type.toString()));
     }
 }

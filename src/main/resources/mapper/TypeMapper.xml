@@ -18,7 +18,7 @@
 
     <select id="findAllTypesOfSchool" resultType="Type" parameterType="String">
        SELECT * FROM clothes_type
-       WHERE schoolName=#{schoolName}
+        WHERE schoolName=#{schoolName} AND used=TRUE
    </select>
 
     <select id="findAllTypes" resultType="Type">
