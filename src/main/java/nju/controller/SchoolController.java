@@ -1,5 +1,6 @@
 package nju.controller;
 
+import nju.domain.SClass;
 import nju.domain.School;
 import nju.domain.Type;
 import nju.domain.User;
@@ -241,14 +242,22 @@ public class SchoolController {
         System.out.println("==================================");
 
         School school = new School(schoolName, city.split("市")[0], district.split("区")[0], true);
-        //todo addSchool
-        Map<Integer, Integer> grade = new HashMap<>();
+        schoolService.addSchool(school);
+//        Map<Integer, Integer> grade = new HashMap<>();
         String[] grades = gradeList.split(";");
         String[] classes = classList.split(";");
+//        for(int i = 0; i < grades.length; i++){
+//            grade.put(Integer.parseInt(grades[i]), Integer.parseInt(classes[i]));
+//        }
+
         for(int i = 0; i < grades.length; i++){
-            grade.put(Integer.parseInt(grades[i]), Integer.parseInt(classes[i]));
+            for(int j = 1; j <= Integer.parseInt(classes[i]); j++){
+                SClass sClass = new SClass(schoolName, grades[i], j + "");
+                schoolService.addClass(sClass);
+            }
         }
-        //todo addClass
+
+        map.put("success", "true");
         return map;
     }
 
