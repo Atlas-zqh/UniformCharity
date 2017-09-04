@@ -13,7 +13,8 @@
     <div id="modifySchoolInfoContent">
         <div id="modifySchoolInfoBorder">
             <div id="addTypeView">
-                <h3>添<br>加<br>衣<br>物<br>种<br>类</h3>
+                <h3 id="addLabel">添<br>加<br>衣<br>物<br>种<br>类</h3>
+                <h3 id="modifyLabel" style="display: none;">修<br>改<br>衣<br>物<br>种<br>类</h3>
                 <h6 style="position: absolute; top: 2%; left: 23%;">默认图片</h6>
                 <form action=""
                       style="position: absolute; left: 10%; margin: 0; top: 15%;"
@@ -24,6 +25,8 @@
                         <input type="hidden" name="name" value="1" multiple id="name"/>
                         <input type="hidden" name="schoolNameInput" value="1" multiple id="schoolNameInput"/>
                         <input type="hidden" name="price" value="1" multiple id="price"/>
+                        <input type="hidden" name="price" value="1" multiple id="type"/>
+                        <input type="hidden" name="price" value="1" multiple id="oldType"/>
 
                     <div class="fallback">
                         <input name="file" type="file" multiple/>
@@ -37,6 +40,10 @@
                 <button class="mybt"
                         style="white-space: nowrap; position: absolute; margin-bottom: 0%; width: 40%; top: 85%; left: 55%; font-size: 1.5vmax"
                         id="submit-all">上&nbsp;传
+                </button>
+                <button class="mybt"
+                        style="display: none; white-space: nowrap; position: absolute; margin-bottom: 0%; width: 40%; top: 85%; left: 55%; font-size: 1.5vmax"
+                        id="modifyButton">修&nbsp;改
                 </button>
             </div>
             <div id="addStudentView">

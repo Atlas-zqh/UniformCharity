@@ -115,7 +115,6 @@
 
         Dropzone.prototype.Emitter = Emitter;
 
-
         /*
          This is a list of all available events you can register on a dropzone object.
 
@@ -127,7 +126,7 @@
         Dropzone.prototype.events = ["drop", "dragstart", "dragend", "dragenter", "dragover", "dragleave", "addedfile", "addedfiles", "removedfile", "thumbnail", "error", "errormultiple", "processing", "processingmultiple", "uploadprogress", "totaluploadprogress", "sending", "sendingmultiple", "success", "successmultiple", "canceled", "canceledmultiple", "complete", "completemultiple", "reset", "maxfilesexceeded", "maxfilesreached", "queuecomplete"];
 
         Dropzone.prototype.defaultOptions = {
-            url: '/schoolAction/uploadTypePic',
+            url: '/typeAction/uploadTypePic',
             method: "post",
             withCredentials: false,
             timeout: 30000,

@@ -44,6 +44,19 @@ public class ForumController {
         return map;
     }
 
+    @RequestMapping(value = "/getNewestPosts", method = RequestMethod.GET)
+    @ResponseBody
+    public Map<String, Object> getNewestPosts() {
+        Map<String, Object> map = new HashMap();
+
+        List<Post> posts = bbsService.getLatestTenPosts();
+
+        map.put("success", "true");
+        map.put("posts", posts);
+
+        return map;
+    }
+
     @RequestMapping(value = "/getPostsByBoard", method = RequestMethod.POST)
     @ResponseBody
     public Map<String, Object> getPostsByBoard(HttpServletRequest request) {

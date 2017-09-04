@@ -1,6 +1,7 @@
 /**
  * Created by island on 2017/8/27.
  */
+var originalType = "";
 Dropzone.options.myDropzone = {
     init: function () {
         this.on("addedfile", function (file) {
@@ -47,6 +48,8 @@ Dropzone.options.myDropzone = {
                 $('#name').val(name);
                 $('#price').val(price);
                 $('#schoolNameInput').val(school);
+                $('#type').val('add');
+
                 // alert(donor);
                 if ( name == "" || price == "") {
                     fail_alert("请填写完整信息！");
@@ -60,6 +63,62 @@ Dropzone.options.myDropzone = {
 
                 }
             }
+        });
+
+        var modifyButton = document.querySelector("#modifyButton")
+
+        modifyButton.addEventListener("click", function () {
+            if(myDropzone.files.length == 0){
+                fail_alert("请添加一张默认图片！");
+            }else {
+                // var school = $('#uploadSchoolDrop option:selected').text();
+                var name = $('#typeName').val();
+                var price = $('#typePrice').val();
+                var school = $('#schoolName').html();
+
+                $('#name').val(name);
+                $('#price').val(price);
+                $('#schoolNameInput').val(school);
+                $('#type').val('modify');
+
+                // alert(donor);
+                if ( name == "" || price == "") {
+                    fail_alert("请填写完整信息！");
+                } else {
+                    if(price.match(/^(:?(:?\d+.\d+)|(:?\d+))$/)){
+                        myDropzone.processQueue(); // Tell Dropzone to process all queued files.
+
+                    }else{
+                        fail_alert('价格只能输入数字！');
+                    }
+
+                }
+            }
+
+            // if(myDropzone.files.length == 0){
+            //     fail_alert("请添加一张默认图片！");
+            // }else {
+            //     // var school = $('#uploadSchoolDrop option:selected').text();
+            //     var name = $('#typeName').val();
+            //     var price = $('#typePrice').val();
+            //     var school = $('#schoolName').html();
+            //
+            //     $('#name').val(name);
+            //     $('#price').val(price);
+            //     $('#schoolNameInput').val(school);
+            //     // alert(donor);
+            //     if ( name == "" || price == "") {
+            //         fail_alert("请填写完整信息！");
+            //     } else {
+            //         if(price.match(/^(:?(:?\d+.\d+)|(:?\d+))$/)){
+            //             myDropzone.processQueue(); // Tell Dropzone to process all queued files.
+            //
+            //         }else{
+            //             fail_alert('价格只能输入数字！');
+            //         }
+            //
+            //     }
+            // }
         });
 
     }
@@ -192,4 +251,26 @@ function addStudents() {
             }
         });
     }
+}
+
+function showTypeInfo(){
+    $.ajax({
+        url: "schoolAction/modifyType",
+        type: 'POST',
+        data: {
+            'school': document.getElementById('schoolName').innerHTML,
+            'originalType': originalType
+        },
+        dataType: 'json',
+        success: function (data) {
+            if (data.success == 'true'){
+
+            }else{
+                fail_alert('获取种类信息失败...请重试');
+            }
+        },
+        error: function (data) {
+            fail_alert('获取信息失败...');
+        }
+    })
 }

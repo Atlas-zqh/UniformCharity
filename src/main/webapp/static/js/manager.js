@@ -142,7 +142,13 @@ function searchSchool() {
 
                     var a = document.createElement('a');
                     a.onclick = function () {
-                        //todo;
+                        originalType = item.clothestype;
+                        showAddTypeView();
+                        $('#addLabel').css('display', 'none');
+                        $('#modifyLabel').css('display', 'block');
+                        $('#submit-all').css('display', 'none');
+                        $('#modifyButton').css('display', 'block');
+                        showTypeInfo();
                     };
                     a.appendChild(document.createTextNode(item.clothestype));
                     typeTh2.appendChild(a);
