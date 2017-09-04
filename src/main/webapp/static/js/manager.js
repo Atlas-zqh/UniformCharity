@@ -297,7 +297,7 @@ function addSchool() {
                             resetAddSchool();
                             scrollToTop();
                         } else {
-                            fail_alert('获取信息失败...');
+                            fail_alert(data.error);
                         }
                     },
                     error: function (data) {

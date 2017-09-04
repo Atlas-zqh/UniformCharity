@@ -7,23 +7,18 @@ import nju.domain.User;
 import nju.service.SchoolService;
 import nju.service.TypeService;
 import nju.service.UserService;
-import org.apache.commons.collections.map.HashedMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
-import org.springframework.web.multipart.MultipartResolver;
-import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import java.io.File;
-import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by island on 2017/7/18.
@@ -46,7 +41,7 @@ public class SchoolController {
         Map<String, Object> map = new HashMap();
         List<School> schools = schoolService.getAllSchools();
         List<String> s = new ArrayList<>();
-        for(int i = 0; i < schools.size(); i++){
+        for (int i = 0; i < schools.size(); i++) {
             s.add(schools.get(i).getSchoolName());
             System.out.println(schools.get(i).getSchoolName());
         }
@@ -63,7 +58,7 @@ public class SchoolController {
         Map<String, List<String>> grades = schoolService.findClassBySchool(school);
 
         List<String> gs = new ArrayList<>();
-        for(String s: grades.keySet()){
+        for (String s : grades.keySet()) {
             gs.add(s);
         }
 
@@ -82,8 +77,8 @@ public class SchoolController {
         Map<String, List<String>> grades = schoolService.findClassBySchool(school);
 
         List<String> cs = new ArrayList<>();
-        for(String s: grades.keySet()){
-            if(s.equals(grade)) {
+        for (String s : grades.keySet()) {
+            if (s.equals(grade)) {
                 cs = grades.get(s);
             }
         }
@@ -131,7 +126,7 @@ public class SchoolController {
 
         List<String> schoolNames = new ArrayList<>();
 
-        for (int i = 0; i < schools.size(); i++){
+        for (int i = 0; i < schools.size(); i++) {
             schoolNames.add(schools.get(i).getSchoolName());
         }
         map.put("success", "true");
@@ -151,8 +146,8 @@ public class SchoolController {
 
 
         int max_num = 0;
-        for(String g: grades.keySet()){
-            if(grades.get(g).size() > max_num){
+        for (String g : grades.keySet()) {
+            if (grades.get(g).size() > max_num) {
                 max_num = grades.get(g).size();
             }
         }
@@ -179,8 +174,8 @@ public class SchoolController {
         String grade = request.getParameter("grade");
         Map<String, List<String>> grades = schoolService.findClassBySchool(school);
 
-        for(String g: grades.keySet()){
-            if(g.equals(grade)){
+        for (String g : grades.keySet()) {
+            if (g.equals(grade)) {
                 map.put("success", "true");
                 map.put("classes", grades.get(g));
             }
@@ -205,17 +200,17 @@ public class SchoolController {
         Map<String, List<String>> classes = schoolService.findClassBySchool(schoolName);
 
         List<String> grades = new ArrayList<>();
-        for(String grade: classes.keySet()){
+        for (String grade : classes.keySet()) {
             grades.add(grade + ";" + classes.get(grade).size());
         }
-        if(schools != null && schools.size() > 0) {
+        if (schools != null && schools.size() > 0) {
             School school = schools.get(0);
             map.put("success", "true");
             map.put("school", school);
             map.put("types", types);
             map.put("students", users);
             map.put("grades", grades);
-        }else{
+        } else {
             map.put("success", "false");
         }
         return map;
@@ -251,15 +246,74 @@ public class SchoolController {
 //            grade.put(Integer.parseInt(grades[i]), Integer.parseInt(classes[i]));
 //        }
 
-        for(int i = 0; i < grades.length; i++){
-            for(int j = 1; j <= Integer.parseInt(classes[i]); j++){
+        for (int i = 0; i < grades.length; i++) {
+            for(int j = 0; j < i; j++){
+                if(grades[i].equals(grades[j])){
+                    map.put("success", "false");
+                    map.put("error", "请勿输入相同的入学年份！");
+                    return map;
+                }
+            }
+        }
+
+        for (int i = 0; i < grades.length; i++) {
+            for (int j = 1; j <= Integer.parseInt(classes[i]); j++) {
                 SClass sClass = new SClass(schoolName, grades[i], j + "");
                 schoolService.addClass(sClass);
             }
         }
 
         map.put("success", "true");
+        map.put("error", "添加学校失败...");
         return map;
     }
 
+    @RequestMapping(value = "/modifyGrades", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Object> modifyGrades(HttpServletRequest request) {
+        Map<String, Object> map = new HashMap();
+
+
+        String schoolName = request.getParameter("name");
+        String gradeList = request.getParameter("grade");
+        String classList = request.getParameter("class");
+
+
+        System.out.println("==================================");
+        System.out.println("schoolName:" + schoolName);
+        System.out.println("grade:" + gradeList);
+        System.out.println("class:" + classList);
+        System.out.println("==================================");
+
+        Map<String, List<String>> classMap = schoolService.findClassBySchool(schoolName);
+//        schoolService.
+
+//        Map<Integer, Integer> grade = new HashMap<>();
+        String[] grades = gradeList.split(";");
+        String[] classes = classList.split(";");
+//        for(int i = 0; i < grades.length; i++){
+//            grade.put(Integer.parseInt(grades[i]), Integer.parseInt(classes[i]));
+//        }
+
+        for (int i = 0; i < grades.length; i++) {
+            for(int j = 0; j < i; j++){
+                if(grades[i].equals(grades[j])){
+                    map.put("success", "false");
+                    map.put("error", "请勿输入相同的入学年份！");
+                    return map;
+                }
+            }
+        }
+
+        for (int i = 0; i < grades.length; i++) {
+            for (int j = 1; j <= Integer.parseInt(classes[i]); j++) {
+                SClass sClass = new SClass(schoolName, grades[i], j + "");
+//                schoolService.addClass(sClass);
+            }
+        }
+
+        map.put("success", "true");
+        map.put("error", "修改班级信息失败...");
+        return map;
+    }
 }
