@@ -28,7 +28,7 @@ function getGradeAndClass() {
 
 function getAllGrades(id) {
     var school = $('#schoolDrop option:selected').text();
-    if (school == ""){
+    if (school == "") {
         school = $('#schoolLabel').val();
     }
     clearSelectList(id);
@@ -58,7 +58,7 @@ function getAllGrades(id) {
 function getAllClass(id) {
     var school = $('#schoolDrop option:selected').text();
     var grade = $('#gradeDrop option:selected').text();
-    if (school == ""){
+    if (school == "") {
         school = $('#schoolLabel').val();
     }
     clearSelectList(id);
@@ -93,7 +93,7 @@ function getAllTransaction() {
         async: false,
         success: function (data) {
             if (data.success == "true") {
-                $.each(data.transactions, function(i, item) {
+                $.each(data.transactions, function (i, item) {
                     var scroll = document.getElementById('scroll4');
 
                     var li = document.createElement('li');
@@ -131,3 +131,56 @@ function getAllTransaction() {
     });
 }
 
+function getPosts() {
+    $.ajax({
+        url: "/forumAction/getNewestPosts",
+        type: "GET",
+        async: false,
+        success: function (data) {
+            if (data.success == "true") {
+                $.each(data.posts, function (i, item) {
+                    var table = document.getElementById('postTable');
+
+                    var tr = document.createElement('tr');
+                    tr.class = 'bodyTr';
+                    table.appendChild(tr);
+
+                    var td1 = document.createElement('td');
+                    td1.width = '70%';
+                    table.appendChild(td1);
+
+                    var a = document.createElement('a');
+                    a.onclick = function () {
+                        window.open('../jsp/article.jsp?id=' + item.post_id);
+                    };
+                    a.appendChild(document.createTextNode(item.post_topic));
+                    td1.appendChild(a);
+
+                    var td2 = document.createElement('td');
+                    td2.width = '15%';
+                    table.appendChild(td2);
+                    var user = document.createElement('a');
+                    user.onclick = function () {
+                        window.open('../jsp/friendInfo.jsp?id=' + item.post_uid);
+                    };
+                    user.appendChild(document.createTextNode(data.users[i]));
+                    td2.appendChild(user);
+
+                    var td3 = document.createElement('td');
+                    td3.width = '15%';
+                    td3.style.color = '#ffffff';
+                    table.appendChild(td3);
+                    td3.appendChild(document.createTextNode(item.post_commentcount));
+                });
+                return;
+            }
+            else {
+                fail_alert("获取文章失败");
+                return;
+            }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            fail_alert("哎呀，网络似乎不太好...");
+        }
+    });
+}

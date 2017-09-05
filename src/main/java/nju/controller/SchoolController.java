@@ -247,8 +247,8 @@ public class SchoolController {
 //        }
 
         for (int i = 0; i < grades.length; i++) {
-            for(int j = 0; j < i; j++){
-                if(grades[i].equals(grades[j])){
+            for (int j = 0; j < i; j++) {
+                if (grades[i].equals(grades[j])) {
                     map.put("success", "false");
                     map.put("error", "请勿输入相同的入学年份！");
                     return map;
@@ -296,8 +296,8 @@ public class SchoolController {
 //        }
 
         for (int i = 0; i < grades.length; i++) {
-            for(int j = 0; j < i; j++){
-                if(grades[i].equals(grades[j])){
+            for (int j = 0; j < i; j++) {
+                if (grades[i].equals(grades[j])) {
                     map.put("success", "false");
                     map.put("error", "请勿输入相同的入学年份！");
                     return map;
@@ -306,9 +306,16 @@ public class SchoolController {
         }
 
         for (int i = 0; i < grades.length; i++) {
+            List<String> oldClass = classMap.get(grades[i]);
             for (int j = 1; j <= Integer.parseInt(classes[i]); j++) {
                 SClass sClass = new SClass(schoolName, grades[i], j + "");
-                //todo
+                if (oldClass == null) {
+                    schoolService.addClass(sClass);
+                } else {
+                    if (!oldClass.contains(j + "")) {
+                        schoolService.addClass(sClass);
+                    }
+                }
 //                schoolService.addClass(sClass);
             }
         }

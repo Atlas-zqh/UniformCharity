@@ -50,9 +50,19 @@ public class ForumController {
         Map<String, Object> map = new HashMap();
 
         List<Post> posts = bbsService.getLatestTenPosts();
+        List<String> users = new ArrayList<>();
+        try {
+            for (int i = 0; i < posts.size(); i++) {
+                users.add(userService.findUserByID(posts.get(i).getPost_uid()).getUsername());
+            }
 
-        map.put("success", "true");
-        map.put("posts", posts);
+            map.put("success", "true");
+            map.put("posts", posts);
+            map.put("users", users);
+        }catch (Exception e){
+            map.put("success", "false");
+            e.printStackTrace();
+        }
 
         return map;
     }
