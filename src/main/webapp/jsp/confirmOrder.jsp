@@ -57,7 +57,7 @@
                 <tr>
                     <th style="width: 10%">
                         <div class="imageBox">
-                            <img src="" class="largeImage" id="pic"/>
+                            <img src="" class="largeImage" id="pic" style=" max-width:10vw; max-height: 10vw;"/>
                         </div>
                     </th>
                     <th style="width: 20%">
