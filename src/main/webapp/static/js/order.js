@@ -20,7 +20,7 @@ function getOrders(page, status) {
                 if (data.maxSize != 0) {
                     $('#noRecordLabel').css("display", "none");
                     $.each(data.order, function (i, item) {
-                        addSingleOrder(item.startTime, item.orderID, data.pics[i], item.clothesID, item.donorID, data.orderPrice[i], item.orderStatus);
+                        addSingleOrder(data.times[i], item.orderID, data.pics[i], item.clothesID, item.donorID, data.orderPrice[i], item.orderStatus, data.usernames[i], data.clothes[i]);
                         // addSingleCreditRecord(i, item.createTime, item.recordtype, item.clothesID, item.variance, item.afterCredits)
                         // addSingleClothesPanel(item, data.pics[i], data.username[i], data.prices[i]);
                     });
@@ -142,10 +142,11 @@ function colorRGB2Hex(color) {
     return hex.toUpperCase();
 }
 
-function addSingleOrder(date, orderID, picurl, clothesID, userID, price, status) {
+function addSingleOrder(date, orderID, picurl, clothesID, userID, price, status, username, clothes) {
     var body = document.getElementById('body');
     var table = document.createElement("table");
     table.className = "table-content";
+    table.style.marginBottom = '5%';
     // table.style.top = (2 + 20*i) + '%';
     body.appendChild(table);
 
@@ -157,7 +158,7 @@ function addSingleOrder(date, orderID, picurl, clothesID, userID, price, status)
     tbody1.appendChild(tr1);
 
 
-    var width = new Array("10%", "30%", "20%", "10%", "10%", "10%");
+    var width = new Array("15%", "25%", "20%", "10%", "10%", "10%");
 
     for (var i = 0; i < 6; i++) {
         var td = document.createElement("td");
@@ -172,21 +173,22 @@ function addSingleOrder(date, orderID, picurl, clothesID, userID, price, status)
     table.appendChild(tbody2);
 
     var tr2 = document.createElement("tr");
+    tr2.style.height = '10vw';
     tbody2.appendChild(tr2);
 
     var th1 = document.createElement("th");
-    th1.style.width = "10%";
+    th1.style.width = "15%";
     var a1 = document.createElement("a");
     // a.href = "../jsp/clothesDetail?id=" + clothesID;
     a1.onclick = function () {
-        window.open("../jsp/orderDetails?id=" + orderID);
+        window.open("../jsp/orderDetails.jsp?id=" + orderID);
     };
     a1.appendChild(document.createTextNode(orderID));
     th1.appendChild(a1);
     tr2.appendChild(th1);
 
     var th2 = document.createElement("th");
-    th2.style.width = "30%";
+    th2.style.width = "25%";
     var div = document.createElement("div");
     div.className = 'imageBox';
     th2.appendChild(div);
@@ -200,7 +202,9 @@ function addSingleOrder(date, orderID, picurl, clothesID, userID, price, status)
         window.open("../jsp/clothesDetail?id=" + clothesID);
     };
     a.className = "nameP";
-    a.appendChild(document.createTextNode(clothesID));
+    a.appendChild(document.createTextNode(clothes.schoolName + '-' + clothes.clothesType + '-' + clothes.gender + clothes.clothesHeight));
+    a.style.marginTop = '-2.5%';
+    a.style.marginLeft = '4%';
     th2.appendChild(a);
     tr2.appendChild(th2);
 
@@ -220,7 +224,7 @@ function addSingleOrder(date, orderID, picurl, clothesID, userID, price, status)
     }    // a3.onclick = function () {
     //     window.open("../jsp/orderDetails?id=" + orderID);
     // };
-    a3.appendChild(document.createTextNode(userID));
+    a3.appendChild(document.createTextNode(username));
     th3.appendChild(a3);
     tr2.appendChild(th3);
 
@@ -237,7 +241,7 @@ function addSingleOrder(date, orderID, picurl, clothesID, userID, price, status)
     th6.style.width = "10%";
     var button = document.createElement("button");
     button.className = "mybt orderbt";
-    status = parseInt(data.order.orderStatus);
+    status = parseInt(status);
     if (status == -1) {
         th5.appendChild(document.createTextNode("已撤销订单"));
         button.appendChild(document.createTextNode("查看订单"));
@@ -288,7 +292,7 @@ function processOrder(type, orderID) {
         });
     }
     if (type == "立即付款") {
-        window.location.href("../jsp/pay.jsp?id=" + orderID);
+        window.open("../jsp/pay.jsp?id=" + orderID);
     }
 }
 

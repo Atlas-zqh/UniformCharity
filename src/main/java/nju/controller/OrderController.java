@@ -17,7 +17,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -64,7 +66,7 @@ public class OrderController {
             order.setClothesID(clothesID);
             order.setDonorID(clothes.getDonorID());
             order.setBuyerID(buyer);
-            order.setOrderStatus(2);
+            order.setOrderStatus(Order.Confirmed_Unpaied);
             order.setAuthority(0);
             String id = "";
             orderService.createOrder(order);
@@ -135,31 +137,42 @@ public class OrderController {
 
         //获得订单
         if (orderPageInfo != null) {
-            List<Order> order = orderPageInfo.getList();
-            long maxPage = orderPageInfo.getTotal();
-            List<Clothes> clothesList = new ArrayList<>();
-            List<Double> priceList = new ArrayList<>();
-            List<String> picsList = new ArrayList<>();
-            // 获得订单对应衣物
-            for (int i = 0; i < order.size(); i++) {
-                String clothesID = order.get(i).getClothesID();
-                Clothes clothes = clothesService.findClothesByClothesID(clothesID);
-                clothesList.add(clothes);
-                String school = clothes.getSchoolName();
-                String type = clothes.getClothesType();
-                double price = typeService.findType(school, type).getClothesPrice();
-                priceList.add(price);
-                //获得衣物图片
-                List<String> pics = clothesService.findPicsByClothesID(clothesID);
-                picsList.add(pics.get(0));
-            }
+            try {
+                List<Order> order = orderPageInfo.getList();
+                long maxPage = orderPageInfo.getTotal();
+                List<Clothes> clothesList = new ArrayList<>();
+                List<Double> priceList = new ArrayList<>();
+                List<String> picsList = new ArrayList<>();
+                List<String> times = new ArrayList<>();
+                List<String> donerNames = new ArrayList<>();
+                // 获得订单对应衣物
+                for (int i = 0; i < order.size(); i++) {
+                    String clothesID = order.get(i).getClothesID();
+                    Clothes clothes = clothesService.findClothesByClothesID(clothesID);
+                    clothesList.add(clothes);
+                    String school = clothes.getSchoolName();
+                    String type = clothes.getClothesType();
+                    double price = typeService.findType(school, type).getClothesPrice();
+                    priceList.add(price);
+                    //获得衣物图片
+                    List<String> pics = clothesService.findPicsByClothesID(clothesID);
+                    picsList.add(pics.get(0));
+                    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+                    times.add(simpleDateFormat.format(new Date(order.get(i).getStartTime())));
+                    donerNames.add(userService.findUserByID(order.get(i).getDonorID()).getUsername());
+                }
 
-            map.put("success", "true");
-            map.put("maxSize", maxPage);
-            map.put("order", order);
-            map.put("orderPrice", priceList);
-            map.put("clothes", clothesList);
-            map.put("pics", picsList);
+                map.put("success", "true");
+                map.put("maxSize", maxPage);
+                map.put("order", order);
+                map.put("orderPrice", priceList);
+                map.put("clothes", clothesList);
+                map.put("pics", picsList);
+                map.put("times", times);
+                map.put("usernames", donerNames);
+            } catch (Exception e) {
+                map.put("success", "false");
+            }
         } else {
             map.put("success", "false");
 
@@ -258,7 +271,7 @@ public class OrderController {
         }
 
         List<String> transactions = new ArrayList<>();
-        for (int i = 0; i < orders.size(); i++){
+        for (int i = 0; i < orders.size(); i++) {
             String s = "";
             Order order = orders.get(i);
             String bid = order.getBuyerID();
@@ -269,7 +282,7 @@ public class OrderController {
                 Type type = typeService.findType(clothes.getSchoolName(), clothes.getClothesType());
                 s = user.getUsername() + "(" + user.getRealName() + ")" + "购买了一件衣物，价值" + type.getClothesPrice() + "元。";
                 transactions.add(s);
-            }catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }

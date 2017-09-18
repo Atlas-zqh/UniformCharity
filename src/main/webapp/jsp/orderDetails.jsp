@@ -23,7 +23,6 @@
             var orderID = getArgsFromHref(window.location.href, "orderID");
             $('#orderID').html(orderID);
             findOrderByID(orderID);
-
         });
     </script>
 </head>
@@ -95,7 +94,7 @@
                 <tr>
                     <th style="width: 10%">
                         <div class="imageBox">
-                            <img src="../images/mainBG2.png" class="largeImage" id="pic"/>
+                            <img src="../images/mainBG2.png" class="largeImage" id="pic" style="max-height: 10vw; max-width: 10vw;"/>
                         </div>
                     </th>
                     <th style="width: 20%">

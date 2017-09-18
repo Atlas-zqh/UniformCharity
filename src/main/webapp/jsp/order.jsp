@@ -45,10 +45,10 @@
                     <table class="table-head">
                         <tbody>
                         <tr>
-                            <th style="width: 10%">
+                            <th style="width: 15%">
                                 编号
                             </th>
-                            <th style="width: 30%">
+                            <th style="width: 25%">
                                 品名
                             </th>
                             <th style="width: 20%">
@@ -126,7 +126,7 @@
                             上一页
                         </button>
                     </div>
-                    <iframe src="orderList.jsp?page=1&status=3" style="width: 100%; height: 80%"></iframe>
+                    <iframe src="orderList.jsp?page=1&status=2" style="width: 100%; height: 80%"></iframe>
 
                 </div>
                 <div class="am-tab-panel" style="height: 65%">
@@ -167,7 +167,7 @@
                             上一页
                         </button>
                     </div>
-                    <iframe src="orderList.jsp?page=1&status=2" style="width: 100%; height: 80%"></iframe>
+                    <iframe src="orderList.jsp?page=1&status=3" style="width: 100%; height: 80%"></iframe>
 
                 </div>
                 <div class="am-tab-panel" style="height: 65%">

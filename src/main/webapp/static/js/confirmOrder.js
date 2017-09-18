@@ -1,11 +1,6 @@
 /**
  * Created by island on 2017/7/26.
  */
-$(document).ready(function () {
-    checkCookie();
-    var clothesID = (decodeURIComponent(getArgsFromHref(window.location.href, 'id')).split('#')[0]);
-    findClothesByID(clothesID);
-});
 
 function findClothesByID(clothesID) {
     $('#clothesID').val(clothesID);
@@ -100,8 +95,16 @@ function findOrderByID(id) {
         },
         async: false,
         success: function (data) {
-            if (data.result == "success") {
+            if (data.success == "true") {
                 $('#data').html(data.order.startTime);
+                $('#pic').attr("src", data.pic);
+                $('#title').html(data.clothes.school + data.clothes.clothesType);
+                $('#school').html(data.clothes.school);
+                $('#type').html(data.clothes.clothesType);
+                $('#size').html(data.clothes.clothessize);
+                $('#gender').html(data.clothes.gender);
+                $('#price').html(data.clothes.orderPrice);
+
                 var status = parseInt(data.order.orderStatus);
                 if (status == -1) {
                     $('#status').html("已撤销订单");
@@ -124,17 +127,11 @@ function findOrderByID(id) {
                     $('#doButton').css("display", "none");
                     $('#image').attr("src", "../static/images/procedure4.png");
                 }
-                $('#pic').attr("src", data.pic);
-                $('#title').html(data.clothes.school + data.clothes.clothesType);
-                $('#school').html(data.clothes.school);
-                $('#type').html(data.clothes.clothesType);
-                $('#size').html(data.clothes.clothessize);
-                $('#gender').html(data.clothes.gender);
-                $('#price').html(data.clothes.orderPrice);
+
 
                 return;
             }
-            if (data.result == "fail") {
+            if (data.success == "false") {
                 fail_alert("哎呀，获取订单失败...");
                 return;
             }
