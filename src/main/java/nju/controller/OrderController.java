@@ -86,30 +86,43 @@ public class OrderController {
         Map<String, Object> map = new HashedMap();
 
         String orderID = request.getParameter("orderID");
-        System.out.println("orderID");
+        System.out.println("==============================");
+        System.out.println(orderID);
+        System.out.println("==============================");
 
         //获得订单
         Order order = orderService.findOrderByOrderID(orderID);
-        if (order != null) {
-            // 获得订单对应衣物
-            String clothesID = order.getClothesID();
-            Clothes clothes = clothesService.findClothesByClothesID(clothesID);
-            String school = clothes.getSchoolName();
-            String type = clothes.getClothesType();
-            //获得衣物对应价格
-            double price = typeService.findType(school, type).getClothesPrice();
-            //获得衣物图片
-            List<String> pics = clothesService.findPicsByClothesID(clothesID);
-            map.put("success", "true");
-            map.put("order", order);
-            map.put("orderPrice", price);
-            map.put("clothes", clothes);
-            if (pics.size() > 0) {
-                map.put("pic", pics.get(0));
-            }
-        } else {
-            map.put("success", "false");
+        try {
+            if (order != null) {
+                // 获得订单对应衣物
+                String clothesID = order.getClothesID();
+                Clothes clothes = clothesService.findClothesByClothesID(clothesID);
+                String school = clothes.getSchoolName();
+                String type = clothes.getClothesType();
+                //获得衣物对应价格
+                double price = typeService.findType(school, type).getClothesPrice();
+                //获得衣物图片
+                List<String> pics = clothesService.findPicsByClothesID(clothesID);
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+                String time = simpleDateFormat.format(new Date(order.getStartTime()));
 
+                String username = (userService.findUserByID(order.getDonorID()).getUsername());
+
+                map.put("success", "true");
+                map.put("order", order);
+                map.put("orderPrice", price);
+                map.put("clothes", clothes);
+                map.put("time", time);
+                map.put("username", username);
+                if (pics.size() > 0) {
+                    map.put("pic", pics.get(0));
+                }
+            } else {
+                map.put("success", "false");
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
         return map;

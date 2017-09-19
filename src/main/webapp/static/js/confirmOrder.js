@@ -96,14 +96,19 @@ function findOrderByID(id) {
         async: false,
         success: function (data) {
             if (data.success == "true") {
-                $('#data').html(data.order.startTime);
+                $('#data').html(data.time);
                 $('#pic').attr("src", data.pic);
-                $('#title').html(data.clothes.school + data.clothes.clothesType);
-                $('#school').html(data.clothes.school);
+                $('#title').html(data.clothes.schoolName + '-' + data.clothes.clothesType);
+                $('#school').html(data.clothes.schoolName);
                 $('#type').html(data.clothes.clothesType);
-                $('#size').html(data.clothes.clothessize);
+                $('#size').html(data.clothes.clothesHeight);
                 $('#gender').html(data.clothes.gender);
-                $('#price').html(data.clothes.orderPrice);
+                $('#price').html('¥ ' + data.orderPrice);
+
+                $('#user').text(data.username);
+                $('#user').click(function () {
+                   window.open('../jsp/friendInfo.jsp?id=' + data.clothes.donorID);
+                });
 
                 var status = parseInt(data.order.orderStatus);
                 if (status == -1) {

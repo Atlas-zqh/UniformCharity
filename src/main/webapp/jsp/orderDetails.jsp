@@ -20,7 +20,7 @@
     <script>
         $(document).ready(function () {
             checkCookie();
-            var orderID = getArgsFromHref(window.location.href, "orderID");
+            var orderID = getArgsFromHref(window.location.href, "id");
             $('#orderID').html(orderID);
             findOrderByID(orderID);
         });
@@ -40,13 +40,13 @@
                         订单号
                     </th>
                     <th style="width: 20%" id="orderID">
-                        111111
+
                     </th>
                     <th style="width: 10%">
                         日期
                     </th>
                     <th style="width: 10%" id="date">
-                        111111
+
                     </th>
                     <th style="width: 10%">
 
@@ -58,7 +58,7 @@
                         订单状态
                     </th>
                     <th style="width: 10%" id="status">
-                        待付款
+
                     </th>
                 </tr>
                 </tbody>
@@ -94,29 +94,29 @@
                 <tr>
                     <th style="width: 10%">
                         <div class="imageBox">
-                            <img src="../images/mainBG2.png" class="largeImage" id="pic" style="max-height: 10vw; max-width: 10vw;"/>
+                            <img src="" class="largeImage" id="pic" style="max-height: 10vw; max-width: 10vw;"/>
                         </div>
                     </th>
                     <th style="width: 20%">
-                        <a href="" id="title">南京外国语学校仙林分校夏季男款短袖</a>
+                        <a href="" id="title"></a>
                     </th>
                     <th style="width: 20%" id="school">
-                        南京外国语学校仙林分校
+
                     </th>
                     <th style="width: 10%" id="type">
-                        夏季短袖
+
                     </th>
                     <th style="width: 10%" id="size">
-                        M
+
                     </th>
                     <th style="width: 10%" id="gender">
-                        男
+
                     </th>
-                    <th style="width: 10%" id="user">
-                        <a href=""> ADMIN</a>
+                    <th style="width: 10%">
+                        <a href="" id="user"></a>
                     </th>
                     <th style="width: 10%" id="price">
-                        ¥188.00
+
                     </th>
                 </tr>
                 </tbody>
