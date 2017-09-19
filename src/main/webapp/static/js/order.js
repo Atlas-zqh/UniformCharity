@@ -199,7 +199,7 @@ function addSingleOrder(date, orderID, picurl, clothesID, userID, price, status,
     var a = document.createElement("a");
     // a.href = "../jsp/clothesDetail?id=" + clothesID;
     a.onclick = function () {
-        window.open("../jsp/clothesDetail?id=" + clothesID);
+        window.open("../jsp/clothesDetails.jsp?id=" + clothesID);
     };
     a.className = "nameP";
     a.appendChild(document.createTextNode(clothes.schoolName + '-' + clothes.clothesType + '-' + clothes.gender + clothes.clothesHeight));
@@ -245,22 +245,30 @@ function addSingleOrder(date, orderID, picurl, clothesID, userID, price, status,
     if (status == -1) {
         th5.appendChild(document.createTextNode("已撤销订单"));
         button.appendChild(document.createTextNode("查看订单"));
-        button.onclick = processOrder("查看订单");
+        button.onclick = function () {
+            processOrder("查看订单", orderID);
+        };
     }
     if (status == 1) {
         th5.appendChild(document.createTextNode("待交易订单"));
         button.appendChild(document.createTextNode("确认交易"));
-        button.onclick = processOrder("确认交易");
+        button.onclick = function () {
+            processOrder("确认交易", orderID);
+        };
     }
     if (status == 2) {
         th5.appendChild(document.createTextNode("待付款订单"));
         button.appendChild(document.createTextNode("立即付款"));
-        button.onclick = processOrder("立即付款");
+        button.onclick = function () {
+            processOrder("立即付款", orderID);
+        };
     }
     if (status == 3) {
         th5.appendChild(document.createTextNode("已完成订单"));
         button.appendChild(document.createTextNode("查看订单"));
-        button.onclick = processOrder("查看订单");
+        button.onclick = function() {
+            processOrder("查看订单", orderID);
+        };
     }
     th6.appendChild(button);
     tr2.appendChild(th6);
@@ -268,7 +276,7 @@ function addSingleOrder(date, orderID, picurl, clothesID, userID, price, status,
 
 function processOrder(type, orderID) {
     if (type == "查看订单") {
-        window.location.href("../jsp/orderDetail.jsp?id=" + orderID);
+        window.open("../jsp/orderDetails.jsp?id=" + orderID);
     }
     if (type == "确认交易") {
         jQuery.ajax({
@@ -280,7 +288,7 @@ function processOrder(type, orderID) {
             dataType: 'json',
             success: function (data) {
                 if (data && data.success == "true") {
-                    window.location.href("../jsp/order.jsp");
+                    window.parent.location.href = ("../jsp/order.jsp");
                     success_alert("确认成功");
                 } else {
                     fail_alert("确认失败，网络似乎不太好...");

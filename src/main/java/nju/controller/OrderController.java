@@ -199,7 +199,9 @@ public class OrderController {
         Map<String, Object> map = new HashedMap();
 
         String orderID = request.getParameter("orderID");
-        System.out.println("orderID");
+        System.out.println("==============================");
+        System.out.println(orderID);
+        System.out.println("==============================");
 
         //获得订单
         Order order = orderService.findOrderByOrderID(orderID);
@@ -222,7 +224,10 @@ public class OrderController {
         Map<String, Object> map = new HashedMap();
 
         String orderID = request.getParameter("orderID");
-        System.out.println("orderID");
+        System.out.println("==============================");
+        System.out.println(orderID);
+        System.out.println("==============================");
+
         //获得订单
         Order order = orderService.findOrderByOrderID(orderID);
         order.setOrderStatus(Order.ToBeTraded);

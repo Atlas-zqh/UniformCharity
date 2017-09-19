@@ -37,8 +37,8 @@
             <ul class="am-tabs-nav am-nav am-nav-tabs am-nav-justify">
                 <li class="am-active"><a href="" class="tab" onclick="change('#all')" id="all">所有订单</a></li>
                 <li><a href="" class="tab" id="unpaid" onclick="change('#unpaid')">待付款订单</a></li>
-                <li><a href="" class="tab" id="uncomformed" onclick="change('#uncomformed')">待确认订单</a></li>
-                <li><a href="" class="tab" id="unchecked" onclick="change('#unchecked')">待收货订单</a></li>
+                <li><a href="" class="tab" id="uncomformed" onclick="change('#uncomformed')">待收货订单</a></li>
+                <li><a href="" class="tab" id="unchecked" onclick="change('#unchecked')">已完成订单</a></li>
             </ul>
             <div class="am-tabs-bd">
                 <div class="am-tab-panel am-active" style="height: 65%">
@@ -167,7 +167,7 @@
                             上一页
                         </button>
                     </div>
-                    <iframe src="orderList.jsp?page=1&status=3" style="width: 100%; height: 80%"></iframe>
+                    <iframe src="orderList.jsp?page=1&status=1" style="width: 100%; height: 80%"></iframe>
 
                 </div>
                 <div class="am-tab-panel" style="height: 65%">
@@ -208,7 +208,7 @@
                             上一页
                         </button>
                     </div>
-                    <iframe src="orderList.jsp?page=1&status=1" style="width: 100%; height: 80%"></iframe>
+                    <iframe src="orderList.jsp?page=1&status=3" style="width: 100%; height: 80%"></iframe>
 
                 </div>
             </div>

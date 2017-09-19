@@ -160,7 +160,7 @@ function processOrder() {
             dataType: 'json',
             success: function (data) {
                 if (data && data.success == "true") {
-                    window.location.href("../jsp/order.jsp");
+                    window.location.href = ("../jsp/order.jsp");
                     success_alert("确认成功");
                 } else {
                     fail_alert("确认失败，网络似乎不太好...");
@@ -177,7 +177,7 @@ function processOrder() {
 }
 
 function cancelOrder() {
-    var orderID = $('#orderID').val();
+    var orderID = $('#orderID').html();
     jQuery.ajax({
         type: 'POST',
         url: '/orderAction/cancelOrder',
@@ -187,8 +187,30 @@ function cancelOrder() {
         dataType: 'json',
         success: function (data) {
             if (data && data.success == "true") {
-                window.location.href("../jsp/confirmOrder.jsp?id=" + orderID);
+                window.location.href = ("../jsp/orderDetails.jsp?id=" + orderID);
                 success_alert("取消订单成功");
+            } else {
+                fail_alert("确认失败，网络似乎不太好...");
+            }
+        },
+        error: function () {
+            fail_alert("哎呀呀，网络似乎不太好...")
+        }
+    });
+}
+
+function payOrder(orderID) {
+    jQuery.ajax({
+        type: 'POST',
+        url: '/orderAction/payOrder',
+        data: {
+            "orderID": orderID
+        },
+        dataType: 'json',
+        success: function (data) {
+            if (data && data.success == "true") {
+                window.location.href = "../jsp/payed.jsp?id=" + orderID;
+                success_alert("付款成功");
             } else {
                 fail_alert("确认失败，网络似乎不太好...");
             }
