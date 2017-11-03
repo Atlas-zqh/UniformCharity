@@ -46,6 +46,29 @@ public class TypeController {
         return map;
     }
 
+    @RequestMapping(value = "/dropType", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Object> dropType(HttpServletRequest request) {
+        Map<String, Object> map = new HashMap();
+
+        String school = request.getParameter("school");
+        String originalType = request.getParameter("originalType");
+
+
+        System.out.println("==================================");
+        System.out.println("school:" + school);
+        System.out.println("originalType:" + originalType);
+        System.out.println("==================================");
+
+        Type type = typeService.findType(school, originalType);
+        type.setUsed(false);
+        typeService.modifyType(type);
+        map.put("success", "true");
+        map.put("type", type);
+
+        return map;
+    }
+
     @RequestMapping(value = "/getTypeInfo", method = RequestMethod.POST)
     @ResponseBody
     public Map<String, Object> getTypeInfo(HttpServletRequest request) {
@@ -100,8 +123,12 @@ public class TypeController {
             type.setUsed(true);
 
             if (uploadType.equals("add")) {
-
-                typeService.addType(type);
+                Type oldType = typeService.findType(school, name);
+                if(oldType == null){
+                    typeService.addType(type);
+                }else{
+                    typeService.modifyType(type);
+                }
                 map.put("success", "true");
 
             } else {
@@ -116,6 +143,7 @@ public class TypeController {
         }
 
         return map;
-
     }
+
+
 }

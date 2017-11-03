@@ -48,7 +48,7 @@
         <h1>立即支付</h1>
         <img src="../static/images/procedure2.png" style="width: 25%; float: right; margin-right: 5%; margin-top: -7%">
         <div id="infoPart">
-            <h2 style="left: 25%; top: 20%; text-align: center; width: 90%">您需要支付<span id="price">188.88</span>元。
+            <h2 style="left: 25%; top: 20%; text-align: center; width: 90%">您需要支付<span id="price"></span>元。
             </h2>
             <%--<h2 style="width: 60%; display: inline;">感谢您对"与子同袍"的支持！</h2>--%>
             <%--<a href="" style="font-size: 1.2vmax;" id="detail">点击查看订单详情</a>--%>
@@ -69,7 +69,7 @@
 <script>
     $('#payBut').click(function () {
         var orderID = getArgsFromHref(window.location.href, "id");
-        window.location.href = "../jsp/payed.jsp?id=" + orderID;
+        payOrder(orderID);
         //todo 更改订单状态
     });
 
@@ -82,8 +82,7 @@
             data: {"orderID": orderID},
             success: function (data) {
                 if(data.success == 'true'){
-                    //todo 更改订单状态
-                    window.location.href = "../jsp/clothesDetails.jsp?id=" + data.clothes.clothesID;
+                    window.location.href = "../jsp/orderDetails.jsp?id=" + orderID;
                 }
             },
             error: function () {
@@ -95,5 +94,6 @@
 <script type="text/javascript" src="../static/js/cookie.js" charset="utf-8"></script>
 <script type="text/javascript" src="../static/js/util.js" charset="utf-8"></script>
 <script type="text/javascript" src="../static/js/alert.js" charset="utf-8"></script>
+<script type="text/javascript" src="../static/js/confirmOrder.js" charset="utf-8"></script>
 </body>
 </html>

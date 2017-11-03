@@ -39,7 +39,7 @@
         <p id="userName" class="navP" style="letter-spacing: 0.1vh"></p>
     </div>
     <div class="leftNavBar" align="left" id="afterLogInLeft" style="display: none">
-        <div class="bt"><a href="../jsp/index.jsp">首<br>页</a></div>
+        <div class="bt"><a href="../jsp/index.jsp" onclick="checkCookie()">首<br>页</a></div>
         <div class="navLabel"><p><br>—<br></p></div>
         <div class="bt"><a href="../jsp/order.jsp">我<br>的<br>订<br>单</a></div>
         <div class="navLabel"><p><br>—<br></p></div>

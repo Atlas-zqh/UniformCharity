@@ -17,6 +17,13 @@
     <link rel="stylesheet" type="text/css" href="../static/css/theme.css">
     <link rel="stylesheet" type="text/css" href="../static/css/alert.css">
     <script type="text/javascript" src="../static/js/jquery-3.2.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            checkCookie();
+            var clothesID = (decodeURIComponent(getArgsFromHref(window.location.href, 'id')).split('#')[0]);
+            findClothesByID(clothesID);
+        });
+    </script>
 </head>
 <body>
 <div id="orderArea">
@@ -57,7 +64,7 @@
                 <tr>
                     <th style="width: 10%">
                         <div class="imageBox">
-                            <img src="" class="largeImage" id="pic"/>
+                            <img src="" class="largeImage" id="pic" style=" max-width:10vw; max-height: 10vw;"/>
                         </div>
                     </th>
                     <th style="width: 20%">

@@ -22,7 +22,7 @@
             var orderID = getArgsFromHref(window.location.href, "id");
             $('#detail').attr("href", "../jsp/orderDetails.jsp?id=" + orderID);
             $.ajax({
-                url: "/orderAction/getOrderByOrderID",
+                url: "/orderAction/getOrderByID",
                 type: "POST",
                 dataType: "json",
                 data: {"orderID": orderID},
@@ -42,7 +42,7 @@
         <h1>付款成功</h1>
         <img src="../static/images/procedure3.png" style="width: 25%; float: right; margin-right: 5%; margin-top: -7%">
         <div id="infoPart">
-            <h2 style="left: 25%; top: 20%;">您成功支付了<span id="price">188.88</span>元，获得了<span id="score">188.88</span>公益积分。
+            <h2 style="left: 25%; top: 20%;">您成功支付了<span id="price"></span>元，获得了<span id="score"></span>公益积分。
             </h2>
             <h2 style="width: 60%; display: inline;">感谢您对"与子同袍"的支持！</h2>
             <a href="" style="font-size: 1.2vmax;" id="detail">点击查看订单详情</a>

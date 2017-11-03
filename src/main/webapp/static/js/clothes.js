@@ -115,7 +115,7 @@ function addSingleClothesPanel(clothes, pic, price) {
 
     var genderLabel = document.createElement("p");
     genderLabel.className = "infoP";
-    genderLabel.appendChild(document.createTextNode(clothes.gender + '  ' + clothes.clothessize));
+    genderLabel.appendChild(document.createTextNode(clothes.gender + '  ' + clothes.clothesHeight));
     clothe_item.appendChild(genderLabel);
 }
 

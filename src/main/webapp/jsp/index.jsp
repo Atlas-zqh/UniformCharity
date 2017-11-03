@@ -66,6 +66,7 @@
             getAllSchool('schoolDrop');
             getPassages();
             getAllTransaction();
+            getPosts();
         });
 
     </script>
@@ -302,98 +303,53 @@
         <div class="forumTitle"></div>
         <div class="forumArea">
             <div id="table1" style="height: 50%">
-                <button style="margin-top: 0%; margin-left: 0%; background: none repeat scroll 0 0 #39576e; text-shadow: 0 2px 0 grey;"
-                        id="tab1">t<br>a<br>b<br>l<br>e<br>1
-                </button>
+                <%--<button style="margin-top: 0%; margin-left: 0%; background: none repeat scroll 0 0 #39576e; text-shadow: 0 2px 0 grey;"--%>
+                        <%--id="tab1">t<br>a<br>b<br>l<br>e<br>1--%>
+                <%--</button>--%>
                 <div id="tableA" class="forumTable" style="display: inline-block">
-                    <table style="margin-left: 1%; border-collapse: separate; border-spacing: 1.7vw;" width="100%">
+                    <table style="margin-left: 1%; border-collapse: separate; border-spacing: 1.7vw;" width="100%" id="postTable">
                         <tr class="titleTr">
                             <td width="70%">标题</td>
                             <td width="15%">作者</td>
                             <td width="15%">回帖数</td>
                         </tr>
 
-                        <tr class="bodyTr">
-                            <td width="70%"><a href="../static/html/404.html">帖子1</a></td>
-                            <td width="15%">我</td>
-                            <td width="15%">13</td>
-                        </tr>
-                        <tr class="bodyTr">
-                            <td><a href="../static/html/404.html">test帖子1</a></td>
-                            <td>a</td>
-                            <td>13</td>
-                        </tr>
-                        <tr class="bodyTr">
-                            <td><a href="../static/html/404.html">test帖子2</a></td>
-                            <td>b</td>
-                            <td>13</td>
-                        </tr>
-                        <tr class="bodyTr">
-                            <td><a href="../static/html/404.html">test帖子3</a></td>
-                            <td>c</td>
-                            <td>13</td>
-                        </tr>
-                        <tr class="bodyTr">
-                            <td><a href="../static/html/404.html">test帖子4</a></td>
-                            <td>d</td>
-                            <td>13</td>
-                        </tr>
-                        <tr class="bodyTr">
-                            <td><a href="../static/html/404.html">test帖子5</a></td>
-                            <td>e</td>
-                            <td>13</td>
-                        </tr>
-                        <tr class="bodyTr">
-                            <td><a href="../static/html/404.html">test帖子6</a></td>
-                            <td>f</td>
-                            <td>13</td>
-                        </tr>
-                        <tr class="bodyTr">
-                            <td><a href="../static/html/404.html">test帖子7</a></td>
-                            <td>g</td>
-                            <td>13</td>
-                        </tr>
-                        <tr class="bodyTr">
-                            <td><a href="../static/html/404.html">test帖子8</a></td>
-                            <td>h</td>
-                            <td>13</td>
-                        </tr>
-                        <tr class="bodyTr">
-                            <td><a href="../static/html/404.html">test帖子9</a></td>
-                            <td>i</td>
-                            <td>13</td>
-                        </tr>
+                        <%--<tr class="bodyTr">--%>
+                            <%--<td width="70%"><a href="../static/html/404.html">帖子1</a></td>--%>
+                            <%--<td width="15%">我</td>--%>
+                            <%--<td width="15%">13</td>--%>
+                        <%--</tr>--%>
                     </table>
                 </div>
             </div>
-            <div id="table2">
-                <button style="margin-top: 22%; margin-left: 0%;" id="tab2">t<br>a<br>b<br>l<br>e<br>2</button>
-                <div id="tableB" class="forumTable" style="display: none">
-                    <table style="margin-left: 1%; border-collapse: separate; border-spacing: 1.7vw;" width="100%">
-                        <tr class="titleTr">
-                            <td width="70%">标题</td>
-                            <td width="15%">作者</td>
-                            <td width="15%">回帖数</td>
-                        </tr>
+            <%--<div id="table2">--%>
+                <%--<button style="margin-top: 22%; margin-left: 0%;" id="tab2">t<br>a<br>b<br>l<br>e<br>2</button>--%>
+                <%--<div id="tableB" class="forumTable" style="display: none">--%>
+                    <%--<table style="margin-left: 1%; border-collapse: separate; border-spacing: 1.7vw;" width="100%">--%>
+                        <%--<tr class="titleTr">--%>
+                            <%--<td width="70%">标题</td>--%>
+                            <%--<td width="15%">作者</td>--%>
+                            <%--<td width="15%">回帖数</td>--%>
+                        <%--</tr>--%>
 
-                        <tr class="bodyTr">
-                            <td width="70%"><a href="../static/html/404.html">帖子1</a></td>
-                            <td width="15%">我</td>
-                            <td width="15%">13</td>
-                        </tr>
-                        <tr class="bodyTr">
-                            <td><a href="../static/html/404.html">test帖子1</a></td>
-                            <td>a</td>
-                            <td>13</td>
-                        </tr>
-                        <tr class="bodyTr">
-                            <td><a href="../static/html/404.html">test帖子2</a></td>
-                            <td>b</td>
-                            <td>13</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
+                        <%--<tr class="bodyTr">--%>
+                            <%--<td width="70%"><a href="../static/html/404.html">帖子1</a></td>--%>
+                            <%--<td width="15%">我</td>--%>
+                            <%--<td width="15%">13</td>--%>
+                        <%--</tr>--%>
+                        <%--<tr class="bodyTr">--%>
+                            <%--<td><a href="../static/html/404.html">test帖子1</a></td>--%>
+                            <%--<td>a</td>--%>
+                            <%--<td>13</td>--%>
+                        <%--</tr>--%>
+                        <%--<tr class="bodyTr">--%>
+                            <%--<td><a href="../static/html/404.html">test帖子2</a></td>--%>
+                            <%--<td>b</td>--%>
+                            <%--<td>13</td>--%>
+                        <%--</tr>--%>
+                    <%--</table>--%>
+                <%--</div>--%>
+            <%--</div>--%>
             <!--<a href="#ab" class="mytab1" title="First" id="a" style="margin-left: 0%; margin-top: 0%; width: 5%">First</a>-->
             <!--<button id="a" class="mytab" style="margin-top: 0%; margin-left: 0%; width: 5%;">h<br>o<br>t</button>-->
             <!--<button class="mytab" style="margin-top: 7.9%; margin-left: 0%; width: 5%;">n<br>e<br>w</button>-->

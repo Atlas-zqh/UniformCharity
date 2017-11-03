@@ -1,11 +1,6 @@
 /**
  * Created by island on 2017/7/26.
  */
-$(document).ready(function () {
-    checkCookie();
-    var clothesID = (decodeURIComponent(getArgsFromHref(window.location.href, 'id')).split('#')[0]);
-    findClothesByID(clothesID);
-});
 
 function findClothesByID(clothesID) {
     $('#clothesID').val(clothesID);
@@ -100,8 +95,21 @@ function findOrderByID(id) {
         },
         async: false,
         success: function (data) {
-            if (data.result == "success") {
-                $('#data').html(data.order.startTime);
+            if (data.success == "true") {
+                $('#data').html(data.time);
+                $('#pic').attr("src", data.pic);
+                $('#title').html(data.clothes.schoolName + '-' + data.clothes.clothesType);
+                $('#school').html(data.clothes.schoolName);
+                $('#type').html(data.clothes.clothesType);
+                $('#size').html(data.clothes.clothesHeight);
+                $('#gender').html(data.clothes.gender);
+                $('#price').html('¥ ' + data.orderPrice);
+
+                $('#user').text(data.username);
+                $('#user').click(function () {
+                   window.open('../jsp/friendInfo.jsp?id=' + data.clothes.donorID);
+                });
+
                 var status = parseInt(data.order.orderStatus);
                 if (status == -1) {
                     $('#status').html("已撤销订单");
@@ -124,17 +132,11 @@ function findOrderByID(id) {
                     $('#doButton').css("display", "none");
                     $('#image').attr("src", "../static/images/procedure4.png");
                 }
-                $('#pic').attr("src", data.pic);
-                $('#title').html(data.clothes.school + data.clothes.clothesType);
-                $('#school').html(data.clothes.school);
-                $('#type').html(data.clothes.clothesType);
-                $('#size').html(data.clothes.clothessize);
-                $('#gender').html(data.clothes.gender);
-                $('#price').html(data.clothes.orderPrice);
+
 
                 return;
             }
-            if (data.result == "fail") {
+            if (data.success == "false") {
                 fail_alert("哎呀，获取订单失败...");
                 return;
             }
@@ -158,7 +160,7 @@ function processOrder() {
             dataType: 'json',
             success: function (data) {
                 if (data && data.success == "true") {
-                    window.location.href("../jsp/order.jsp");
+                    window.location.href = ("../jsp/order.jsp");
                     success_alert("确认成功");
                 } else {
                     fail_alert("确认失败，网络似乎不太好...");
@@ -175,7 +177,7 @@ function processOrder() {
 }
 
 function cancelOrder() {
-    var orderID = $('#orderID').val();
+    var orderID = $('#orderID').html();
     jQuery.ajax({
         type: 'POST',
         url: '/orderAction/cancelOrder',
@@ -185,8 +187,30 @@ function cancelOrder() {
         dataType: 'json',
         success: function (data) {
             if (data && data.success == "true") {
-                window.location.href("../jsp/confirmOrder.jsp?id=" + orderID);
+                window.location.href = ("../jsp/orderDetails.jsp?id=" + orderID);
                 success_alert("取消订单成功");
+            } else {
+                fail_alert("确认失败，网络似乎不太好...");
+            }
+        },
+        error: function () {
+            fail_alert("哎呀呀，网络似乎不太好...")
+        }
+    });
+}
+
+function payOrder(orderID) {
+    jQuery.ajax({
+        type: 'POST',
+        url: '/orderAction/payOrder',
+        data: {
+            "orderID": orderID
+        },
+        dataType: 'json',
+        success: function (data) {
+            if (data && data.success == "true") {
+                window.location.href = "../jsp/payed.jsp?id=" + orderID;
+                success_alert("付款成功");
             } else {
                 fail_alert("确认失败，网络似乎不太好...");
             }

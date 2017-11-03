@@ -359,7 +359,7 @@ public class ClothesController {
             List<Order> orders = orderPageInfo.getList();
 
             for (int i = orders.size() - 1; i >= 0; i--) {
-                clotheID = clothes.get(i).getClothesID();
+                clotheID = orders.get(i).getClothesID();
                 List<String> clothesPics = clothesService.findPicsByClothesID(clotheID);
                 pics.add(clothesPics.get(0));
                 clothes.add(clothesService.findClothesByClothesID(orders.get(i).getClothesID()));
